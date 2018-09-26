@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- For the MorePassengerActivity -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/all_layout_default_background_color">
+<RelativeLayout 
+    android:id="@+id/RootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    
+    android:orientation="vertical" >
+
+    <!-- title -->
+
+    <LinearLayout
+        android:id="@+id/more_than_two_persons_view_title_image"
+        style="@style/view_title_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_backgoround_color" >
+
+        <TextView
+            style="@style/view_paddingLeft"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:gravity="center"
+            
+            android:textColor="@color/text_white_color"
+            android:id="@+id/more_than_two_persons_view_title">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/more_than_two_persons_view_second_LinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingTop="30dip" >
+
+        <LinearLayout
+            android:id="@+id/more_than_two_persons_view_reference_number_LinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical" 
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/more_than_two_persons_view_desc_title"
+                style="@style/view_paddingLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:paddingBottom="10sp"
+                android:paddingRight="10sp"
+                android:singleLine="true"
+                android:text="@string/passengers_selection_view_more_than"
+                android:textStyle="bold"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/text_blue_color" />
+
+            <TextView
+                android:id="@+id/more_than_two_persons_view_desc"
+                
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:singleLine="false"
+                android:text="@string/othertravelpaty_view_desc"
+                android:textAppearance="@style/green_text"
+                android:textColor="@color/color_grey"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/more_than_two_persons_view_mobile_number_switch_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp" >
+
+            <TextView
+                android:id="@+id/more_than_two_persons_view_mobile_number_switch"
+                style="@style/view_paddingLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:paddingBottom="10sp"
+                android:layout_marginRight="80dp"
+                android:paddingTop="10dip"
+                android:textStyle="bold"
+                android:text="@string/other_view_share_travel_details"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/text_blue_color" />
+
+            <!-- <ToggleButton
+>>>>>>> .r12434
+                android:id="@+id/more_than_two_persons_view_mobile_number_switch_value"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignBaseline="@+id/more_than_two_persons_view_mobile_number_switch"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginRight="10dip"
+                android:background="@drawable/toggle_btn_selector"
+                android:checked="false"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:paddingLeft="15dip"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/color_blue_list_text"
+                android:textOff="@string/general_no"
+<<<<<<< .mine
+                android:textOn="@string/general_yes" /> -->
+                <LinearLayout 
+                    android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+                	android:orientation="horizontal"
+                	android:layout_alignBaseline="@+id/more_than_two_persons_view_mobile_number_switch"
+                	android:layout_alignParentRight="true"
+                	android:layout_gravity="center_vertical|center_horizontal"
+                	android:layout_marginRight="20dip"
+                	android:gravity="center_vertical"
+                	android:layout_centerVertical="true"
+                	android:id="@+id/more_than_two_persons_view_switch_LinearLayout"
+                	>
+				
+                </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- Group Hide -->
+
+        <RelativeLayout
+            android:id="@+id/more_than_two_persons_view_mobile_number_group_hide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:visibility="gone" android:focusable="true" android:focusableInTouchMode="true">
+            <TextView
+                android:id="@+id/more_than_two_persons_view_mobile_number"
+                style="@style/view_paddingLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:paddingBottom="10dip"
+                android:paddingRight="10dip"
+                android:paddingTop="10dip"
+                android:singleLine="true"
+                android:text="@string/book_view_mobile_phone_number"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/text_blue_color" />
+
+            <EditText
+                android:id="@+id/more_than_two_persons_view_mobile_number_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/more_than_two_persons_view_mobile_number"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:cursorVisible="true"
+                android:gravity="left|center_vertical"               
+                android:imeOptions="actionDone"
+                android:paddingBottom="10dip"
+                android:paddingRight="10dip"
+                android:paddingTop="10dip"
+                android:singleLine="true"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/color_grey"
+                android:inputType="number"
+                android:text="0032"
+                android:maxLength="14"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/more_than_two_persons_view_desc_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:gravity="center"
+            android:paddingBottom="5dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="5dip"
+            android:singleLine="false"
+            android:text="@string/other_view_share_data_info"
+            android:textAppearance="@style/green_text"
+            android:textColor="@color/color_grey" />
+
+        <LinearLayout
+            android:id="@+id/more_than_two_persons_view_btn_LinearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dip"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/more_than_two_persons_view_call_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:background="@drawable/layer_list_call_btn"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/general_call"
+                android:textAppearance="@style/btn_style"
+                android:textColor="@color/text_white_color" >
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
+</ScrollView>

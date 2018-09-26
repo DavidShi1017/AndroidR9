@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:fitsSystemWindows="true"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+     >
+
+    <LinearLayout
+        android:id="@+id/message_wizard_group_view_dot_LinearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" 
+        android:layout_alignParentBottom="true">
+    </LinearLayout>
+
+    
+    <ViewFlipper
+        android:id="@+id/message_ViewFlipper01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="40dp"
+        android:background="@color/all_layout_default_background_color"
+        >
+    </ViewFlipper>
+</RelativeLayout>

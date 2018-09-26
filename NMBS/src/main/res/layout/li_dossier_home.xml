@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingBottom="@dimen/margin_default"
+
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/ll_dossier_home_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/margin_default"
+        android:paddingLeft="@dimen/margin_default"
+        android:paddingBottom="@dimen/margin_default"
+        android:background="@color/bg_item_ticket">
+
+        <TextView
+            android:id="@+id/tv_home_segment_station"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="Brussels Midi - Amsterdam Central"
+            android:textSize="@dimen/textsize_small"
+            android:textColor="@color/textcolor_thirdaction"
+            />
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+
+            android:src="@drawable/ic_arrow"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_departure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/iv_arrow"
+            android:paddingLeft="@dimen/margin_default"
+            android:paddingRight="@dimen/margin_default"
+            android:layout_below="@+id/tv_home_segment_station"
+            >
+            <TextView
+                android:id="@+id/tv_departure_lable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/general_departure"
+                android:textColor="@color/textcolor_primaryaction"
+                android:textSize="@dimen/textsize_smaller"/>
+            <TextView
+                android:id="@+id/tv_home_departure_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20 March 2015 - 9:52 AM"
+                android:textColor="@color/textcolor_primaryaction"
+                android:textSize="@dimen/textsize_smaller"/>
+            <TextView
+                android:id="@+id/tv_home_realtime_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:text="@string/general_ontime"
+                android:textColor="@color/tertiary_text_light"
+                android:textSize="@dimen/textsize_smaller"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_home_train_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_departure"
+            android:paddingLeft="@dimen/margin_default"
+            android:paddingRight="@dimen/margin_default"
+            android:text="Thalys 9113 - 2nd class"
+            android:textColor="@color/textcolor_primaryaction"
+            android:textSize="@dimen/textsize_smaller"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_home_dossier_child"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_home_realtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_home_train_info"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"
+        android:paddingLeft="@dimen/margin_small"
+        android:paddingRight="@dimen/margin_small">
+        <ProgressBar
+            android:id="@+id/pb_home_realtime"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/margin_default"/>
+        <TextView
+            android:id="@+id/tv_home_realtime_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:text="@string/general_refreshing_realtime_failed"
+
+            android:textColor="@color/list_divider_error"
+            android:textSize="@dimen/textsize_smaller"/>
+    </LinearLayout>
+</LinearLayout>

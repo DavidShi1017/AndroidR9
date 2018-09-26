@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_secondaryaction"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_group_title">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:text="@string/general_cancel"
+                android:onClick="cancel"
+                android:clickable="true"
+                android:textColor="@color/textcolor_thirdaction"
+                android:textSize="@dimen/textsize_smaller" />
+            <LinearLayout
+                android:id="@+id/ll_activity_time_select_time_preference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/background_button_secondaction"
+                android:orientation="horizontal"
+
+                android:padding="1dp">
+                <TextView
+                    android:id="@+id/tv_date_time_departures"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/background_button_secondaction"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="selectDeparture"
+                    android:padding="@dimen/padding_small"
+                    android:text="@string/stationboard_timepreference_departures"
+                    android:textColor="@color/text_white_color"
+                    android:textSize="@dimen/textsize_small" />
+
+                <TextView
+                    android:id="@+id/tv_date_time_arrivals"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/background_secondaryaction"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:padding="@dimen/padding_small"
+                    android:onClick="selectArrive"
+                    android:text="@string/stationboard_timepreference_arrivals"
+                    android:textColor="@color/text_blue_color"
+                    android:textSize="@dimen/textsize_small" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:onClick="done"
+                android:clickable="true"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:text="@string/general_done"
+                android:textColor="@color/textcolor_thirdaction"
+                android:textSize="@dimen/textsize_smaller" />
+        </RelativeLayout>
+
+        <DatePicker
+            android:id="@+id/dp_date"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:calendarViewShown="false"></DatePicker>
+
+        <TimePicker
+            android:id="@+id/tp_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_gravity="center_horizontal"></TimePicker>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:background="@color/background_button_secondaction"
+            android:gravity="center"
+            android:onClick="done"
+            android:text="@string/general_ok"
+            android:textColor="@color/textcolor_secondaction" />
+
+    </LinearLayout>
+    <View
+        android:id="@+id/v_bottom_line"
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/background_activity_title"/>
+</RelativeLayout>

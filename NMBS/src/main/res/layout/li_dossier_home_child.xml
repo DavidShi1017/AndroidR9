@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/bg_item_ticket"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/ll_dossier_home_child_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/margin_default"
+        android:paddingLeft="@dimen/margin_default"
+        android:paddingBottom="@dimen/margin_medium"
+        >
+
+        <TextView
+            android:id="@+id/tv_home_child_segment_traintype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_default"
+            android:text="Eurostar"
+            android:textSize="@dimen/textsize_smaller"
+            android:textColor="@color/textcolor_primaryaction"
+            android:background="@color/background_secondaryaction"
+            android:paddingLeft="@dimen/margin_small"
+            android:paddingRight="@dimen/margin_small"
+            android:paddingTop="@dimen/margin_smaller"
+            android:paddingBottom="@dimen/margin_smaller"
+            />
+
+        <TextView
+            android:id="@+id/tv_home_child_segment_station"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_home_child_segment_traintype"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_default"
+            android:text="Brussels Midi - Amsterdam Central"
+            android:textSize="@dimen/textsize_smaller"
+            android:textColor="@color/textcolor_primaryaction"
+            />
+        <TextView
+            android:id="@+id/tv_home_child_departure_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_home_child_segment_station"
+            android:layout_toRightOf="@+id/tv_home_child_segment_traintype"
+            android:text="9:52 AM"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:textColor="@color/textcolor_primaryaction"
+            android:textSize="@dimen/textsize_smaller"/>
+        <TextView
+            android:id="@+id/tv_home_child_realtime_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_home_child_segment_station"
+            android:layout_toRightOf="@+id/tv_home_child_departure_date"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:visibility="gone"
+            android:text="@string/general_ontime"
+            android:textColor="@color/tertiary_text_light"
+            android:textSize="@dimen/textsize_smaller"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="@dimen/margin_default"
+    android:paddingLeft="@dimen/margin_default"
+    android:paddingBottom="@dimen/margin_default"
+    android:background="@color/background_secondaryaction">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_default"
+        android:background="@color/bg_item_ticket"
+        >
+        <TextView
+            android:id="@+id/tv_segment_station_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_centerVertical="true"
+            android:text="Station name"
+            android:textColor="@color/textcolor_thirdaction"
+            android:textSize="@dimen/textsize_small" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:src="@drawable/ic_arrow"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+</LinearLayout>

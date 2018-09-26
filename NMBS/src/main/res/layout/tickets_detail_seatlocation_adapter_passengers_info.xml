@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tickets_detail_seatlocation_adapter_view_passenger1_LinearLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_train_name_textview"
+    android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_logo_imageview"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/tickets_detail_seatlocation_adapter_view_passenger1_name_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textAppearance="@style/small_text_style"
+        android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color"
+        android:textStyle="bold" />
+
+<!--     <TextView
+        android:id="@+id/tickets_detail_seatlocation_adapter_view_passenger1_coach_number_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:textAppearance="@style/small_text_style"
+        android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+    <TextView
+        android:id="@+id/tickets_detail_seatlocation_adapter_view_coach_seperate_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/group_list_item_tag_middle_dot"
+        android:textAppearance="@style/small_text_style"
+        android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+    <TextView
+        android:id="@+id/tickets_detail_seatlocation_adapter_view_passenger1_seat_number_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:textAppearance="@style/small_text_style"
+        android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+ -->
+</LinearLayout>

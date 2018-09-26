@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- For the TicketActivity -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/all_layout_default_background_color"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/view_paddingLeft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_backgoround_color"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/travel_view_station_info"
+        android:textAppearance="@style/list_text_style"
+        android:textColor="@color/text_white_color" >
+    </TextView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        
+        >
+
+        <RelativeLayout
+            android:id="@+id/RootLayout"
+            android:layout_width="fill_parent"
+            android:paddingBottom="10dp"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/station_info_view_station_name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Landon St Pancras"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/departure_return_travel_unselected_text_color"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/station_info_view_station_info_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/station_info_view_station_name_textview"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:singleLine="false"
+                android:text="@string/stationinfo_view_info"
+                android:textColor="@color/text_gray_color" />
+            <Button
+                android:id="@+id/station_info_view_pdf_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/station_info_view_station_info_TextView"
+                android:layout_margin="10dp"
+                android:background="@drawable/layer_list_pdf_btn"
+                android:focusable="true"
+                android:gravity="center_vertical|center_horizontal"                               
+                android:text="@string/stationinfo_view_station_floor_plan"
+                android:visibility="gone"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/text_white_color" >
+            </Button>
+
+            <View
+                android:id="@+id/station_info_view_station_address_line"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@+id/station_info_view_pdf_btn"
+                android:layout_marginTop="10dp"
+                android:background="@color/passenger_seperate_line_color" />
+
+            <TextView
+                android:id="@+id/tation_info_view_station_address_TextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/station_info_view_station_address_line"
+                android:layout_gravity="left"
+                android:background="@color/tickets_detail_item_backgroud_text_color"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="@string/general_address"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/departure_return_travel_unselected_text_color"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/station_info_view_station_address_road_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tation_info_view_station_address_TextView"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:singleLine="false"
+                android:text="Pancras Road"
+                android:textColor="@color/text_gray_color" />
+
+            <TextView
+                android:id="@+id/station_info_view_station_address_city_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/station_info_view_station_address_road_TextView"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:singleLine="false"
+                android:text="NW1 2QP London"
+                android:textColor="@color/text_gray_color" />
+            <!--
+                 <TextView
+                android:id="@+id/station_info_view_station_address_zip_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/station_info_view_station_address_city_TextView"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:singleLine="false"
+                android:text="United Kingdom"
+                android:textColor="@color/text_gray_color" />
+            -->
+
+            <TextView
+                android:id="@+id/station_info_view_station_address_country_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/station_info_view_station_address_city_TextView"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:singleLine="false"
+                android:text="United Kingdom"
+                android:textColor="@color/text_gray_color" />
+
+            <View
+                android:id="@+id/station_info_view_station_facilities_line"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@+id/station_info_view_station_address_country_TextView"
+                android:layout_marginTop="10dp"
+                android:background="@color/passenger_seperate_line_color" />
+
+            <TextView
+                android:id="@+id/tation_info_view_station_facilities_TextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/station_info_view_station_facilities_line"
+                android:layout_gravity="left"
+                android:background="@color/tickets_detail_item_backgroud_text_color"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="@string/stationinfo_view_facilities"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/departure_return_travel_unselected_text_color"
+                android:textStyle="bold" />
+
+            <com.nmbs.activity.LinearLayoutForListView
+                android:id="@+id/station_info_view_station_facilities_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tation_info_view_station_facilities_TextView"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="visible" />
+
+            <View
+                android:id="@+id/station_info_view_station_parkings_line"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_below="@+id/station_info_view_station_facilities_list"
+                android:background="@color/passenger_seperate_line_color" />
+
+            <TextView
+                android:id="@+id/tation_info_view_station_parkings_TextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/station_info_view_station_parkings_line"
+                android:layout_gravity="left"
+                android:background="@color/tickets_detail_item_backgroud_text_color"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="@string/travel_view_parkings"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/departure_return_travel_unselected_text_color"
+                android:textStyle="bold" />
+
+            <com.nmbs.activity.LinearLayoutForListView
+                android:id="@+id/station_info_view_station_parkings_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tation_info_view_station_parkings_TextView"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="visible" />
+
+            <com.nmbs.activity.LinearLayoutForListView
+                android:id="@+id/station_info_view_station_textblocks_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/station_info_view_station_parkings_list"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="visible" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

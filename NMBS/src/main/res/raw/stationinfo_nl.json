@@ -1,0 +1,325 @@
+{
+  "Stations": [
+    {
+      "Code": "BEBMI",
+      "Name": "Brussel-Zuid",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussel-Zuid_NL",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/NL/Stations/Brussel-Zuid?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "Longitude": "4.333527",
+      "Latitude": "50.8357532",
+      "Street": "Fonsnylaan",
+      "Number": "47B",
+      "PostalCode": "1060",
+      "City": "Brussel",
+      "Country": "België",
+      "StationInfos": [
+        {
+          "Title": "Het station Brussel-Zuid",
+          "Content": "Via het station Brussel-Zuid bereikt u met Thalys, Eurostar, TGV® en ICE makkelijk Duitsland, Frankrijk, Nederland, Luxemburg en het Verenigd Koninkrijk. U heeft er ook toegang tot het volledige Belgische spoorwegnetwerk.",
+          "Image": ""
+        },
+        {
+          "Title": "Informatiediensten",
+          "Content": "Er zijn verschillende informatiepunten in het station. Zo vindt u er meerdere informatiebalies voor het nationale en internationale verkeer. In Brussel-Zuid bevindt zich verder een Thalys informatiebalie en een kantoor van de toeristische dienst van Brussel.",
+          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Q-Park \"Zuidstation\"",
+          "Content": "Directe toegang tot het station Brussel-Zuid. Open 24/7. ",
+          "Address": "Frankrijkstraat 40, 1060 Brussel",
+          "Latitude": "50.834617",
+          "Longitude": "4.3307218"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wifi"
+        },
+        {
+          "Title": "Wachtzalen en lounges"
+        },
+        {
+          "Title": "Diverse winkels (kleding, souvenirs,...)"
+        },
+        {
+          "Title": "Bankautomaten"
+        },
+        {
+          "Title": "Voorzieningen voor reizigers met beperkte mobiliteit"
+        },
+        {
+          "Title": "Restaurants, bars en cafés"
+        },
+        {
+          "Title": "Toiletten"
+        },
+        {
+          "Title": "Auto- en fietsverhuur"
+        }
+      ]
+    },
+    {
+      "Code": "DEKOH",
+      "Name": "Köln Hbf",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_Koeln_NL",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/NL/Stations/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "Longitude": "6.957843",
+      "Latitude": "50.942151",
+      "Street": "Trankgasse",
+      "Number": "11",
+      "PostalCode": "50667",
+      "City": "Keulen",
+      "Country": "Duitsland",
+      "StationInfos": [
+        {
+          "Title": "Het station Köln Hbf (Keulen)",
+          "Content": "Het station van Keulen behoort tot de 5 drukste stations van Duitsland en het is een belangrijk spoorwegknooppunt in Europa. Vanuit Keulen kunt u de meeste bestemmingen in Duitsland bereiken en vertrekken naar Scandinavië, Centraal-Europa en het Oosten.",
+          "Image": ""
+        },
+        {
+          "Title": "Informatiediensten",
+          "Content": "Er zijn verschillende informatiepunten beschikbaar in het station van Köln Hbf (Keulen), zoals een centraal infopunt voor reisinformatie en toeristische info. Verder vindt u er ook een informatiepunt voor binnenlands en internationaal verkeer.",
+          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Parkeergarage \"Breslauer Platz\"",
+          "Content": "Ondergrondse parkeergarage rechtover het station van Keulen. Open 24/7.",
+          "Address": "Breslauer Platz 1, 50668 Keulen",
+          "Latitude": "50.94372",
+          "Longitude": "6.9579173"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wifi"
+        },
+        {
+          "Title": "Wachtzalen en lounges"
+        },
+        {
+          "Title": "Diverse winkels (kleding, souvenirs,...)"
+        },
+        {
+          "Title": "Bankautomaten"
+        },
+        {
+          "Title": "Voorzieningen voor reizigers met beperkte mobiliteit"
+        },
+        {
+          "Title": "Restaurants, bars en cafés"
+        },
+        {
+          "Title": "Toiletten"
+        },
+        {
+          "Title": "Auto- en fietsverhuur"
+        }
+      ]
+    },
+    {
+      "Code": "GBSPX",
+      "Name": "London St Pancras International",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_NL",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/NL/Stations/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "Longitude": "-0.125468",
+      "Latitude": "51.53022",
+      "Street": "Euston Road",
+      "Number": "",
+      "PostalCode": "N1C 4QP",
+      "City": "Londen",
+      "Country": "Verenigd Koninkrijk",
+      "StationInfos": [
+        {
+          "Title": "London St Pancras International (Londen)",
+          "Content": "Het treinstation van London St Pancras International (Londen) is het belangrijkste spoorwegknooppunt tussen de internationale Eurostar treinen en het binnenlandse treinverkeer in het Verenigd Koninkrijk.",
+          "Image": ""
+        },
+        {
+          "Title": "Informatiediensten",
+          "Content": "In het station van London St Pancras International vindt u verschillende informatiepunten, waaronder informatiebalies voor het nationale verkeer en internationale verkeer.",
+          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "St Pancras International parking",
+          "Content": "Parking nabij London St Pancras International. Open 24/7. ",
+          "Address": "Pancras Road, Londen, N1C 4TB",
+          "Latitude": "51.5334761",
+          "Longitude": "-0.1308258"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wifi"
+        },
+        {
+          "Title": "Wachtzalen en lounges"
+        },
+        {
+          "Title": "Diverse winkels (kleding, souvenirs,...)"
+        },
+        {
+          "Title": "Bankautomaten"
+        },
+        {
+          "Title": "Voorzieningen voor reizigers met beperkte mobiliteit"
+        },
+        {
+          "Title": "Restaurants, bars en cafés"
+        },
+        {
+          "Title": "Toiletten"
+        },
+        {
+          "Title": "Auto- en fietsverhuur"
+        }
+      ]
+    },
+    {
+      "Code": "NLASC",
+      "Name": "Amsterdam Centraal",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_Nl2",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/NL/Stations/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "Longitude": "4.8980833",
+      "Latitude": "52.3791283",
+      "Street": "Stationsplein",
+      "Number": "15",
+      "PostalCode": "1012",
+      "City": "Amsterdam",
+      "Country": "Nederland",
+      "StationInfos": [
+        {
+          "Title": "Het station van Amsterdam Centraal",
+          "Content": "Het Centraal Station van Amsterdam is een echte architecturale parel. Dit station in renaissance-stijl werd opgericht aan het einde van de 19e eeuw en rust op 9000 houten heipalen. Het is één van de toeristische attracties van de stad.",
+          "Image": ""
+        },
+        {
+          "Title": "Informatiediensten",
+          "Content": "Er zijn verschillende informatiepunten in het station van Amsterdam Centraal. U vindt er onder andere loketten (\"Tickets & Service Offices\") waar u meer info krijgt over nationale en internationale reizen, algemene informatiepunten en een kantoor van de toeristische dienst van Amsterdam.",
+          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Parking \"De Bijenkorf\"",
+          "Content": "Parkeergarage in de buurt van Amsterdam Centraal (op 2,8 km). Open 24/7.",
+          "Address": "Beursplein 15, 1012 JW Amsterdam",
+          "Latitude": "52.3741188",
+          "Longitude": "4.893173"
+        },
+        {
+          "Title": "Parking \"De Kolk\"",
+          "Content": "Parkeergarage nabij Amsterdam Centraal (op 1,5 km). Open 24/7. ",
+          "Address": "Nieuwezijds Voorburgwal 104, 1012 SG Amsterdam ",
+          "Latitude": "52.3755634",
+          "Longitude": "4.8900057"
+        },
+        {
+          "Title": "Parking \"Amsterdam Centre\"",
+          "Content": "Parkeergarage rechtover Amsterdam Centraal (op 4 minuten wandelafstand). Open 24/7.",
+          "Address": "Prins Hendrikkade 20A, 1012 TL Amsterdam ",
+          "Latitude": "52.378651",
+          "Longitude": "4.8946962"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wifi"
+        },
+        {
+          "Title": "Wachtzalen en lounges"
+        },
+        {
+          "Title": "Diverse winkels (kleding, souvenirs,...)"
+        },
+        {
+          "Title": "Bankautomaten"
+        },
+        {
+          "Title": "Voorzieningen voor reizigers met beperkte mobiliteit"
+        },
+        {
+          "Title": "Restaurants, bars en cafés"
+        },
+        {
+          "Title": "Toiletten"
+        },
+        {
+          "Title": "Auto- en fietsverhuur"
+        }
+      ]
+    },
+    {
+      "Code": "FRPNO",
+      "Name": "Paris Nord ",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_NL",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/NL/Stations/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "Longitude": "2.3540123",
+      "Latitude": "48.8809481",
+      "Street": "Rue de Dunkerque",
+      "Number": "18",
+      "PostalCode": "75010",
+      "City": "Paris",
+      "Country": "Frankrijk",
+      "StationInfos": [
+        {
+          "Title": "Het station van Paris Nord (Parijs)",
+          "Content": "Het station Paris Nord biedt verbindingen aan naar het noorden van Frankrijk (met TGV® en TER / Intercités treinen), maar ook naar België, Nederland en het noorden van Duitsland. Dankzij Thalys en Eurostar is dit station voor Frankrijk de toegangspoort naar Noord-Europa.",
+          "Image": ""
+        },
+        {
+          "Title": "Informatiediensten",
+          "Content": "In het station van Paris Nord (Parijs) vindt u verschillende informatiebalies voor het nationale en internationale verkeer, net als een kantoor van de toeristische dienst van Parijs.",
+          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Parking \"Gare du Nord\"",
+          "Content": "Parking nabij de hoofdingang van station Paris Gare du Nord (op 1 minuut wandelafstand). Open 24/7.",
+          "Address": "Rue de Compiègne 4, 75010 Paris",
+          "Latitude": "48.8798861",
+          "Longitude": "2.3514934"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wifi"
+        },
+        {
+          "Title": "Wachtzalen en lounges"
+        },
+        {
+          "Title": "Diverse winkels (kleding, souvenirs,...)"
+        },
+        {
+          "Title": "Bankautomaten"
+        },
+        {
+          "Title": "Voorzieningen voor reizigers met beperkte mobiliteit"
+        },
+        {
+          "Title": "Restaurants, bars en cafés"
+        },
+        {
+          "Title": "Toiletten"
+        },
+        {
+          "Title": "Auto- en fietsverhuur"
+        }
+      ]
+    }
+  ],
+  "Messages": [],
+  "DebugMessages": []
+}

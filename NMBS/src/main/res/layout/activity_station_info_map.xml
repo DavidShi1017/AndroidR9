@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background_secondaryaction">
+    <RelativeLayout
+        android:id="@+id/rl_station_info_map_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_activity_title"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/tv_station_info_map_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/stationinfo_list_title"
+            android:textColor="@color/textcolor_secondaction"
+            android:textSize="@dimen/textsize_header" />
+    </RelativeLayout>
+    <fragment
+        android:id="@+id/station_info_map"
+        android:layout_below="@id/rl_station_info_map_header"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_map" />
+    <LinearLayout
+        android:id="@+id/ll_station_info_map_back_to_overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_default"
+        android:layout_alignParentBottom="true"
+        android:background="@color/background_menu_home"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="backToOverView"
+            android:textColor="@color/textcolor_thirdaction"
+            android:background="@color/background_secondaryaction"
+            android:text="@string/stationinfo_back_to_overview"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/lv_station_info_map_parking_list"
+        android:layout_below="@id/station_info_map"
+        android:layout_above="@id/ll_station_info_map_back_to_overview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+</RelativeLayout>

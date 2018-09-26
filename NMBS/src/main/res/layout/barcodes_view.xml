@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/all_layout_default_background_color"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/barcode_for_person_view_dot_LinearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" 
+        android:layout_alignParentBottom="true">
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/barcode_detail_view_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_backgoround_color"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="@string/assistant_overview_my_barcode"
+        android:textColor="@color/text_white_color" >
+    </TextView>
+
+    <ViewFlipper
+        android:id="@+id/ViewFlipper01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="30dp"
+        android:layout_below="@+id/barcode_detail_view_title" >
+    </ViewFlipper>
+
+
+
+</RelativeLayout>

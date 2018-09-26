@@ -1,0 +1,130 @@
+apply plugin: 'com.android.application'
+
+
+def enableSeparateBuildPerCPUArchitecture = false
+// Specifies a flavor dimension.
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation fileTree(include: '*.jar', dir: 'libs')
+    /*compile project(':appcompat')*/
+    implementation files('libs/libphonenumber-7.2.2.jar')
+    /*    implementation('com.facebook.android:facebook-android-sdk:4.28.0') {
+                exclude module: 'support-v4'
+            }*/
+    api project(':android-pdf-viewer')
+    /*compile project(':mupdflibrary')*/
+    /*compile files('libs/robotium-solo-5.6.0.jar')*/
+    implementation files('libs/GoogleConversionTrackingSdk-2.2.4.jar')
+    implementation 'com.android.support:multidex:1.0.2'
+    implementation 'net.zetetic:android-database-sqlcipher:3.5.9@aar'
+    implementation 'junit:junit:4.12'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.1.+'
+    implementation 'com.android.support:design:27.0.2'
+    androidTestImplementation 'com.android.support:support-annotations:25.3.1'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+    androidTestImplementation 'com.android.support.test:rules:0.5'
+    implementation 'com.google.firebase:firebase-ads:15.0.1'
+    implementation 'com.google.firebase:firebase-messaging:17.1.0'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation 'com.google.code.gson:gson:2.6.2'
+    //implementation 'com.facebook.android:facebook-login:4.34.0'
+    api 'com.facebook.android:facebook-android-sdk:4.34.0'
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'com.google.android.gms:play-services-auth:15.0.1'
+    implementation 'com.google.android.gms:play-services:12.0.1'
+}
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+        }
+    }
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        multiDexEnabled true
+        applicationId "com.nmbs"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 39
+        flavorDimensions "39"
+    }
+
+    // map for the version code
+
+    defaultConfig {
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+    }
+    splits {
+        abi {
+            reset()
+            enable enableSeparateBuildPerCPUArchitecture
+            universalApk false  // If true, also generate a universal APK
+            include "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            // For each separate APK per architecture, set a unique version code as described here:
+            // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
+            def versionCodes = ["armeabi-v7a": 1, "x86": 2, "armeabi": 3, "mips": 4]
+            def abi = output.getFilter(com.android.build.OutputFile.ABI)
+            if (abi != null) {  // null for the universal-debug, universal-release variants
+                output.versionCodeOverride =
+                        versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
+            }
+        }
+    }
+    android {
+        useLibrary 'org.apache.http.legacy'
+    }
+    productFlavors {
+        // Define separate dev and prod product flavors.
+
+        dev {
+            // dev utilizes minSDKVersion = 21 to allow the Android gradle plugin
+            // to pre-dex each module and produce an APK that can be tested on
+            // Android Lollipop without time consuming dex merging processes.
+            minSdkVersion 15
+        }
+        prod {
+            // The actual minSdkVersion for the application.
+            minSdkVersion 15
+        }
+    }
+/*    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+    }*/
+
+
+}
+
+android {
+    aaptOptions {
+        noCompress "pdf"
+    }
+}
+apply plugin: 'com.google.gms.google-services'

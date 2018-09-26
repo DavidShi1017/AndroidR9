@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl_delete_dnr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_item_ticket"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_small"
+        android:paddingLeft="@dimen/margin_medium"
+        android:paddingBottom="@dimen/margin_small"
+        android:paddingRight="@dimen/margin_medium"
+        android:paddingTop="@dimen/margin_default">
+        <TextView
+            android:id="@+id/tv_dnr_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/general_booking_reference"/>
+        <LinearLayout
+            android:id="@+id/ll_delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/tv_dnr_label"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:background="@color/background_button_secondaction"
+            android:padding="@dimen/padding_small">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:src="@drawable/ic_delete"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_dnr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_dnr_label"
+            android:layout_toLeftOf="@id/ll_delete_button"
+            android:text="NFKFIWI"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:layout_centerVertical="true"
+            android:textColor="@color/text_blue_color"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_subs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </LinearLayout>
+</LinearLayout>

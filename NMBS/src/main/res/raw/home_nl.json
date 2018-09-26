@@ -1,0 +1,57 @@
+{
+  "WizardItems":[
+    {
+      "Title":"Welkom",
+      "Description":"Ontdek de vernieuwde app van NMBS Internationaal en verken tal van nieuwe functionaliteiten die u helpen tijdens uw treinreis: ontvang realtime info over uw reis via pushberichten, boek uw tickets op onze mobiele website en laad ze op in de app, blijf op de hoogte van onze laatste aanbiedingen of consulteer de prijzenkalender voor de laagste prijzen naar onze topbestemmingen,... en nog veel meer. We wensen u alvast een goede reis!",
+      "HighResImage": "WizardWelcome",
+      "LowResImage": "WizardWelcome",
+      "AreaTitle":"Home",
+      "AreaIcon":"icon-ico-beurope-reduction",
+      "NewInRelease":true,
+      "Context":[
+        "HOME"
+      ]
+    },
+    {
+      "Title":"Nieuw: realtime reisinfo",
+      "Description":"Vanaf nu ontvangt u ook realtime info over uw geplande reizen, zodat u altijd over de meest actuele reisinfo beschikt. Onze app informeert u onder andere over eventuele vertragingen of afschaffingen van duizenden treinen in Europa, specifieke reisinfo op basis van een station of dossierreferentie en relevante info in verband met uw treinreis. U kan eenvoudig uw berichten beheren via het tabblad \"Realtime meldingen\", waar u zelf instelt welke pushberichten u wilt ontvangen.",
+      "HighResImage": "wizardRealTime",
+      "LowResImage": "wizardRealTime",
+      "AreaTitle":"Home",
+      "AreaIcon":"icon-ico-beurope-reduction",
+      "NewInRelease":true,
+      "Context":[
+        "HOME"
+      ]
+    },
+    {
+      "Title":"Realtime help",
+      "Description":"Uw boeking integreren in de app doet u aan de hand van uw dossierreferentie. De dossierreferentie (DNR) is een code die uit 7 letters bestaat en die u kan terugvinden op uw bevestigingspagina en in uw bevestigingsmail. Voeg een ticket toe aan \"Mijn tickets\" door de dossierreferentie (DNR) en het e-mailadres van de boeking in te voeren. In het tabblad \"Mijn tickets\" vindt u alle ticketinfo voor elke dossierreferentie (DNR) terug.",
+      "HighResImage": "wizardHelp",
+      "LowResImage": "wizardHelp",
+      "AreaTitle":"MyTickets",
+      "AreaIcon":"icon-icoTrainTicket",
+      "NewInRelease":true,
+      "Context":[
+        "MYTICKETS",
+        "HOME"
+      ]
+    },
+    {
+      "Title":"Nieuwe boekmodule",
+      "Description":"Niet alleen het design van onze app is nieuw, ook de boekmodule werd volledig geoptimaliseerd voor onze app-gebruikers. Boek uw tickets op onze mobiele website, laad ze eenvoudig op in de app met één druk op een knop en vind alle details over uw boeking terug in de app.",
+      "HighResImage": "wizardNewBooking",
+      "LowResImage": "wizardNewBooking",
+      "AreaTitle":"MyTickets",
+      "AreaIcon":"icon-icoTrainTicket",
+      "NewInRelease":true,
+      "Context":[
+        "HOME"
+      ]
+    }
+  ],
+  "Messages":[
+  ],
+  "DebugMessages":[
+  ]
+}

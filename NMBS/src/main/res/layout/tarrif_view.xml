@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- For the TarrifActivity -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RootLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/all_layout_default_background_color" >
+
+
+
+    <TextView
+        android:id="@+id/tarrif_view_conditions_TextVie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:singleLine="true"
+        android:text="@string/tariff_view_tariff_conditions"
+        android:textColor="@color/text_blue_color"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tarrif_view_conditions_info_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tarrif_view_conditions_TextVie"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        
+        android:textColor="@color/departure_return_travel_selected_depature_view_top_text_color"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tarrif_view_conditions_info_textview" >
+
+        <com.nmbs.activity.LinearLayoutForListView
+            android:id="@+id/tarrif_view_tarrif_detail_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:visibility="visible" />
+    </ScrollView>
+
+</RelativeLayout>

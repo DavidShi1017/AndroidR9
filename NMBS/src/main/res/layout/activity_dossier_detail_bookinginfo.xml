@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_secondaryaction">
+    <RelativeLayout
+        android:id="@+id/rl_bookinginfo"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="@dimen/margin_default"
+        android:layout_marginRight="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_default"
+        android:gravity="center"
+        android:onClick="showBookingInfo"
+
+        android:background="@drawable/group_default">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/textsize_medium"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:textColor="@color/textcolor_primaryaction"
+            android:text="@string/dossier_detail_booking_info" />
+        <ImageView
+            android:id="@+id/iv_bookinginfo_expand_action"
+            android:layout_marginRight="@dimen/margin_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_plus"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_dossier_detail_bookinginfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/rl_total_dossier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:background="@color/background_light_blue">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/margin_default"
+                android:layout_alignParentLeft="true"
+                android:text="@string/dossier_detail_total_dossier_value"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/textcolor_thirdaction" />
+            <TextView
+                android:id="@+id/tv_total_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_default"
+                android:layout_alignParentRight="true"
+                android:text="@string/dossier_detail_total_dossier_value"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/textcolor_primaryaction"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_reservation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:layout_marginTop="@dimen/line_height"
+            android:background="@color/background_light_blue">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/margin_default"
+                android:layout_alignParentLeft="true"
+                android:text="@string/dossier_detail_reservation_code"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/textcolor_thirdaction" />
+            <TextView
+                android:id="@+id/tv_reservation_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_default"
+                android:layout_alignParentRight="true"
+                android:text="ROSBIV, ADKNRU"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/textcolor_primaryaction"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_pickup_station"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:layout_marginTop="@dimen/line_height"
+            android:background="@color/background_light_blue">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:padding="@dimen/margin_default"
+                android:layout_alignParentLeft="true"
+                android:text="@string/dossier_detail_pickup_station"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/textcolor_thirdaction" />
+            <TextView
+                android:id="@+id/tv_pickup_station_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_default"
+                android:layout_alignParentRight="true"
+                android:text="@string/dossier_detail_total_dossier_value"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/textcolor_primaryaction"
+                />
+            <TextView
+                android:id="@+id/tv_attention"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_pickup_station_value"
+                android:paddingLeft="@dimen/margin_default"
+                android:paddingBottom="@dimen/margin_default"
+                android:text="@string/dossier_detail_attention"
+                android:textSize="@dimen/textsize_smallest"
+                android:textColor="@color/textcolor_primaryaction"
+                android:textStyle="bold"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_insurance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:layout_marginTop="@dimen/line_height"
+            android:paddingBottom="@dimen/margin_default"
+            android:background="@color/background_light_blue">
+            <TextView
+                android:id="@+id/tv_insurance_included"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_default"
+                android:layout_alignParentLeft="true"
+                android:text="@string/dossier_detail_insurance_included"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/textcolor_thirdaction"
+                android:textStyle="bold"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginRight="@dimen/margin_default"
+                android:layout_marginLeft="@dimen/margin_default"
+                android:paddingLeft="@dimen/margin_default"
+                android:paddingRight="@dimen/margin_default"
+                android:layout_below="@+id/tv_insurance_included"
+                android:background="@drawable/my_tickets_tab_blue_border"
+                android:onClick="termsConditions"
+                android:textColor="@color/textcolor_thirdaction"
+                android:textSize="@dimen/textsize_smaller"
+                android:text="@string/dossier_detail_terms_conditions" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

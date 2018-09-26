@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:clickable="false"
+    android:paddingTop="10dp">
+    <RelativeLayout
+        android:id="@+id/ll_item"
+        android:layout_width="match_parent"
+        android:background="@drawable/list_item_bg"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_li_alert_connection_title_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_alert_subscription_station_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+                android:textSize="@dimen/textsize_smaller"
+                android:textColor="@color/text_blue_color" />
+            <TextView
+                android:id="@+id/tv_alert_subscription_station_time"
+                android:layout_marginBottom="10dp"
+                android:text="sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+                android:textSize="@dimen/textsize_smallest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_alert_connection_delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignRight="@id/ll_li_alert_connection_title_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:background="@color/background_button_secondaction"
+            android:padding="@dimen/padding_small">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:src="@drawable/ic_delete"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

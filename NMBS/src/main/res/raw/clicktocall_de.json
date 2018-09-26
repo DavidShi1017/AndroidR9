@@ -1,0 +1,47 @@
+{
+  "Scenarios": [
+    {
+      "Id": "1",
+      "DefaultPhoneNumber": "+32 70 79 79 87",
+      "ProviderSettings": [
+        
+      ]
+    },
+    {
+      "Id": "2",
+      "DefaultPhoneNumber": "+32 70 79 79 87",
+      "ProviderSettings": [
+        {
+          "PhoneNumber": "+3224323815"
+        }
+      ]
+    },
+    {
+      "Id": "3",
+      "DefaultPhoneNumber": "+32 70 79 79 87",
+      "ProviderSettings": [
+        
+      ]
+    },
+    {
+      "Id": "4",
+      "DefaultPhoneNumber": "+32 70 79 79 87",
+      "ProviderSettings": [
+        
+      ]
+    },
+    {
+      "Id": "5",
+      "DefaultPhoneNumber": "+32 70 79 79 87",
+      "ProviderSettings": [
+        
+      ]
+    }
+  ],
+  "Messages": [
+    
+  ],
+  "DebugMessages": [
+    
+  ]
+}

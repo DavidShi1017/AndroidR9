@@ -1,0 +1,19 @@
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"  
+	android:id="@+id/alert_dialog_data_adapter_relative_layout">
+	<ImageView
+		android:id="@+id/iv_pdf"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
+	<TextView
+		 android:id="@+id/tv_pdf"
+	     android:layout_width="fill_parent"
+	     android:layout_height="fill_parent"
+	     android:textColor="@color/color_grey"
+		 android:textAppearance="@style/list_text_style"
+	     android:paddingTop="10dip"
+	     android:paddingBottom="10dip"
+	     style="@style/view_paddingLeft" />
+</RelativeLayout>

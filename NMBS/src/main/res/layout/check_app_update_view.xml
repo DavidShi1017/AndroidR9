@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:padding="15dp"
+        android:layout_height="200dp">
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:textColor="@color/text_gray_color"
+            android:textSize="18sp" />
+    </ScrollView>
+
+    <View
+        android:id="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="?android:attr/dividerHorizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:measureWithLargestChild="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/check_updata_download_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:text="@string/checkappversion_alert_download_new_version" />
+
+        <View
+            android:id="@+id/middle"
+            android:layout_width="1dip"
+            android:layout_height="75dp"
+            android:background="?android:attr/dividerVertical" />
+
+        <Button
+            android:id="@+id/check_updata_not_now_btn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:textSize="16sp"
+            android:layout_width="0dip"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="@string/checkappversion_alert_not_now" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="?android:attr/dividerHorizontal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textColor="@color/text_gray_color"
+        android:text="@string/checkappversion_alert_setting_info"
+        android:textStyle="italic" >
+    </TextView>
+
+</LinearLayout>

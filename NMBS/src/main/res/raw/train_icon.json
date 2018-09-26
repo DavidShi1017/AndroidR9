@@ -1,0 +1,135 @@
+{
+  "TrainIcons": [
+    {
+      "BrandName": "Bus",
+      "LinkedHafasCodes": [
+        "EXB"
+      ],
+      "LinkedTariffGroups": [
+
+      ],
+      "LinkedTrainBrands": [
+        "BUS",
+        "Express-Bus"
+      ],
+      "HighResImage": "",
+      "LowResImage": ""
+    },
+    {
+      "BrandName": "Eurostar",
+      "LinkedHafasCodes": [
+
+      ],
+      "LinkedTariffGroups": [
+        "BLE",
+        "EUR",
+        "LLE"
+      ],
+      "LinkedTrainBrands": [
+        "EST",
+        "EUR"
+      ],
+      "HighResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/Eurostar3x.ashx",
+      "LowResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/Eurostar3x.ashx?sc=0.5&hash=91843DF03AB358B9AA0284864C4DCDA8F2CFB121"
+    },
+    {
+      "BrandName": "Inter-City",
+      "LinkedHafasCodes": [
+
+      ],
+      "LinkedTariffGroups": [
+
+      ],
+      "LinkedTrainBrands": [
+        "IC"
+      ],
+      "HighResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/InterCity3x.ashx",
+      "LowResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/InterCity3x.ashx?sc=0.5&hash=5C87B12C8089094C26D3DF7074C2DC009A4C64B4"
+    },
+    {
+      "BrandName": "ICE",
+      "LinkedHafasCodes": [
+
+      ],
+      "LinkedTariffGroups": [
+        "ICE",
+        "NVS"
+      ],
+      "LinkedTrainBrands": [
+        "ICE",
+        "IXB"
+      ],
+      "HighResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/ICE3x.ashx",
+      "LowResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/ICE3x.ashx?sc=0.5&hash=A85AE32191752D0AC397E6758FE2A7AA77529830"
+    },
+    {
+      "BrandName": "Interregional",
+      "LinkedHafasCodes": [
+
+      ],
+      "LinkedTariffGroups": [
+
+      ],
+      "LinkedTrainBrands": [
+        "IR"
+      ],
+      "HighResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/EC3x.ashx",
+      "LowResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/EC3x.ashx?sc=0.5&hash=C942F55660E90C10A2E504D9E1FA6991219AFB56"
+    },
+    {
+      "BrandName": "TGV",
+      "LinkedHafasCodes": [
+
+      ],
+      "LinkedTariffGroups": [
+        "BLI",
+        "TGI",
+        "TGV"
+      ],
+      "LinkedTrainBrands": [
+        "TGD",
+        "TGI",
+        "TGV"
+      ],
+      "HighResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/TGV3x.ashx",
+      "LowResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/TGV3x.ashx?sc=0.5&hash=AE111C14001E6D1573155466549B0EFA2D4235CA"
+    },
+    {
+      "BrandName": "Thalys",
+      "LinkedHafasCodes": [
+
+      ],
+      "LinkedTariffGroups": [
+        "THA",
+        "THW",
+        "THZ"
+      ],
+      "LinkedTrainBrands": [
+        "THA"
+      ],
+      "HighResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/Thalys3x.ashx",
+      "LowResImage": "/thalys-nl/-/media/ImagesNew/Treinen/TrainIconsHiRes/Thalys3x.ashx?sc=0.5&hash=FDDD61FC40ACF7C623AF134E5500E2F5B862CBCB"
+    },
+    {
+      "BrandName": "Trenitalia",
+      "LinkedHafasCodes": [
+
+      ],
+      "LinkedTariffGroups": [
+        "ITA",
+        "ITB"
+      ],
+      "LinkedTrainBrands": [
+        "ES* Italia"
+      ],
+      "HighResImage": "",
+      "LowResImage": ""
+    }
+  ],
+  "Messages": [
+
+  ],
+  "DebugMessages": [
+
+  ]
+}

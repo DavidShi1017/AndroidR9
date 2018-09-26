@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_message_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+             />
+
+        <LinearLayout
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_icon"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_message_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ogone payment not possiblie"
+                android:textColor="@color/textcolor_thirdaction"
+                android:textSize="@dimen/textsize_medium" />
+
+            <TextView
+                android:id="@+id/tv_validity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_message_title"
+                android:text="11/11 - 12/11"
+                android:textColor="@color/textcolor_primaryaction"
+                android:textSize="@dimen/textsize_least" />
+            >
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/iv_expand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+
+            android:src="@drawable/ic_expand" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_message_detail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:paddingTop="10dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_stance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_exclamation"
+            android:visibility="invisible" />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_stance"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/tv_message_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_message_title"
+                android:text="11/11 - 12/11"
+                android:textColor="@color/textcolor_primaryaction"
+                android:textSize="@dimen/textsize_smaller" />
+            >
+
+            <com.nmbs.activities.view.FitImageView
+                android:id="@+id/iv_message_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY" />
+
+            <Button
+                android:id="@+id/btn_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@color/background_button_secondaction"
+                android:gravity="center"
+                android:onClick="btnAction"
+                android:text="@string/settings_view_delete_personal_info"
+                android:textColor="@color/textcolor_secondaction" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/ll_settings_personalinfo_line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/list_divider" />
+</LinearLayout>

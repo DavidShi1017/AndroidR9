@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_homebanner"
+        android:layout_width="fill_parent"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+
+        />
+<View
+    android:id="@+id/view_place"
+    android:layout_width="fill_parent"
+    android:layout_height="120dp"
+    android:background="@color/color_black"
+    android:alpha="0.6"/>
+    <TextView
+        android:id="@+id/tv_banner_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:typeface="sans"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/textcolor_secondaction"
+        android:textSize="@dimen/textsize_small" />
+    <TextView
+        android:id="@+id/tv_banner_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_banner_title"
+        android:typeface="sans"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/textcolor_secondaction"
+        android:textSize="@dimen/textsize_smaller" />
+    <TextView
+        android:id="@+id/btn_book"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+
+        android:background="@color/background_activity_title"
+        android:textColor="@color/textcolor_secondaction"
+        android:textSize="@dimen/textsize_smaller"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:typeface="sans"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/general_book_now"/>
+
+    <TextView
+        android:id="@+id/tv_page_nr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:typeface="sans"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/textcolor_secondaction"
+        android:text="@string/menu_title_traintickets"
+        android:textSize="@dimen/textsize_smaller" />
+</RelativeLayout>

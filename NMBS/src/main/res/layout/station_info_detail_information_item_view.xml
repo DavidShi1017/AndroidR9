@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:paddingBottom="@dimen/margin_default"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_station_info_detail_information_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textsize_small"
+        android:textColor="@color/textcolor_thirdaction" />
+
+    <TextView
+        android:id="@+id/tv_station_info_detail_information_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_default"
+        android:textSize="@dimen/textsize_smaller" />
+
+    <com.nmbs.activities.view.FitImageView
+        android:id="@+id/iv_station_info_detail_information_picture"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:layout_marginBottom="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_small"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/background_group_title" />
+
+</LinearLayout>

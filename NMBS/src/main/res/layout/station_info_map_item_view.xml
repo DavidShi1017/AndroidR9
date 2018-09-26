@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/padding_default"
+    android:paddingRight="@dimen/padding_default"
+    android:paddingTop="@dimen/padding_default">
+    <LinearLayout
+        android:id="@+id/ll_station_info_map_icon_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_default"
+        android:background="@drawable/round_pink_background">
+        <ImageView
+            android:id="@+id/iv_station_info_map_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_stationinfo_train" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_station_info_map_station_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/ll_station_info_map_icon_layout"
+        android:textSize="@dimen/textsize_medium"
+        android:layout_marginTop="@dimen/margin_default"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/margin_default" />
+    <TextView
+        android:id="@+id/tv_station_info_map_station_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/ll_station_info_map_icon_layout"
+        android:layout_below="@id/tv_station_info_map_station_name"
+        android:textSize="@dimen/textsize_small"
+        android:gravity="center_vertical"
+
+        android:layout_marginLeft="@dimen/margin_default" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_below="@id/tv_station_info_map_station_address"
+        android:background="@color/background_group_title" />
+
+</RelativeLayout>

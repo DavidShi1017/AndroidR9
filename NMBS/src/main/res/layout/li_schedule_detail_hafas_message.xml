@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <View
+        android:id="@+id/v_li_schedule_detail_hafas_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:visibility="gone"
+        android:background="@color/background_group_title" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_default"
+        android:background="@color/background_light_grey">
+        <ImageView
+            android:id="@+id/iv_schedule_detail_hafas_action"
+            android:layout_marginRight="@dimen/margin_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_plus"/>
+        <TextView
+            android:id="@+id/tv_schedule_detail_hafas_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/textsize_medium"
+            android:layout_marginRight="@dimen/margin_default"
+            android:layout_toLeftOf="@id/iv_schedule_detail_hafas_action"
+            android:layout_alignParentLeft="true"
+            android:text="asdfdsasdfasdfasdfasfasfdsadfasdfasdfsafdasfdsa"
+            android:textColor="@color/background_activity_title"/>
+
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/iv_schedule_detail_triangle_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:src="@drawable/ic_navigation_triangle_grey"/>
+    <LinearLayout
+        android:id="@+id/ll_schedule_detail_hafas_desc_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/group_default"
+        android:paddingLeft="1dp"
+        android:visibility="gone"
+        android:paddingRight="1dp">
+        <TextView
+            android:id="@+id/tv_hafas_lead_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_default"
+            android:text="HIM Message Desc"/>
+        <TextView
+            android:id="@+id/tv_him_message_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_default"
+            android:text="HIM Message URL"/>
+        <TextView
+            android:id="@+id/tv_him_message_station_start_and_end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_default"
+            android:text="Station start - Station end"/>
+    </LinearLayout>
+
+</LinearLayout>

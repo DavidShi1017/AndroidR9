@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="wrap_content" android:background="@color/background_secondaryaction">
+    <RelativeLayout
+        android:id="@+id/rl_tickets_detail_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_activity_title"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/header_menu_size"
+            android:layout_height="@dimen/header_menu_size"
+            android:padding="10dp"
+            android:onClick="back"
+            android:layout_marginRight="@dimen/margin_small"
+            android:background="@color/background_primaryaction"
+            android:visibility="invisible"
+            android:src="@drawable/ic_back" />
+        <ImageView
+            android:id="@+id/iv_help"
+            android:layout_width="@dimen/header_menu_size"
+            android:layout_height="@dimen/header_menu_size"
+            android:padding="@dimen/margin_default"
+            android:onClick="showWizard"
+            android:background="@color/background_primaryaction"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_question" />
+        <ImageView
+            android:id="@+id/iv_refresh"
+            android:layout_width="@dimen/header_menu_size"
+            android:layout_height="@dimen/header_menu_size"
+            android:layout_toLeftOf="@+id/iv_help"
+            android:padding="@dimen/margin_default"
+            android:onClick="refresh"
+            android:layout_marginRight="@dimen/margin_small"
+            android:background="@color/background_primaryaction"
+            android:src="@drawable/ic_refresh" />
+        <ImageView
+            android:id="@+id/iv_call"
+            android:layout_width="@dimen/header_menu_size"
+            android:layout_height="@dimen/header_menu_size"
+            android:layout_toLeftOf="@+id/iv_refresh"
+            android:padding="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_small"
+            android:background="@color/background_primaryaction"
+            android:onClick="click2call"
+            android:src="@drawable/ic_call" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/iv_call"
+            android:layout_toRightOf="@+id/iv_back"
+            android:gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_smaller"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/general_booking_reference"
+                android:textColor="@color/textcolor_secondaction"
+                android:textSize="@dimen/textsize_least" />
+            <TextView
+                android:id="@+id/tv_dossier_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/tv_title"
+                android:text="ABCDEF"
+
+                android:textColor="@color/textcolor_secondaction"
+                android:textSize="@dimen/textsize_smaller" />
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/ll_dossier_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:padding="@dimen/padding_default"
+        android:background="@color/background_menu_home">
+        <Button
+            android:id="@+id/btn_realtime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="refreshRealTime"
+            android:gravity="center"
+            android:text="@string/general_refresh_tickets"
+            android:textSize="@dimen/textsize_smaller"
+            android:textColor="@color/textcolor_thirdaction"
+            android:background="@color/background_secondaryaction"/>
+
+        <Button
+            android:id="@+id/btn_set_alert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:onClick="setAlert"
+            android:text="@string/general_realtime_info_alerts"
+            android:textSize="@dimen/textsize_smaller"
+            android:textColor="@color/textcolor_thirdaction"
+            android:background="@color/background_secondaryaction"/>
+    </LinearLayout>
+    <ScrollView
+        android:id="@+id/sl_root"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:layout_below="@+id/rl_tickets_detail_header"
+        android:layout_above="@+id/ll_dossier_footer">
+        <LinearLayout
+            android:id="@+id/ll_root"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_dossier_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/my_tickets_dossier_error"
+                android:textColor="@color/textcolor_primaryaction"
+                android:padding="@dimen/padding_bigger"
+                android:visibility="visible"
+                android:background="@color/background_error"/>
+            <TextView
+                android:id="@+id/tv_dossier_fullfilment_failed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/my_tickets_fullfilmentfailed"
+                android:textColor="@color/textcolor_primaryaction"
+                android:padding="@dimen/padding_bigger"
+                android:visibility="visible"
+                android:background="@color/background_error"/>
+            <TextView
+                android:id="@+id/tv_dossier_inprogress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/my_tickets_dossier_inprogress"
+                android:textColor="@color/textcolor_primaryaction"
+                android:padding="@dimen/padding_bigger"
+                android:visibility="visible"
+                android:background="@color/backgroud_inprogress"/>
+            <TextView
+                android:id="@+id/tv_dossier_missing_pdf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dossier_detail_missing_pdf"
+                android:textColor="@color/textcolor_primaryaction"
+                android:padding="@dimen/padding_bigger"
+                android:visibility="visible"
+                android:background="@color/backgroud_inprogress"/>
+            <TextView
+                android:id="@+id/tv_dossier_missing_pdf_or_barcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dossier_file_download_fail"
+                android:textColor="@color/textcolor_primaryaction"
+                android:padding="@dimen/padding_bigger"
+                android:visibility="visible"
+                android:background="@color/backgroud_inprogress"/>
+
+            <include layout="@layout/activity_dossier_detail_bookinginfo" />
+            <include layout="@layout/activity_dossier_detail_tickets" />
+            <include layout="@layout/activity_dossier_detail_connections"  />
+            <include layout="@layout/activity_dossier_detail_stationinfo"  />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

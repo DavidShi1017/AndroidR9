@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Used for most UI about button (Done, Search, Call and so on) -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true"><shape>
+            <gradient android:endColor="@color/background_secondaryaction" android:startColor="@color/background_secondaryaction" />
+
+        </shape></item>
+        
+    <item><shape xmlns:android="http://schemas.android.com/apk/res/android">
+            <gradient android:endColor="@color/background_secondaryaction" android:startColor="@color/background_secondaryaction" />
+        </shape>
+        
+        </item>
+</selector>

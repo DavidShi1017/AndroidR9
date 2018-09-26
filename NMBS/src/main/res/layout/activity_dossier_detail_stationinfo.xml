@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:layout_marginBottom="@dimen/margin_default"
+    android:background="@color/background_secondaryaction">
+    <RelativeLayout
+        android:id="@+id/rl_stationifo"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:onClick="showStationInfo"
+        android:layout_marginLeft="@dimen/margin_default"
+        android:layout_marginRight="@dimen/margin_default"
+        android:background="@drawable/group_default">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:textColor="@color/textcolor_primaryaction"
+            android:text="@string/dossier_detail_station_info"
+            android:textSize="@dimen/textsize_medium"/>
+        <ImageView
+            android:id="@+id/iv_dossier_detail_stationinfo_expand_action"
+            android:layout_marginRight="@dimen/margin_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_plus"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/rl_dossier_detail_stationinfos"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_group_title"
+            android:paddingTop="@dimen/margin_small"
+            android:paddingBottom="@dimen/margin_small"
+            android:paddingLeft="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:text="@string/dossier_detail_station_info_introduction"
+            android:textColor="@color/textcolor_primaryaction"
+            android:textSize="@dimen/textsize_smaller"/>
+        <LinearLayout
+            android:id="@+id/ll_dossier_station_texts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:background="@drawable/group_default"
+            android:orientation="vertical">
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_dossier_station_names"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default"
+            android:orientation="vertical">
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

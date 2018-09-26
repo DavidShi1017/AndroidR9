@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright (C) 2010 Cyril Mottier (http://www.cyrilmottier.com)
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	<ImageView
+		android:id="@+id/gdi_arrow_up"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/gd_quick_action_arrow_up" />
+    
+<!-- 	<FrameLayout -->
+<!-- 		android:id="@+id/gdi_header" -->
+<!-- 		android:layout_width="fill_parent" -->
+<!-- 		android:layout_height="wrap_content" -->
+<!-- 		android:layout_below="@+id/gdi_arrow_up" -->
+<!-- 		android:layout_marginTop="-1px" -->
+<!-- 		android:background="@drawable/gd_quick_action_top_frame" /> -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gdi_scroll"
+        android:layout_below="@id/gdi_arrow_up"
+        android:layout_marginLeft="5dp" 
+        android:layout_marginRight="5dp"
+        android:background="@color/text_white_color" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:background="@drawable/quick_action_bar_backgoround_color"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+             >
+
+            <ImageView 
+                android:id="@+id/dialog_train_info_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                />
+            
+            <TextView
+                android:id="@+id/dialog_train_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/dialog_train_info_image"
+                android:textColor="@color/text_white_color"
+                 />
+        </RelativeLayout>
+    </LinearLayout>
+<!-- 	<FrameLayout -->
+<!-- 		android:id="@+id/gdi_footer" -->
+<!-- 		android:layout_width="fill_parent" -->
+<!-- 		android:layout_height="wrap_content" -->
+<!-- 		android:layout_below="@id/gdi_scroll" -->
+<!-- 		android:background="@drawable/gd_quick_action_bar_bottom_frame" /> -->
+
+
+	<ImageView
+		android:id="@+id/gdi_arrow_down"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		
+		android:layout_marginTop="-6dp"
+		android:layout_below="@id/gdi_scroll"
+		android:src="@drawable/ic_dialog_corner" />
+
+</RelativeLayout>

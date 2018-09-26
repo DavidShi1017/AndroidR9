@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_li_ticket_detail_coach_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textcolor_primaryaction"
+        android:textSize="@dimen/textsize_smaller"
+        android:text="@string/general_coach"/>
+    <TextView
+        android:id="@+id/tv_li_ticket_detail_coach_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textcolor_primaryaction"
+        android:textSize="@dimen/textsize_smaller"
+        android:layout_marginLeft="@dimen/margin_smaller"
+        android:layout_toRightOf="@id/tv_li_ticket_detail_coach_label"
+        />
+
+    <TextView
+        android:id="@+id/tv_li_ticket_detail_place_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textcolor_primaryaction"
+        android:textSize="@dimen/textsize_smaller"
+        android:layout_toRightOf="@id/tv_li_ticket_detail_coach_value"
+        android:text="@string/general_place"/>
+    <TextView
+        android:id="@+id/tv_li_ticket_detail_place_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textcolor_primaryaction"
+        android:textSize="@dimen/textsize_smaller"
+        android:layout_marginLeft="@dimen/margin_smaller"
+        android:layout_toRightOf="@id/tv_li_ticket_detail_place_label"
+        />
+</RelativeLayout>

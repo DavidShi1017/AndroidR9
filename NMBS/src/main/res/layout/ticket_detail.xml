@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/all_layout_default_background_color"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/ticket_detail_view_title"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/title_backgoround_color"
+        android:gravity="center"
+        android:textColor="@color/text_white_color" >
+    </TextView>
+
+    <ScrollView
+        android:id="@+id/ticket_detail_root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/ticket_detail_view_seating_info_TextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:background="@color/tickets_detail_item_backgroud_text_color"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:text="@string/ticket_detail_view_seating_info"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/departure_return_travel_unselected_text_color"
+                android:textStyle="bold" />
+
+            <com.nmbs.activity.LinearLayoutForListView
+                android:id="@+id/ticket_detail_view_seating_info_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/tickets_detail_view_progressBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <ProgressBar
+                    android:id="@+id/progressBar1"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/tickets_detail_view_retrieving_real_time_info_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:paddingLeft="10dp"
+                    android:text="@string/alert_bulkquery_retrieving"
+                    android:textAppearance="@style/small_text_style"
+                    android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tickets_detail_view_service_error_Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/tickets_detail_view_retrieving_real_time_service_error_ImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_realtime_error" />
+
+                <TextView
+                    android:id="@+id/tickets_detail_view_retrieving_real_time_service_error_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:paddingLeft="10dp"
+                    android:text="@string/alert_bulkquery_failed"
+                    android:textAppearance="@style/small_text_style"
+                    android:textColor="@color/textcolor_error" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/ticket_detail_view_view_qr_code_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/layer_list_qr_code_btn"
+                android:focusable="true"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="50dp"
+                android:text="@string/ticket_view_button_qrcode_title"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/text_white_color" >
+            </Button>
+
+            <Button
+                android:id="@+id/ticket_detail_view_view_pdf_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/layer_list_pdf_btn"
+                android:focusable="true"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="50dp"
+                android:text="@string/ticket_view_button_pdf_title"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/text_white_color" >
+            </Button>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginTop="10dp"
+                android:background="@color/passenger_seperate_line_color" />
+
+            <TextView
+                android:id="@+id/ticket_detail_view_booking_detail_TextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:background="@color/tickets_detail_item_backgroud_text_color"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:text="@string/ticket_detail_view_booking_detail"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/departure_return_travel_unselected_text_color"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/ticket_detail_view_booking_detail_RelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_booking_detail_reference_number_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:text="@string/confirmation_view_info_reference_number"
+                    android:textColor="@color/text_gray_color"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_booking_detail_reference_number_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/ticket_detail_view_booking_detail_reference_number_TextView"
+                    android:gravity="left"
+                    android:singleLine="false"
+                    android:text="@string/confirmation_view_info_reference_number_value"
+                    android:textColor="@color/text_gray_color" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_booking_detail_resevation_code_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ticket_detail_view_booking_detail_reference_number_TextView"
+                    android:singleLine="false"
+                    android:text="@string/confirmation_view_info_resevation_code"
+                    android:textColor="@color/text_gray_color"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_booking_detail_resevation_code_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ticket_detail_view_booking_detail_reference_number_TextView"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/ticket_detail_view_booking_detail_resevation_code_TextView"
+                    android:singleLine="false"
+                    android:text="@string/confirmation_view_info_resevation_code_value"
+                    android:textColor="@color/text_gray_color" />
+
+                <!--
+            <TextView
+                android:id="@+id/ticket_detail_view_booking_detail_payment_method_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ticket_detail_view_booking_detail_resevation_code_value"
+                android:singleLine="false"
+                android:text="@string/general_payment_method"
+                android:textColor="@color/text_gray_color"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ticket_detail_view_booking_detail_payment_method_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ticket_detail_view_booking_detail_resevation_code_value"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/ticket_detail_view_booking_detail_payment_method_TextView"
+                android:singleLine="false"
+                
+                android:textColor="@color/text_gray_color" />
+                -->
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_booking_detail_total_price_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ticket_detail_view_booking_detail_resevation_code_value"
+                    android:singleLine="false"
+                    android:text="@string/confirmation_view_info_total_price"
+                    android:textColor="@color/text_gray_color"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_booking_detail_total_price_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ticket_detail_view_booking_detail_resevation_code_value"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/ticket_detail_view_booking_detail_total_price_TextView"
+                    android:singleLine="false"
+                    android:textColor="@color/text_gray_color" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_booking_detail_insurance_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ticket_detail_view_booking_detail_total_price_TextView"
+                    android:singleLine="false"
+                    android:text="@string/general_insurance"
+                    android:textColor="@color/text_gray_color"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_booking_detail_insurance_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ticket_detail_view_booking_detail_total_price_TextView"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/ticket_detail_view_booking_detail_insurance_TextView"
+                    android:singleLine="false"
+                    android:textColor="@color/text_gray_color" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_booking_detail_tariff_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ticket_detail_view_booking_detail_insurance_TextView"
+                    android:singleLine="false"
+                    android:text="@string/general_tariff"
+                    android:textColor="@color/text_gray_color"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_booking_detail_tariff_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ticket_detail_view_booking_detail_insurance_TextView"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/ticket_detail_view_booking_detail_tariff_TextView"
+                    android:singleLine="false"
+                    android:textColor="@color/text_gray_color" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginTop="10dp"
+                android:background="@color/passenger_seperate_line_color" />
+
+            <TextView
+                android:id="@+id/ticket_detail_view_tariff_details_TextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:background="@drawable/selector_group_item_bg"
+                android:drawableRight="@drawable/ic_navigation_next"
+                android:gravity="center_vertical"
+                android:paddingBottom="5dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:text="@string/ticket_view_button_tariffdetail_title"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/text_gray_color"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:background="@color/passenger_seperate_line_color" />
+
+            <RelativeLayout
+                android:id="@+id/ticket_detail_view_delivery_method_RelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_delivery_method_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:text="@string/general_delivery_method"
+                    android:textColor="@color/text_gray_color"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_delivery_method_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/ticket_detail_view_delivery_method_TextView"
+                    android:gravity="left"
+                    android:singleLine="false"
+                    android:textColor="@color/text_gray_color" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_delivery_method_info_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ticket_detail_view_delivery_method_value"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="false"
+                    android:textColor="@color/text_gray_color" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_delivery_method_info_detail1_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ticket_detail_view_delivery_method_info_TextView"
+                    android:singleLine="false"
+                    android:textColor="@color/text_gray_color" />
+
+                <TextView
+                    android:id="@+id/ticket_detail_view_delivery_method_info_detail2_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ticket_detail_view_delivery_method_info_detail1_TextView"
+                    android:singleLine="false"
+                    android:textColor="@color/text_gray_color" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/ticket_detail_view_view_exchange_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/layer_list_exchange_btn"
+                android:focusable="true"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="50dp"
+                android:text="@string/ticket_view_button_exchange_title"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/text_white_color" >
+            </Button>
+
+            <Button
+                android:id="@+id/ticket_detail_view_view_cancel_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/layer_list_cancel_btn"
+                android:focusable="true"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="50dp"
+                android:text="@string/ticket_view_button_cancellation_title"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/text_white_color" >
+            </Button>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dip"
+                android:layout_marginTop="10dp"
+                android:background="@color/passenger_seperate_line_color" />
+
+            <TextView
+                android:id="@+id/ticket_detail_view_station_info_TextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:background="@color/tickets_detail_item_backgroud_text_color"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:text="@string/ticket_detail_view_station_info"
+                android:textAppearance="@style/list_text_style"
+                android:textColor="@color/departure_return_travel_unselected_text_color"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ticket_detail_view_station_info_desc_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:singleLine="false"
+                android:text="@string/ticket_detail_view_station_desc"
+                android:textColor="@color/text_gray_color" />
+
+            <com.nmbs.activity.LinearLayoutForListView
+                android:id="@+id/ticket_detail_view_station_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="10dp"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:visibility="visible" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

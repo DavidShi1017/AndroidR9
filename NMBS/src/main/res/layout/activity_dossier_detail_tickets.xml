@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_secondaryaction">
+    <RelativeLayout
+        android:id="@+id/rl_dossier_detail_tickets"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="@dimen/margin_default"
+        android:layout_marginRight="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_default"
+        android:onClick="showTickets"
+
+        android:background="@drawable/group_default">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/textsize_medium"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:textColor="@color/textcolor_primaryaction"
+            android:text="@string/dossier_detail_tickets" />
+        <ImageView
+            android:id="@+id/iv_tickets_expand_action"
+            android:layout_marginRight="@dimen/margin_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_plus"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/ll_dossier_detail_tickets"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_tickets_introduction"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_group_title"
+            android:paddingLeft="@dimen/margin_default"
+            android:paddingRight="@dimen/margin_default"
+            android:paddingTop="@dimen/margin_small"
+            android:paddingBottom="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:text="@string/dossier_detail_tickets_introduction"
+            android:textColor="@color/textcolor_primaryaction"
+            android:textSize="@dimen/textsize_smaller"/>
+        <LinearLayout
+            android:id="@+id/ll_dossier_travelsegments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/margin_default"
+            android:paddingLeft="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_pdf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openPDF"
+
+                android:layout_marginBottom="@dimen/margin_default"
+                android:background="@color/background_button_secondaction"
+                android:gravity="center"
+                android:text="@string/dossier_detail_print_tickets"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/textcolor_secondaction" />
+
+            <Button
+                android:id="@+id/btn_cancel_change"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_pdf"
+                android:onClick="exchange"
+                android:background="@color/background_button_secondaction"
+                android:gravity="center"
+                android:text="@string/dossier_detail_cancel_change"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/textcolor_secondaction" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

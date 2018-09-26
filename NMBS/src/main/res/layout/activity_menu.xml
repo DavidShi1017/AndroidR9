@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+<!--    <LinearLayout
+        android:id="@+id/ll_menu_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/background_secondaryaction"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="20dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="close"
+            android:src="@drawable/ic_navigation_menu" />
+    </LinearLayout>-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/ll_menu_left"
+        android:background="@color/background_primaryaction" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:id="@+id/ll_menu_traintickets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background_menu_title"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/menu_title_traintickets"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_navigation_triangle" />
+            </LinearLayout>
+
+            <!-- MENU BOOK YOUR TICKET -->
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_bookticktes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_menu_traintickets"
+                android:onClick="bookTicktes"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_navigation_book" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_book"
+                    android:text="@string/menu_content_booktickets"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_book"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <!-- MENU LOWEST FARES -->
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_lowestfares"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_bookticktes"
+                android:onClick="lowestFares"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_lowest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_navigation_lowestfares" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_lowest"
+                    android:text="@string/menu_content_lowestfares"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_lowest"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <!-- MENU MY TICKETS -->
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_mytickets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_lowestfares"
+                android:onClick="myTickets"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_mytickets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_navigation_mytickets" />
+
+                <TextView
+                    android:id="@+id/tv_menu_ticket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_mytickets"
+                    android:text="@string/menu_content_mytickets"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+                <TextView
+                    android:id="@+id/tv_menu_ticket_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/tv_menu_ticket"
+                    android:text="(0)"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_mytickets"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <!-- MENU MY TICKETS -->
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_uploadtickets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_mytickets"
+                android:onClick="uploadTickets"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_uploadtickets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_navigation_uploadtickets" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_uploadtickets"
+                    android:text="@string/menu_content_uploadtickets"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_uploadtickets"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_myoptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_uploadtickets"
+                android:onClick="myOption"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_uploadtickets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_myoptions_white" />
+
+                <TextView
+                    android:id="@+id/tv_options"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_uploadtickets"
+                    android:text="@string/menu_content_myoptions"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+                <TextView
+                    android:id="@+id/tv_menu_option_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/tv_options"
+                    android:layout_centerVertical="true"
+                    android:text="(0)"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_uploadtickets"
+                    android:layout_marginTop="10dp"
+                    android:visibility="invisible"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_menu_traininfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_myoptions"
+
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background_menu_title"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/menu_title_traininfo"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_navigation_triangle" />
+            </LinearLayout>
+
+            <!-- MENU REALTIME ALERTS -->
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_realtimealerts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_menu_traininfo"
+                android:onClick="realtimeAlerts"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_realtimealerts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_navigation_realtimealerts" />
+
+                <TextView
+                    android:id="@+id/tv_menu_realtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/iv_realtimealerts"
+                    android:layout_centerVertical="true"
+                    android:text="@string/menu_content_realtimealerts"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+                <TextView
+                    android:id="@+id/tv_menu_realtime_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/tv_menu_realtime"
+                    android:layout_centerVertical="true"
+                    android:text="(0)"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_realtimealerts"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <!-- MENU STATION BOARD -->
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_stationboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_realtimealerts"
+                android:onClick="stationBoard"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_stationboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_navigation_stationboard" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_stationboard"
+                    android:text="@string/menu_content_stationboard"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_stationboard"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <!-- MENU TRAIN SCHEDULES -->
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_trainschedules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_stationboard"
+                android:onClick="trainschedules"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_trainschedules"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_navigation_trainschedules" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_trainschedules"
+                    android:text="@string/menu_content_trainschedules"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_trainschedules"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <!-- MENU STATIONS -->
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_stations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_trainschedules"
+                android:onClick="stations"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_stations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_navigation_stations" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_stations"
+                    android:text="@string/menu_content_stations"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_stations"
+                    android:layout_marginTop="10dp"
+                    android:visibility="invisible"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_menu_general"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_stations"
+
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background_menu_title"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/menu_title_general"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_medium" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_navigation_triangle" />
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_menu_general"
+                android:onClick="loginOrManage"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_login_white" />
+
+                <TextView
+                    android:id="@+id/tv_menu_logon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_book"
+
+                    android:text="@string/menu_content_loginorcreateprofile"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_book"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <!-- MENU TRAIN MESSAGES -->
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_messages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_login"
+                android:onClick="messages"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_messages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_navigation_messages" />
+
+                <TextView
+                    android:id="@+id/tv_menu_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_messages"
+                    android:text="@string/menu_content_messages"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+                <TextView
+                    android:id="@+id/tv_menu_message_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/tv_menu_message"
+                    android:text="(0)"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_messages"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <!-- MENU TRAIN SETTINGS -->
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_messages"
+                android:onClick="settings"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_navigation_setting" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_settings"
+                    android:text="@string/menu_content_settings"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_settings"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <!-- MENU TRAIN SETTINGS -->
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_settings"
+                android:onClick="about"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_navigation_about" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_about"
+                    android:text="@string/menu_content_about"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/iv_about"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/textcolor_secondaction" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_menu_traintickets_content_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_menu_traintickets_content_about"
+                android:visibility="gone"
+                android:onClick="test"
+                android:layout_marginBottom="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_test"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_navigation_about" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_test"
+                    android:text="Test"
+                    android:textColor="@color/textcolor_secondaction"
+                    android:textSize="@dimen/textsize_small" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

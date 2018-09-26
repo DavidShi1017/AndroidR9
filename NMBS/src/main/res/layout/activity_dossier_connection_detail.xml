@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:background="@color/background_secondaryaction">
+
+    <RelativeLayout
+        android:id="@+id/rl_dossier_connect_detail_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_activity_title"
+        android:paddingTop="@dimen/padding_small"
+        android:paddingBottom="@dimen/padding_small"
+        android:paddingLeft="@dimen/padding_default"
+        android:paddingRight="@dimen/padding_default">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:visibility="invisible"
+            android:clickable="true"
+            android:onClick="back"
+            android:background="@color/background_primaryaction"
+            android:padding="10dp"
+            android:src="@drawable/ic_back" />
+
+        <Button
+            android:id="@+id/tv_refresh"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:paddingTop="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_small"
+            android:paddingLeft="@dimen/padding_default"
+            android:paddingRight="@dimen/padding_default"
+            android:onClick="refresh"
+            android:clickable="true"
+            android:background="@drawable/group_default_refresh"
+            android:text="@string/general_refresh_tickets"
+            android:textSize="@dimen/textsize_smaller"
+            android:textColor="@color/textcolor_secondaction"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/v_bottom_line"
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/background_activity_title"/>
+
+    <ScrollView
+        android:layout_below="@id/rl_dossier_connect_detail_header"
+        android:layout_above="@+id/v_bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="@dimen/padding_default"
+                android:paddingRight="@dimen/padding_default"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_dossier_connect_detail_station_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textcolor_primaryaction"
+                    android:textSize="@dimen/textsize_medium"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_dossier_connect_detail_station_departure_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textcolor_primaryaction"
+                    android:textSize="@dimen/textsize_smaller"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_connections_detail_realtime"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/padding_default"
+                android:paddingRight="@dimen/padding_default"
+                android:visibility="gone"
+                android:gravity="center_vertical">
+                <ProgressBar
+                    android:id="@+id/pb_connections_detail_realtime"
+                    android:layout_width="@dimen/dossier_detail_icon"
+                    android:layout_height="@dimen/dossier_detail_icon"
+                    android:layout_gravity="center_vertical"
+
+                    />
+                <TextView
+                    android:id="@+id/tv_connections_detail_realtime_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_default"
+                    android:text="@string/general_refreshing_realtime_failed"
+                    android:textColor="@color/list_divider_error"
+                    android:textSize="@dimen/textsize_smaller"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_dossier_connect_detail_hafas_message_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/padding_default"
+                android:paddingRight="@dimen/padding_default"
+                android:layout_marginTop="@dimen/margin_default"
+                android:orientation="vertical">
+
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/iv_dossier_connect_detail_triangle_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginRight="@dimen/margin_default"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:src="@drawable/ic_navigation_triangle_grey"/>
+
+            <TextView
+                android:id="@+id/tv_dossier_connect_detail_transfer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_default"
+                android:layout_marginLeft="@dimen/margin_default"
+                android:layout_marginRight="@dimen/margin_default"
+                android:textColor="@color/text_white_color"
+                android:text="Direct train- 4u10å"
+                android:textSize="@dimen/textsize_small"
+                android:background="@color/background_activity_title"/>
+
+            <LinearLayout
+                android:id="@+id/ll_dossier_connect_detail_leg_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_default"
+                android:layout_marginRight="@dimen/margin_default"
+                android:orientation="vertical">
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

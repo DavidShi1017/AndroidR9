@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background_secondaryaction"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/upload_tickets_subscribe_title"
+            android:textColor="@color/textcolor_thirdaction"
+            android:textSize="@dimen/textsize_medium" />
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@color/background_group_title"
+            android:padding="5dp"
+            android:src="@drawable/ic_close"/>
+    </RelativeLayout>
+
+<LinearLayout
+    android:id="@+id/ll_error"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/background_error"
+    android:layout_marginTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:visibility="gone">
+    <TextView
+        android:id="@+id/tv_create_subscription_error_describe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/textcolor_primaryaction"
+        android:textSize="@dimen/textsize_smaller" />
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_create_subscription_describe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="@dimen/padding_bigger"
+        android:layout_marginRight="@dimen/padding_bigger"
+        android:text="@string/general_subscribe_intro"
+        android:textColor="@color/textcolor_primaryaction"
+        android:textSize="@dimen/textsize_smaller" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/background_group_title" />
+
+    <LinearLayout
+        android:id="@+id/ll_notnow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/tv_notnow_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+
+            android:layout_marginTop="@dimen/margin_medium"
+            android:gravity="center"
+            android:text="@string/general_cancel"
+            android:textColor="@color/textcolor_thirdaction"
+            android:textSize="@dimen/textsize_medium" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/ll_enable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
+        android:background="@color/background_view_button">
+
+        <TextView
+            android:id="@+id/tv_enable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/background_view_button"
+            android:layout_centerInParent="true"
+            android:text="@string/general_enable_notifications"
+            android:textSize="@dimen/textsize_medium"
+            android:textColor="@color/textcolor_secondaction" />
+        <ProgressBar
+            android:id="@+id/pgb_enable_bar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="gone"
+            android:layout_toLeftOf="@+id/tv_enable"
+            android:layout_gravity="center_horizontal"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

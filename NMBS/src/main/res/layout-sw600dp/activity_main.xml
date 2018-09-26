@@ -903,6 +903,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal" >
                         <RelativeLayout
+                            android:id="@+id/rl_manage"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/home_menu_height"
                             android:layout_weight="1"

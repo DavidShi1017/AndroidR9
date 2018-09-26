@@ -1,0 +1,325 @@
+{
+  "Stations": [
+    {
+      "Code": "BEBMI",
+      "Name": "Bruxelles-Midi/Brussel-Zuid",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/EN/Stations/Brussels-Midi?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "Longitude": "4.333527",
+      "Latitude": "50.8357532",
+      "Street": "Rue de France",
+      "Number": "",
+      "PostalCode": "1060",
+      "City": "Brussels",
+      "Country": "Belgium",
+      "StationInfos": [
+        {
+          "Title": "Bruxelles-Midi/Brussel-Zuid (Brussels) train station",
+          "Content": "Bruxelles-Midi/Brussel-Zuid train station, served by Thalys, Eurostar, TGV®, and ICE trains, is the ideal starting point for your journeys to Germany, France, The Netherlands, Luxembourg and the United Kingdom and connects travellers to the entire Belgian domestic railway network.",
+          "Image": ""
+        },
+        {
+          "Title": "Travel and tourist information services",
+          "Content": "At Bruxelles-Midi/Brussel-Zuid train station, you'll find several information desks for domestic and international travel, as well as an international Thalys info desk and a a Brussels Tourist Office desk.",
+          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Q-Park \"Gare du Midi\"",
+          "Content": "Direct access to Brussel-Zuid/Bruxelles-Midi (Brussels) train station. Open 24/7.",
+          "Address": "40, Rue de France, 1060 Brussels",
+          "Latitude": "50.834617",
+          "Longitude": "4.3307218"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wi-Fi"
+        },
+        {
+          "Title": "Waiting rooms and lounges"
+        },
+        {
+          "Title": "Miscellaneous shops (clothing, souvenirs,...)"
+        },
+        {
+          "Title": "Cash machines"
+        },
+        {
+          "Title": "Facilities for mobility-impaired passengers"
+        },
+        {
+          "Title": "Restaurants, bars and cafés"
+        },
+        {
+          "Title": "Toilets"
+        },
+        {
+          "Title": "Car rental and bicycle hire"
+        }
+      ]
+    },
+    {
+      "Code": "DEKOH",
+      "Name": "Köln Hbf",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_Koeln_EN",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/EN/Stations/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "Longitude": "6.957843",
+      "Latitude": "50.942151",
+      "Street": "Trankgasse",
+      "Number": "11",
+      "PostalCode": "50667",
+      "City": "Cologne",
+      "Country": "Germany",
+      "StationInfos": [
+        {
+          "Title": "Köln Hbf (Cologne) train station",
+          "Content": "Cologne Central Station is one of the five busiest train stations in Germany and a major rail hub. From Cologne, it is possible to reach most destinations within Germany and depart to Scandinavia, Central and Eastern Europe.",
+          "Image": ""
+        },
+        {
+          "Title": "Travel and tourist information services",
+          "Content": "You can find several info desks at Köln Hbf (Cologne) train station, including central information centres for travel and tourist info and an information centre for domestic and international travel.",
+          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Parking \"Breslauer Platz\"",
+          "Content": "Underground car park in front of Cologne train station. Open 24/7.",
+          "Address": "1, Breslauer Platz, 50668 Cologne",
+          "Latitude": "50.94372",
+          "Longitude": "6.9579173"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wi-Fi"
+        },
+        {
+          "Title": "Waiting rooms and lounges"
+        },
+        {
+          "Title": "Miscellaneous shops (clothing, souvenirs,...)"
+        },
+        {
+          "Title": "Cash machines"
+        },
+        {
+          "Title": "Facilities for mobility-impaired passengers"
+        },
+        {
+          "Title": "Restaurants, bars and cafés"
+        },
+        {
+          "Title": "Toilets"
+        },
+        {
+          "Title": "Car rental and bicycle hire"
+        }
+      ]
+    },
+    {
+      "Code": "GBSPX",
+      "Name": "London St Pancras International",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_EN",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/EN/Stations/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "Longitude": "-0.125468",
+      "Latitude": "51.53022",
+      "Street": "Euston Road",
+      "Number": "",
+      "PostalCode": "N1C 4QP",
+      "City": "London",
+      "Country": "United Kingdom",
+      "StationInfos": [
+        {
+          "Title": "London St Pancras International train station",
+          "Content": "London's St Pancras International Station is where major domestic railway lines terminate and Eurostar starts, making this railway station the gateway to Continental Europe. Seamless changes from domestic services to Eurostar means getting the train to France, Belgium, the Netherlands, Germany and Luxembourg is a pleasant, stress-free experience.",
+          "Image": ""
+        },
+        {
+          "Title": "Travel and tourist information services",
+          "Content": "London St Pancras International train station features several information desks, among which you'll find information desks for national and international travel.",
+          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "St Pancras International Parking",
+          "Content": "Car park near London St Pancras International. Open 24/7.",
+          "Address": "Pancras Road, Londen, N1C 4TB",
+          "Latitude": "51.5334761",
+          "Longitude": "-0.1308258"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wi-Fi"
+        },
+        {
+          "Title": "Waiting rooms and lounges"
+        },
+        {
+          "Title": "Miscellaneous shops (clothing, souvenirs,...)"
+        },
+        {
+          "Title": "Cash machines"
+        },
+        {
+          "Title": "Facilities for mobility-impaired passengers"
+        },
+        {
+          "Title": "Restaurants, bars and cafés"
+        },
+        {
+          "Title": "Toilets"
+        },
+        {
+          "Title": "Car rental and bicycle hire"
+        }
+      ]
+    },
+    {
+      "Code": "NLASC",
+      "Name": "Amsterdam Centraal",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_En2",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/EN/Stations/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "Longitude": "4.8980833",
+      "Latitude": "52.3791283",
+      "Street": "Stationsplein",
+      "Number": "15",
+      "PostalCode": "1012",
+      "City": "Amsterdam",
+      "Country": "Netherlands",
+      "StationInfos": [
+        {
+          "Title": "Amsterdam Centraal train station",
+          "Content": "Amsterdam’s Central Station is a real architectural feat. This 19th century \"Renaissance\" station is actually built on 9,000 wooden piles, making it a key Amsterdam tourist attraction.",
+          "Image": ""
+        },
+        {
+          "Title": "Travel and tourist information services",
+          "Content": "You can get travel info from several locations at Amsterdam Centraal train station. The Ticket & Service Offices can provide you with info on domestic and international train journeys. The station also features general information desks and an Amsterdam Tourist Office desk.",
+          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Parking \"De Bijenkorf\"",
+          "Content": "Car park within 2.8 km from Amsterdam Centraal. Open 24/7.",
+          "Address": "15, Beursplein, 1012 JW Amsterdam",
+          "Latitude": "52.3741188",
+          "Longitude": "4.893173"
+        },
+        {
+          "Title": "Parking \"De Kolk\"",
+          "Content": "Car park within 1.5km from Amsterdam Centraal. Open 24/7.",
+          "Address": "104, Nieuwezijds Voorburgwal, 1012 SG Amsterdam ",
+          "Latitude": "52.3755634",
+          "Longitude": "4.8900057"
+        },
+        {
+          "Title": "Parking \"Amsterdam Centre\"",
+          "Content": "Car park directly opposite Amsterdam Centraal (4-minute walk). Open 24/7.",
+          "Address": "20A, Prins Hendrikkade, 1012 TL Amsterdam",
+          "Latitude": "52.378651",
+          "Longitude": "4.8946962"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wi-Fi"
+        },
+        {
+          "Title": "Waiting rooms and lounges"
+        },
+        {
+          "Title": "Miscellaneous shops (clothing, souvenirs,...)"
+        },
+        {
+          "Title": "Cash machines"
+        },
+        {
+          "Title": "Facilities for mobility-impaired passengers"
+        },
+        {
+          "Title": "Restaurants, bars and cafés"
+        },
+        {
+          "Title": "Toilets"
+        },
+        {
+          "Title": "Car rental and bicycle hire"
+        }
+      ]
+    },
+    {
+      "Code": "FRPNO",
+      "Name": "Paris Nord",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_EN",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/EN/Stations/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "Longitude": "2.3540123",
+      "Latitude": "48.8809481",
+      "Street": "Rue de Dunkerque",
+      "Number": "18",
+      "PostalCode": "75010",
+      "City": "Paris",
+      "Country": "France",
+      "StationInfos": [
+        {
+          "Title": "Paris Nord train station",
+          "Content": "Paris Nord railway station has links to Northern France (by TGV® and Intercités trains) as well as to Belgium, the Netherlands, and Germany. Thalys and Eurostar make this station the entry point to Northern Europe for France.",
+          "Image": ""
+        },
+        {
+          "Title": "Travel and tourist information services",
+          "Content": "If you need travel or tourist info, Paris Nord train station has several information desks for national and international travel, as well as a Paris Tourist Office desk.",
+          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Parking \"Gare du Nord\"",
+          "Content": "Car park next to the main entrance of Paris Nord train station (1-minute walk). Open 24/7.",
+          "Address": "4, Rue de Compiègne, 75010 Paris",
+          "Latitude": "48.8798861",
+          "Longitude": "2.3514934"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wi-Fi"
+        },
+        {
+          "Title": "Waiting rooms and lounges"
+        },
+        {
+          "Title": "Miscellaneous shops (clothing, souvenirs,...)"
+        },
+        {
+          "Title": "Cash machines"
+        },
+        {
+          "Title": "Facilities for mobility-impaired passengers"
+        },
+        {
+          "Title": "Restaurants, bars and cafés"
+        },
+        {
+          "Title": "Toilets"
+        },
+        {
+          "Title": "Car rental and bicycle hire"
+        }
+      ]
+    }
+  ],
+  "Messages": [],
+  "DebugMessages": []
+}

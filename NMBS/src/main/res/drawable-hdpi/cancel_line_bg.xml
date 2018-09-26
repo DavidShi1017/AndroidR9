@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Used for most UI about group items (passengers UI, reduction cards UI, checkout UI, station pickup UI, book UI and so on) -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="line">
+            <gradient android:endColor="@color/textcolor_error" android:startColor="@color/textcolor_error" />
+            <stroke android:width="2dp" android:color="@color/textcolor_error"  color="@color/textcolor_error"/>
+        </shape>
+    </item>
+
+</selector>

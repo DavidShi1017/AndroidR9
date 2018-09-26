@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/all_layout_default_background_color"
+    >
+        <TextView
+        android:id="@+id/tarrif_view_title_TextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/title_backgoround_color"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="@string/general_tarrif"
+        android:textColor="@color/text_white_color" 
+        >
+    </TextView>
+
+	<ViewFlipper android:id="@+id/ViewFlipper01"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_below="@+id/tarrif_view_title_TextView"
+		android:layout_marginBottom="40dp">
+	</ViewFlipper>
+	
+	  <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+       	
+        android:background="@color/color_black"
+        android:layout_alignParentBottom="true"
+        
+        android:id="@+id/tarrif_view_dot_LinearLayout">
+    </LinearLayout>
+</RelativeLayout>

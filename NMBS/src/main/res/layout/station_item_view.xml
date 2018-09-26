@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/station_board_item_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/station_adapter_controll_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/ic_add_favorite" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@+id/station_adapter_controll_button">
+            <TextView
+                android:id="@+id/station_adapter_station_name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AACHEN HBF"
+                android:textSize="@dimen/textsize_smaller"
+                android:textColor="@color/textcolor_thirdaction" />
+
+            <TextView
+                android:id="@+id/station_adapter_synoniem_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/station_adapter_controll_button"
+                android:text="AACHEN HBF"
+                android:textSize="@dimen/textsize_least"
+
+                android:layout_toRightOf="@id/station_adapter_controll_button"
+                android:textColor="@color/textcolor_primaryaction"
+                android:textStyle="italic"
+                android:visibility="gone" />
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+    <View
+        android:id="@+id/ll_settings_personalinfo_line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/background_group_title" />
+    <TextView
+        android:id="@+id/station_adapter_view_favorite_noticket_TextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/book_stations_to_nofavorite"
+        android:textAppearance="@style/green_text"
+        android:textColor="@color/text_gray_color"
+        android:visibility="invisible" />
+
+</LinearLayout>

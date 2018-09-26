@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp"
+    android:clickable="false"
+    android:paddingTop="10dp">
+    <RelativeLayout
+        android:id="@+id/ll_item"
+        android:layout_width="match_parent"
+        android:background="@drawable/list_item_bg"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_li_alert_connection_title_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_alert_subscription_station_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+                android:textSize="@dimen/textsize_smaller"
+                android:textColor="@color/text_blue_color" />
+            <TextView
+                android:id="@+id/tv_alert_subscription_station_time"
+                android:layout_marginBottom="10dp"
+                android:text="sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+                android:textSize="@dimen/textsize_smallest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

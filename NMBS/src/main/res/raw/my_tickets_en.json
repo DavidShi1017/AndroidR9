@@ -1,0 +1,23 @@
+{
+  "WizardItems": [
+    {
+      "Title": "Real-time help",
+      "Description": "To add your booking to the app, you'll need your booking reference. This booking reference (DNR) is a 7-letter code which you can find on the confirmation page or in your confirmation email. Add a ticket by entering the booking reference (DNR) and the email address used to make the booking. You'll find all ticket info for each booking reference number (DNR) via \"My tickets\".",
+      "HighResImage": "wizardHelp",
+      "LowResImage": "/~/media/ImagesNew/Mobile/wizardHelp.ashx?sc=0.5",
+      "AreaTitle": "MyTickets",
+      "AreaIcon": "icon-icoTrainTicket",
+      "NewInRelease": true,
+      "Context": [
+        "MYTICKETS",
+        "HOME"
+      ]
+    }
+  ],
+  "Messages": [
+
+  ],
+  "DebugMessages": [
+
+  ]
+}

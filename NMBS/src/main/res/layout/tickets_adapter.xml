@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tickets_adapter_view_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/selector_group_item_bg"
+    android:orientation="vertical"
+    android:paddingTop="10dp" >
+
+    <RelativeLayout
+        android:id="@+id/tickets_adapter_view_tickets_confirmed"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/tickets_adapter_view_logo_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tickets_adapter_view_from_station_textview"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/account_bus"
+            android:paddingLeft="15dp"
+            android:src="@drawable/ic_train_type" />
+
+        <!-- TextView Group -->
+
+
+        <!-- Top TextView Group -->
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@drawable/ic_navigation_next"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_from_station_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textColor="@color/departure_return_travel_selected_depature_view_top_text_color"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_seperate_station_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/tickets_adapter_view_from_station_textview"
+            android:text="@string/group_list_item_tag_middle_line"
+            android:textColor="@color/departure_return_travel_selected_depature_view_top_text_color"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_to_station_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/tickets_adapter_view_seperate_station_textview"
+            android:singleLine="true"
+            android:textColor="@color/departure_return_travel_selected_depature_view_top_text_color"
+            android:textSize="13sp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold" />
+
+        <!-- Middle TextView Group -->
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_departure_label_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_from_station_textview"
+            android:layout_toRightOf="@+id/tickets_adapter_view_logo_imageview"
+            android:paddingLeft="10dp"
+            android:text="@string/general_departure"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_unselected_text_color"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_start_date_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_from_station_textview"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/tickets_adapter_view_departure_label_textview"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_unselected_text_color" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_start_seperate_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_from_station_textview"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/tickets_adapter_view_start_date_textview"
+            android:text="@string/group_list_item_tag_middle_dot"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_unselected_text_color" />
+
+        <RelativeLayout
+            android:id="@+id/tickets_adapter_view_start_time_textview_RelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_from_station_textview"
+            android:layout_toRightOf="@+id/tickets_adapter_view_start_seperate_textview" >
+
+            <TextView
+                android:id="@+id/tickets_adapter_view_start_time_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="5:56 pm"
+                android:textAppearance="@style/small_text_style"
+                android:textColor="@color/departure_return_travel_unselected_text_color" />
+
+            <View
+                android:id="@+id/cancelled_line"
+                android:layout_width="30dp"
+                android:layout_height="2dp"
+                android:layout_centerVertical="true"
+                android:background="@color/textcolor_error"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_station_state_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_from_station_textview"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_toRightOf="@+id/tickets_adapter_view_start_time_textview_RelativeLayout"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/textcolor_error" />
+
+        <!-- Bottom TextView Group -->
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_train_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_start_date_textview"
+            android:layout_toRightOf="@+id/tickets_adapter_view_logo_imageview"
+            android:paddingLeft="10dp"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_first_seperate_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_start_date_textview"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/tickets_adapter_view_train_name_textview"
+            android:text="@string/group_list_item_tag_middle_dot"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_passenger_count_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_start_date_textview"
+            android:layout_toRightOf="@+id/tickets_adapter_view_first_seperate_textview"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_last_seperate_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_start_date_textview"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/tickets_adapter_view_passenger_count_textview"
+            android:text="@string/group_list_item_tag_middle_dot"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_class_level_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_start_date_textview"
+            android:layout_toRightOf="@+id/tickets_adapter_view_last_seperate_textview"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/tickets_adapter_view_train_name_textview" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_ebs_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_class_level_textview"
+            android:layout_toRightOf="@+id/tickets_adapter_view_logo_imageview"
+            android:paddingLeft="10dp"
+            android:text="@string/assistant_view_ebs_info"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_checkin_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_ebs_textview"
+            android:layout_marginRight="30dp"
+            android:layout_toRightOf="@+id/tickets_adapter_view_logo_imageview"
+            android:paddingLeft="10dp"
+            android:text="@string/home_view_checkin_info"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+        <!--
+     		 <TextView
+            android:id="@+id/tickets_adapter_view_datadownload_failed_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/tickets_adapter_view_checkin_textview"
+            android:layout_toRightOf="@+id/tickets_adapter_view_logo_imageview"
+            android:text="@string/mytickets_overview_datadownload_failed"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color"
+            android:visibility="gone"/>
+        -->
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_not_confirmed_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_checkin_textview"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_toRightOf="@+id/tickets_adapter_view_logo_imageview"
+            android:paddingLeft="10dp"
+            android:text="@string/assistant_overview_payment_not_confirmed"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/textcolor_error" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tickets_adapter_view_cancelled_linearlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_booking_cancelled_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/myticket_view_booking_cancelled"
+            android:textColor="@color/departure_return_travel_selected_depature_view_top_text_color"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_remove_info_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_adapter_view_booking_cancelled_textview"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="80dp"
+            android:text="@string/myticket_view_remove_info"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+        <Button
+            android:id="@+id/tickets_adapter_view_remove_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/remove_btn_selector"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/general_remove"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/text_white_color"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/progressBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_retrieving_real_time_info_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:paddingLeft="10dp"
+            android:text="@string/alert_bulkquery_retrieving"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/service_error_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:layout_marginTop="5dp"
+         >
+
+        <ImageView
+            android:id="@+id/tickets_adapter_view_retrieving_real_time_service_error_ImageView"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_realtime_error"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_retrieving_real_time_service_error_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:paddingLeft="10dp"
+            android:text="@string/alert_bulkquery_failed"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/textcolor_error" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tickets_adapter_view_child_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/tickets_adapter_view_child_dash_line"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/dash_line"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/Separator"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/line_grey" />
+
+</LinearLayout>

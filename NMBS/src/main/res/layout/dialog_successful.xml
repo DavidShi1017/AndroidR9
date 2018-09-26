@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background_secondaryaction"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/general_information"
+            android:textSize="@dimen/textsize_default" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tv_title"
+            android:layout_marginLeft="10dp"
+            android:text="@string/migrate_dossier_success"
+            android:textSize="@dimen/textsize_medium" />
+        <ImageView
+            android:id="@+id/iv__check_update_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@color/background_group_title"
+            android:padding="5dp"
+            android:src="@drawable/ic_close"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:padding="15dp"
+        android:layout_height="200dp">
+        <LinearLayout
+            android:id="@+id/ll_dialog_check_update_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/background_group_title" />
+
+    <LinearLayout
+        android:id="@+id/ll_notnow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/tv_check_update_notnow_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/migrate_stay"
+            android:textColor="@color/textcolor_thirdaction"
+            android:textSize="@dimen/textsize_medium" />
+        <Button
+            android:id="@+id/btn_check_update_download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/background_view_button"
+            android:text="@string/migrate_view_refreshed_dossier"
+            android:textSize="@dimen/textsize_medium"
+            android:textColor="@color/textcolor_secondaction" />
+
+    </LinearLayout>
+</LinearLayout>

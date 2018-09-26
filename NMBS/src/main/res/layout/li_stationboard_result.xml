@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/background_group_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="0.2"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/station_board_search_result_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="14:02"
+                    android:textColor="@color/textcolor_primaryaction"
+                    android:textSize="@dimen/textsize_smaller"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/station_board_search_result_date_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/general_cancel"
+                android:textSize="@dimen/textsize_smallest"
+                android:textColor="@color/textcolor_error" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/station_board_search_result_station_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="0.5"
+            android:text="Station Name"
+            android:textSize="@dimen/textsize_small"
+            android:textColor="@color/textcolor_thirdaction" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/station_board_search_result_train_type"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:gravity="center"
+                android:padding="0dp"
+                android:src="@drawable/ic_train_type_ec" />
+
+            <TextView
+                android:id="@+id/station_board_search_result_train_nr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="1234"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/text_gray_color"
+                />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/station_board_search_result_track"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.2"
+            android:gravity="center_horizontal"
+            android:text="12"
+            android:textSize="@dimen/textsize_medium"
+            android:textColor="@color/textcolor_primaryaction" />
+
+    </LinearLayout>
+</LinearLayout>

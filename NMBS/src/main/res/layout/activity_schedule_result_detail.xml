@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:background="@color/background_secondaryaction">
+
+    <RelativeLayout
+        android:id="@+id/rl_schedule_result_detail_header_station"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_activity_title"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:clickable="true"
+            android:onClick="back"
+            android:background="@color/background_primaryaction"
+            android:padding="10dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/schedule_title"
+            android:textColor="@color/textcolor_secondaction"
+            android:textSize="@dimen/textsize_header" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:onClick="refresh"
+                android:background="@color/background_primaryaction"
+                android:src="@drawable/ic_refresh" />
+            <ImageView
+                android:id="@+id/iv_schedule_detail_menu"
+                android:layout_width="@dimen/header_menu_size"
+                android:layout_height="@dimen/header_menu_size"
+                android:onClick="clickMenu"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:visibility="gone"
+                android:layout_marginLeft="5dp"
+                android:background="@color/background_primaryaction"
+                android:src="@drawable/ic_navigation" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_schedule_detail_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <View
+            android:id="@+id/v_bottom_line"
+            android:layout_width="fill_parent"
+            android:layout_height="10dp"
+            android:visibility="gone"
+            android:background="@color/background_activity_title"/>
+        <LinearLayout
+            android:id="@+id/ll_schedule_result_detail_bottom"
+            android:layout_below="@+id/v_bottom_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@color/background_menu_home">
+            <Button
+                android:id="@+id/btn_set_train_alert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_default"
+                android:onClick="createSubscription"
+                android:background="@color/background_secondaryaction"
+                android:text="@string/schedule_set_train_alert"
+                android:textColor="@color/textcolor_thirdaction"/>
+            <LinearLayout
+                android:id="@+id/ll_set_train_alert_success"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:padding="@dimen/padding_bigger"
+                android:background="@color/background_light_green">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_ring_green"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textsize_small"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/schedule_set_train_alert_active"
+                    android:textColor="@color/text_green_color"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_below="@id/rl_schedule_result_detail_header_station"
+        android:layout_above="@id/ll_schedule_detail_bottom"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding_default"
+            android:paddingRight="@dimen/padding_default"
+            android:paddingBottom="@dimen/margin_medium"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_schedule_result_detail_station_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textcolor_primaryaction"
+                    android:textSize="@dimen/textsize_medium"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_schedule_detail_station_departure_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textcolor_primaryaction"
+                    android:textSize="@dimen/textsize_smaller"
+
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_schedule_detail_hafas_message_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_schedule_detail_transfer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_default"
+                android:textColor="@color/text_white_color"
+                android:textSize="@dimen/textsize_small"
+                android:background="@color/background_activity_title"/>
+            <LinearLayout
+                android:id="@+id/ll_schedule_detail_leg_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

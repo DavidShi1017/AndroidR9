@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppBaseTheme" parent="android:Theme.DeviceDefault.Light"></style>
+
+    <style name="Animations" />
+
+    <!-- PopDownMenu -->
+    <style name="Animations.PopDownMenu" />
+
+    <style name="Animations.PopDownMenu.Left">
+        <item name="android:windowEnterAnimation">@anim/grow_from_topleft_to_bottomright</item>
+        <item name="android:windowExitAnimation">@anim/shrink_from_bottomright_to_topleft</item>
+    </style>
+
+    <style name="Animations.PopDownMenu.Right">
+        <item name="android:windowEnterAnimation">@anim/grow_from_topright_to_bottomleft</item>
+        <item name="android:windowExitAnimation">@anim/shrink_from_bottomleft_to_topright</item>
+    </style>
+
+    <style name="Animations.PopDownMenu.Center">
+        <item name="android:windowEnterAnimation">@anim/grow_from_top</item>
+        <item name="android:windowExitAnimation">@anim/shrink_from_bottom</item>
+    </style>
+
+    <!-- PopUpMenu -->
+    <style name="Animations.PopUpMenu" />
+
+    <style name="Animations.PopUpMenu.Left">
+        <item name="android:windowEnterAnimation">@anim/grow_from_bottomleft_to_topright</item>
+        <item name="android:windowExitAnimation">@anim/shrink_from_topright_to_bottomleft</item>
+    </style>
+
+    <style name="Animations.PopUpMenu.Right">
+        <item name="android:windowEnterAnimation">@anim/grow_from_bottomright_to_topleft</item>
+        <item name="android:windowExitAnimation">@anim/shrink_from_topleft_to_bottomright</item>
+    </style>
+
+    <style name="Animations.PopUpMenu.Center">
+        <item name="android:windowEnterAnimation">@anim/grow_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/shrink_from_top</item>
+    </style>
+
+    <style name="MyCustomTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:tabWidgetStyle">@style/CustomTabWidget</item>
+    </style>
+
+    <style name="CustomTabWidget" parent="@android:style/Widget.TabWidget">
+        <item name="android:textAppearance">@style/CustomTabWidgetText</item>
+    </style>
+
+    <style name="CustomTabWidgetText" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="btn_style">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="list_text_style">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="group_list_title_style">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="ticket_child_text_style">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="small_text_style">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="green_text">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="layout_subtitle_text_style">
+        <item name="android:textColor">#0e456b</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="list_header">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="big_text_size">
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="summary_title">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="summary_small_title">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="view_paddingLeft">
+        <item name="android:paddingLeft">10dip</item>
+    </style>
+
+    <style name="view_title_height">
+        <item name="android:layout_height">30dip</item>
+    </style>
+
+    <style name="view_titleHeight_paddingLeft">
+        <item name="android:layout_height">30dip</item>
+        <item name="android:paddingLeft">10dip</item>
+    </style>
+
+    <style name="view_paddingBottom_paddingTop">
+        <item name="android:paddingTop">10dip</item>
+        <item name="android:paddingBottom">10dip</item>
+    </style>
+
+    <!-- used for setting the preference of application -->
+    <style name="SettingsTheme" parent="AppBaseTheme">
+        <item name="android:windowBackground">@color/all_layout_default_background_color</item>
+        <!-- Override properties according to your need -->
+
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="android:colorForeground">@color/bright_foreground_light</item>
+        <item name="android:textColorPrimary">@color/primary_text_light</item>
+        <item name="android:textColorSecondary">@color/secondary_text_light</item>
+        <item name="android:textColorTertiary">@color/tertiary_text_light</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/primary_text_light_disable_only
+        </item>
+        <item name="android:textColorHint">@color/hint_text_light</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:tabWidgetStyle">@style/CustomTabWidget</item>
+    </style>
+
+    <!-- used for setting the preference of application -->
+    <style name="SettingsThemeForVersion2X" parent="@android:style/Theme.Light">
+        <item name="android:windowBackground">@color/all_layout_default_background_color</item>
+        <!-- Override properties according to your need -->
+
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="android:colorForeground">@color/bright_foreground_light</item>
+        <item name="android:textColorPrimary">@color/primary_text_light</item>
+        <item name="android:textColorSecondary">@color/secondary_text_light</item>
+        <item name="android:textColorTertiary">@color/tertiary_text_light</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/primary_text_light_disable_only
+        </item>
+        <item name="android:textColorHint">@color/hint_text_light</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:tabWidgetStyle">@style/CustomTabWidget</item>
+    </style>
+
+    <style name="image_text_size">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="AnimActivityTheme">
+        <item name="android:windowBackground">@color/background_activity_title</item>
+        <item name="android:windowAnimationStyle">@style/FeelyouWindowAnimTheme</item>
+    </style>
+
+    <style name="FeelyouWindowAnimTheme" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <style name="Dialogheme" parent="android:Theme.Holo.Light.Dialog.MinWidth">
+        <item name="android:windowTitleStyle">@android:style/TextAppearance.Holo.Large</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="Custom.Widget.SwitchCompat" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:textColorPrimary">@color/text_green_color
+        </item>  <!--textColor on activated state -->
+        <item name="background">@color/text_white_color</item>
+    </style>
+
+    <style name="Theme.MyTheme" parent="Theme.AppCompat.Light">
+        <!-- customize the color palette -->
+        <!--<item name="colorPrimary">@color/material_blue_500</item>
+        <item name="colorPrimaryDark">@color/material_blue_700</item>
+        <item name="colorAccent">@color/material_green_A200</item>-->
+        <!-- Inactive thumb color -->
+        <item name="colorSwitchThumbNormal">@color/handle_off</item>
+        <!-- Inactive track color(30% transparency) -->
+        <item name="android:colorForeground">@color/toggle_off</item>
+
+        <item name="colorControlActivated">@color/handle_on</item>
+
+        <item name="colorControlHighlight">@color/toggle_on</item>
+    </style>
+
+    <style name="NumberProgressBar_Default">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#3498DB</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#3498DB</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Passing_Green">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#70A800</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#70A800</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Beauty_Red">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#FF3D7F</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#FF3D7F</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Warning_Red">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#E74C3C</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#E74C3C</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Relax_Blue">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#6DBCDB</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#6DBCDB</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Grace_Yellow">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#FFC73B</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#FFC73B</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Funny_Orange">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#FF530D</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#FF530D</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Twinkle_Night">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#CCCCCC</item>
+        <item name="progress_reached_color">#ECF0F1</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">#ECF0F1</item>
+        <item name="progress_reached_bar_height">1.5dp</item>
+        <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="Theme.MyTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

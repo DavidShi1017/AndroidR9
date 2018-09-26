@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Used for more then 2 person UI , call button-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:drawable="@drawable/btn_selector_r6" android:gravity="center" >
+		
+	</item>
+	<item android:left="0dip"  android:right="0dip">
+		<bitmap android:src="@drawable/ic_exchange"
+			android:gravity="left|center_vertical" 
+			android:dither="true"/>
+	</item>
+</layer-list>

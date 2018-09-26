@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- For the BarcodeForPersonActivity -->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RootLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/all_layout_default_background_color"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <!--
+     	<WebView
+        android:id="@+id/barcode_for_person_view_image"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/barcode_for_person_view_title_layout"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="5dip" />
+    -->
+<RelativeLayout android:id="@+id/RelativeLayout"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    
+    >
+    	<TextView
+        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/barcode_for_person_text"
+        
+        android:gravity="center_horizontal"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:text="@string/barcode_view_qrcode_of"
+        android:textAppearance="@style/list_text_style"
+        android:textColor="@color/departure_return_travel_unselected_text_color" 
+        android:textStyle="bold"/>
+	
+	<TextView
+        android:id="@+id/barcode_for_person_view_see_details"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       android:layout_below="@+id/barcode_for_person_text"
+        
+        android:gravity="center_horizontal"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        
+        android:textAppearance="@style/small_text_style"
+        android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+	<TextView
+        android:id="@+id/barcode_for_person_view_not_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:text="@string/barcode_view_not_download"
+        
+        android:layout_centerInParent="true"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        
+        android:textAppearance="@style/small_text_style"
+        android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+    <com.nmbs.activity.TouchImageView
+        
+        android:id="@+id/barcode_for_person_view_image"
+        android:layout_below="@+id/barcode_for_person_view_see_details"
+        android:layout_width="fill_parent"
+        android:layout_height="340dp"
+		android:scaleType="centerInside"
+		android:adjustViewBounds="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dip"
+      
+         />
+    <Button
+        android:id="@+id/barcode_for_person_view_pdf_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_below="@+id/barcode_for_person_view_image"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/btn_selector"
+        android:paddingLeft="30dip"
+        android:paddingRight="30dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="@string/barcode_view_eticket"
+        android:textAppearance="@style/btn_style"
+        android:textColor="@color/text_white_color" />
+</RelativeLayout>
+    
+
+
+    
+
+    
+
+
+
+  
+
+</LinearLayout>

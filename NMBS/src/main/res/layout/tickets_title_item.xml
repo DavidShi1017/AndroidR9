@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"   
+    android:orientation="vertical"    
+    >
+        <RelativeLayout
+        android:id="@+id/tickets_adapter_view_tickets_confirmed"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    <TextView
+        android:id="@+id/tickets_title_item_dnr_textview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/assistant_view_bookingref"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:drawableLeft="@drawable/ic_down_arrow"
+        android:drawablePadding="5dp"
+        android:textStyle="bold"
+        android:singleLine="false"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+    	android:paddingBottom="10dp"
+        android:textAppearance="@style/small_text_style"
+        android:textColor="@color/departure_return_travel_selected_depature_view_top_text_color" 
+        android:background="@drawable/tickets_title_item_background_shape"
+        />
+    <ImageView 
+        android:id="@+id/tickets_title_item_refresh_image"
+        android:src="@drawable/ic_refresh"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        
+          />
+        
+        </RelativeLayout>
+      <com.nmbs.activity.LinearLayoutForListView 
+          android:id="@+id/tickets_title_item_listview"
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       
+       android:orientation="vertical"
+       android:cacheColorHint="#00000000"/>		
+	
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- For the ParkingActivity ListView item -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parking_adapter_title_item_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/selector_group_item_bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textblock_adapter_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        
+        android:layout_gravity="left"
+        android:background="@color/tickets_detail_item_backgroud_text_color"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        
+        android:textAppearance="@style/list_text_style"
+        android:textColor="@color/departure_return_travel_unselected_text_color"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/textblock_adapter_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:textColor="@color/text_gray_color" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/passenger_seperate_line_color" />
+
+</LinearLayout>

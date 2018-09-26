@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/setting_view_general_settings" >
+        <ListPreference
+            android:key="language"
+            android:summary="@string/setting_view_language_desc"
+            android:title="@string/setting_view_language" />
+        <ListPreference
+            android:defaultValue="EUR"
+            android:key="currency"
+            android:summary="@string/setting_view_currency_desc"
+            android:title="@string/setting_view_currency" />
+        
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/setting_view_account" >
+        <Preference 
+            android:summary="@string/settings_view_personal_info_description"/>
+        <com.nmbs.util.EncryptEditTextPreference
+            android:key="firstname"
+            android:summary="@string/setting_view_first_name_alert"
+            android:title="@string/general_first_name" />
+        <com.nmbs.util.EncryptEditTextPreference
+            android:key="lastname"
+            android:summary="@string/setting_view_last_name_alert"
+            android:title="@string/general_name" />
+
+        <ListPreference
+            android:defaultValue="Mister"
+            android:key="salutation"
+            android:summary="@string/setting_view_salutation_alert"
+            android:title="@string/general_salutation" />
+
+        <com.nmbs.util.EncryptEditTextPreference
+            android:inputType="number"
+            android:key="phonenumber"
+            android:summary="@string/setting_view__mobile_number_alert"
+            android:title="@string/book_view_mobile_phone_number" />
+        <com.nmbs.util.EncryptEditTextPreference
+            android:inputType="textEmailAddress"
+            android:key="email"
+            android:summary="@string/setting_view_email_alert"
+            android:title="@string/book_email_view_email_add" />
+        <com.nmbs.activity.DeleteButtonPreference
+             android:key="deleteButtons" >
+         </com.nmbs.activity.DeleteButtonPreference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings_automatic_update_title" >
+        <Preference 
+            android:summary="@string/settings_automatic_update_info"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="appUpdateSwitchButton"
+            android:persistent="true"
+            
+            android:title="@string/settings_automatic_update_title" />
+
+        <Preference
+            android:key="checkForUpdate"
+            
+            android:title="@string/settings_check_for_update_now" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/setting_view_base_information" >
+        <Preference
+            android:enabled="false"
+            android:key="checkForUpdate"
+            android:summary="V6.2"
+            android:title="@string/setting_view_version" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

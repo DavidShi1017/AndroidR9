@@ -1,0 +1,31 @@
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<ImageView
+		android:id="@+id/iv_alert_dialog_phone_number_logo"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="@dimen/margin_default"
+		android:src="@drawable/ic_belgium_number_prefix"
+		android:layout_alignParentLeft="true"/>
+	<TextView
+		 android:id="@+id/tv_alert_dialog_phone_number_text"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:textColor="@color/color_grey"
+		 android:layout_alignParentRight="true"
+		 android:layout_margin="@dimen/margin_default"
+		 android:text="asdfasd"
+		 android:gravity="center"
+		 android:layout_centerVertical="true"
+		 android:textAppearance="@style/list_text_style"
+	     style="@style/view_paddingLeft" />
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:layout_below="@id/tv_alert_dialog_phone_number_text"
+		android:background="@color/dot_active"
+		android:layout_alignParentBottom="true"/>
+</RelativeLayout>

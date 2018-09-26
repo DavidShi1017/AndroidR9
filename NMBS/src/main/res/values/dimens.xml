@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="preference_item_padding_side">8dip</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="cancelled_line_width">50dp</dimen>
+    <dimen name="activivt_home_menu_margin">3dp</dimen>
+    <dimen name="margin_default">10dp</dimen>
+    <dimen name="margin_medium">15dp</dimen>
+    <dimen name="margin_big">25dp</dimen>
+    <dimen name="margin_smaller">3dp</dimen>
+    <dimen name="margin_small">6dp</dimen>
+    <dimen name="padding_bigger">15dp</dimen>
+    <dimen name="padding_default">10dp</dimen>
+    <dimen name="padding_small">6dp</dimen>
+    <dimen name="textsize_dot">3sp</dimen>
+    <dimen name="textsize_least">10sp</dimen>
+    <dimen name="textsize_smallest">9sp</dimen>
+    <dimen name="textsize_smaller">12sp</dimen>
+    <dimen name="textsize_small">14sp</dimen>
+    <dimen name="textsize_medium">16sp</dimen>
+    <dimen name="textsize_default">22sp</dimen>
+    <dimen name="textsize_bigger">26sp</dimen>
+    <dimen name="textsize_header">17sp</dimen>
+    <dimen name="view_height_shortcut_menu">70dp</dimen>
+
+    <dimen name="header_menu_size">40dp</dimen>
+    <dimen name="line_height">1dp</dimen>
+    <dimen name="dossier_detail_icon">16dp</dimen>
+    <dimen name="margin_biggest">32dp</dimen>
+    <dimen name="home_menu_height">90dp</dimen>
+
+
+    <dimen name="train_info">26dp</dimen>
+    <dimen name="corner">26dp</dimen>
+    <dimen name="width_delay_time">70dp</dimen>
+    <dimen name="width_travel_adapter">68dp</dimen>
+    <dimen name="height_map">250dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

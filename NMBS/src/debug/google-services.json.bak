@@ -1,0 +1,45 @@
+{
+  "project_info": {
+    "project_number": "516749780180",
+    "firebase_url": "https://sncb-europe.firebaseio.com",
+    "project_id": "sncb-europe",
+    "storage_bucket": "sncb-europe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516749780180:android:a58656ad8d0e3a5c",
+        "android_client_info": {
+          "package_name": "com.nmbs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516749780180-j57s05q5r1vro0og06slgi0odbfcvvs0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdur9fdUg9QT3AyAwoc9MI25g6uYXza_A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-34380946-9"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

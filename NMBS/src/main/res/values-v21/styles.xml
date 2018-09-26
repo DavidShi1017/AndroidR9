@@ -1,0 +1,57 @@
+<resources>
+
+    <style name="AppBaseTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- AlertDialog Style override in order to try to fix non line breaking buttons -->
+        <item name="android:alertDialogTheme">@style/CustomAlertDialogStyle</item>
+
+    </style>
+
+    <style name="CustomAlertDialogStyle" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:buttonBarButtonStyle">@style/CustomButtonBarButtonStyle</item>
+        <item name="android:buttonBarStyle">@style/CustomButtonBarStyle</item>
+    </style>
+
+    <style name="CustomButtonBarStyle" parent="@android:style/Widget.Material.Light.ButtonBar.AlertDialog">
+        <!-- Making sure, the button bar uses parent width and is not restricted in height -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:height">@null</item>
+        <item name="android:minHeight">@null</item>
+    </style>
+
+    <style name="CustomButtonBarButtonStyle" parent="@android:style/Widget.Material.Light.Button.Borderless.Colored">
+        <!-- Setting the weight as follows should result in equally wide buttons filling the alert dialog width,
+            but instead they span further out of the dialog, breaking in multiple lines though -->
+        <!-- <item name="android:layout_width">0dp</item> -->
+        <item name="android:layout_weight">1</item>
+        <!-- setting a fixed width as follows results in narrow buttons with line breaks, but of course this is not a solution -->
+        <item name="android:width">100dp</item>
+    </style>
+
+
+    <style name="SettingsTheme" parent="AppBaseTheme">
+        <item name="android:windowBackground">@color/all_layout_default_background_color</item>
+        <!-- Override properties according to your need -->
+
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="android:colorForeground">@color/bright_foreground_light</item>
+        <item name="android:textColorPrimary">@color/primary_text_light</item>
+        <item name="android:textColorSecondary">@color/secondary_text_light</item>
+        <item name="android:textColorTertiary">@color/tertiary_text_light</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/primary_text_light_disable_only
+        </item>
+        <item name="android:textColorHint">@color/hint_text_light</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:tabWidgetStyle">@style/CustomTabWidget</item>
+
+
+    </style>
+
+    <style name="Theme.MyTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+</resources>

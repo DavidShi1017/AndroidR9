@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nmbs"
+    android:installLocation="auto"
+    android:versionCode="19"
+    android:versionName="7.0">
+
+    <uses-sdk android:minSdkVersion="15" />
+
+    <!-- Google Play should be  android:versionCode="8" android:versionName="5.0" -->
+
+
+    <!-- Google Play  should be  android:versionCode="8" android:versionName="5.0" -->
+    <!-- Test version should be  android:versionCode="9" android:versionName="5.0.1" -->
+    <!-- Test version should be  android:versionCode="10" android:versionName="5.0.2" -->
+    <!-- Test version should be  android:versionCode="11" android:versionName="5.0.3" -->
+
+
+    <!-- Test version should be  android:versionCode="12" android:versionName="5.0.4" -->
+    <!-- Test version should be  android:versionCode="13" android:versionName="5.0.5" -->
+    <!-- Test version should be  android:versionCode="14" android:versionName="5.1" -->
+    <!-- Test version should be  android:versionCode="15" android:versionName="6.0" -->
+    <!-- Test version should be  android:versionCode="16" android:versionName="7.0" -->
+    <!-- Test version should be  android:versionCode="14" android:versionName="5.0.6" -->
+    <!-- Test version should be  android:versionCode="15" android:versionName="5.0.7" -->
+    <!-- Test version should be  android:versionCode="16" android:versionName="5.0.8" -->
+    <!-- Test version should be  android:versionCode="17" android:versionName="5.0.9" -->
+    <!-- Test version should be  android:versionCode="18" android:versionName="5.0.10" -->
+    <!-- Test version should be  android:versionCode="19" android:versionName="5.0.11" -->
+    <!-- Test version should be  android:versionCode="20" android:versionName="5.0.12" -->
+    <!-- Only this application can receive the messages and registration result -->
+    <!--
+         <permission
+        android:name="com.nmbs.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.nmbs.permission.C2D_MESSAGE" />
+
+    This app has permission to register and receive message
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- App must have this permission to use the library -->
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.SET_ACTIVITY_WATCHER" />
+
+    <permission
+        android:name="com.example.googlemap.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.googlemap.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <!--<instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.nmbs" />-->
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".application.NMBSApplication"
+        android:configChanges="orientation|keyboardHidden|locale"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_nmbs"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.MyTheme">
+
+        <!-- android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar" > -->
+        <!--
+             <activity
+            android:name="com.nmbs.activity.StartActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                
+                <data                    
+                    android:scheme="b-europe.nmbs"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        -->
+        <activity
+            android:name=".activities.StartActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MyTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="b-europe.nmbs" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.MainActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/_AppTheme" />
+        <activity
+            android:name=".activities.MenuActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AnimActivityTheme" />
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MyTheme" />
+        <activity
+            android:name=".activities.MessageActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MyTheme" />
+        <activity
+            android:name=".activities.MessageWizardActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MyTheme" />
+        <activity
+            android:name=".activities.StationInfoActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MyTheme" />
+        <activity
+            android:name=".activities.StationInfoDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.StationInfoMapActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.PushNotificationErrorActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ScheduleSearchActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ScheduleResultDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.MyTicketsActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.TicketsDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CallCenterActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ScheduleResultActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AlertActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.PDFViewActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activities.StationBoardActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MyTheme" />
+        <activity
+            android:name=".activities.StationboardSearchResultActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/_AppTheme" />
+        <activity
+            android:name=".activities.DateTimeActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/_AppTheme" />
+        <activity
+            android:name=".activities.StationsActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/_AppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.WizardActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/_AppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.UploadDossierActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/_AppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".activities.DossierDetailActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/_AppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.StationFloorActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/_AppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.DossierConnectionDetailActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/_AppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+
+
+        <activity
+            android:name=".activity.Main"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/SettingsTheme"></activity>
+        <activity
+            android:name=".activity.wizard.WizardActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.wizard.BuyInLocalWizardActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TermsAndConditionsActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.EventsPOIRestoActivity"
+            android:configChanges="locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.DepartureDetailActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.MorePassengerActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.ReductionCardActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.StationBoardActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.CorporateCardActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.InProcessActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.ReturnDetailActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.PlannerActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.PlannerSearchResultActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+
+        <!-- activity for tab -->
+
+        <activity
+            android:name=".activity.DepartureReturnActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.DepartActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+
+        <!--
+             android:excludeFromRecents="true" android:launchMode="singleTask" 
+			android:clearTaskOnLaunch="true"
+        -->
+        <activity
+            android:name=".activity.FavoriteActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.MyTicketsActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.PassengersSelectionActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.PassengersSelectionNumberActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.DateAndHourSelectionActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.FavoriteSettingActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.HomeActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SettingsTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.ConfirmationActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.ErrorActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.StationActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.CheckoutActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.SummaryActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.InsuranceActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.BookActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.FtpCardActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.DeliveryStationPickupActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.DeliveryPostActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.DeliveryPrintActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.DeliveryTicketlessActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.HomeStationActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.AssistantTravelActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.HistoryActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.CityActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.CityDetailActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.HotelActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.PaymentActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.EPRActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.EPRMapActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.FacebookPostActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.TwitterPostActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.FAQActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.FAQQuestionActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.AssistantNoConfirmedActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.ParkingActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.ParkingDescriptionActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.TicketActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.TarrifActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.ExchangeActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.StationInfoActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.FacilitiesActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.OpeningHoursActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.BarcodeActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.BarcodeForPersonActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.BarcodeDetailsActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.CallCenterActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.CheckoutFirstPageActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.TestActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.EBSDetailActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.AllowedStationsForPickUpActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.HomeBannerActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.PersonalDetailsAddEmailActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.PassengerDetailsForBabyActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.PassengerDetailsActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.AddExistingTicketActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.MessageActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.StationSelectActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.DossiersDetailActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.StationboardDateTimeActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.StationboardSearchResultActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.wizard.MessageWizardActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.TestStationBoardActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name=".activity.HimMessageUrlActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.FromAndToStationActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.StationFloorActivity"
+            android:configChanges="orientation|keyboardHidden|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+
+        <service android:name=".services.impl.OfferIntentService"></service>
+        <service android:name=".services.impl.ClickToCallIntentService"></service>
+        <service android:name=".services.impl.LoginIntentService"></service>
+        <service android:name=".services.impl.RegisterIntentService"></service>
+        <service android:name=".services.impl.MasterIntentService"></service>
+        <service android:name=".services.impl.DossierIntentService"></service>
+        <service android:name=".services.impl.CityDetailIntentService"></service>
+        <service android:name=".dataaccess.restservice.impl.NotificationDataService" />
+        <service android:name=".services.impl.OfferTrainsIntentService"></service>
+        <service android:name=".services.impl.StationBoardIntentService"></service>
+        <service android:name=".services.impl.ScheduleIntentService"></service>
+        <service android:name=".services.impl.ScheduleTrainsIntentService"></service>
+        <service android:name=".services.impl.StationDetailIntentService"></service>
+        <service android:name=".services.impl.DossierAfterSaleIntentService"></service>
+        <service android:name=".services.impl.CorporateCardIntentService"></service>
+        <service android:name=".services.impl.AddExistingTicketIntentService"></service>
+        <service android:name=".services.impl.DossierPromoCodeIntentService"></service>
+        <service android:name=".services.impl.UploadDossierIntentService"></service>
+
+        <!--
+        <receiver
+            android:name=".push.C2DMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+
+            Receive the actual message
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.nmbs" />
+            </intent-filter>
+            Receive the registration id
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.nmbs" />
+            </intent-filter>
+        </receiver>
+        -->
+
+
+        <!--
+             <receiver
+            android:name="com.google.android.apps.analytics.AnalyticsReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        -->
+
+
+        <!-- Used for Google Play Store Campaign Measurement -->
+        ;
+
+        <!-- <uses-library android:name="com.google.android.maps" /> -->
+
+        <!-- [START gcm_receiver] -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.nmbs" />
+            </intent-filter>
+        </receiver>
+        <!-- [END gcm_receiver] -->
+
+        <!-- [START gcm_listener] -->
+        <service
+            android:name="com.nmbs.services.impl.MyGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <!-- [END gcm_listener] -->
+        <!-- [START instanceId_listener] -->
+        <service
+            android:name="com.nmbs.services.impl.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <!-- [END instanceId_listener] -->
+        <service
+            android:name=".services.impl.PushNotificationRegistrationIntentService"
+            android:exported="false">
+        </service>
+
+        <service android:name="com.google.analytics.tracking.android.CampaignTrackingService" />
+
+        <receiver
+            android:name=".util.CustomReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".util.PushNotificationReceiver"
+            android:process=":push"
+            />
+
+        <receiver android:name=".util.AlarmReceiver"
+            android:process=":remote">
+        </receiver>
+
+        <service
+            android:name=".services.impl.LocalNotificationService"
+            android:enabled="true" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCFgiezrwP0VGu9pIsbMC52Q61P1P5kUVg" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+    </application>
+
+</manifest>

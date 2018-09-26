@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/background_secondaryaction"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_activity_title"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_logo" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/margin_small"
+                android:text="@string/general_realtime_alerts"
+                android:textColor="@color/textcolor_secondaction"
+                android:textSize="@dimen/textsize_header" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <View
+        android:id="@+id/v_bottom_line"
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+
+        android:layout_alignParentBottom="true"
+        android:background="@color/background_activity_title"/>
+    <ScrollView
+        android:layout_below="@+id/rl_header"
+        android:layout_above="@+id/v_bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/rl_alert_delete_header"
+                android:layout_width="match_parent"
+                android:background="@color/background_light_grey"
+                android:padding="10dp"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_delete_alert"
+                    android:layout_width="120dp"
+                    android:textColor="@color/background_button_secondaction"
+                    android:textSize="@dimen/textsize_least"
+                    android:layout_height="wrap_content"
+                    android:onClick="deleteAllSubscription"
+                    android:padding="5dp"
+                    android:background="@drawable/group_blue_border"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/realtime_alerts_delete_all"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin_default"
+                    android:layout_toLeftOf="@id/btn_delete_alert"
+                    android:text="@string/realtime_alerts_delete_all_describe"
+                    android:layout_alignParentLeft="true"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rl_alert_delete_header"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/ll_alert_delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/padding_default"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

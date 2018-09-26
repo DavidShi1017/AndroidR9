@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+	<!--Used for most UI about button (Done, Search, Call and so on)  -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <gradient
+        android:angle="90"
+        android:endColor="#6CBCEB"
+        android:startColor="#6CBCEB" />
+
+</shape>

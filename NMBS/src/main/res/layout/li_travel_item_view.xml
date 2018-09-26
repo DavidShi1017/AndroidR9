@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_secondaryaction"
+    android:clickable="false"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_light_grey"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_travel_adapter_listtop"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:contentDescription="@null"
+            android:layout_marginLeft="@dimen/margin_default"
+
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_planner_listtop"></ImageView>
+        <RelativeLayout
+            android:layout_width="@dimen/width_delay_time"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            >
+            <TextView
+                android:id="@+id/tv_travel_adapter_origin_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:text="07:56"
+                android:textColor="@color/textcolor_primaryaction"
+                android:textSize="@dimen/textsize_least"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_travel_adapter_origin_delay_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_smaller"
+
+                android:layout_toRightOf="@+id/tv_travel_adapter_origin_time"
+                android:textColor="@color/textcolor_error"
+                android:textSize="@dimen/textsize_least"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/tv_travel_adapter_origin_station_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:text="Harelbekessdfad"
+            android:textColor="@color/textcolor_primaryaction"
+            android:textSize="@dimen/textsize_smaller"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/margin_small"
+
+            android:padding="@dimen/padding_small">
+
+            <TextView
+                android:id="@+id/tv_travel_adapter_ori_station_arrive_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="2a"
+                android:textStyle="bold"
+                android:textSize="@dimen/textsize_least"
+                android:textColor="@color/textcolor_primaryaction" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_top_child"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            >
+
+            <ImageView
+                android:id="@+id/iv_travel_adapter_origin_trainType_list_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:layout_marginLeft="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_planner_listbar"></ImageView>
+
+            <ImageView
+                android:id="@+id/iv_travel_adapter_origin_is_night_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/ic_night"></ImageView>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_travel_adapter_origin_train_icon"
+            android:layout_width="@dimen/width_travel_adapter"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_train_type_ic"
+
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
+            />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:gravity="center_vertical"
+            android:layout_weight="3.5"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/ll_travel_adapter_origin_buytickets"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/dossier_detail_icon"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:src="@drawable/ic_exclamation"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_default"
+                    android:text="@string/dossier_detail_buy_tickets"
+                    android:textColor="@color/textcolor_primaryaction"
+                    android:textSize="@dimen/textsize_least"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_travel_adapter_origin_no_ticket_need"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/margin_default"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/dossier_detail_icon"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:src="@drawable/ic_dossier_no_seperate" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_default"
+                    android:text="@string/dossier_detail_no_ticket_need"
+                    android:textColor="@color/textcolor_primaryaction"
+                    android:textSize="@dimen/textsize_least"/>
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_travel_adapter_origin_walk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+
+                android:textColor="@color/textcolor_primaryaction"
+                android:textSize="@dimen/textsize_least" />
+            <TextView
+                android:id="@+id/tv_travel_adapter_origin_legstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/textcolor_error"
+                android:textSize="@dimen/textsize_least" />
+
+            <LinearLayout
+                android:id="@+id/ll_travel_adapter_origin_train_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/tv_travel_adapter_origin_trainType_and_trainNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/train_info"
+                    android:gravity="center_vertical"
+
+
+                    android:textColor="@color/textcolor_primaryaction"
+                    android:textSize="@dimen/textsize_least" />
+
+                <ScrollView
+                    android:id="@+id/sv_adapter_origin_info_icons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_travel_adapter_origin_train_info_icons"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_mid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_light_grey"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginRight="12dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_planner_listbar"></ImageView>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_pass"></ImageView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/width_delay_time"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_travel_adapter_mid_arrive_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:text="07:56"
+                android:textColor="@color/textcolor_primaryaction"
+                android:textSize="@dimen/textsize_least" />
+
+            <TextView
+                android:id="@+id/tv_travel_adapter_mid_departure_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_travel_adapter_mid_arrive_time"
+                android:layout_gravity="center_vertical"
+
+                android:text="07:56"
+                android:textColor="@color/textcolor_primaryaction"
+                android:textSize="@dimen/textsize_least" />
+
+            <TextView
+                android:id="@+id/tv_travel_adapter_mid_departure_delay_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_travel_adapter_mid_departure_time"
+                android:layout_alignBaseline="@+id/tv_travel_adapter_mid_departure_time"
+
+                android:layout_marginLeft="@dimen/margin_smaller"
+                android:textColor="@color/textcolor_error"
+                android:textSize="@dimen/textsize_smallest"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_travel_adapter_mid_arrive_delay_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_smaller"
+                android:textColor="@color/textcolor_error"
+
+                android:textSize="@dimen/textsize_smallest"
+                android:textStyle="bold"
+                android:layout_alignParentTop="true"
+                android:layout_alignBaseline="@+id/tv_travel_adapter_mid_arrive_time"
+                android:layout_toEndOf="@+id/tv_travel_adapter_mid_arrive_time" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_travel_adapter_mid_station_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:text="Harelbeke"
+            android:textColor="@color/textcolor_primaryaction"
+            android:textSize="@dimen/textsize_smaller" />
+
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="@dimen/margin_small"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_small">
+
+            <TextView
+                android:id="@+id/tv_travel_adapter_mid_station_arrive_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/textsize_smallest"
+                android:text="2" />
+
+            <TextView
+                android:id="@+id/tv_travel_adapter_mid_station_departure_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:textSize="@dimen/textsize_smallest"
+                android:gravity="center"
+                android:text="9" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_mid_child"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            >
+
+            <ImageView
+                android:id="@+id/iv_travel_adapter_mid_list_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:paddingLeft="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_planner_listbar"></ImageView>
+
+            <ImageView
+                android:id="@+id/iv_travel_adapter_mid_is_night_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="7dp"
+                android:src="@drawable/ic_night"></ImageView>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_travel_adapter_mid_trainType_icon"
+            android:layout_width="@dimen/width_travel_adapter"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_train_type_ic"
+
+            android:scaleType="fitStart"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default" />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:gravity="center_vertical"
+            android:layout_weight="3.5"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_travel_adapter_mid_buytickets"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingRight="@dimen/margin_default"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/dossier_detail_icon"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_exclamation"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_default"
+                    android:text="@string/dossier_detail_buy_tickets"
+                    android:textColor="@color/textcolor_primaryaction"
+                    android:textSize="@dimen/textsize_least"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_travel_adapter_mid_no_ticket_need"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/margin_default"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/dossier_detail_icon"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_dossier_no_seperate" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_default"
+                    android:text="@string/dossier_detail_no_ticket_need"
+                    android:textColor="@color/textcolor_primaryaction"
+                    android:textSize="@dimen/textsize_least"/>
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_travel_adapter_mid_walk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/textcolor_primaryaction"
+                android:textSize="@dimen/textsize_least" />
+            <TextView
+                android:id="@+id/tv_travel_adapter_mid_legstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/textcolor_error"
+                android:textSize="@dimen/textsize_smaller" />
+
+            <LinearLayout
+                android:id="@+id/ll_travel_adapter_mid_traininfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/tv_travel_adapter_mid_train_type_numeber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/train_info"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+
+
+                    android:textColor="@color/textcolor_primaryaction"
+                    android:textSize="@dimen/textsize_least" />
+                <ScrollView
+                    android:id="@+id/sv_trainInfo_icons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/ll_travel_adapter_mid_trainInfo_icons"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_light_grey"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:src="@drawable/ic_planner_listbottom"></ImageView>
+
+        <RelativeLayout
+            android:layout_width="@dimen/width_delay_time"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp">
+            <TextView
+                android:id="@+id/tv_travel_adapter_destination_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:text="07:56"
+                android:textColor="@color/textcolor_primaryaction"
+                android:textSize="@dimen/textsize_least"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_travel_adapter_destination_delay_time"
+                android:layout_toRightOf="@+id/tv_travel_adapter_destination_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_smaller"
+
+                android:textColor="@color/textcolor_error"
+                android:textSize="@dimen/textsize_smallest"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_travel_adapter_destination_station_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/margin_small"
+            android:layout_weight="3"
+            android:text="Harelbeke"
+            android:textColor="@color/textcolor_primaryaction"
+            android:textSize="@dimen/textsize_smaller"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/margin_small"
+
+            android:padding="@dimen/padding_small">
+
+            <TextView
+                android:id="@+id/tv_travel_adapter_destination_arrive_platform"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textSize="@dimen/textsize_least"
+                android:textStyle="bold"
+                android:textColor="@color/textcolor_primaryaction" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

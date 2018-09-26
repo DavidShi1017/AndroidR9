@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ticket_child_station_textview_width">150dp</dimen>
+
+
+    <dimen name="home_menu_margin_left">6dp</dimen>
+
+    <dimen name="home_menu_width">82dp</dimen>
+</resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<resources>      
+    <string-array name="ticket_language">
+        <item>English</item>
+        <item>Français</item>
+        <item>Nederlands</item>
+    </string-array>
+
+    <string-array name="settings_start_time">
+        <item>30 min</item>
+        <item>1 uur</item>
+        <item>2 uur</item>
+        <item>4 uur</item>
+        <item>8 uur</item>
+        <item>12 uur</item>
+        <item>24 uur</item>
+        <item>48 uur</item>
+    </string-array>
+
+    <string-array name="settings_time">
+        <item>5 min</item>
+        <item>10 min</item>
+        <item>15 min</item>
+    </string-array>
+
+    <string-array name="phoneNumber_prefix">
+        <item>+54</item>
+        <item>+672</item>
+        <item>+32</item>
+        <item>+55</item>
+        <item>+359</item>
+        <item>+56</item>
+        <item>+86</item>
+        <item>+420</item>
+        <item>+358</item>
+        <item>+33</item>
+        <item>+49</item>
+        <item>+91</item>
+        <item>+39</item>
+        <item>+81</item>
+        <item>+64</item>
+        <item>+47</item>
+        <item>+92</item>
+        <item>+51</item>
+        <item>+48</item>
+        <item>+40</item>
+        <item>+7</item>
+        <item>+375</item>
+        <item>+27</item>
+        <item>+82</item>
+        <item>+34</item>
+        <item>+46</item>
+        <item>+380</item>
+        <item>+44</item>
+        <item>+1</item>
+        <item>+598</item>
+    </string-array>
+
+    <string-array name="phoneNumber_country_logo">
+        <item>@drawable/ic_argentina_number_prefix</item>
+        <item>@drawable/ic_australia_number_prefix</item>
+        <item>@drawable/ic_belgium_number_prefix</item>
+        <item>@drawable/ic_brazil_number_prefix</item>
+        <item>@drawable/ic_bulgaria_number_prefix</item>
+        <item>@drawable/ic_chile_number_prefix</item>
+        <item>@drawable/ic_china_number_prefix</item>
+        <item>@drawable/ic_czech_republic_number_prefix</item>
+        <item>@drawable/ic_finland_number_prefix</item>
+        <item>@drawable/ic_germany_number_prefix</item>
+        <item>@drawable/ic_india_number_prefix</item>
+        <item>@drawable/ic_italy_number_prefix</item>
+        <item>@drawable/ic_france_number_prefix</item>
+        <item>@drawable/ic_japan_number_prefix</item>
+        <item>@drawable/ic_new_zealand_number_prefix</item>
+        <item>@drawable/ic_norway_number_prefix</item>
+        <item>@drawable/ic_pakistan_number_prefix</item>
+        <item>@drawable/ic_peru_number_prefix</item>
+        <item>@drawable/ic_poland_number_prefix</item>
+        <item>@drawable/ic_romania_number_prefix</item>
+        <item>@drawable/ic_russia_number_prefix</item>
+        <item>@drawable/ic_belarus_number_prefix</item>
+        <item>@drawable/ic_south_africa_number_prefix</item>
+        <item>@drawable/ic_south_korea_number_prefix</item>
+        <item>@drawable/ic_spain_number_prefix</item>
+        <item>@drawable/ic_sweden_number_prefix</item>
+        <item>@drawable/ic_ukraine_number_prefix</item>
+        <item>@drawable/ic_united_kingdom_number_prefix</item>
+        <item>@drawable/ic_united_states_number_prefix</item>
+        <item>@drawable/ic_uruguay_number_prefix</item>
+    </string-array>
+
+</resources>  

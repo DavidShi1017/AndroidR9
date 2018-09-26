@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/all_layout_default_background_color"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/tickets_detail_seatlocation_adapter_view_tickets_confirmed"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_asterisk_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.1"
+            android:layout_centerVertical="true"
+            android:text="*"
+            android:textAppearance="@style/small_text_style"
+            android:visibility="invisible"
+            android:textColor="@color/textcolor_error"
+             />
+
+        <ImageView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_logo_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/account_bus"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_asterisk_textview"
+            android:paddingLeft="10dp"
+            android:src="@drawable/ic_train_type" />
+
+        <!-- TextView Group -->
+
+
+        <!-- Top TextView Group -->
+
+        <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_from_station_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_logo_imageview"
+            android:paddingLeft="10dp"
+            android:textColor="@color/departure_return_travel_unselected_text_color"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <!--
+             <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_seperate_station_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_from_station_textview"
+            android:text="@string/group_list_item_tag_middle_line"
+            android:textColor="@color/departure_return_travel_unselected_text_color"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_to_station_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_seperate_station_textview"
+            android:singleLine="true"
+            android:textColor="@color/departure_return_travel_unselected_text_color"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+
+        -->
+
+
+        <!-- Middle TextView Group -->
+
+        <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_departure_label_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_from_station_textview"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_logo_imageview"
+            android:paddingLeft="10dp"
+            android:text="@string/general_departure"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_start_date_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_from_station_textview"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_departure_label_textview"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+        <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_start_seperate_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_from_station_textview"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_start_date_textview"
+            android:text="@string/group_list_item_tag_middle_dot"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+        <RelativeLayout
+            android:id="@+id/tickets_adapter_view_start_time_textview_RelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_from_station_textview"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_start_seperate_textview" >
+
+            <TextView
+                android:id="@+id/tickets_detail_seatlocation_adapter_view_start_time_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="5:56 pm"
+                android:textAppearance="@style/small_text_style"
+                android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+            <View
+                android:id="@+id/cancelled_line"
+                android:layout_width="30dp"
+                android:layout_height="2dp"
+                android:layout_centerVertical="true"
+                android:background="@color/textcolor_error"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tickets_adapter_view_station_state_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_from_station_textview"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_toRightOf="@+id/tickets_adapter_view_start_time_textview_RelativeLayout"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/textcolor_error" />
+
+        <!-- Bottom TextView Group -->
+
+        <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_train_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_start_date_textview"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_logo_imageview"
+            android:paddingLeft="10dp"
+            android:text="@string/general_trainnr"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_train_nr_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_start_date_textview"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_train_name_textview"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_train_name_textview" />
+
+        <com.nmbs.activity.LinearLayoutForListView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_passengers_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_train_name_textview"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_logo_imageview"
+            android:clickable="false"
+            android:orientation="vertical"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_no_seat_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_passengers_list"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_train_name_textview"
+            android:text="@string/ticket_detail_view_no_seat"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color"
+            android:visibility="gone" />
+
+        <!--
+        <LinearLayout 
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_passenger2_LinearLayout"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+             android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_passenger1_LinearLayout"
+             android:orientation="horizontal" android:visibility="gone"
+              android:layout_toRightOf="@+id/tickets_detail_seatlocation_adapter_view_logo_imageview"
+            >
+         <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_passenger2_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+          
+            android:textStyle="bold"
+            
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+         <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_passenger2_coach_number_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+          
+            
+            
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+         <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_coach2_seperate_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           
+            android:layout_marginLeft="10dp"
+            
+            
+            android:text="@string/group_list_item_tag_middle_dot"
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+        <TextView
+            android:id="@+id/tickets_detail_seatlocation_adapter_view_passenger2_seat_number_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+          
+            
+            
+            android:textAppearance="@style/small_text_style"
+            android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
+        </LinearLayout>
+
+
+
+        -->
+
+    </RelativeLayout>
+
+</LinearLayout>

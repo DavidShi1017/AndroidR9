@@ -1,0 +1,18 @@
+{
+  "Stations": [
+    {
+      "Code": "FRPCU",
+      "Name": "Marne la Vallee - Chessy (Fr) RER",
+      "Enabled": "1",
+      "Synoniem": "Marne la Vallee - Chessy (Fr) RER",
+      "Query": "Marne la Vallee - Chessy (Fr) RER Marne la Vallee - Chessy (Fr) RER"
+    },
+    {
+      "Code": "FRZGV",
+      "Name": "Aéroport Charles De Gaulle TGV (Fr) RER",
+      "Enabled": "1",
+      "Synoniem": "Aéroport Charles De Gaulle TGV (Fr) RER",
+      "Query": "Aéroport Charles De Gaulle TGV (Fr) RER Aéroport Charles De Gaulle TGV (Fr) RER"
+    }
+  ]
+}
