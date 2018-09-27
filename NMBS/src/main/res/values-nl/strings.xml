@@ -58,7 +58,7 @@
   <string name="alert_register_error_title_empty">Selecteer een aanspreektitel</string>
   <string name="alert_time_select_wrong">U kan geen datum uit het verleden kiezen.</string>
   <string name="alert_station_data_wrong">Uw gegevens zijn verkeerd ingegeven. Gelieve opnieuw te proberen.</string>
-  <string name="app_name">Internationaal</string>
+  <string name="app_name">International</string>
   <string name="tab_home">Home</string>
   <string name="tab_planner">Boeken</string>
   <string name="tab_cities">Steden</string>
