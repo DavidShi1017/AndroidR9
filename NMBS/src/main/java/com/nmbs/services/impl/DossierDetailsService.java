@@ -7,6 +7,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -15,6 +16,7 @@ import android.util.Log;
 
 
 import com.nmbs.R;
+import com.nmbs.activities.PDFViewActivity;
 import com.nmbs.adapter.PDFsAdapter;
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.async.AutoRetrievalDossiersTask;
@@ -355,15 +357,15 @@ public class DossierDetailsService {
 
     private void openPdf(File file){
         if (file.exists()) {
-            Uri path = Uri.fromFile(file);
+            /*Uri path = Uri.fromFile(file);
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(path, "application/pdf");
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);*/
+            context.startActivity(PDFViewActivity.createIntent(context, file, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT));
             try {
-                context.startActivity(intent);
+                //context.startActivity(intent);
             } catch (ActivityNotFoundException e) {
-                //Log.e(TAG, "ActivityNotFoundException, Open PDF Failed", e);
+                Log.e(TAG, "ActivityNotFoundException, Open PDF Failed", e);
             }
         } else {
             //Toast.makeText(applicationContext, applicationContext.getString(R.string.alert_status_service_not_available), Toast.LENGTH_SHORT).show();

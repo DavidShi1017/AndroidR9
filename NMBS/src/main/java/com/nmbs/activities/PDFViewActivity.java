@@ -88,6 +88,8 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        final int SCREEN_ORIENTATION = getIntent().getIntExtra(ActivityConstant.SCREEN_ORIENTATION, 0);
+        setRequestedOrientation(SCREEN_ORIENTATION);
         setContentView(R.layout.activity_pdf_view);
         ActivityCompat.requestPermissions(
                 this,
@@ -260,11 +262,12 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
         }
     }
 
-    public static Intent createIntent(Context context, File file){
+    public static Intent createIntent(Context context, File file, int screenOrientation){
         Intent intent = new Intent(context, PDFViewActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(ActivityConstant.LOCAL_PDF_URL, file);
-
+        intent.putExtra(ActivityConstant.SCREEN_ORIENTATION, screenOrientation);
         return intent;
     }
 

@@ -2,6 +2,7 @@ package com.nmbs.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -239,11 +240,11 @@ public class StationInfoDetailActivity extends BaseActivity {
         Log.d("openPDF", "openPDF===" + file);
 
         if (file != null && file.exists()) {
-            startActivity(PDFViewActivity.createIntent(getApplicationContext(), file));
+            startActivity(PDFViewActivity.createIntent(getApplicationContext(), file, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE));
         } else {
             file = stationInfoService.getStationFloorPlan(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
             if (file != null && file.exists()) {
-                startActivity(PDFViewActivity.createIntent(getApplicationContext(), file));
+                startActivity(PDFViewActivity.createIntent(getApplicationContext(), file, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE));
             }
             //Toast.makeText(applicationContext, applicationContext.getString(R.string.alert_status_service_not_available), Toast.LENGTH_SHORT).show();
         }
