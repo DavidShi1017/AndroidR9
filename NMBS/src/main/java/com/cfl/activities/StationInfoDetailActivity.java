@@ -96,16 +96,22 @@ public class StationInfoDetailActivity extends BaseActivity {
             }else{
                 llMap.setVisibility(View.GONE);
             }*/
-            //Log.d("StationInfo", "stationInfo..." + stationInfo.getName());
-            File file = stationInfoService.getStationFloorPlan(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
+            Log.d("StationInfo", "stationInfo..." + stationInfo.getName());
+            File file = stationInfoService.getStationPDF(stationInfo);
+            Log.d("StationInfo", "file..." + file);
+            Log.d("StationInfo", "URL..." + stationInfo.getFloorPlanDownloadURL());
             if (file == null || !file.exists()) {
                 file = stationInfoService.getStationFloorPlan(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
                 if (file == null || !file.exists()) {
                     btnPdf.setVisibility(View.GONE);
                 }
+            }else{
+                btnPdf.setVisibility(View.VISIBLE);
             }
-            if(stationInfo.getFloorPlanDownloadURL() == null || !stationInfo.getFloorPlanDownloadURL().isEmpty()){
+            if(stationInfo.getFloorPlanDownloadURL() == null || stationInfo.getFloorPlanDownloadURL().isEmpty()){
                 btnPdf.setVisibility(View.GONE);
+            }else{
+                btnPdf.setVisibility(View.VISIBLE);
             }
             this.stationName.setText(this.stationInfo.getName());
             //stationInfo.setStations(null);
@@ -237,7 +243,7 @@ public class StationInfoDetailActivity extends BaseActivity {
     }
 
     public void openPDF(View view){
-        File file = stationInfoService.getStationFloorPlan(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
+        File file = stationInfoService.getStationPDF(stationInfo);
         Log.d("openPDF", "openPDF===" + file);
 
         if (file != null && file.exists()) {

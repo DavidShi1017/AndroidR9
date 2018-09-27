@@ -190,7 +190,7 @@ public class DossierDetailActivity extends BaseActivity {
 
             for(DossierTravelSegment dossierTravelSegment : dossier.getTravelSegments()){
                 if(dossierTravelSegment != null){
-                    //Log.e("", "" + dossierTravelSegment.getSortedDate())
+
                     if(!codes.contains(dossierTravelSegment.getOriginStationRcode())){
                         codes.add(dossierTravelSegment.getOriginStationRcode());
                     }
@@ -198,7 +198,7 @@ public class DossierDetailActivity extends BaseActivity {
                         codes.add(dossierTravelSegment.getDestinationStationRcode());
                     }
                     texts = dossierDetailsService.getStationsIsVirtualTextFromSegment(dossierTravelSegment, texts);
-
+                    //Log.e("", "" + texts);
                     //Log.e(TAG, "shouldRefresh...key..." + shouldRefresh);
                 }
             }
@@ -215,6 +215,7 @@ public class DossierDetailActivity extends BaseActivity {
                     segmentMap.put(stationIsVirtualText.getStationCode(), stationIsVirtualText);
                 }
             }
+            llDossierStationInfoTexts.setVisibility(View.VISIBLE);
             llDossierStationInfoTexts.removeAllViews();
             dossierDetailStationInfoTextAdapter = new DossierDetailStationInfoTextAdapter(this);
             if(segmentMap.size() > 0){
@@ -256,6 +257,7 @@ public class DossierDetailActivity extends BaseActivity {
             StationInfoResponse stationInfoResponse = stationInfoService.getStationInfoResponseInLocal(getApplicationContext());
             List<StationInfo> stationInfos = dossierDetailsService.getStationInfoFromDossier(stationInfoResponse, codes);
             llDossierStationInfoNames.removeAllViews();
+            Log.e("StationInfo", "codes------->" + codes.size());
             dossierDetailStationInfoAdapter = new DossierDetailStationInfoNameAdapter(this);
             for(StationInfo stationInfo : stationInfos){
                 if(stationInfo != null){

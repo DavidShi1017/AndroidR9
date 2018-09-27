@@ -68,7 +68,7 @@ public class StationInfoDataService implements IStationInfoDataService {
                     saveLastModifiedTime(context, lastModified.get(urlString));
                 }
                 FileManager.getInstance().createExternalStoragePrivateFileFromString(context, FileManager.FOLDER_FILE, FileConstant.FILE_STATION_INFO, stringHttpResponse);
-                downloadPdf(context, stationInfoResponse, true, language);
+                downloadPdf(context, stationInfoResponse, false, language);
 
             }else{
                 stringHttpResponse = FileManager.getInstance().readExternalStoragePrivateFile(context, FileManager.FOLDER_FILE, FileConstant.FILE_STATION_INFO);
@@ -132,15 +132,15 @@ public class StationInfoDataService implements IStationInfoDataService {
             //InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dossierId, inputStream));
             //InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dossierId, inputStream));
 							/*httpDownloader.downloadNetworkFile(urlString, FileManager.getInstance().getFilePath("/pdfpath/"),fileName + ".pdf");  */
-            //Log.d("StationInfo", "The folder name is......" + dossierId);
-            //Log.d("StationInfo", "The File name is......" + fileName);
+            Log.d("StationInfo", "The folder name is......" + dossierId);
+            Log.d("StationInfo", "The File name is......" + fileName);
             FileManager.getInstance().createExternalStoragePrivateFile(context, inputStream, "StationFloor", fileName);
             isFinished = true;
         } catch (Exception e) {
             isFinished = false;
             e.printStackTrace();
         }
-        //Log.e("StationInfo", "isFinished......" + isFinished);
+        Log.e("StationInfo", "isFinished......" + isFinished);
         return isFinished;
     }
 
@@ -210,7 +210,6 @@ public class StationInfoDataService implements IStationInfoDataService {
                 //Log.e("StationInfo", "Starting Pdf file name......" + fileName );
                 //Log.e("StationInfo", "Starting Pdf file urlString......" + pdfUrl );
                 //Log.e("StationInfo", "isStore......" + isStore );
-
                 final String code = codes.get(i);
                 if (!hasThisFile) {
                     new Thread() {
@@ -230,11 +229,10 @@ public class StationInfoDataService implements IStationInfoDataService {
                                 boolean isFinished = download(context, pdfUrl, "StationFloor", fileName);
                                 if (!isFinished){
                                     FileManager.getInstance().deleteExternalStoragePrivateFile(context, "StationFloor", fileName);
+                                    download(context, pdfUrl, "StationFloor", fileName);
                                 }
                                 //Log.d("StationInfo", "isFinished......" + isFinished );
                             }
-
-
                         }
                     }.start();
                 }
@@ -244,11 +242,11 @@ public class StationInfoDataService implements IStationInfoDataService {
     }
 
     public File getStationPdf(Context context, StationInfo stationInfo){
-        //Log.d("StationInfo", "getStationPdf...stationInfo..." + stationInfo.getName());
+        Log.d("StationInfo", "getStationPdf...stationInfo..." + stationInfo.getName());
         File file = null;
         if(stationInfo != null){
             String pdf = stationInfo.getFloorPlanDownloadURL();
-            //Log.d("StationInfo", "getStationPdf...pdf..." + pdf);
+            Log.d("StationInfo", "getStationPdf...pdf..." + pdf);
             int index = pdf.lastIndexOf(".");
             if(pdf.length() > 0){
                 pdf = pdf.substring(0, index);
@@ -259,6 +257,7 @@ public class StationInfoDataService implements IStationInfoDataService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            Log.d("StationInfo", "getStationPdf...fileName..." + fileName);
             file = FileManager.getInstance().getExternalStoragePrivateFile(context, "StationFloor", fileName);
         }
        return file;

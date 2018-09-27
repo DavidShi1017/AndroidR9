@@ -4,32 +4,97 @@
       "Code": "LULUX",
       "Name": "Luxembourg",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "",
-      "MoreDetailsURL": "https://www.go-emma.com?affiliation=App&utm_campaign=cfl_app&utm_medium=referral_app&utm_source=cfl_app",
+      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/LULUX/Map_Gare-de-Luxembourg.ashx",
+      "MoreDetailsURL": "",
       "Longitude": "6.133923",
       "Latitude": "49.600024",
       "Street": "Place de la Gare",
       "Number": "11",
       "PostalCode": "1616",
-      "City": "Luxembourg",
+      "City": "Luxembourg ",
       "Country": "Luxembourg",
       "StationInfos": [
         {
-          "Title": "LULUX train station",
-          "Content": "LULUX  train station, served by Thalys, Eurostar, TGV®, and ICE trains, is the ideal starting point for your journeys to Germany, France, The Netherlands, Luxembourg and the United Kingdom and connects travellers to the entire Belgian domestic railway network.",
+          "Title": "Services d'information",
+          "Content": "La gare centrale de Luxembourg est le point de départ idéal pour vos voyages vers l’Allemagne, la Belgique, la France ou vers d’autres destinations en Europe. Embarquez à bord du TGV vers Paris, Strasbourg, Montpellier ou Marseille.",
+          "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Luxembourg.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Parking",
+          "Content": "Parking couvert. Overt 24/7.",
+          "Address": "Place de la gare, L-1616 Luxembourg",
+          "Latitude": "49.5991488",
+          "Longitude": "6.131214"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wi-Fi"
+        },
+        {
+          "Title": "Magasins"
+        },
+        {
+          "Title": "Distributeurs d'argent"
+        },
+        {
+          "Title": "Aménagements pour les personnes à mobilité réduite"
+        },
+        {
+          "Title": "Restaurants"
+        },
+        {
+          "Title": "Auto partage"
+        },
+        {
+          "Title": "Taxi"
+        },
+        {
+          "Title": "Salle d'attente"
+        },
+        {
+          "Title": "Transports publics"
+        },
+        {
+          "Title": "Consigne de bagages"
+        },
+        {
+          "Title": "Toilettes et douches"
+        }
+      ]
+    },
+    {
+      "Code": "BEBMI",
+      "Name": "Bruxelles-Midi",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Bruxelles-Midi_FR",
+      "MoreDetailsURL": "",
+      "Longitude": "4.333527",
+      "Latitude": "50.8357532",
+      "Street": "Rue de France",
+      "Number": "",
+      "PostalCode": "1060",
+      "City": "Bruxelles",
+      "Country": "Belgique",
+      "StationInfos": [
+        {
+          "Title": "La gare de Bruxelles-Midi",
+          "Content": "La gare de Bruxelles-Midi, desservie par Thalys, Eurostar, TGV®, ICE et InterCity, est le point de départ idéal vers l'Allemagne, la France, les Pays-Bas, le Luxembourg et la Grande-Bretagne, mais elle est également reliée à l'ensemble du réseau belge.",
           "Image": ""
         },
         {
-          "Title": "LULUX Travel and tourist information services",
-          "Content": "LULUX At Bruxelles-Midi/Brussel-Zuid train station, you'll find several information desks for domestic and international travel, as well as an international Thalys info desk and a a Brussels Tourist Office desk.",
+          "Title": "Services d'information",
+          "Content": "Il existe différents points d'information dans l'enceinte de la gare. Vous y trouverez plusieurs stands d'information pour le trafic national et international. A la gare de Bruxelles-Midi, il y a aussi un stand d'information Thalys spécifique et un bureau de l'Office du Tourisme bruxellois.",
           "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
         }
       ],
       "Parkings": [
         {
           "Title": "Q-Park \"Gare du Midi\"",
-          "Content": "Direct access to LULUX train station. Open 24/7.",
-          "Address": "40, Rue de France, 1060 Brussels",
+          "Content": "Accès direct à la gare de Bruxelles-Midi. Ouvert 24h/24 et 7j/7.",
+          "Address": "Rue de France 40, 1060 Bruxelles",
           "Latitude": "50.834617",
           "Longitude": "4.3307218"
         }
@@ -39,25 +104,379 @@
           "Title": "Wi-Fi"
         },
         {
-          "Title": "Waiting rooms and lounges"
+          "Title": "Salles d'attente et salons"
         },
         {
-          "Title": "Miscellaneous shops (clothing, souvenirs,...)"
+          "Title": "Magasins"
         },
         {
-          "Title": "Cash machines"
+          "Title": "Distributeurs automatiques de billets"
         },
         {
-          "Title": "Facilities for mobility-impaired passengers"
+          "Title": "Aménagements pour les personnes à mobilité réduite"
         },
         {
-          "Title": "Restaurants, bars and cafés"
+          "Title": "Restaurants"
         },
         {
-          "Title": "Toilets"
+          "Title": "Location de voitures et de vélos"
         },
         {
-          "Title": "Car rental and bicycle hire"
+          "Title": "Taxi"
+        },
+        {
+          "Title": "Transports publics"
+        },
+        {
+          "Title": "Toilettes"
+        }
+      ]
+    },
+    {
+      "Code": "DEDUH",
+      "Name": "Düsseldorf Hbf",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEDUH/MAP_Duesseldorf.ashx",
+      "MoreDetailsURL": "",
+      "Longitude": "6.7929443",
+      "Latitude": "51.2202453",
+      "Street": "",
+      "Number": "",
+      "PostalCode": "",
+      "City": "",
+      "Country": "",
+      "StationInfos": [
+        {
+          "Title": "Services d'information",
+          "Content": "La gare de Düsseldorf est située le long de la ligne ferroviaire la plus fréquentée de l’Allemagne.\r\nPlus de 300 trains régionaux et intercités s’y arrêtent au cours de la journée.\r\n",
+          "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Duesseldorf.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Vorplatz Düsseldorf Hbf ",
+          "Content": "Ouvert 24h/24 et 7j/7",
+          "Address": "Konrad-Adenauer-Platz 13-14, 40227 Düsseldorf",
+          "Latitude": "51.2196071",
+          "Longitude": "6.7890726"
+        },
+        {
+          "Title": "Parkhaus am Hauptbahnhof",
+          "Content": "Ouvert 24h/24 et 7j/7",
+          "Address": "Charlottenstr. 62, 40210 Düsseldorf",
+          "Latitude": "51.2216162",
+          "Longitude": "6.7861244"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wi-Fi"
+        },
+        {
+          "Title": "Magasins"
+        },
+        {
+          "Title": "Aménagements pour les personnes à mobilité réduite"
+        },
+        {
+          "Title": "Location de voitures"
+        },
+        {
+          "Title": "Salle d'attente"
+        },
+        {
+          "Title": "DB Lounge"
+        },
+        {
+          "Title": "Consigne de bagages"
+        },
+        {
+          "Title": "Taxi"
+        },
+        {
+          "Title": "Transports publics"
+        },
+        {
+          "Title": "Toilettes"
+        }
+      ]
+    },
+    {
+      "Code": "FRPST",
+      "Name": "Paris Est",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPST/MAP_Paris-est.ashx",
+      "MoreDetailsURL": "",
+      "Longitude": "2.3562452",
+      "Latitude": "48.876389",
+      "Street": "",
+      "Number": "",
+      "PostalCode": "",
+      "City": "",
+      "Country": "",
+      "StationInfos": [
+        {
+          "Title": "Services d'information",
+          "Content": "La gare de Paris-Est est l'une des six grandes gares terminus de la capitale française. Elle se trouve à proximité de la gare du Nord.",
+          "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/PARIS.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Parking \"P1\"",
+          "Content": "Entrée du parking depuis la rue du 8 Mai 1945.",
+          "Address": "Rue du 8 Mai 1945, 75010 Paris",
+          "Latitude": "48.876389",
+          "Longitude": "2.3562452"
+        },
+        {
+          "Title": "Parking \"P2 Saint Martin\"",
+          "Content": "Entrée du parking depuis la rue du Faubourg Saint-Martin.",
+          "Address": "Rue du Faubourg Saint-Martin., 75010 Paris",
+          "Latitude": "48.876389",
+          "Longitude": "2.3562452"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wi-Fi"
+        },
+        {
+          "Title": "Magasins"
+        },
+        {
+          "Title": "Restaurants"
+        },
+        {
+          "Title": "Aménagements pour les personnes à mobilité réduite"
+        },
+        {
+          "Title": "Consigne de bagages"
+        },
+        {
+          "Title": "Transports publics"
+        },
+        {
+          "Title": "Salle d'attente"
+        },
+        {
+          "Title": "Distributeurs automatiques de billets"
+        },
+        {
+          "Title": "Taxi"
+        },
+        {
+          "Title": "Location de voitures"
+        },
+        {
+          "Title": "Toilettes"
+        }
+      ]
+    },
+    {
+      "Code": "FRAEG",
+      "Name": "Strasbourg",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRAEG/MAP_Strasbourg.ashx",
+      "MoreDetailsURL": "",
+      "Longitude": "7.7325305",
+      "Latitude": "48.5864966",
+      "Street": "",
+      "Number": "",
+      "PostalCode": "",
+      "City": "",
+      "Country": "",
+      "StationInfos": [
+        {
+          "Title": "Services d'information",
+          "Content": "La gare de Strasbourg offre aux voyageurs un grand nombre de relations à destination d’autres régions en France.",
+          "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Strasbourg.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Parking courte durée",
+          "Content": "Ouvert 24/7",
+          "Address": "20, place de la gare, 67000 Strasbourg",
+          "Latitude": "48.5850036",
+          "Longitude": "7.7321784"
+        },
+        {
+          "Title": "Parking courte durée",
+          "Content": "Ouvert 24/7",
+          "Address": "20, place de la gare, 67000 Strasbourg",
+          "Latitude": "48.5828334",
+          "Longitude": "7.7305166"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wi-Fi"
+        },
+        {
+          "Title": "Magasins"
+        },
+        {
+          "Title": "Restaurants"
+        },
+        {
+          "Title": "Aménagements pour les personnes à mobilité réduite"
+        },
+        {
+          "Title": "Consigne de bagages"
+        },
+        {
+          "Title": "Transports publics"
+        },
+        {
+          "Title": "Salle d'attente"
+        },
+        {
+          "Title": "Taxi"
+        },
+        {
+          "Title": "Location de voitures"
+        },
+        {
+          "Title": "Toilettes"
+        }
+      ]
+    },
+    {
+      "Code": "FRMPL",
+      "Name": "Montpellier",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "",
+      "MoreDetailsURL": "",
+      "Longitude": "3.8942964",
+      "Latitude": "43.599435",
+      "Street": "",
+      "Number": "",
+      "PostalCode": "",
+      "City": "",
+      "Country": "",
+      "StationInfos": [
+        {
+          "Title": "Services d'information",
+          "Content": "La gare de Montpellier Saint-Roch constitue une des gares les plus importantes dans le sud de la France. Elle est gare terminus de plusieurs lignes TGV. La gare est desservie par TGV journalier direct au départ de Luxembourg.",
+          "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Montpellier.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "Parking \"Saint-Roch\"",
+          "Content": "Ouvert 24h/24 et 7j/7",
+          "Address": "101, rue Alexandra David Néel, 34011 Montpellier",
+          "Latitude": "43.6039452",
+          "Longitude": "3.877285"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wi-Fi"
+        },
+        {
+          "Title": "Magasins"
+        },
+        {
+          "Title": "Restaurants"
+        },
+        {
+          "Title": "Aménagements pour les personnes à mobilité réduite"
+        },
+        {
+          "Title": "Consigne de bagages"
+        },
+        {
+          "Title": "Transports publics"
+        },
+        {
+          "Title": "Salle d'attente"
+        },
+        {
+          "Title": "Distributeurs automatiques de billets"
+        },
+        {
+          "Title": "Auto partage"
+        },
+        {
+          "Title": "Taxi"
+        },
+        {
+          "Title": "Location de voitures"
+        },
+        {
+          "Title": "Banque, Change"
+        },
+        {
+          "Title": "Toilettes"
+        }
+      ]
+    },
+    {
+      "Code": "GBSPX",
+      "Name": "London St Pancras International",
+      "OpeningHours": "",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_FR",
+      "MoreDetailsURL": "",
+      "Longitude": "-0.125468",
+      "Latitude": "51.53022",
+      "Street": "Euston Road",
+      "Number": "",
+      "PostalCode": "N1C 4QP",
+      "City": "Londres",
+      "Country": "Royaume Uni",
+      "StationInfos": [
+        {
+          "Title": "Gare de London St Pancras International",
+          "Content": "La gare de London St Pancras International est la gare principale ferroviaire du Royaume-Uni où se terminent les lignes ferroviaires nationales et où débutent les liaisons internationales Eurostar vers le continent.",
+          "Image": ""
+        },
+        {
+          "Title": "Services d'information",
+          "Content": "A la gare de London St Pancras International (Londres), il existe différents point d'information, comme des stands d'information pour le trafic national et international.",
+          "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Londres.ashx"
+        }
+      ],
+      "Parkings": [
+        {
+          "Title": "St Pancras International Parking",
+          "Content": "Parking à proximité de London St Pancras International. Ouvert 24h/24 et 7j/7.",
+          "Address": "Pancras Road, Londen, N1C 4TB",
+          "Latitude": "51.5334761",
+          "Longitude": "-0.1308258"
+        }
+      ],
+      "StationFacilities": [
+        {
+          "Title": "Wi-Fi"
+        },
+        {
+          "Title": "Salles d'attente et salons"
+        },
+        {
+          "Title": "Magasins"
+        },
+        {
+          "Title": "Distributeurs automatiques de billets"
+        },
+        {
+          "Title": "Aménagements pour les personnes à mobilité réduite"
+        },
+        {
+          "Title": "Restaurants"
+        },
+        {
+          "Title": "Location de voitures et de vélos"
+        },
+        {
+          "Title": "Taxi"
+        },
+        {
+          "Title": "Transports publics"
+        },
+        {
+          "Title": "Toilettes"
         }
       ]
     }
