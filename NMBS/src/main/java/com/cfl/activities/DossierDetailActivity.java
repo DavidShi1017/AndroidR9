@@ -198,10 +198,13 @@ public class DossierDetailActivity extends BaseActivity {
                         codes.add(dossierTravelSegment.getDestinationStationRcode());
                     }
                     texts = dossierDetailsService.getStationsIsVirtualTextFromSegment(dossierTravelSegment, texts);
-                    boolean shouldRefresh = dossierDetailsService.shouldRefresh(realTimeInfoRequestParameter, dossierTravelSegment, null);
+
                     //Log.e(TAG, "shouldRefresh...key..." + shouldRefresh);
-                    dossierDetailTicketAdapter.getTravelSegmentView(dossierTravelSegment, llDossierTravelSegments, dossier, dossierSummary, shouldRefresh, realTimeInfoRequestParameter);
                 }
+            }
+            for(DossierTravelSegment dossierTravelSegment : dossier.getParentTravelSegments()){
+                boolean shouldRefresh = dossierDetailsService.shouldRefresh(realTimeInfoRequestParameter, dossierTravelSegment, null);
+                dossierDetailTicketAdapter.getTravelSegmentView(dossierTravelSegment, llDossierTravelSegments, dossier, dossierSummary, shouldRefresh, realTimeInfoRequestParameter);
             }
             /*for (String code : codes) {
                 Log.e("StationInfo", "codes----is--->" + code);
