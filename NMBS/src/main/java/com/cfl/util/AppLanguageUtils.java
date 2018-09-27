@@ -15,8 +15,6 @@ import android.util.Log;
 import com.cfl.R;
 import com.cfl.application.NMBSApplication;
 
-import org.apache.commons.lang.StringUtils;
-
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -49,9 +47,9 @@ public class AppLanguageUtils {
 
         }else{
             String defaultLanguage = Locale.getDefault().getLanguage();
-            if(StringUtils.equalsIgnoreCase("FR", defaultLanguage)){
+            if("FR".equalsIgnoreCase(defaultLanguage)){
                 newLanguage = "FR_BE";
-            }else if(StringUtils.equalsIgnoreCase("DE", defaultLanguage)){
+            }else if("FR".equalsIgnoreCase(defaultLanguage)){
                 newLanguage = "DE_BE";
             }else{
                 newLanguage = "EN_GB";
