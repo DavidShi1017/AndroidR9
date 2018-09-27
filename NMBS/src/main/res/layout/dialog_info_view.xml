@@ -56,7 +56,7 @@
         android:id="@+id/btn_dialog_alert_close"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_view_button"
+        android:background="@color/background_button_primaryaction"
         android:text="@string/general_close"
         android:textSize="@dimen/textsize_medium"
         android:textColor="@color/textcolor_secondaction" />

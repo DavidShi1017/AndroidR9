@@ -1,57 +1,43 @@
 {
-  "WizardItems":[
+  "WizardItems": [
     {
-      "Title":"Welcome",
-      "Description":"Discover the restyled SNCB International app and explore its many new features which will assist you during your train journey: get push notifications with real-time info about your trip, book your tickets on our mobile site and upload them into the app, stay updated on our latest offers, check the fare calendar for the lowest fares to our top destinations,... and much more. Have a nice trip!",
-      "HighResImage":"WizardWelcome",
-      "LowResImage":"WizardWelcome",
-      "AreaTitle":"",
-      "AreaIcon":"icon-ico-beurope-reduction",
-      "NewInRelease":true,
-      "Context":[
+      "Title": "Welcome",
+      "Description": "Discover the restyled CFL app and explore its many new features which will assist you during your train journey: get push notifications with real-time info about your trip, book your tickets on our mobile site and upload them into the app, stay updated on our latest offers, check the fare calendar for the lowest fares to our top destinations,... and much more. Have a nice trip!",
+      "HighResImage": "WizardWelcome",
+      "LowResImage": "WizardWelcome",
+      "AreaTitle": "",
+      "AreaIcon": "icon-ico-beurope-reduction",
+      "NewInRelease": true,
+      "Context": [
         "HOME"
       ]
     },
     {
-      "Title":"New: real-time travel info",
-      "Description":"From now on, you'll also receive real-time info about your upcoming trips, so you'll always have the latest travel info. Among other things, our app will inform you about potential delays or cancellations of thousands of trains throughout Europe, about specific travel info based on a train station or booking reference, or info relevant to your journey. You can easily manage your notifications via \"Real-time alerts\", where you'll be able to decide which push notifications you'd like to receive.",
-      "HighResImage":"wizardRealTime",
-      "LowResImage":"wizardRealTime",
-      "AreaTitle":"",
-      "AreaIcon":"icon-ico-beurope-reduction",
-      "NewInRelease":true,
-      "Context":[
-        "HOME"
-      ]
-    },
-    {
-      "Title":"Real-time help",
-      "Description":"To add your booking to the app, you'll need your booking reference. This booking reference (DNR) is a 7-letter code which you can find on the confirmation page or in your confirmation email. Add a ticket by entering the booking reference (DNR) and the email address used to make the booking. You'll find all ticket info for each booking reference number (DNR) via \"My tickets\".",
-      "HighResImage":"wizardHelp",
-      "LowResImage":"wizardHelp",
-      "AreaTitle":"MyTickets",
-      "AreaIcon":"icon-icoTrainTicket",
-      "NewInRelease":true,
-      "Context":[
+      "Title": "Real-time help",
+      "Description": "To add your booking to the app, you'll need your booking reference. This booking reference (DNR) is a 7-letter code which you can find on the confirmation page or in your confirmation email. Add a ticket by entering the booking reference (DNR) and the email address used to make the booking. You'll find all ticket info for each booking reference number (DNR) via \"My tickets\".",
+      "HighResImage": "wizardHelp",
+      "LowResImage": "wizardHelp",
+      "AreaTitle": "MyTickets",
+      "AreaIcon": "icon-icoTrainTicket",
+      "NewInRelease": false,
+      "Context": [
         "MYTICKETS",
         "HOME"
       ]
     },
     {
-      "Title":"New booking system",
-      "Description":"Not only has our app been completely restyled, our booking system has also been optimised for mobile users. Book your tickets on our mobile site, easily upload them into the app within seconds and then view all your booking details in the app.",
-      "HighResImage":"wizardNewBooking",
-      "LowResImage":"wizardNewBooking",
-      "AreaTitle":"MyTickets",
-      "AreaIcon":"icon-icoTrainTicket",
-      "NewInRelease":true,
-      "Context":[
+      "Title": "New booking system",
+      "Description": "Not only has our app been completely restyled, our booking system has also been optimised for mobile users. Book your tickets on our mobile site, easily upload them into the app within seconds and then view all your booking details in the app.",
+      "HighResImage": "wizardNewBooking",
+      "LowResImage": "wizardNewBooking",
+      "AreaTitle": "MyTickets",
+      "AreaIcon": "icon-icoTrainTicket",
+      "NewInRelease": false,
+      "Context": [
         "HOME"
       ]
     }
   ],
-  "Messages":[
-  ],
-  "DebugMessages":[
-  ]
+  "Messages": [],
+  "DebugMessages": []
 }

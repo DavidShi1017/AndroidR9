@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:padding="@dimen/padding_default"
-        android:background="@color/background_menu_home">
+        android:background="@color/background_view_button">
 
         <Button
             android:layout_width="match_parent"
@@ -76,7 +76,7 @@
 
     </LinearLayout>
 
-    <com.nmbs.activities.view.MyViewPager
+    <com.cfl.activities.view.MyViewPager
         android:id="@+id/vf_ticket_detail_view_pager"
         android:layout_width="match_parent"
         android:layout_below="@id/rl_tickets_detail_header"

@@ -4,7 +4,7 @@
       "Title": "Hilfe in Echzeit",
       "Description": "Um Ihre Buchung in die App hochzuladen, benötigen Sie Ihre Buchungsreferenz. Die Buchungsreferenz (DNR) besteht aus 7 Buchstaben und befindet sich auf der Buchungsbestätigungs-Seite oder -E-Mail. Um Ihr Ticket hochzuladen, geben Sie bitte die DNR-Referenz und die E-Mail-Adresse ein, die Sie für die Buchung benutzt haben. Sie finden alle Reiseinformation sortiert nach DNR-Nummer unter “Meine Tickets”. \r\n",
       "HighResImage": "wizardHelp",
-      "LowResImage": "/~/media/ImagesNew/Mobile/wizardHelp.ashx?sc=0.5",
+      "LowResImage": "wizardHelp",
       "AreaTitle": "",
       "AreaIcon": "icon-icoTrainTicket",
       "NewInRelease": true,

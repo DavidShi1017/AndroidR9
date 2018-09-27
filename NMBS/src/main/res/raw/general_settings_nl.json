@@ -19,10 +19,6 @@
         "AllowContextRegistration": true,
         "InsuranceConditionsPdf": "https://www.b-europe.com/Media/files/touring/Touring_Conditions_NL.pdf"
     },
-    "Messages": [
-
-    ],
-    "DebugMessages": [
-
-    ]
+    "Messages": [],
+    "DebugMessages": []
 }

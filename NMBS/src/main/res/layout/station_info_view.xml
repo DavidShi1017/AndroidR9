@@ -165,7 +165,7 @@
                 android:textColor="@color/departure_return_travel_unselected_text_color"
                 android:textStyle="bold" />
 
-            <com.nmbs.activity.LinearLayoutForListView
+            <com.cfl.activity.LinearLayoutForListView
                 android:id="@+id/station_info_view_station_facilities_list"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
                 android:textColor="@color/departure_return_travel_unselected_text_color"
                 android:textStyle="bold" />
 
-            <com.nmbs.activity.LinearLayoutForListView
+            <com.cfl.activity.LinearLayoutForListView
                 android:id="@+id/station_info_view_station_parkings_list"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -206,7 +206,7 @@
                 android:orientation="vertical"
                 android:visibility="visible" />
 
-            <com.nmbs.activity.LinearLayoutForListView
+            <com.cfl.activity.LinearLayoutForListView
                 android:id="@+id/station_info_view_station_textblocks_list"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

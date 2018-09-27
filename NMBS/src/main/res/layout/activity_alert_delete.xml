@@ -13,10 +13,14 @@
         android:layout_height="wrap_content"
         android:background="@color/background_activity_title"
         android:padding="10dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
+        <com.cfl.activities.view.FitImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:onClick="close"
             android:src="@drawable/ic_logo" />
 
         <RelativeLayout

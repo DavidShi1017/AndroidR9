@@ -18,9 +18,12 @@
         android:background="@color/background_activity_title"
         android:padding="10dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <com.cfl.activities.view.FitImageView
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
             android:onClick="close"
             android:src="@drawable/ic_logo" />
 
@@ -197,6 +200,7 @@
             <!--UTOMATIC UPDATES -->
 
             <LinearLayout
+                android:id="@+id/ll_settings_updates"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -343,6 +347,7 @@
                     android:background="@color/background_group_title" />
 
                 <LinearLayout
+                    android:id="@+id/ll_sync_bookings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -378,7 +383,7 @@
                     android:background="@color/background_group_title" />
 
                 <LinearLayout
-                    android:id="@+id/settings_options"
+                    android:id="@+id/ll_settings_options"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -522,6 +527,7 @@
             <!--FACEBOOK TRACKING -->
 
             <LinearLayout
+                android:id="@+id/ll_settings_facebook"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -758,6 +764,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_settings_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

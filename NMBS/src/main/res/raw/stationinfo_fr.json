@@ -1,18 +1,18 @@
 {
   "Stations": [
     {
-      "Code": "BEBMI",
-      "Name": "Bruxelles-Midi",
+      "Code": "LULUX",
+      "Name": "Luxembourg",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Bruxelles-Midi_FR",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/FR/Gares/Bruxelles-Midi?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-      "Longitude": "4.333527",
-      "Latitude": "50.8357532",
-      "Street": "Rue de France",
-      "Number": "",
-      "PostalCode": "1060",
-      "City": "Bruxelles",
-      "Country": "Belgique",
+      "FloorPlanDownloadURL": "",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/FR/Gares/Bruxelles-Midi?affiliation=App&utm_campaign=cfl_app&utm_medium=referral_app&utm_source=cfl_app",
+      "Longitude": "6.133923",
+      "Latitude": "49.600024",
+      "Street": "Place de la Gare",
+      "Number": "11",
+      "PostalCode": "1616",
+      "City": "Luxembourg ",
+      "Country": "Luxembourg",
       "StationInfos": [
         {
           "Title": "La gare de Bruxelles-Midi",
@@ -60,266 +60,12 @@
           "Title": "Location de voitures et de vélos"
         }
       ]
-    },
-    {
-      "Code": "DEKOH",
-      "Name": "Köln Hbf",
-      "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_Koeln_FR",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/FR/Gares/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-      "Longitude": "6.957843",
-      "Latitude": "50.942151",
-      "Street": "Trankgasse",
-      "Number": "11",
-      "PostalCode": "50667",
-      "City": "Cologne",
-      "Country": "Allemagne",
-      "StationInfos": [
-        {
-          "Title": "La gare de Köln Hbf (Cologne)",
-          "Content": "La gare de Cologne compte parmi les 5 gares les plus fréquentées d'Allemagne. C'est aussi l'un des principaux nœuds ferroviaires européens. Au départ de Cologne, vous pouvez rejoindre la plupart des villes et métropoles allemandes ou partir vers la Scandinavie, l'Europe centrale et l'Europe de l'Est.",
-          "Image": ""
-        },
-        {
-          "Title": "Services d'information",
-          "Content": "Il existe différents points d'information dans l'enceinte de la gare de Köln Hbf (Cologne). Vous y trouverez des points d'info pour renseignements liés au voyage, un point d'info touristique et un point d'info et guichets pour le trafic national et international.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
-        }
-      ],
-      "Parkings": [
-        {
-          "Title": "Parking \"Breslauer Platz\"",
-          "Content": "Parking souterrain en face de la gare de Cologne. Ouvert 24 h/24 et 7 j/7.",
-          "Address": "Breslauer Platz 1, 50668 Cologne",
-          "Latitude": "50.94372",
-          "Longitude": "6.9579173"
-        }
-      ],
-      "StationFacilities": [
-        {
-          "Title": "Wi-Fi"
-        },
-        {
-          "Title": "Salles d'attente et salons"
-        },
-        {
-          "Title": "Magasins divers (vêtements, souvenirs,...)"
-        },
-        {
-          "Title": "Distributeurs automatiques de billets"
-        },
-        {
-          "Title": "Aménagements pour les personnes à mobilité réduite"
-        },
-        {
-          "Title": "Restaurants, bars et cafés"
-        },
-        {
-          "Title": "Toilettes"
-        },
-        {
-          "Title": "Location de voitures et de vélos"
-        }
-      ]
-    },
-    {
-      "Code": "GBSPX",
-      "Name": "London St Pancras International",
-      "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_FR",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/FR/Gares/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-      "Longitude": "-0.125468",
-      "Latitude": "51.53022",
-      "Street": "Euston Road",
-      "Number": "",
-      "PostalCode": "N1C 4QP",
-      "City": "Londres",
-      "Country": "Royaume Uni",
-      "StationInfos": [
-        {
-          "Title": "Gare de London St Pancras International (Londres)",
-          "Content": "La gare de London St Pancras International (Londres) est le principal hub ferroviaire du Royaume-Uni. De grandes lignes ferroviaires nationales y rejoignent les liaisons internationales Eurostar, faisant de cette gare la porte d'entrée vers la Grande-Bretagne.",
-          "Image": ""
-        },
-        {
-          "Title": "Services d'information",
-          "Content": "A la gare de London St Pancras International (Londres), il existe différents point d'information, comme des stands d'information pour le trafic national et international.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
-        }
-      ],
-      "Parkings": [
-        {
-          "Title": "St Pancras International Parking",
-          "Content": "Parking à proximité de London St Pancras International. Ouvert 24h/24 et 7j/7.",
-          "Address": "Pancras Road, Londen, N1C 4TB",
-          "Latitude": "51.5334761",
-          "Longitude": "-0.1308258"
-        }
-      ],
-      "StationFacilities": [
-        {
-          "Title": "Wi-Fi"
-        },
-        {
-          "Title": "Salles d'attente et salons"
-        },
-        {
-          "Title": "Magasins divers (vêtements, souvenirs,...)"
-        },
-        {
-          "Title": "Distributeurs automatiques de billets"
-        },
-        {
-          "Title": "Aménagements pour les personnes à mobilité réduite"
-        },
-        {
-          "Title": "Restaurants, bars et cafés"
-        },
-        {
-          "Title": "Toilettes"
-        },
-        {
-          "Title": "Location de voitures et de vélos"
-        }
-      ]
-    },
-    {
-      "Code": "NLASC",
-      "Name": "Amsterdam Centraal",
-      "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_Fr2",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/FR/Gares/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-      "Longitude": "4.8980833",
-      "Latitude": "52.3791283",
-      "Street": "Stationsplein",
-      "Number": "15",
-      "PostalCode": "1012",
-      "City": "Amsterdam",
-      "Country": "Pays-Bas",
-      "StationInfos": [
-        {
-          "Title": "La Gare d'Amsterdam Centraal",
-          "Content": "La Gare Centrale d'Amsterdam est plus qu'une gare, c'est une véritable prouesse architecturale. Edifiée à la fin du XIXe siècle, cette gare \"Renaissance\" repose en effet sur 9000 pilotis en bois. Elle apparaît donc comme l'une des attractions touristiques de la ville.",
-          "Image": ""
-        },
-        {
-          "Title": "Services d'information",
-          "Content": "Il existe différents points d'information dans l'enceinte de la gare. Vous y trouverez des guichets (\"Tickets & Service Offices\") pour tous infos sur des voyages domestiques et internationales, des stands d'information générale et un bureau de l'Office du Tourisme d'Amsterdam.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
-        }
-      ],
-      "Parkings": [
-        {
-          "Title": "Parking \"De Bijenkorf\"",
-          "Content": "Parking à étages aux environs d'Amsterdam Centraal (à une distance de 2,8 km). Ouvert 24h/24 et 7j/7.",
-          "Address": "Beursplein 15, 1012 JW Amsterdam",
-          "Latitude": "52.3741188",
-          "Longitude": "4.893173"
-        },
-        {
-          "Title": "Parking \"De Kolk\"",
-          "Content": "Parking à étages à proximité d'Amsterdam Centraal (à une distance de 1,5 km). Ouvert 24h/24 et 7j/7.",
-          "Address": "Nieuwezijds Voorburgwal 104, 1012 SG Amsterdam ",
-          "Latitude": "52.3755634",
-          "Longitude": "4.8900057"
-        },
-        {
-          "Title": "Parking \"Amsterdam Centre\"",
-          "Content": "Parking à étages en face d'Amsterdam Centraal (à 4 minutes à pied). Ouvert 24h/24 et 7j/7.",
-          "Address": "Prins Hendrikkade 20A, 1012 TL Amsterdam ",
-          "Latitude": "52.378651",
-          "Longitude": "4.8946962"
-        }
-      ],
-      "StationFacilities": [
-        {
-          "Title": "Wi-Fi"
-        },
-        {
-          "Title": "Salles d'attente et salons"
-        },
-        {
-          "Title": "Magasins divers (vêtements, souvenirs,...)"
-        },
-        {
-          "Title": "Distributeurs automatiques de billets"
-        },
-        {
-          "Title": "Aménagements pour les personnes à mobilité réduite"
-        },
-        {
-          "Title": "Restaurants, bars et cafés"
-        },
-        {
-          "Title": "Toilettes"
-        },
-        {
-          "Title": "Location de voitures et de vélos"
-        }
-      ]
-    },
-    {
-      "Code": "FRPNO",
-      "Name": "Paris Nord",
-      "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_FR",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/FR/Gares/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-      "Longitude": "2.3540123",
-      "Latitude": "48.8809481",
-      "Street": "Rue de Dunkerque",
-      "Number": "18",
-      "PostalCode": "75010",
-      "City": "Paris",
-      "Country": "France",
-      "StationInfos": [
-        {
-          "Title": "La gare de Paris Nord",
-          "Content": "La gare de Paris Nord propose des liaisons vers le nord de la France (en TGV® et TER / Intercités), mais aussi vers la Belgique, les Pays-Bas et le nord de l'Allemagne. Grâce à Thalys et Eurostar, cette gare est, pour la France, la porte d'entrée vers l'Europe du Nord.",
-          "Image": ""
-        },
-        {
-          "Title": "Services d'information",
-          "Content": "La gare de Paris Nord dispose des différents points d'information pour le trafic national et international. Il y a aussi un bureau de l'Office du Tourisme parisien.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
-        }
-      ],
-      "Parkings": [
-        {
-          "Title": "Parking \"Gare du Nord\"",
-          "Content": "Parking à proximité de l'entrée principale de la gare de Paris Nord (à une minute à pied). Ouvert 24h/24 et 7j/7.",
-          "Address": "Rue de Compiègne 4, 75010 Paris\t",
-          "Latitude": "48.8798861",
-          "Longitude": "2.3514934"
-        }
-      ],
-      "StationFacilities": [
-        {
-          "Title": "Wi-Fi"
-        },
-        {
-          "Title": "Salles d'attente et salons"
-        },
-        {
-          "Title": "Magasins divers (vêtements, souvenirs,...)"
-        },
-        {
-          "Title": "Distributeurs automatiques de billets"
-        },
-        {
-          "Title": "Aménagements pour les personnes à mobilité réduite"
-        },
-        {
-          "Title": "Restaurants, bars et cafés"
-        },
-        {
-          "Title": "Toilettes"
-        },
-        {
-          "Title": "Location de voitures et de vélos"
-        }
-      ]
     }
   ],
-  "Messages": [],
-  "DebugMessages": []
+  "Messages": [
+
+  ],
+  "DebugMessages": [
+
+  ]
 }

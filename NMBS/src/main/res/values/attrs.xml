@@ -24,4 +24,16 @@
     <declare-styleable name="Themes">
         <attr name="numberProgressBarStyle" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="ScaleImageView">
+        <!--缩放的类型：按宽还是高-->
+        <attr name="viewScaleType" format="enum">
+            <enum name="width" value="1" />
+            <enum name="height" value="2" />
+        </attr>
+        <!--缩放的倍数-->
+        <!--比如：宽120 高60 (按宽来缩放：比例就是 2; 按高度来缩放，比例：0.5f)-->
+        <attr name="viewScaleRadio" format="float" />
+    </declare-styleable>
+
 </resources>

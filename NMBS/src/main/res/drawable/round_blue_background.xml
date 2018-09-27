@@ -3,5 +3,5 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval"
     android:useLevel="false">
-    <solid android:color="@color/background_button_secondaction"/>
+    <solid android:color="@color/background_view_button"/>
 </shape>

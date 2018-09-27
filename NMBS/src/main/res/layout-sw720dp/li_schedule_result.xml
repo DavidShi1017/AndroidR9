@@ -25,7 +25,7 @@
             android:id="@+id/tv_li_schedule_result_night_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/text_blue_color"
+            android:textColor="@color/text_train_night"
             android:layout_marginLeft="@dimen/margin_big"
             android:textStyle="bold"
             android:text="@string/general_night"/>
@@ -126,7 +126,7 @@
                     android:id="@+id/tv_li_schedule_result_transfer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/pick_color"
+                    android:textColor="@color/textcolor_thirdaction"
                     android:gravity="center"
                     android:textSize="@dimen/textsize_least"
                     android:textStyle="bold"

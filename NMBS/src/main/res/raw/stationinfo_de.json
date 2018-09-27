@@ -1,18 +1,18 @@
 {
   "Stations": [
     {
-      "Code": "BEBMI",
-      "Name": "Brüssel-Midi",
+      "Code": "LULUX",
+      "Name": "Luxembourg",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussel-Midi_DE",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Bruessel-Midi?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-      "Longitude": "4.333527",
-      "Latitude": "50.8357532",
-      "Street": "Rue de France",
-      "Number": "",
-      "PostalCode": "1060",
-      "City": "Brussel",
-      "Country": "Belgien",
+      "FloorPlanDownloadURL": "",
+      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Bruessel-Midi?affiliation=App&utm_campaign=cfl_app&utm_medium=referral_app&utm_source=cfl_app",
+      "Longitude": "6.133923",
+      "Latitude": "49.600024",
+      "Street": "Place de la Gare",
+      "Number": "11",
+      "PostalCode": "1616",
+      "City": "Luxembourg",
+      "Country": "Luxembourg",
       "StationInfos": [
         {
           "Title": "Bahnhof Bruxelles-Midi / Brussel-Zuid (Brüssel)",
@@ -60,266 +60,12 @@
           "Title": "Auto-und Fahrradverleih"
         }
       ]
-    },
-    {
-      "Code": "DEKOH",
-      "Name": "Köln Hbf",
-      "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_Koeln_DE",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-      "Longitude": "6.957843",
-      "Latitude": "50.942151",
-      "Street": "Trankgasse",
-      "Number": "11",
-      "PostalCode": "50667",
-      "City": "Köln",
-      "Country": "Deutschland",
-      "StationInfos": [
-        {
-          "Title": "Köln Hbf",
-          "Content": "Köln Hauptbahnhof ist eine wichtige lokale, nationale und internationale Drehscheibe im europäischen Zugverkehr. Zahlreiche ICE, Thalys, IC, Regional-und Nachtzüge fahren hier täglich an. Mit täglich 280.000 Reisenden steht er auf Platz 5 der betriebsamsten Bahnhöfe Deutschlands. Von Köln aus erreichen Sie die meisten Reiseziele in Deutschland, und können sogar nach Skandinavien, Mitteleuropa und in den Osten gelangen.",
-          "Image": ""
-        },
-        {
-          "Title": "Infopoints am Bahnhof",
-          "Content": "Am Bahnhof gibt es verschiedene Informationsstellen für Reiseinformationen und touristische Informationen. Am Kölner Bahnhof finden Sie auch Informationsstelle für Inlands- und internationalen Verkehr.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
-        }
-      ],
-      "Parkings": [
-        {
-          "Title": "Parkgaragen \"Breslauer Platz\"",
-          "Content": "Tiefgarage vor dem Köln Hauptbahnhof. Täglich durchgehend geöffnet.",
-          "Address": "Breslauer Platz 1, 50668 Köln",
-          "Latitude": "50.94372",
-          "Longitude": "6.9579173"
-        }
-      ],
-      "StationFacilities": [
-        {
-          "Title": "W-LAN"
-        },
-        {
-          "Title": "Wartesäle und Lounges"
-        },
-        {
-          "Title": "Verschiedene Geschäfte (für Bekleidung, Souvenirs,...)"
-        },
-        {
-          "Title": "Geldausgabeautomaten"
-        },
-        {
-          "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
-        },
-        {
-          "Title": "Restaurants, bars und cafés"
-        },
-        {
-          "Title": "Toiletten"
-        },
-        {
-          "Title": "Auto-und Fahrradverleih"
-        }
-      ]
-    },
-    {
-      "Code": "GBSPX",
-      "Name": "London St Pancras International",
-      "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_DE",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-      "Longitude": "-0.125468",
-      "Latitude": "51.53022",
-      "Street": "Euston Road",
-      "Number": "",
-      "PostalCode": "N1C 4QP",
-      "City": "London",
-      "Country": "Großbritannien",
-      "StationInfos": [
-        {
-          "Title": "Bahnhof London St Pancras International",
-          "Content": "Der Bahnhof St Pancras International ist mehr als nur der Zielbahnhof der Eurostar Züge. Dieser Bahnhof mit seinem viktorianischen Charme zählt auch zu den angesagtesten Orten in der britischen Hauptstadt und ist für sich allein schon einen Besuch wert.",
-          "Image": ""
-        },
-        {
-          "Title": "Infopoints am Bahnhof",
-          "Content": "Verschiedene Informationsstellen befinden sich am Bahnhof London St Pancras International. Es gibt u.a. verschiedene Infoschalter für den Inlandsverkehr und für den internationalen Verkehr.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
-        }
-      ],
-      "Parkings": [
-        {
-          "Title": "St Pancras International Parking",
-          "Content": "Parkhaus in der Nähe des Bahnhofs London St Pancras International. Täglich durchgehend geöffnet.",
-          "Address": "Pancras Road, Londen, N1C 4TB",
-          "Latitude": "51.5334761",
-          "Longitude": "-0.1308258"
-        }
-      ],
-      "StationFacilities": [
-        {
-          "Title": "W-LAN"
-        },
-        {
-          "Title": "Wartesäle und Lounges"
-        },
-        {
-          "Title": "Verschiedene Geschäfte (für Bekleidung, Souvenirs,...)"
-        },
-        {
-          "Title": "Geldausgabeautomaten"
-        },
-        {
-          "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
-        },
-        {
-          "Title": "Restaurants, bars und cafés"
-        },
-        {
-          "Title": "Toiletten"
-        },
-        {
-          "Title": "Auto-und Fahrradverleih"
-        }
-      ]
-    },
-    {
-      "Code": "NLASC",
-      "Name": "Amsterdam Centraal",
-      "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_De2",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-      "Longitude": "4.8980833",
-      "Latitude": "52.3791283",
-      "Street": "Stationsplein",
-      "Number": "15",
-      "PostalCode": "1012",
-      "City": "Amsterdam",
-      "Country": "Niederlande",
-      "StationInfos": [
-        {
-          "Title": "Bahnhof Amsterdam Centraal",
-          "Content": "Der Amsterdamer Hauptbahnhof ist ein wahrhaftiges architektonisches Meisterwerk. Dieser monumentale Renaissance-Bahnhof wurde Ende des 19. Jahrhunderts auf 9000 Holzpfählen erbaut. Er zählt damit zu einer der wichtigsten Sehenswürdigkeiten der Stadt.",
-          "Image": ""
-        },
-        {
-          "Title": "Infopoints am Bahnhof",
-          "Content": "Es gibt verschiedene Informationsstellen am Bahnhof. Alle Informationen über Ihre nationale und internationale Reisen finden Sie am Schalter (\"Tickets & Service Offices\"). Am Bahnhof Amsterdam Centraal gibt es auch allgemeine Schalter und 1 Touristeninformation der Stadt Amsterdam.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
-        }
-      ],
-      "Parkings": [
-        {
-          "Title": "Parkhaus \"De Bijenkorf\"",
-          "Content": "Parkhaus in der Nähe des Bahnhofs Amsterdam Centraal (Entfernung: 2,8 km). Täglich durchgehend geöffnet.",
-          "Address": "Beursplein 15, 1012 JW Amsterdam",
-          "Latitude": "52.3741188",
-          "Longitude": "4.893173"
-        },
-        {
-          "Title": "Parkhaus \"De Kolk\"",
-          "Content": "Parkhaus in der Nähe des Bahnhofs Amsterdam Centraal (Entfernung: 1,5 km). Täglich durchgehend geöffnet.",
-          "Address": "Nieuwezijds Voorburgwal 104, 1012 SG Amsterdam ",
-          "Latitude": "52.3755634",
-          "Longitude": "4.8900057"
-        },
-        {
-          "Title": "Parkhaus \"Amsterdam Centre\"",
-          "Content": "Parkhaus gegenüber dem Bahnhof Amsterdam Centraal (4 Minuten zu Fuß). Täglich durchgehend geöffnet.",
-          "Address": "Prins Hendrikkade 20A, 1012 TL Amsterdam ",
-          "Latitude": "52.378651",
-          "Longitude": "4.8946962"
-        }
-      ],
-      "StationFacilities": [
-        {
-          "Title": "W-LAN"
-        },
-        {
-          "Title": "Wartesäle und Lounges"
-        },
-        {
-          "Title": "Verschiedene Geschäfte (für Bekleidung, Souvenirs,...)"
-        },
-        {
-          "Title": "Geldausgabeautomaten"
-        },
-        {
-          "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
-        },
-        {
-          "Title": "Restaurants, bars und cafés"
-        },
-        {
-          "Title": "Toiletten"
-        },
-        {
-          "Title": "Auto-und Fahrradverleih"
-        }
-      ]
-    },
-    {
-      "Code": "FRPNO",
-      "Name": "Paris Nord",
-      "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_DE",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-      "Longitude": "2.3540123",
-      "Latitude": "48.8809481",
-      "Street": "Rue de Dunkerque",
-      "Number": "18",
-      "PostalCode": "75010",
-      "City": "Paris",
-      "Country": "Frankreich",
-      "StationInfos": [
-        {
-          "Title": "Bahnhof Paris Nord",
-          "Content": "Vom Bahnhof Paris Nord aus erreichen Sie dann den Norden Frankreichs (mit den TGV® und TER / Intercités Zügen), aber auch Belgien, die Niederlande und Deutschland. Für Frankreich ist dieser Bahnhof - dank der zahlreichen  Thalys und Eurostar Zugverbindungen - das Eingangstor zu Nordeuropa.",
-          "Image": ""
-        },
-        {
-          "Title": "Infopoints am Bahnhof",
-          "Content": "Es gibt verschiedene Informationsstellen am Bahnhof Paris Nord, z.B. Infoschalter für den Inlandsverkehr und für den internationalen Verkehr. Am Bahnhof finden Sie auch 1 Touristeninformation der Stadt Paris.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
-        }
-      ],
-      "Parkings": [
-        {
-          "Title": "Parkhaus \"Gare du Nord\"",
-          "Content": "Parkhaus in der Nähe des Haupteingangs des Bahnhofs Paris Nord (zu Fuß 1 Minute). Täglich durchgehend geöffnet.",
-          "Address": "Rue de Compiègne 4, 75010 Paris",
-          "Latitude": "48.8798861",
-          "Longitude": "2.3514934"
-        }
-      ],
-      "StationFacilities": [
-        {
-          "Title": "W-LAN"
-        },
-        {
-          "Title": "Wartesäle und Lounges"
-        },
-        {
-          "Title": "Verschiedene Geschäfte (für Bekleidung, Souvenirs,...)"
-        },
-        {
-          "Title": "Geldausgabeautomaten"
-        },
-        {
-          "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
-        },
-        {
-          "Title": "Restaurants, bars und cafés"
-        },
-        {
-          "Title": "Toiletten"
-        },
-        {
-          "Title": "Auto-und Fahrradverleih"
-        }
-      ]
     }
   ],
-  "Messages": [],
-  "DebugMessages": []
+  "Messages": [
+
+  ],
+  "DebugMessages": [
+
+  ]
 }

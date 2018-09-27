@@ -6,27 +6,27 @@
     <color name="title_color">#DCDCDC</color>
     <color name="text_black_color">#000000</color>
     <color name="text_gray_color">#9b9b9b</color>
-    <color name="background_header_color">#87CEFA</color>
+
     <color name="text_header_color">#000000</color>
     <color name="text_green_color">#2E8B57</color>
 
 
 
-    <color name="color_blue_list_text">#006ab3</color>
+    <color name="color_blue_list_text">#CC0033</color>
     <color name="color_grey">#666666</color>
     <color name="transparent_background">#00000000</color>
-    <color name="lightblue_background">#e9f4fa</color>
+    <color name="lightblue_background">#f0f0f0</color>
     <color name="green_word">#336600</color>
     <color name="text_purple_color">#b40d67</color>
 
     <color name="date_background_grey">#e8e8e8</color>
     <color name="date_border_grey">#c8c8c8</color>
     <color name="summary_border_grey">#ffcccccc</color>
-    <color name="summary_grey_blue_text_color">#3b5a90</color>
+    <color name="summary_grey_blue_text_color">#520518</color>
     <color name="edit_text_light_grey">#f6f6f6</color>
     <color name="insurance_view_desc_bg">#f3f1f2</color>
     <color name="pick_color">#b20264</color>
-    <color name="header_footer_color">#e9f4fa</color>
+    <color name="header_footer_color">#f0f0f0</color>
     <color name="delay_color">#cc3432</color>
     <color name="summry_subtitle_bg">#ecf1f3</color>
     <color name="summry_subtitle_total_bg">#dce4e9</color>
@@ -34,48 +34,40 @@
     <!-- Setting preference -->
     <color name="background_light">#ffffff</color> <!-- white -->
     <color name="bright_foreground_light">#aaaaaa</color> <!-- light grey ? -->
-    <color name="primary_text_light">#006ab3</color> <!-- blue -->
+    <color name="primary_text_light">#CC0033</color> <!-- blue -->
     <color name="secondary_text_light">#9b9b9b</color> <!-- grey -->
-    <color name="primary_text_light_disable_only">#006ab3</color> <!-- light grey ? -->
+    <color name="primary_text_light_disable_only">#CC0033</color> <!-- light grey ? -->
     <color name="hint_text_light">#778899</color> <!-- light grey ? -->
 
     <color name="all_layout_default_background_color">#f8f8f8</color>
     <color name="layout_subtitle_background_color">#b7e2ff</color>
     <color name="layout_subtitle_text_color">#0e456b</color>
     <color name="departure_detail_class_text_color">#bec8cf</color>
-    <color name="departure_return_travel_unselected_text_color">#006ab3</color>
+    <color name="departure_return_travel_unselected_text_color">#CC0033</color>
     <color name="departure_return_travel_selected_text_color">#ffffff</color>
     <color name="passenger_seperate_line_color">#ffcccccc</color>
     <color name="departure_return_travel_selected_depature_view_top_text_color">#1c1c1c</color>
     <color name="departure_return_travel_selected_depature_view_other_text_color">#838383</color>
-    <color name="group_list_item_text_color">#454545</color>
-	<color name="tickets_title_item_backgroud_text_color">#e6e6e6</color>
-	<color name="tickets_detail_item_backgroud_text_color">#e9f4fa</color>
-	<color name="transparent">#b0000000</color>
+
+
+	<color name="tickets_detail_item_backgroud_text_color">#f0f0f0</color>
+
 	<color name="parkings_title">#454545</color>
+
+
+
 	
-	<color name="passengers_title_backgourd">#e7e7e7</color>
-	<color name="passengers_dot_backgourd">#e7e7e7</color>
-	<color name="passengers_dot_activity_backgourd">#006ab3</color>
+
+
+
+
 	
-	
-	<color name="seat_included_text_color">#B92576</color>
-	<color name="departure_detail_no_price_text_color_title">#b8005f</color>
-	<color name="departure_detail_no_price_text_color_content">#ae005f</color>
-	<color name="departure_detail_no_price_text_color_background">#edcfe0</color>
-	
-	<color name="transfer_bg">#b30e6a</color>
-	<color name="ticket_in_local_adapter_bg">#AF0060</color>
-	<color name="ticket_not_include">#01385F</color>
-	<color name="ticket_not_include_departure_arrival">#dbdbd7</color>
-	<color name="ticket_not_include_description">#727678 </color>
+
 	<color name="ticket_on_time">#139919 </color>
+
 	
-	<color name="bg_new_btn">#006ab3 </color>
-	<color name="home_upcoming_trains">#eeeeee</color>
-	
-	<color name="bg_item_ticket">#e9f4fa</color>
-	<color name="text_color_national_app_name">#eb690a</color>
+	<color name="bg_item_ticket">#f0f0f0</color>
+
 	<color name="text_color_national_app">#6a6a6a</color>
 	
 	
@@ -84,14 +76,15 @@
 	<!-- R7 -->
 	<color name="list_divider">#eeeeee</color>
 	<color name="list_divider_error">#cc0000</color>
-    <color name="text_blue_color">#006ab3</color>
+    <color name="text_blue_color">#CC0033</color>
+    <color name="text_train_night">#520518</color>
     <color name="tertiary_text_light">#209E00</color>
 	<color name="textcolor_primaryaction">#666666</color>    
     <color name="textcolor_secondaction">#FFFFFF</color>
-    <color name="textcolor_thirdaction">#006ab3</color>
-    <color name="textcolor_pink">#af0060</color>
+    <color name="textcolor_thirdaction">#CC0033</color>
+    <color name="textcolor_pink">#CC0033</color>
     <color name="textcolor_error">#cc0000</color>
-    <color name="color_disable">#df99bf</color>
+    <color name="color_disable">#c15f77</color>
 
     <color name="text_white_color">#FFFFFF</color>
     <color name="text_light_black_color">#666666</color>
@@ -99,30 +92,30 @@
 	<color name="textcolor_fourthaction">#333333</color>
     <color name="textcolor_inprogress">#ff7f00</color>
     <color name="general_light_orange">#FEECDA</color>
-    <color name="background_light_blue">#e9f4fa</color>
-	<color name="background_primaryaction">#8c004d</color>
+    <color name="background_light_blue">#f0f0f0</color>
+	<color name="background_primaryaction">#8e0526</color>
 	<color name="background_secondaryaction">#FFFFFF</color>
 	<color name="background_group_title">#eeeeee</color>
 	<color name="background_error">#fcf4f8</color>
     <color name="background_light_pink">#d77faf</color>
     <color name="background_light_green">#e9f5e7</color>
     <color name="background_light_grey">#EEEEEF</color>
-	<color name="background_activity_title">#af0060</color>
-	<color name="background_button_primaryaction">#af0060</color>
-	<color name="background_button_secondaction">#73b3ff</color>
-	<color name="background_menu_title">#af4d83</color>
-	<color name="background_menu_home">#006ab3</color>
-	<color name="background_view_button">#00558f</color>
-    <color name="backgroud_light_blue_color">#e9f4fa</color>
+	<color name="background_activity_title">#CC0033</color>
+	<color name="background_button_primaryaction">#CC0033</color>
+	<color name="background_button_secondaction">#a9415a</color>
+	<color name="background_menu_title">#a9415a</color>
+	<color name="background_menu_home">#CC0033</color>
+	<color name="background_view_button">#520518</color>
+    <color name="backgroud_light_blue_color">#f0f0f0</color>
     <color name="backgroud_inprogress">#FFECD9</color>
 
     <color name="dot_active">#aaaaaa</color>
     <color name="line_grey">#b7c0c7</color>
     <color name="toggle_on">#d77faf</color>
     <color name="toggle_off">#dedede</color>
-    <color name="handle_on">#af0060</color>
+    <color name="handle_on">#CC0033</color>
     <color name="handle_off">#bebebe</color>
-    <color name="sncb_text">#3878bb</color>
+    <color name="sncb_text">#CC0033</color>
 
 
 	<color name="list_background">#303030</color>

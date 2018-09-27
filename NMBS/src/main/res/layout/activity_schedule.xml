@@ -18,9 +18,12 @@
         android:background="@color/background_activity_title"
         android:padding="10dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <com.cfl.activities.view.FitImageView
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
             android:onClick="close"
             android:src="@drawable/ic_logo" />
 
@@ -429,7 +432,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:visibility="gone"
-                            android:background="@color/background_menu_home"
+                            android:background="@color/background_button_secondaction"
                             android:padding="@dimen/padding_small">
                             <ImageView
                                 android:layout_width="wrap_content"

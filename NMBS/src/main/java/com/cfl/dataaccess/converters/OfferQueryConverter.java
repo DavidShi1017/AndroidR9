@@ -1,0 +1,92 @@
+package com.cfl.dataaccess.converters;
+
+import org.json.JSONException;
+
+
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.cfl.exceptions.InvalidJsonError;
+
+
+import com.cfl.model.OfferQuery;
+import com.cfl.model.PartyMember;
+import com.cfl.model.OfferQuery.ComforClass;
+import com.cfl.model.OfferQuery.TravelType;
+import com.cfl.model.PartyMember.PersonType;
+import com.cfl.serializers.ComfortClassDeserializer;
+
+import com.cfl.serializers.PersonTypeDeserializer;
+import com.cfl.serializers.TravelTypeDeserializer;
+
+public class OfferQueryConverter {
+
+	public OfferQuery parseOfferQuery(String jsonString) throws JSONException, InvalidJsonError{
+		
+
+		//Log.d("OfferQueryConverter", "Starting..." + jsonString);
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		
+	    gsonBuilder.registerTypeAdapter(ComforClass.class, new ComfortClassDeserializer());
+	    gsonBuilder.registerTypeAdapter(TravelType.class, new TravelTypeDeserializer());
+	    gsonBuilder.registerTypeAdapter(PersonType.class, new PersonTypeDeserializer());
+	    Gson gson = gsonBuilder.create();
+
+		
+	    OfferQuery offerQuery = gson.fromJson(jsonString, OfferQuery.class);
+
+			
+		if (offerQuery == null) {
+				throw new InvalidJsonError();
+		}else {
+			
+			if(offerQuery.getTravelPartyMembers() != null){
+				for (PartyMember partyMember : offerQuery.getTravelPartyMembers()) {
+					switch (partyMember.getPersonType().ordinal()) {
+					case 0:
+						
+						partyMember.setPartMemberSortorderField(1);
+						break;
+					case 1:
+						
+						partyMember.setPartMemberSortorderField(2);
+						break;
+					case 2:
+						
+						partyMember.setPartMemberSortorderField(3);
+						break;
+					case 3:
+						
+						partyMember.setPartMemberSortorderField(5);
+						break;
+					case 4:
+						partyMember.setPersonType(PersonType.YOUTH);
+						partyMember.setPartMemberSortorderField(6);
+						break;
+					case 5:
+						
+						partyMember.setPartMemberSortorderField(6);
+						break;
+					case 6:
+						
+						partyMember.setPartMemberSortorderField(7);
+						break;
+					case 7:
+						  
+						partyMember.setPartMemberSortorderField(4);
+						break;
+					default:
+						
+						partyMember.setPartMemberSortorderField(7);
+						break;
+					}
+					
+					offerQuery.rePartyMemberCount(partyMember.getPersonType());
+				}
+			}
+			
+			return offerQuery;
+		}
+			
+	}
+}

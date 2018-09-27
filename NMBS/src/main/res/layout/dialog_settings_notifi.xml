@@ -92,13 +92,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_medium"
-        android:background="@color/background_view_button">
+        android:background="@color/background_button_primaryaction">
 
         <TextView
             android:id="@+id/tv_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/background_view_button"
+            android:background="@color/background_button_primaryaction"
             android:layout_centerInParent="true"
             android:text="@string/settings_notification_update"
             android:textSize="@dimen/textsize_medium"

@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_default"
         android:layout_alignParentBottom="true"
-        android:background="@color/background_menu_home"
+        android:background="@color/background_view_button"
         android:orientation="horizontal">
         <Button
             android:layout_width="match_parent"

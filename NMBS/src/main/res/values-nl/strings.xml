@@ -803,7 +803,7 @@ GA NAAR APP</string>
 <string name="settings_dialog_input_email">Voer een e-mailadres in</string>
 <string name="settings_dialog_notifi_start">Hoelang voor het vertrek?</string>
 <string name="settings_dialog_notifi_delay">Bij vertraging vanaf</string>
-<string name="settings_read_privacy_policy">Lees het privacybeleid van NMBS Internationaal</string>
+<string name="settings_read_privacy_policy">Lees het privacybeleid van NMBS Europe</string>
 <string name="settings_delete_personal_info">PERSOONLIJKE GEGEVENS VERWIJDEREN</string>
 <string name="settings_automaticupdates_checknow">Updates zoeken</string>
 <string name="settings_phonenumber">Telefoonnummer</string>
@@ -815,7 +815,7 @@ GA NAAR APP</string>
 <string name="message_view_railway">Spoorwegberichten</string>
 <string name="message_view_loading">Berichten laden</string>
 <string name="stationboard_title">Stationsbord</string>
-<string name="stationboard_header">Realtime info over uw station. Uw laatste zoekopdracht wordt automatisch geladen.</string>
+<string name="stationboard_header">Realtime info over uw station of trein. Uw laatste zoekopdracht wordt automatisch geladen.</string>
 <string name="stationboard_timepreference_departures">Vertrek</string>
 <string name="stationboard_timepreference_arrivals">Aankomst</string>
 <string name="stationboard_datetime">Datum en tijd</string>
@@ -826,7 +826,7 @@ GA NAAR APP</string>
 <string name="station_favorite">Favoriete stations</string>
 <string name="station_all">Alle stations</string>
 <string name="station_nofavorite">U hebt momenteel geen favoriete stations. Klik op de grijze ster om stations aan uw favorietenlijst toe te voegen.</string>
-<string name="home_rating_enjoying">Vindt u de app van NMBS Internationaal handig?</string>
+<string name="home_rating_enjoying">Vindt u de app van NMBS Europe handig?</string>
 <string name="home_rating_on">Geef een beoordeling in de app store!</string>
 <string name="home_rating_feedback">Wilt u ons feedback geven?</string>
 <string name="stationinfo_list_title">Treinstations</string>
@@ -994,7 +994,7 @@ GA NAAR APP</string>
 
 <string name="login_header">Log in om door te gaan met de boeking</string>
 <string name="login_email">E-mailadres</string>
-<string name="feedback_email_subject">Ihr Feedback zur SNCB International App</string>
+<string name="feedback_email_subject">Uw feedback over de NMBS Europe app</string>
 <string name="general_unsubscribe_intro">Schrijf u hier uit voor pushberichten voor deze boeking.</string>
 <string name="general_subscribe_intro">Schrijf u hier in voor pushberichten voor deze boeking.</string>
 <string name="alert_no_network">Er is momenteel geen netwerkverbinding.</string>
@@ -1018,7 +1018,7 @@ GA NAAR APP</string>
 <string name="departuredetail_view_minutes">min.</string>
 <string name="departuredetail_view_hours">u</string>
 <string name="national_app_prefix">Download de</string>
-<string name="national_app_name">NMBS app</string>
+<string name="national_app_name">CFL app</string>
 <string name="national_app_suffix">voor nationale treinen binnen België</string>
 <string name="alert_updateuser_failed">Instellingen voor pushberichten konden niet worden aangepast.</string>
 <string name="migrate_view_refreshed_dossier">Bekijk vernieuwde boeking</string>
@@ -1082,8 +1082,8 @@ GA NAAR APP</string>
     <string name="general_failure">Fout</string>
     <string name="settings_dnraddedprofilessync">Synchroniseer mijn boekingen</string>
     <string name="settings_options">Opties</string>
-    <string name="settings_personaldetail_removed">Er is geen persoonlijke informatie beschikbaar in deze app.</string>
-    <string name="settings_travelreminders_description_forlogout">Wilt u graag herinneringen ontvangen over uw geplande treinreizen? Dan kan u deze optie hier activeren.</string>
+    <string name="settings_personaldetail_removed">Uw persoonlijke informatie werd uit de app verwijderd.</string>
+    <string name="settings_travelreminders_description_forlogout">settings_travelreminders_description_forlogout</string>
     <string name="mytickets_autoretrivingdnr">Uw boekingen worden opgehaald</string>
     <string name="webview_headerintro">OPTIONAL Intro Text</string>
     <string name="local_notification_newdnr">Een nieuwe boeking werd toegevoegd</string>

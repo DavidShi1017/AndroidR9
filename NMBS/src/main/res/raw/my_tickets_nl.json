@@ -4,7 +4,7 @@
       "Title": "Realtime help",
       "Description": "Uw boeking integreren in de app doet u aan de hand van uw dossierreferentie. De dossierreferentie (DNR) is een code die uit 7 letters bestaat en die u kan terugvinden op uw bevestigingspagina en in uw bevestigingsmail. Voeg een ticket toe aan \"Mijn tickets\" door de dossierreferentie (DNR) en het e-mailadres van de boeking in te voeren. In het tabblad \"Mijn tickets\" vindt u alle ticketinfo voor elke dossierreferentie (DNR) terug.",
       "HighResImage": "wizardHelp",
-      "LowResImage": "/~/media/ImagesNew/Mobile/wizardHelp.ashx?sc=0.5",
+      "LowResImage": "wizardHelp",
       "AreaTitle": "MyTickets",
       "AreaIcon": "icon-icoTrainTicket",
       "NewInRelease": true,

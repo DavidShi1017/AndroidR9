@@ -16,19 +16,17 @@
         android:background="@color/background_activity_title"
         android:padding="10dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <com.cfl.activities.view.FitImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
             android:onClick="close"
             android:src="@drawable/ic_logo" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/upload_tickets_title"
-            android:textColor="@color/textcolor_secondaction"
-            android:textSize="@dimen/textsize_header" />
+
         <ImageView
             android:id="@+id/iv_menu"
             android:layout_width="@dimen/header_menu_size"
@@ -44,11 +42,23 @@
             android:layout_height="40dp"
             android:layout_marginRight="3dp"
             android:layout_toLeftOf="@+id/iv_menu"
+            android:layout_centerVertical="true"
             android:id="@+id/iv_refresh"
             android:onClick="help"
             android:padding="10dp"
             android:background="@color/background_primaryaction"
             android:src="@drawable/ic_question" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_logo"
+            android:layout_toLeftOf="@+id/iv_refresh"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_centerInParent="true"
+            android:text="@string/upload_tickets_title"
+            android:textColor="@color/textcolor_secondaction"
+            android:textSize="@dimen/textsize_header" />
     </RelativeLayout>
     <TextView
         android:layout_width="match_parent"

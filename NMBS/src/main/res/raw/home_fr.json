@@ -1,57 +1,43 @@
 {
-  "WizardItems":[
+  "WizardItems": [
     {
-      "Title":"Bienvenue",
-      "Description":"Découvrez la dernière version de l’app SNCB International et explorez les nouvelles fonctionnalités qui vous aideront lors de votre voyage en train : recevez des infos en temps réel via les notifications Push, réservez vos billets via notre site et chargez-les dans l’app, recevez nos dernières offres et promos ou bien consultez le calendrier des prix pour trouver les tarifs les plus bas vers nos destinations,... Bon voyage!",
+      "Title": "Bienvenue",
+      "Description": "Découvrez la dernière version de l’app SNCB International et explorez les nouvelles fonctionnalités qui vous aideront lors de votre voyage en train : recevez des infos en temps réel via les notifications Push, réservez vos billets via notre site et chargez-les dans l’app, recevez nos dernières offres et promos ou bien consultez le calendrier des prix pour trouver les tarifs les plus bas vers nos destinations,... Bon voyage!",
       "HighResImage": "WizardWelcome",
       "LowResImage": "WizardWelcome",
-      "AreaTitle":"",
-      "AreaIcon":"icon-ico-beurope-reduction",
-      "NewInRelease":true,
-      "Context":[
+      "AreaTitle": "",
+      "AreaIcon": "icon-ico-beurope-reduction",
+      "NewInRelease": true,
+      "Context": [
         "HOME"
       ]
     },
     {
-      "Title":"Nouveau: infos en temps réel",
-      "Description":"Recevez, dès à présent, des infos en temps réel concernant vos prochains voyages. Notre app vous enverra des infos relatives aux éventuels retards ou suppressions de trains dans toute l’Europe, aux départs, arrivées et correspondances dans des milliers de gares européennes et aux voyages que vous avez réservés. Vous pouvez facilement gérer vos notifications via l’onglet \"Alertes trains\", et décider vous-même les notifications que vous souhaitez recevoir. \r\n",
-      "HighResImage": "wizardRealTime",
-      "LowResImage": "wizardRealTime",
-      "AreaTitle":"",
-      "AreaIcon":"icon-ico-beurope-reduction",
-      "NewInRelease":true,
-      "Context":[
-        "HOME"
-      ]
-    },
-    {
-      "Title":"Aide en temps réel",
-      "Description":"Vous avez besoin de votre référence de réservation pour intégrer votre réservation dans l’app. Votre référence de réservation (DNR) est composé de 7 caractères. Il se trouve sur la page de confirmation ou dans votre e-mail de confirmation. Ajoutez un billet en indiquant la référence de réservation (DNR) et l'adresse e-mail liée à réservation. Dans l’onglet \"Mes billets\", retrouvez également toutes les informations liées à votre référence de réservation (DNR).\r\n",
+      "Title": "Aide en temps réel",
+      "Description": "Vous avez besoin de votre référence de réservation pour intégrer votre réservation dans l’app. Votre référence de réservation (DNR) est composé de 7 caractères. Il se trouve sur la page de confirmation ou dans votre e-mail de confirmation. Ajoutez un billet en indiquant la référence de réservation (DNR) et l'adresse e-mail liée à réservation. Dans l’onglet \"Mes billets\", retrouvez également toutes les informations liées à votre référence de réservation (DNR).\r\n",
       "HighResImage": "wizardHelp",
       "LowResImage": "wizardHelp",
-      "AreaTitle":"",
-      "AreaIcon":"icon-icoTrainTicket",
-      "NewInRelease":true,
-      "Context":[
+      "AreaTitle": "",
+      "AreaIcon": "icon-icoTrainTicket",
+      "NewInRelease": false,
+      "Context": [
         "MYTICKETS",
         "HOME"
       ]
     },
     {
-      "Title":"Nouveau module de réservation",
-      "Description":"En plus d’un nouveau look, notre module de réservation a été complètement revu pour plus de facilité. Réservez vos billets via la version mobile de notre site, chargez en quelques secondes vos billets dans l’app et retrouvez tous les détails de votre réservation via l’app.",
+      "Title": "Nouveau module de réservation",
+      "Description": "En plus d’un nouveau look, notre module de réservation a été complètement revu pour plus de facilité. Réservez vos billets via la version mobile de notre site, chargez en quelques secondes vos billets dans l’app et retrouvez tous les détails de votre réservation via l’app.",
       "HighResImage": "wizardNewBooking",
       "LowResImage": "wizardNewBooking",
-      "AreaTitle":"",
-      "AreaIcon":"icon-icoTrainTicket",
-      "NewInRelease":true,
-      "Context":[
+      "AreaTitle": "",
+      "AreaIcon": "icon-icoTrainTicket",
+      "NewInRelease": false,
+      "Context": [
         "HOME"
       ]
     }
   ],
-  "Messages":[
-  ],
-  "DebugMessages":[
-  ]
+  "Messages": [],
+  "DebugMessages": []
 }

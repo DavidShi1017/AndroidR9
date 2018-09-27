@@ -17,9 +17,13 @@
         android:background="@color/background_activity_title"
         android:padding="10dp" >
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <com.cfl.activities.view.FitImageView
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:onClick="close"
             android:src="@drawable/ic_logo" />
 
         <ImageView
@@ -449,22 +453,11 @@
                         android:text="@string/menu_title_traintickets"
                         android:textColor="@color/textcolor_primaryaction"
                         android:textSize="@dimen/textsize_small" />
-
-                    <HorizontalScrollView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:scrollbars="none">
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
-                            >
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:weightSum="5"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
                                 android:orientation="horizontal" >
 
                                 <RelativeLayout
@@ -472,6 +465,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/home_menu_height"
                                     android:layout_weight="1"
+                                    android:layout_marginRight="10dp"
                                     android:onClick="bookTicktes"
                                     android:background="@color/background_menu_home">
 
@@ -504,7 +498,7 @@
                                     android:id="@+id/rl_lowestFares"
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/home_menu_height"
-                                    android:layout_marginLeft="@dimen/home_menu_margin_left"
+                                    android:layout_marginRight="10dp"
                                     android:layout_weight="1"
                                     android:onClick="lowestFares"
                                     android:background="@color/background_menu_home">
@@ -538,7 +532,7 @@
                                     android:id="@+id/rl_mytickets"
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/home_menu_height"
-                                    android:layout_marginLeft="@dimen/home_menu_margin_left"
+
                                     android:layout_weight="1"
                                     android:onClick="myTickets"
                                     android:background="@drawable/home_menu_rounded_group"
@@ -598,7 +592,7 @@
                                     android:id="@+id/rl_uploadtickets"
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/home_menu_height"
-                                    android:layout_marginLeft="@dimen/home_menu_margin_left"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_weight="1"
                                     android:onClick="uploadTickets"
                                     android:background="@drawable/home_menu_rounded_group"
@@ -634,7 +628,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/home_menu_height"
 
-                                    android:layout_marginLeft="@dimen/home_menu_margin_left"
+                                    android:layout_marginLeft="10dp"
                                     android:onClick="myOption"
                                     android:layout_weight="1"
                                     android:background="@drawable/home_menu_rounded_group">
@@ -650,6 +644,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_centerHorizontal="true"
+                                        android:visibility="gone"
                                         android:layout_marginLeft="10dp"
                                         android:layout_marginTop="10dp"
                                         android:src="@drawable/ic_my_option" />
@@ -700,9 +695,7 @@
                                 </RelativeLayout>
 
                             </LinearLayout>
-                        </RelativeLayout>
 
-                    </HorizontalScrollView >
 
                 </LinearLayout>
 
@@ -790,6 +783,7 @@
                         </RelativeLayout>
 
                         <RelativeLayout
+                            android:id="@+id/rl_main_menu_stationboard"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/home_menu_height"
                             android:layout_marginLeft="10dp"
@@ -823,6 +817,7 @@
                         </RelativeLayout>
 
                         <RelativeLayout
+                            android:id="@+id/rl_main_menu_schedules"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/home_menu_height"
                             android:layout_marginLeft="10dp"
@@ -856,6 +851,7 @@
                         </RelativeLayout>
 
                         <RelativeLayout
+                            android:id="@+id/rl_main_menu_stations"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/home_menu_height"
                             android:layout_marginLeft="10dp"
@@ -911,13 +907,13 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal" >
                         <RelativeLayout
-                            android:id="@+id/rl_manage"
+                            android:id="@+id/rl_main_menu_login"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/home_menu_height"
                             android:layout_weight="1"
+                            android:layout_marginRight="10dp"
                             android:onClick="loginOrManage"
                             android:clickable="true"
-                            android:layout_marginRight="10dp"
                             android:background="@drawable/home_menu_rounded_group">
 
                             <ImageView
@@ -947,6 +943,7 @@
                         </RelativeLayout>
 
                         <RelativeLayout
+                            android:id="@+id/rl_main_menu_message"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/home_menu_height"
                             android:layout_weight="1"
@@ -1067,6 +1064,7 @@
                         </RelativeLayout>
 
                         <RelativeLayout
+                            android:id="@+id/rl_main_menu_about"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/home_menu_height"
                             android:layout_marginLeft="10dp"
@@ -1106,7 +1104,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_weight="1"
                             android:onClick="test"
-                            android:visibility="gone"
+                            android:visibility="invisible"
                             android:background="@drawable/home_menu_rounded_group">
 
                             <ImageView
@@ -1204,7 +1202,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="5dp"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/background_primaryaction" />
+                    android:background="@color/background_button_primaryaction" />
             </LinearLayout>
 
         </LinearLayout>

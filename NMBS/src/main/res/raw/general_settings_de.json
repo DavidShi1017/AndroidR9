@@ -2,22 +2,20 @@
     "Settings": {
         "RestSalt": "7aXorvkeHuJoTOGF4C2+hw==",
         "AutoLogonSalt": "IwxU9ijXqekUcEQjRQOmmQ==",
-        "FacebookAppId": "571736719664754",
-        "GoogleAppId": "531995485739-cr143kqfjmfc5t33r57h7hl0mpbeh3nj.apps.googleusercontent.com",
-        "CreateProfileUrl": "http://www.accept.b-europe.com/DE/AppPages/AppProfileB2CCreatePage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-        "ProfileOverviewUrl": "http://www.accept.b-europe.com/DE/AppPages/AppProfileOverviewPage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-        "CommercialTtlListUrl": "http://www.accept.b-europe.com/DE/AppPages/AppTtlDossierListPage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-        "PrivacyPolicyUrl": "http://www.accept.b-europe.com/DE/Rechtlich/Datenschutz?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+        "CreateProfileUrl": "",
+        "ProfileOverviewUrl": "",
+        "CommercialTtlListUrl": "",
+        "PrivacyPolicyUrl": "http://www.cfl.lu/espaces/voyageurs/de/hidden-pages/protection-de-la-vie-priv%C3%A9e-lors-de-la-r%C3%A9servation-de-titres-de-transport-internationaux-via-le-pr%C3%A9sent-site-internet?affiliation=App&utm_campaign=cfl_app&utm_medium=referral_app&utm_source=cfl_app",
         "Domain": "b-europe",
         "CheckLastUpdateTimestampPassword": false,
         "MaxRealTimeInfoHorizon": 2,
         "DossierAftersalesLifetime": 40,
-        "BookingUrl": "https://www.accept.b-europe.com/DE/Buchen/Mobile?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-        "LffUrl": "http://www.accept.b-europe.com/DE/Buchen/Kalender/General?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+        "BookingUrl": "https://travel.accept.b-europe.com/cfl/voyager/mobile?affiliation=App&utm_campaign=cfl_app&utm_medium=referral_app&utm_source=cfl_app",
+        "LffUrl": "",
         "BelgiumPhoneNumber": "",
-        "InternationalPhoneNumber": "024353223",
-        "AllowContextRegistration": true,
-        "InsuranceConditionsPdf": "https://www.b-europe.com/Media/files/touring/Touring_Conditions_DE.pdf"
+        "InternationalPhoneNumber": "",
+        "AllowContextRegistration": false,
+        "InsuranceConditionsPdf": ""
     },
     "Messages": [
 

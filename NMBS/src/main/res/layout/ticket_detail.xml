@@ -40,7 +40,7 @@
                 android:textColor="@color/departure_return_travel_unselected_text_color"
                 android:textStyle="bold" />
 
-            <com.nmbs.activity.LinearLayoutForListView
+            <com.cfl.activity.LinearLayoutForListView
                 android:id="@+id/ticket_detail_view_seating_info_list"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -434,7 +434,7 @@
                 android:text="@string/ticket_detail_view_station_desc"
                 android:textColor="@color/text_gray_color" />
 
-            <com.nmbs.activity.LinearLayoutForListView
+            <com.cfl.activity.LinearLayoutForListView
                 android:id="@+id/ticket_detail_view_station_list"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

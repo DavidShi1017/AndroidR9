@@ -61,12 +61,12 @@ android {
     }
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 23
         multiDexEnabled true
-        applicationId "com.nmbs"
+        applicationId "com.cfl"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        versionCode 40
-        flavorDimensions "40"
+        versionCode 1
+        flavorDimensions "1"
     }
 
     // map for the version code

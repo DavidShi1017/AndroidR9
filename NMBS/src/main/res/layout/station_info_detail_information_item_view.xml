@@ -21,7 +21,7 @@
         android:layout_marginBottom="@dimen/margin_default"
         android:textSize="@dimen/textsize_smaller" />
 
-    <com.nmbs.activities.view.FitImageView
+    <com.cfl.activities.view.FitImageView
         android:id="@+id/iv_station_info_detail_information_picture"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
