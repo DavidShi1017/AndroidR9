@@ -102,8 +102,8 @@
     <color name="background_light_grey">#EEEEEF</color>
 	<color name="background_activity_title">#CC0033</color>
 	<color name="background_button_primaryaction">#CC0033</color>
-	<color name="background_button_secondaction">#a9415a</color>
-	<color name="background_menu_title">#a9415a</color>
+	<color name="background_button_secondaction">#CC0033</color>
+	<color name="background_menu_title">#CC0033</color>
 	<color name="background_menu_home">#CC0033</color>
 	<color name="background_view_button">#520518</color>
     <color name="backgroud_light_blue_color">#f0f0f0</color>

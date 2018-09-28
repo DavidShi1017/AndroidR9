@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toRightOf="@+id/ll_menu_left"
-        android:background="@color/background_primaryaction" >
+        android:background="@color/background_activity_title" >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -46,11 +46,6 @@
                     android:textColor="@color/textcolor_secondaction"
                     android:textSize="@dimen/textsize_small" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:src="@drawable/ic_navigation_triangle" />
             </LinearLayout>
 
             <!-- MENU BOOK YOUR TICKET -->
@@ -88,7 +83,7 @@
                     android:layout_height="1dp"
                     android:layout_below="@+id/iv_book"
                     android:layout_marginTop="10dp"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <!-- MENU LOWEST FARES -->
@@ -126,7 +121,7 @@
                     android:layout_height="1dp"
                     android:layout_below="@+id/iv_lowest"
                     android:layout_marginTop="10dp"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <!-- MENU MY TICKETS -->
@@ -177,7 +172,7 @@
                     android:layout_height="1dp"
                     android:layout_below="@+id/iv_mytickets"
                     android:layout_marginTop="10dp"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <!-- MENU MY TICKETS -->
@@ -214,7 +209,7 @@
                     android:layout_height="1dp"
                     android:layout_below="@+id/iv_uploadtickets"
                     android:layout_marginTop="10dp"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
 
@@ -264,7 +259,7 @@
                     android:layout_below="@+id/iv_uploadtickets"
                     android:layout_marginTop="10dp"
                     android:visibility="invisible"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <LinearLayout
@@ -286,11 +281,7 @@
                     android:textColor="@color/textcolor_secondaction"
                     android:textSize="@dimen/textsize_small" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:src="@drawable/ic_navigation_triangle" />
+
             </LinearLayout>
 
             <!-- MENU REALTIME ALERTS -->
@@ -336,9 +327,9 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@+id/iv_realtimealerts"
+                    android:layout_below="@+id/background_activity_title"
                     android:layout_marginTop="10dp"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <!-- MENU STATION BOARD -->
@@ -376,7 +367,7 @@
                     android:layout_height="1dp"
                     android:layout_below="@+id/iv_stationboard"
                     android:layout_marginTop="10dp"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <!-- MENU TRAIN SCHEDULES -->
@@ -414,7 +405,7 @@
                     android:layout_height="1dp"
                     android:layout_below="@+id/iv_trainschedules"
                     android:layout_marginTop="10dp"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <!-- MENU STATIONS -->
@@ -452,7 +443,7 @@
                     android:layout_below="@+id/iv_stations"
                     android:layout_marginTop="10dp"
                     android:visibility="invisible"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <LinearLayout
@@ -473,12 +464,6 @@
                     android:text="@string/menu_title_general"
                     android:textColor="@color/textcolor_secondaction"
                     android:textSize="@dimen/textsize_medium" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:src="@drawable/ic_navigation_triangle" />
             </LinearLayout>
 
 
@@ -517,7 +502,7 @@
                     android:layout_height="1dp"
                     android:layout_below="@+id/iv_book"
                     android:layout_marginTop="10dp"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <!-- MENU TRAIN MESSAGES -->
@@ -566,7 +551,7 @@
                     android:layout_height="1dp"
                     android:layout_below="@+id/iv_messages"
                     android:layout_marginTop="10dp"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <!-- MENU TRAIN SETTINGS -->
@@ -604,7 +589,7 @@
                     android:layout_height="1dp"
                     android:layout_below="@+id/iv_settings"
                     android:layout_marginTop="10dp"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <!-- MENU TRAIN SETTINGS -->
@@ -642,7 +627,7 @@
                     android:layout_height="1dp"
                     android:layout_below="@+id/iv_about"
                     android:layout_marginTop="10dp"
-                    android:background="@color/textcolor_secondaction" />
+                    android:background="@color/background_activity_title" />
             </RelativeLayout>
 
             <RelativeLayout

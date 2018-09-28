@@ -5,7 +5,7 @@ public class FunctionConfig {
     public static final boolean kFunMobileBanner = true;
     public static final boolean kFunMobileMessage = true;
     public static final boolean kFunLinkToNationalApp = true;
-    public static final boolean kFunAppRating = false;
+    public static final boolean kFunAppRating = true;
     public static final boolean kFunBookingEntry = true;
     public static final boolean kFunLFFEntry = false;
     public static final boolean kFunClickToCall = false;
