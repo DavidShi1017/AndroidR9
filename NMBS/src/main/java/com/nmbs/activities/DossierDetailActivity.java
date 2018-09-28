@@ -383,7 +383,6 @@ public class DossierDetailActivity extends BaseActivity {
         btnSetAlert = (Button)findViewById(R.id.btn_set_alert);
         btnRealTime = (Button)findViewById(R.id.btn_realtime);
         llDossierFooter = (LinearLayout)findViewById(R.id.ll_dossier_footer);
-
         initStationInfoView();
     }
 
@@ -414,11 +413,11 @@ public class DossierDetailActivity extends BaseActivity {
 
     private void initTicketsView(){
         if(isExpandTicket){
-            llDossierDetailTickets.setVisibility(View.VISIBLE);
             ivTicketsExpand.setImageResource(R.drawable.ic_minus);
+            llDossierDetailTickets.setVisibility(View.VISIBLE);
         }else{
-            llDossierDetailTickets.setVisibility(View.GONE);
             ivTicketsExpand.setImageResource(R.drawable.ic_plus);
+            llDossierDetailTickets.setVisibility(View.GONE);
         }
         if(dossierSummary != null){
             if(dossierSummary.isPDFSuccessfully()){
@@ -469,11 +468,8 @@ public class DossierDetailActivity extends BaseActivity {
             isExpandTicket = false;
             ivTicketsExpand.setImageResource(R.drawable.ic_plus);
             llDossierDetailTickets.setVisibility(View.GONE);
-
-
         }else{
             isExpandTicket = true;
-            ivTicketsExpand.setImageResource(R.drawable.ic_minus);
             llDossierDetailTickets.setVisibility(View.VISIBLE);
         }
 
