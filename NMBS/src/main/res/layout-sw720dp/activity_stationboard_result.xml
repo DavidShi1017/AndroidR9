@@ -150,7 +150,7 @@
         android:layout_alignParentBottom="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_view_button"
+        android:background="@color/background_button_primaryaction"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:gravity="center"

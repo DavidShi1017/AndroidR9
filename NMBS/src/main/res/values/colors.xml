@@ -65,7 +65,7 @@
 	<color name="departure_detail_no_price_text_color_background">#edcfe0</color>
 	
 	<color name="transfer_bg">#b30e6a</color>
-	<color name="ticket_in_local_adapter_bg">#AF0060</color>
+	<color name="ticket_in_local_adapter_bg">#006AB3</color>
 	<color name="ticket_not_include">#01385F</color>
 	<color name="ticket_not_include_departure_arrival">#dbdbd7</color>
 	<color name="ticket_not_include_description">#727678 </color>
@@ -89,7 +89,7 @@
 	<color name="textcolor_primaryaction">#666666</color>    
     <color name="textcolor_secondaction">#FFFFFF</color>
     <color name="textcolor_thirdaction">#006ab3</color>
-    <color name="textcolor_pink">#af0060</color>
+    <color name="textcolor_pink">#006AB3</color>
     <color name="textcolor_error">#cc0000</color>
     <color name="color_disable">#df99bf</color>
 
@@ -100,27 +100,27 @@
     <color name="textcolor_inprogress">#ff7f00</color>
     <color name="general_light_orange">#FEECDA</color>
     <color name="background_light_blue">#e9f4fa</color>
-	<color name="background_primaryaction">#8c004d</color>
+	<color name="background_primaryaction">#ea6022</color>
 	<color name="background_secondaryaction">#FFFFFF</color>
 	<color name="background_group_title">#eeeeee</color>
 	<color name="background_error">#fcf4f8</color>
     <color name="background_light_pink">#d77faf</color>
     <color name="background_light_green">#e9f5e7</color>
     <color name="background_light_grey">#EEEEEF</color>
-	<color name="background_activity_title">#af0060</color>
-	<color name="background_button_primaryaction">#af0060</color>
+	<color name="background_activity_title">#006AB3</color>
+	<color name="background_button_primaryaction">#006AB3</color>
 	<color name="background_button_secondaction">#73b3ff</color>
-	<color name="background_menu_title">#af4d83</color>
+	<color name="background_menu_title">#73B3FF</color>
 	<color name="background_menu_home">#006ab3</color>
-	<color name="background_view_button">#00558f</color>
+	<color name="background_view_button">#00558F</color>
     <color name="backgroud_light_blue_color">#e9f4fa</color>
     <color name="backgroud_inprogress">#FFECD9</color>
 
     <color name="dot_active">#aaaaaa</color>
     <color name="line_grey">#b7c0c7</color>
-    <color name="toggle_on">#d77faf</color>
+    <color name="toggle_on">#73B3FF</color>
     <color name="toggle_off">#dedede</color>
-    <color name="handle_on">#af0060</color>
+    <color name="handle_on">#006AB3</color>
     <color name="handle_off">#bebebe</color>
     <color name="sncb_text">#3878bb</color>
 
