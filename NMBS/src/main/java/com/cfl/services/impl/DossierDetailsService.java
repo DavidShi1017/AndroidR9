@@ -359,7 +359,8 @@ public class DossierDetailsService {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(path, "application/pdf");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);*/
-            context.startActivity(PDFViewActivity.createIntent(context, file, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT));
+            context.startActivity(PDFViewActivity.createIntent(context, file, "", ActivityInfo.SCREEN_ORIENTATION_PORTRAIT));
+
             try {
                 //context.startActivity(intent);
             } catch (ActivityNotFoundException e) {

@@ -31,6 +31,7 @@ import android.util.Log;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.cfl.log.LogUtils;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
@@ -55,34 +56,12 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
     public static final String READ_EXTERNAL_STORAGE = "android.permission.READ_EXTERNAL_STORAGE";
     public static final String WRITE_EXTERNAL_STORAGE = "android.permission.WRITE_EXTERNAL_STORAGE";
     public static final String MOUNT_UNMOUNT_FILESYSTEMS = "android.permission.MOUNT_UNMOUNT_FILESYSTEMS";
-
-
     PDFView pdfView;
-
-
+    String assetFileName;
     Uri uri;
-
-
     Integer pageNumber = 0;
-
     String pdfFileName;
     File file;
-    /*@OptionsItem(R.id.pickFile)
-    void pickFile() {
-        int permissionCheck = ContextCompat.checkSelfPermission(this,
-                READ_EXTERNAL_STORAGE);
-
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(
-                    this,
-                    new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, MOUNT_UNMOUNT_FILESYSTEMS}, PERMISSION_CODE
-            );
-
-            return;
-        }
-
-        launchPicker();
-    }*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,14 +77,17 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
         );
         pdfView = (PDFView) findViewById(R.id.pdfView);
         file = (File)getIntent().getSerializableExtra(ActivityConstant.LOCAL_PDF_URL);
-
+        assetFileName = getIntent().getStringExtra(ActivityConstant.ASSET_FILENAME);
     }
 
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        displayFromFile(file);
-
+        if(file == null){
+            displayFromAsset(assetFileName);
+        }else {
+            displayFromFile(file);
+        }
     }
 
     void launchPicker() {
@@ -147,13 +129,14 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
     private void displayFromAsset(String assetFileName) {
         pdfFileName = assetFileName;
 
-        pdfView.fromAsset(SAMPLE_FILE)
+        pdfView.fromAsset(pdfFileName)
                 .defaultPage(pageNumber)
                 .onPageChange(this)
                 .enableAnnotationRendering(true)
                 .onLoad(this)
                 .scrollHandle(new DefaultScrollHandle(this))
                 .load();
+        LogUtils.e("PDFViewActivity", "Open pdf by assetFileName---->" + assetFileName);
     }
 
     private void displayFromUri(Uri uri) {
@@ -257,17 +240,22 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 //launchPicker();
                 //File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + SAMPLE_FILE);
-                displayFromFile(file);
+                if(file == null){
+                    displayFromAsset(assetFileName);
+                }else {
+                    displayFromFile(file);
+                }
             }
         }
     }
 
-    public static Intent createIntent(Context context, File file, int screenOrientation){
+    public static Intent createIntent(Context context, File file, String assetFileName, int screenOrientation){
         Intent intent = new Intent(context, PDFViewActivity.class);
         //intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(ActivityConstant.LOCAL_PDF_URL, file);
         intent.putExtra(ActivityConstant.SCREEN_ORIENTATION, screenOrientation);
+        intent.putExtra(ActivityConstant.ASSET_FILENAME, assetFileName);
         return intent;
     }
 

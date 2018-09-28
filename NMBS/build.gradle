@@ -60,7 +60,7 @@ android {
         }
     }
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 23
         multiDexEnabled true
         applicationId "com.cfl"

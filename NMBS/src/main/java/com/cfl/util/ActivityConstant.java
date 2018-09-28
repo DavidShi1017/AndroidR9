@@ -70,7 +70,7 @@ public class ActivityConstant {
 	//PDF view activity
 	public static final String LOCAL_PDF_URL = "localPdfUrl";
 	public static final String SCREEN_ORIENTATION = "screenOrientation";
-
+	public static final String ASSET_FILENAME = "assetFileName";
 
 
 	public static final String Intent_key_ticketCount = "ticketCount";

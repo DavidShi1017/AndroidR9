@@ -15,4 +15,5 @@ public interface IStationInfoService {
     public File getStationPDF(StationInfo stationInfo);
     public StationInfoResponse getStationInfoResponseInLocal(Context context);
     public File getStationFloorPlan(Context context, String stationCode, String language);
+    public boolean isAssetStationPDFAvailable(Context context, String stationCode, String language);;
 }

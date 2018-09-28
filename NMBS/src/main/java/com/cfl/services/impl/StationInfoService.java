@@ -2,6 +2,7 @@ package com.cfl.services.impl;
 
 import android.content.Context;
 
+import com.cfl.application.NMBSApplication;
 import com.cfl.dataaccess.restservice.IStationInfoDataService;
 import com.cfl.dataaccess.restservice.impl.StationInfoDataService;
 import com.cfl.model.StationInfo;
@@ -29,28 +30,39 @@ public class StationInfoService implements IStationInfoService{
             stationInfoResponse = stationInfoDataService.getStationInfoResponse(applicationContext, settingService.getCurrentLanguagesKey(), isChangeLanguage);
         } catch (Exception e) {
             try {
-                stationInfoDataService.storeStationInfo(applicationContext, settingService.getCurrentLanguagesKey());
+                stationInfoResponse = stationInfoDataService.getStationInfoResponseInLocal(applicationContext);
+                if(stationInfoResponse == null){
+                    stationInfoResponse =  stationInfoDataService.storeStationInfo(applicationContext, settingService.getCurrentLanguagesKey());
+                }
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
         }
         if(stationInfoResponse != null){
-                stationInfoResponse.getStations().get(0).getFloorPlanDownloadURL();
-            }
-       // }
+            stationInfoResponse.getStations().get(0).getFloorPlanDownloadURL();
+        }
+        // }
         return stationInfoResponse;
     }
 
     public StationInfoResponse getStationInfoResponseInLocal(Context context){
         IStationInfoDataService stationInfoDataService = new StationInfoDataService();
         //if(stationInfoResponse == null){
-            try {
-                stationInfoResponse = stationInfoDataService.getStationInfoResponseInLocal(context);
-            }catch (Exception e){
-                e.printStackTrace();
-                stationInfoResponse = null;
+        try {
+            stationInfoResponse = stationInfoDataService.getStationInfoResponseInLocal(context);
+            if(stationInfoResponse == null){
+                stationInfoResponse = stationInfoDataService.storeStationInfo(applicationContext,
+                        NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey());
             }
-       // }
+        }catch (Exception e){
+            try {
+                stationInfoResponse = stationInfoDataService.storeStationInfo(applicationContext,
+                        NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey());
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+        // }
         return stationInfoResponse;
     }
 
@@ -63,5 +75,9 @@ public class StationInfoService implements IStationInfoService{
         IStationInfoDataService stationInfoDataService = new StationInfoDataService();
         File file = stationInfoDataService.getStationFloorPlan(context, stationCode, language);
         return file;
+    }
+    public boolean isAssetStationPDFAvailable(Context context, String stationCode, String language){
+        IStationInfoDataService stationInfoDataService = new StationInfoDataService();
+        return stationInfoDataService.isAssetStationPDFAvailable(context, stationCode, language);
     }
 }
