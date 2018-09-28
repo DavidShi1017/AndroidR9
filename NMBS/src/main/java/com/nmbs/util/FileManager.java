@@ -4,6 +4,8 @@ package com.nmbs.util;
 import android.content.Context;
 import android.util.Log;
 
+import com.nmbs.log.LogUtils;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -57,7 +59,7 @@ public class FileManager {
         // Create a path where we will place our private file on external
         // storage.
         File file = new File(context.getExternalFilesDir(folder), fileName);
-
+		LogUtils.e("file", "file------->" + file);
         try {
             // Very simple code to copy a picture from the application's
             // resource into the external file.  Note that this code does
@@ -168,7 +170,9 @@ public class FileManager {
 		// Get path for the file on external storage. If external
 		// storage is not currently mounted this will fail.
 		File file = new File(context.getExternalFilesDir(folder), name);
-
+		LogUtils.e("hasThisFile", "hasExternal------>" + file);
+		LogUtils.e("hasThisFile", "hasExternal------>" + file.length());
+		LogUtils.e("hasThisFile", "hasExternal------>" + file.exists());
 		if (file.length() > 0) {
 			return true;
 		} else {

@@ -18,6 +18,7 @@ import com.nmbs.adapter.StationInfoDetailFacilitiesAdapter;
 import com.nmbs.adapter.StationInfoDetailInformationAdapter;
 import com.nmbs.adapter.StationInfoDetailParkingAdapter;
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.StationInfo;
 import com.nmbs.services.IClickToCallService;
 import com.nmbs.services.IStationInfoService;
@@ -27,6 +28,7 @@ import com.nmbs.util.NetworkUtils;
 import com.nmbs.util.Utils;
 
 import java.io.File;
+import java.io.InputStream;
 
 public class StationInfoDetailActivity extends BaseActivity {
     private final static String STATION_INFO_SERIALIZABLE_KEY = "STATION_INFO";
@@ -96,16 +98,25 @@ public class StationInfoDetailActivity extends BaseActivity {
                 llMap.setVisibility(View.GONE);
             }*/
             //Log.d("StationInfo", "stationInfo..." + stationInfo.getName());
-            File file = stationInfoService.getStationFloorPlan(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
-            if (file == null || !file.exists()) {
-                file = stationInfoService.getStationFloorPlan(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
-                if (file == null || !file.exists()) {
-                    btnPdf.setVisibility(View.GONE);
-                }
+            File file = stationInfoService.getStationPDF(stationInfo);
+            LogUtils.e("StationInfo", "stationInfo..file...." + file);
 
-            }
             if(stationInfo.getFloorPlanDownloadURL() == null || stationInfo.getFloorPlanDownloadURL().isEmpty()){
+                LogUtils.e("StationInfo", "stationInfo..file...url.....isEmpty....." );
                 btnPdf.setVisibility(View.GONE);
+            }else{
+                btnPdf.setVisibility(View.VISIBLE);
+                if (file == null || !file.exists()) {
+                    LogUtils.e("StationInfo", "stationInfo..file....not exists....." + file);
+                    boolean isAssetStationPDFAvailable = stationInfoService.isAssetStationPDFAvailable(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
+                    if (isAssetStationPDFAvailable) {
+                        btnPdf.setVisibility(View.VISIBLE);
+                    }else{
+                        btnPdf.setVisibility(View.GONE);
+                    }
+                }else{
+                    btnPdf.setVisibility(View.VISIBLE);
+                }
             }
             this.stationName.setText(this.stationInfo.getName());
             //stationInfo.setStations(null);
@@ -236,16 +247,20 @@ public class StationInfoDetailActivity extends BaseActivity {
     }
 
     public void openPDF(View view){
-        File file = stationInfoService.getStationFloorPlan(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
-        Log.d("openPDF", "openPDF===" + file);
-
-        if (file != null && file.exists()) {
-            startActivity(PDFViewActivity.createIntent(getApplicationContext(), file, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE));
+        File file = stationInfoService.getStationPDF(stationInfo);
+        Log.d("openPDF", "openPDF===" + file.getAbsolutePath());
+        Log.d("openPDF", "openPDF file length------->" + file.length());
+        //file = null;
+        if (file != null && file.exists() && file.length() > 0) {
+            startActivity(PDFViewActivity.createIntent(getApplicationContext(), file, "", ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE));
         } else {
-            file = stationInfoService.getStationFloorPlan(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
-            if (file != null && file.exists()) {
-                startActivity(PDFViewActivity.createIntent(getApplicationContext(), file, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE));
-            }
+            //file = stationInfoService.getStationFloorPlan(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
+            InputStream is = null;
+            String assetFileName = stationInfo.getCode() + "_" + settingService.getCurrentLanguagesKey().substring(0,2).toLowerCase() + ".pdf";
+            Log.d("openPDF", "openPDF package---assetFileName---->" + assetFileName);
+
+            startActivity(PDFViewActivity.createIntent(getApplicationContext(), null, assetFileName, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE));
+
             //Toast.makeText(applicationContext, applicationContext.getString(R.string.alert_status_service_not_available), Toast.LENGTH_SHORT).show();
         }
     }

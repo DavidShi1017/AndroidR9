@@ -24,7 +24,7 @@ public class StationInfoResponseConverter {
 			registerTypeAdapterForDate(builder);
 			Gson gson = builder.create();
 			stationInfoResponse = gson.fromJson(jsonResponse, StationInfoResponse.class);
-			System.out.println(stationInfoResponse.getStations());
+			//System.out.println(stationInfoResponse.getStations());
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new Exception();

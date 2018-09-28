@@ -17,4 +17,5 @@ public interface IStationInfoDataService {
     public StationInfoResponse getStationInfoResponseInLocal(Context context)throws Exception;
     public StationInfoResponse storeStationInfo( Context context, String language) throws Exception;
     public File getStationFloorPlan(Context context, String stationCode, String language);
+    public boolean isAssetStationPDFAvailable(Context context, String stationCode, String language);
 }

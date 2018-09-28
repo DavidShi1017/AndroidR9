@@ -69,11 +69,11 @@ public class HttpRetriever {
 
 			URL url = new URL(stringURL);
 			if (url.getProtocol().toLowerCase().equals("https")) {
-				Log.e("HOMEBANNER", "https...");
+				Log.e("HttpRetriever", "https...");
 				//HttpsURLConnection urlConnection = GetHttps(stringURL);
 				inputStream = GetHttps(stringURL);
 				//inputStream = urlConnection.getInputStream();
-				Log.e("HOMEBANNER", "inputStream..." + inputStream);
+				Log.e("HttpRetriever", "inputStream..." + inputStream);
 			}else{
 				URLConnection urlConnection = url.openConnection();
 				urlConnection.setConnectTimeout(20000);

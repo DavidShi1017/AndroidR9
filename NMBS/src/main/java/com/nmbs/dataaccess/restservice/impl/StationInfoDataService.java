@@ -57,6 +57,7 @@ public class StationInfoDataService implements IStationInfoDataService {
         stringHttpResponse = httpRestServiceCaller.executeHTTPRequest(context,
                 null, urlString, language, HTTPRestServiceCaller.HTTP_GET_METHOD, 6000, true,
                 lastModifiedInPreferences, HTTPRestServiceCaller.API_VERSION_VALUE_7);
+        //stringHttpResponse = null;
         if (!"304".equalsIgnoreCase(stringHttpResponse)) {
             Map<String, String> lastModified = httpRestServiceCaller.getLastModified();
 
@@ -66,30 +67,30 @@ public class StationInfoDataService implements IStationInfoDataService {
                     saveLastModifiedTime(context, lastModified.get(urlString));
                 }
                 FileManager.getInstance().createExternalStoragePrivateFileFromString(context, FileManager.FOLDER_FILE, FileConstant.FILE_STATION_INFO, stringHttpResponse);
-                downloadPdf(context, stationInfoResponse, true, language);
+                downloadPdf(context, stationInfoResponse, false, language);
 
-            }else{
+            }/*else{
                 stringHttpResponse = FileManager.getInstance().readExternalStoragePrivateFile(context, FileManager.FOLDER_FILE, FileConstant.FILE_STATION_INFO);
                 stationInfoResponse = stationInfoResponseConverter.parseStationInfo(stringHttpResponse);
                 if(stationInfoResponse == null){
                     stationInfoResponse = storeStationInfo(context, language);
                 }
-            }
+            }*/
 
-        }else{
+        }/*else{
             stringHttpResponse = FileManager.getInstance().readExternalStoragePrivateFile(context, FileManager.FOLDER_FILE, FileConstant.FILE_STATION_INFO);
             stationInfoResponse = stationInfoResponseConverter.parseStationInfo(stringHttpResponse);
             if(stationInfoResponse == null){
                 stationInfoResponse = storeStationInfo(context, language);
             }
             //downloadPdf(context, stationInfoResponse);
-        }
+        }*/
         return stationInfoResponse;
     }
 
     public StationInfoResponse storeStationInfo( Context context, String language) throws Exception {
-
-        //Log.e("StationInfo", "storeStationInfo....");
+        StationInfoResponse stationInfoResponse = null;
+        LogUtils.e("StationInfo", "storeStationInfo...package.....");
         int resourcesId = 0;
         if (SettingService.LANGUAGE_EN.contains(language)) {
             resourcesId = R.raw.stationinfo_en;
@@ -107,16 +108,16 @@ public class StationInfoDataService implements IStationInfoDataService {
         String stringHttpResponse = FileManager.getInstance().readFileWithInputStream(is);
         //Log.e("StationInfo", "stringHttpResponse...." + stringHttpResponse);
 
-        FileManager.getInstance().createExternalStoragePrivateFileFromString(context, FileManager.FOLDER_FILE, FileConstant.FILE_STATION_INFO, stringHttpResponse);
-        StationInfoResponse stationInfoResponse = stationInfoResponseConverter.parseStationInfo(stringHttpResponse);
-        downloadPdf(context, stationInfoResponse, true, language);
+        //FileManager.getInstance().createExternalStoragePrivateFileFromString(context, FileManager.FOLDER_FILE, FileConstant.FILE_STATION_INFO, stringHttpResponse);
+        stationInfoResponse = stationInfoResponseConverter.parseStationInfo(stringHttpResponse);
+        //downloadPdf(context, stationInfoResponse, true, language);
         return stationInfoResponse;
     }
 
     public StationInfoResponse getStationInfoResponseInLocal(Context context)throws Exception {
         String stringHttpResponse = FileManager.getInstance().readExternalStoragePrivateFile(context, FileManager.FOLDER_FILE, FileConstant.FILE_STATION_INFO);
         StationInfoResponse stationInfoResponse = stationInfoResponseConverter.parseStationInfo(stringHttpResponse);
-        downloadPdf(context, stationInfoResponse, true, NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey());
+        //downloadPdf(context, stationInfoResponse, true, NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey());
         return stationInfoResponse;
     }
 
@@ -129,7 +130,7 @@ public class StationInfoDataService implements IStationInfoDataService {
             //InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dossierId, inputStream));
 							/*httpDownloader.downloadNetworkFile(urlString, FileManager.getInstance().getFilePath("/pdfpath/"),fileName + ".pdf");  */
             //Log.d("StationInfo", "The folder name is......" + dossierId);
-            //Log.d("StationInfo", "The File name is......" + fileName);
+            Log.e("StationInfo", "The File name is......" + fileName);
             FileManager.getInstance().createExternalStoragePrivateFile(context, inputStream, "StationFloor", fileName);
             isFinished = true;
         } catch (Exception e) {
@@ -152,18 +153,16 @@ public class StationInfoDataService implements IStationInfoDataService {
                     //Log.d("StationInfo", "deleteNoLongerFiles..file.getName()...." + file.getName());
                     for(String pdf : pdfs){
                         if(pdf != null && !pdf.isEmpty()){
-                            int index = pdf.lastIndexOf(".");
-                            pdf = pdf.substring(0, index);
                             String fileName = Utils.sha1(pdf) + ".pdf";
-
-                            //Log.d("StationInfo", "deleteNoLongerFiles..fileName...." + fileName);
+                            //Log.e("StationInfo", "deleteNoLongerFiles...Delete file..." + fileName);
+                            //Log.e("StationInfo", "deleteNoLongerFiles...Delete file..." + file.getName());
                             if (StringUtils.equalsIgnoreCase(file.getName(), fileName)) {
                                 isNeedDelete = false;
                             }
                         }
                     }
                     if (isNeedDelete){
-                        //Log.d("StationInfo", "deleteNoLongerFiles...Delete file..." + file.getName());
+                        //Log.e("StationInfo", "deleteNoLongerFiles...Delete file..." + file.getName());
                         FileManager.getInstance().deleteExternalStoragePrivateFile(context, "StationFloor", file.getName());
                     }
                 }
@@ -191,45 +190,26 @@ public class StationInfoDataService implements IStationInfoDataService {
         for (int i = 0; i < pdfs.size(); i++) {
             String pdf = pdfs.get(i);
             if(pdf != null && !pdf.isEmpty()){
-
                 final String pdfUrl = pdf;
-
-                int index = pdf.lastIndexOf(".");
-                if(pdf.length() > 0){
-                    pdf = pdf.substring(0, index);
-                }
+                Log.e("StationInfo", "pdfurl......" + pdfUrl );
                 final String fileName = Utils.sha1(pdf) + ".pdf";
+
                 boolean hasThisFile = FileManager.getInstance().hasExternalStoragePrivateFile(context, "StationFloor", fileName);
-                //Log.e("StationInfo", "hasThisFile......" + hasThisFile );
+                Log.e("StationInfo", "hasThisFile......" + hasThisFile );
                 //LogUtils.e("StationInfo", "Starting Pdf file name......" + fileName );
                 //Log.e("StationInfo", "Starting Pdf file urlString......" + pdfUrl );
-                //Log.e("StationInfo", "isStore......" + isStore );
+                Log.e("StationInfo", "isStore......" + isStore );
 
                 final String code = codes.get(i);
                 if (!hasThisFile) {
                     new Thread() {
                         public void run() {
-                            if(isStore){
-                                InputStream inputStream = null;
-                                try {
-                                    inputStream = context.getResources().getAssets().open(code + "_" + lang + ".pdf");
-                                    LogUtils.e("StationInfo", "Starting Pdf file name......" + lang );
-                                    //Log.e("StationInfo", "inputStream......" + inputStream );
-                                    //Log.e("StationInfo", "inputStream......" + (code + "_" + lang + ".pdf") );
-                                } catch (IOException e) {
-                                    //Log.e("StationInfo", "IOException......" + (code + "_" + lang + ".pdf") );
-                                    e.printStackTrace();
-                                }
-                                FileManager.getInstance().createExternalStoragePrivateFile(context, inputStream, "StationFloor", fileName);
-                            }else{
-                                boolean isFinished = download(context, pdfUrl, "StationFloor", fileName);
-                                if (!isFinished){
-                                    FileManager.getInstance().deleteExternalStoragePrivateFile(context, "StationFloor", fileName);
-                                }
-                                //Log.d("StationInfo", "isFinished......" + isFinished );
+                            boolean isFinished = download(context, pdfUrl, "StationFloor", fileName);
+                            if (!isFinished){
+                                FileManager.getInstance().deleteExternalStoragePrivateFile(context, "StationFloor", fileName);
+                                download(context, pdfUrl, "StationFloor", fileName);
                             }
-
-
+                            Log.e("StationInfo", "isFinished......" + isFinished );
                         }
                     }.start();
                 }
@@ -243,11 +223,6 @@ public class StationInfoDataService implements IStationInfoDataService {
         File file = null;
         if(stationInfo != null){
             String pdf = stationInfo.getFloorPlanDownloadURL();
-            //Log.d("StationInfo", "getStationPdf...pdf..." + pdf);
-            int index = pdf.lastIndexOf(".");
-            if(pdf.length() > 0){
-                pdf = pdf.substring(0, index);
-            }
             String fileName = null;
             try {
                 fileName = Utils.sha1(pdf) + ".pdf";
@@ -341,6 +316,28 @@ public class StationInfoDataService implements IStationInfoDataService {
 			resourcesId = R.raw.clicktocall_de;
 		}*/
         return resourcesId;
+    }
+
+    public boolean isAssetStationPDFAvailable(Context context, String stationCode, String language){
+        File file = null;
+        AssetManager am = context.getAssets();
+        language = language.substring(0, 2).toLowerCase();
+        String existStationCode = getExistStationCode(stationCode);
+        InputStream is = null;
+        String fileName = existStationCode + "_" + language;
+        LogUtils.e("StationInfo", "getStationFloorPlan...fileName..." + fileName);
+        try {
+            is = am.open(fileName + ".pdf");
+            if(is.available() > 0){
+                LogUtils.e("StationInfo", "getStationFloorPlan..Asset....available..." + fileName);
+                return true;
+            }
+            // Log.d("StationInfo", "getStationFloorPlan...file..." + file);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public File getStationFloorPlan(Context context, String stationCode, String language){
