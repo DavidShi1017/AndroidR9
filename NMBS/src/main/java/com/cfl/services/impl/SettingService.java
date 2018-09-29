@@ -345,6 +345,7 @@ public class SettingService implements ISettingService {
 
 	public void changeLanguageData(ActivityPostExecuteListener listener, IMessageService messageService, String beforeLanguage){
 		FileManager.getInstance().deleteAllExternalStoragePrivateFile(applicationContext, FileManager.FOLDER_HOMEBANNER);
+		FileManager.getInstance().deleteAllExternalStoragePrivateFile(applicationContext, FileManager.FOLDER_FILE);
 		MessageDataService messageDataService = new MessageDataService();
 		messageDataService.deleteMessages(applicationContext);
 		NMBSApplication.getInstance().getStationService().cleanAllStation();

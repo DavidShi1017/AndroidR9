@@ -15,6 +15,7 @@
  */
 package com.cfl.activities;
 
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -41,13 +42,14 @@ import com.cfl.util.ActivityConstant;
 
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
 
 public class PDFViewActivity extends AppCompatActivity implements OnPageChangeListener, OnLoadCompleteListener {
 
     private static final String TAG = PDFViewActivity.class.getSimpleName();
-
+    private ProgressDialog progressDialog;
     private final static int REQUEST_CODE = 42;
     public static final int PERMISSION_CODE = 200;
 
@@ -78,16 +80,19 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
         pdfView = (PDFView) findViewById(R.id.pdfView);
         file = (File)getIntent().getSerializableExtra(ActivityConstant.LOCAL_PDF_URL);
         assetFileName = getIntent().getStringExtra(ActivityConstant.ASSET_FILENAME);
+        showWaitDialog();
     }
 
     @Override
     protected void onPostResume() {
         super.onPostResume();
+
         if(file == null){
             displayFromAsset(assetFileName);
         }else {
             displayFromFile(file);
         }
+
     }
 
     void launchPicker() {
@@ -101,7 +106,38 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
         }
     }
 
+    // show progressDialog.
+    private void showWaitDialog() {
+        LogUtils.e("LogUtils", " showWaitDialog....");
+        runOnUiThread(new Runnable() {
+            public void run() {
+                if (progressDialog == null) {
+                    //Log.e(TAG, "Show Wait Dialog....");
+                    progressDialog = ProgressDialog.show(PDFViewActivity.this,
+                            getString(R.string.alert_loading),
+                            getString(R.string.alert_waiting), true);
+                }
+            }
+        });
 
+    }
+
+    // hide progressDialog
+    public void hideWaitDialog() {
+        //Log.e(TAG, "Hide Wait Dialog....");
+        LogUtils.e("LogUtils", " hideWaitDialog....");
+        runOnUiThread(new Runnable() {
+            public void run() {
+                if (progressDialog != null) {
+
+                    //Log.e(TAG, "progressDialog is.... " + progressDialog);
+                    progressDialog.dismiss();
+                    progressDialog = null;
+                }
+            }
+        });
+
+    }
 
 /*    @AfterViews
     void afterViews() {
@@ -128,7 +164,6 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
 
     private void displayFromAsset(String assetFileName) {
         pdfFileName = assetFileName;
-
         pdfView.fromAsset(pdfFileName)
                 .defaultPage(pageNumber)
                 .onPageChange(this)
@@ -139,10 +174,9 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
         LogUtils.e("PDFViewActivity", "Open pdf by assetFileName---->" + assetFileName);
     }
 
-    private void displayFromUri(Uri uri) {
-        pdfFileName = getFileName(uri);
-
-        pdfView.fromUri(uri)
+    private void displayFromStream(InputStream inputStream) {
+        //pdfFileName = getFileName(uri);
+        pdfView.fromStream(inputStream)
                 .defaultPage(pageNumber)
                 .onPageChange(this)
                 .enableAnnotationRendering(true)
@@ -211,7 +245,7 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
         Log.e(TAG, "modDate = " + meta.getModDate());
 
         printBookmarksTree(pdfView.getTableOfContents(), "-");*/
-
+        hideWaitDialog();
     }
 
 /*    public void printBookmarksTree(List<PdfDocument.Bookmark> tree, String sep) {

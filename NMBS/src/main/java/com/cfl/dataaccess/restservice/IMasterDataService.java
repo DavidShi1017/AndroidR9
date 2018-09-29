@@ -18,6 +18,7 @@ import com.cfl.model.CollectionItem;
 import com.cfl.model.DeliveryMethod;
 import com.cfl.model.FAQCategory;
 import com.cfl.model.GeneralSetting;
+import com.cfl.model.GeneralSettingResponse;
 import com.cfl.model.HomeBannerResponse;
 import com.cfl.model.MasterDataResponse;
 import com.cfl.model.OriginDestinationRule;
@@ -106,5 +107,6 @@ public interface IMasterDataService {
 
 	public void cleanLastModifiedHomeBanner(Context context);
 	public TrainIconResponse storeTrainIcon(Context context) throws InvalidJsonError, JSONException;
+	public GeneralSettingResponse getGeneralSettingFromPackage(Context context, String language)throws Exception;
 
 }

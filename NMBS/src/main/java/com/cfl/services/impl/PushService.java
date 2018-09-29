@@ -11,6 +11,7 @@ import android.os.Build;
 import android.util.Log;
 import android.util.Xml;
 
+import com.cfl.log.LogUtils;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.cfl.application.NMBSApplication;
 import com.cfl.async.GetSubScriptionListAsyncTask;
@@ -157,6 +158,7 @@ public class PushService implements IPushService {
     }
 
     private String sendUserToServer(HafasUser hafasUser) throws RequestFail{
+        LogUtils.i("Push", "sendUserToServer.... " );
         String postUserData = "<SubscriptionRequestList\n" +
                 "    xmlns=\"hafas_abo_v1\">\n" +
                 "    <createUserRequest language=\""+hafasUser.getLanguage()+"\" id=\"1\" >\n" +
@@ -173,8 +175,9 @@ public class PushService implements IPushService {
                 "        </channels>\n" +
                 "    </createUserRequest>\n" +
                 "</SubscriptionRequestList>";
+        LogUtils.i(TAG, "responseUserData...." + postUserData);
         String responseUserData = httpRestServiceCaller.executePushHttpRequest(applicationContext, NMBSApplication.getInstance().getHafasUrl(), postUserData);
-        //Log.i(TAG, "responseUserData...." + responseUserData);
+        LogUtils.i(TAG, "responseUserData...." + responseUserData);
         XmlPullParser parser = Xml.newPullParser();
         String userId = "";
         try{
@@ -228,8 +231,9 @@ public class PushService implements IPushService {
                 "        </channels>\n" +
                 "    </updateUserRequest>\n" +
                 "</SubscriptionRequestList>";
+        Log.e(TAG, postUserData);
         String responseUserData = httpRestServiceCaller.executePushHttpRequest(applicationContext, NMBSApplication.getInstance().getHafasUrl(), postUserData);
-        //Log.i(TAG, responseUserData);
+        Log.e(TAG, responseUserData);
         XmlPullParser parser = Xml.newPullParser();
         String responseResult = "";
         try{
@@ -264,15 +268,22 @@ public class PushService implements IPushService {
 
     @Override
     public String createAccount(HafasUser hafasUser) throws RequestFail{
+        LogUtils.i("Push", "createAccount.... ");
+
         HafasUser user = this.getUser();
         if(user != null&&!user.getUserId().equals("")){
             if(!hafasUser.getLanguage().equals(user.getLanguage())||!hafasUser.getRegisterId().equals(user.getRegisterId())){
+                LogUtils.i("Push", "updateAccount.... ");
                 return updateAccount(hafasUser);
             }else{
+                LogUtils.i("Push", "user.getUserId().... " + user.getUserId());
                 return user.getUserId();
             }
         }else{
-            return sendUserToServer(hafasUser);
+            if(hafasUser != null && hafasUser.getRegisterId() != null)
+                return sendUserToServer(hafasUser);
+            else
+                return "";
         }
     }
 
@@ -689,15 +700,15 @@ public class PushService implements IPushService {
             String token = instanceID.getToken(applicationContext.getString(R.string.gcm_defaultSenderId),
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);*/
             String token = FirebaseInstanceId.getInstance().getToken();
-            //Log.i("Push", "GCM Registration Token: " + token);
+            LogUtils.i("Push", "GCM Registration Token: " + token);
             saveRegistrationId(token);
             userId = createAccount(new HafasUser("", token, language, delay, delay, start));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(NMBSApplication.getInstance().getTestService().isEmptyUser()){
+        /*if(NMBSApplication.getInstance().getTestService().isEmptyUser()){
             return "";
-        }
+        }*/
         return userId;
     }
 

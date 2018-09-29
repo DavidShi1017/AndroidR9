@@ -38,6 +38,7 @@ import com.cfl.application.NMBSApplication;
 import com.cfl.async.CheckUpdateAsyncTask;
 import com.cfl.async.ProfileInfoAsyncTask;
 import com.cfl.exceptions.NetworkError;
+import com.cfl.exceptions.RequestFail;
 import com.cfl.listeners.ActivityPostExecuteListener;
 import com.cfl.listeners.SettingsListener;
 import com.cfl.log.LogUtils;
@@ -485,12 +486,21 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
                                         String beforeLanguage = selectedLanguageKey;
                                         ProgressDialogCustom.getInstance().showWaitDialog(SettingsActivity.this);
                                         try{
-                                            HafasUser hafasUser = pushService.getUser();
-                                            int delayTime = settingService.getDelayNotifiTimeIntger();
-                                            int startTime = settingService.getStartNotifiTimeIntger();
+                                            final HafasUser hafasUser = pushService.getUser();
+                                            final int delayTime = settingService.getDelayNotifiTimeIntger();
+                                            final int startTime = settingService.getStartNotifiTimeIntger();
                                             if(hafasUser!=null){
-                                                pushService.updateAccount(new HafasUser(hafasUser.getUserId(),pushService.getRegistrationId(),selectedLanguageKey,
-                                                        delayTime, delayTime, startTime));
+                                                new Thread(){
+                                                    public void run() {
+                                                        try {
+                                                            pushService.updateAccount(new HafasUser(hafasUser.getUserId(),pushService.getRegistrationId(),selectedLanguageKey,
+                                                                    delayTime, delayTime, startTime));
+                                                        } catch (RequestFail requestFail) {
+                                                            requestFail.printStackTrace();
+                                                        }
+                                                    }
+                                                }.start();
+
                                             }
                                         }catch (Exception e){
                                             e.printStackTrace();

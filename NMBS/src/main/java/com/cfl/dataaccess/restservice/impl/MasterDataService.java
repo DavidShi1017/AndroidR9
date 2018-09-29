@@ -379,6 +379,33 @@ public class MasterDataService implements IMasterDataService{
 		return null;
 	}
 
+	public GeneralSettingResponse getGeneralSettingFromPackage(Context context, String language) throws Exception{
+		int resourcesId = 0;
+		if (SettingService.LANGUAGE_EN.contains(language.toUpperCase())) {
+			resourcesId = R.raw.general_settings_en;
+			//pdfIs = context.getResources().getAssets().open("touring_conditions_en.pdf");
+		}else if(SettingService.LANGUAGE_FR.contains(language.toUpperCase())){
+			resourcesId = R.raw.general_settings_fr;
+			//pdfIs = context.getResources().getAssets().open("touring_conditions_fr.pdf");
+		}else if(SettingService.LANGUAGE_NL.contains(language.toUpperCase())){
+			resourcesId = R.raw.general_settings_nl;
+			//pdfIs = context.getResources().getAssets().open("touring_conditions_nl.pdf");
+		}else if(SettingService.LANGUAGE_DE.contains(language.toUpperCase())){
+			resourcesId = R.raw.general_settings_de;
+			//pdfIs = context.getResources().getAssets().open("touring_conditions_de.pdf");
+		} else {
+			resourcesId = R.raw.general_settings_en;
+			//pdfIs = context.getResources().getAssets().open("touring_conditions_en.pdf");
+		}
+		InputStream is = context.getResources().openRawResource(resourcesId);
+		String stringHttpResponse = FileManager.getInstance().readFileWithInputStream(is);
+		//Log.e(TAG, "stringHttpResponse...." + stringHttpResponse);
+
+		GeneralSettingResponse generalSettingResponse = masterResponseConverter.parseGeneralSettingResponseData(stringHttpResponse);
+
+		return generalSettingResponse;
+	}
+
 	public void storeGeneralSettings( Context context, String language) throws Exception {
 
 		//Log.e(TAG, "storeGeneralSettings....");
@@ -389,30 +416,7 @@ public class MasterDataService implements IMasterDataService{
 
 		if(generalSettingInDataBase == null){
 			//Log.e(TAG, "storeGeneralSettings....generalSettingInDataBase...");
-			int resourcesId = 0;
-			if (SettingService.LANGUAGE_EN.contains(language)) {
-				resourcesId = R.raw.general_settings_en;
-				pdfIs = context.getResources().getAssets().open("touring_conditions_en.pdf");
-			}else if(SettingService.LANGUAGE_FR.contains(language)){
-				resourcesId = R.raw.general_settings_fr;
-				pdfIs = context.getResources().getAssets().open("touring_conditions_fr.pdf");
-			}else if(SettingService.LANGUAGE_NL.contains(language)){
-				resourcesId = R.raw.general_settings_nl;
-				pdfIs = context.getResources().getAssets().open("touring_conditions_nl.pdf");
-			}else if(SettingService.LANGUAGE_DE.contains(language)){
-				resourcesId = R.raw.general_settings_de;
-				pdfIs = context.getResources().getAssets().open("touring_conditions_de.pdf");
-			} else {
-				resourcesId = R.raw.general_settings_en;
-				pdfIs = context.getResources().getAssets().open("touring_conditions_en.pdf");
-			}
-			InputStream is = context.getResources().openRawResource(resourcesId);
-			String stringHttpResponse = FileManager.getInstance().readFileWithInputStream(is);
-			//Log.e(TAG, "stringHttpResponse...." + stringHttpResponse);
-
-			GeneralSettingResponse generalSettingResponse = null;
-			generalSettingResponse = masterResponseConverter.parseGeneralSettingResponseData(stringHttpResponse);
-
+			GeneralSettingResponse generalSettingResponse = getGeneralSettingFromPackage(context, language);
 			//Log.e(TAG, "generalSettingResponse...." + generalSettingResponse);
 			if (generalSettingResponse != null) {
 				insertGeneralSetting(generalSettingResponse.getGeneralSetting(), context);

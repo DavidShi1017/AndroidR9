@@ -157,6 +157,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:support-compat-27.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-games-license-12.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-messaging-17.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.barteksc:android-pdf-viewer-3.1.0-beta.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-cast-framework-license-12.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.zxing:core:3.3.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-analytics-impl-12.0.1" level="project" />
@@ -221,6 +222,7 @@
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.0.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-12.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:transition-27.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.barteksc:pdfium-android-1.9.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-base-16.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-plus-license-12.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement-15.0.1" level="project" />
@@ -295,7 +297,6 @@
     <orderEntry type="library" name="Gradle: com.facebook.android:facebook-applinks-4.34.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-ads-15.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:palette-v7-26.1.0" level="project" />
-    <orderEntry type="module" module-name="android-pdf-viewer" />
     <orderEntry type="library" name="Gradle: org.apache.http.legacy-android-27" level="project" />
   </component>
 </module>

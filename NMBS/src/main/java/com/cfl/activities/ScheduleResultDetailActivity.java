@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -358,7 +359,7 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 					e.printStackTrace();
 				}
 			}else{
-				dialogError = new DialogAlertError(ScheduleResultDetailActivity.this, getResources().getString(R.string.schedule_set_train_alert_failure_title), getResources().getString(R.string.schedule_set_train_alert_failure_info));
+				dialogError = new DialogAlertError(ScheduleResultDetailActivity.this, getResources().getString(R.string.schedule_set_train_alert_failure_title), getResources().getString(R.string.alert_subscription_missingID));
 				dialogError.show();
 			}
 		}
@@ -382,6 +383,7 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 		}else{
 			GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.SCHEDULE_CATEGORY,TrackerConstant.SCHEDULE_SET_TRAIN_ALERT,"");
 			this.showWaitDialog();
+			Log.e(TAG, "createSubscription ....");
 			CreateSubScriptionAsyncTask asyncTask = new CreateSubScriptionAsyncTask(pushService,this.currentRealTimeConnection,settingService.getCurrentLanguagesKey(),getApplicationContext());
 			asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 		}

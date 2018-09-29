@@ -37,9 +37,10 @@ public class CreateSubScriptionAsyncTask extends AsyncTask<Void, Void, Void>{
 	protected Void doInBackground(Void... params) {
 		try {
 			HafasUser hafasUser = pushService.getUser();
+			Log.e(TAG, "createSubscription ...." + hafasUser);
 			if(hafasUser==null||"".equals(hafasUser.getUserId())){
 				String userId = pushService.retryCreateUser(language);
-				Log.d(TAG, "createSubscription ...." + userId);
+				Log.e(TAG, "createSubscription ...." + userId);
 				if("".equals(userId)){
 					Intent broadcastIntent = new Intent(ServiceConstant.PUSH_CREATE_SUBSCRIPTION_ACTION);
 					broadcastIntent.putExtra(ActivityConstant.CREATE_SUBSCRIPTION_RESULT,"");
@@ -54,7 +55,7 @@ public class CreateSubScriptionAsyncTask extends AsyncTask<Void, Void, Void>{
 				executeCreateAction(hafasUser);
 			}
 		}catch (Exception e){
-
+			return null;
 		}
 		return null;
 	}		

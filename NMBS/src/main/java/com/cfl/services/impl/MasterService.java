@@ -6,6 +6,7 @@ import android.content.Context;
 import com.cfl.R;
 
 import com.cfl.activities.WizardActivity;
+import com.cfl.application.NMBSApplication;
 import com.cfl.dataaccess.converters.MasterResponseConverter;
 
 import com.cfl.dataaccess.database.ClickToCallScenarioDatabaseService;
@@ -17,8 +18,10 @@ import com.cfl.dataaccess.database.FavoriteStationsDatabaseService;
 import com.cfl.dataaccess.database.GeneralSettingDatabaseService;
 import com.cfl.dataaccess.database.OriginDestinationRuleDatabaseService;
 import com.cfl.dataaccess.database.StationDatabaseService;
+import com.cfl.dataaccess.restservice.IMasterDataService;
 import com.cfl.dataaccess.restservice.impl.MasterDataService;
 import com.cfl.exceptions.InvalidJsonError;
+import com.cfl.log.LogUtils;
 import com.cfl.model.City;
 import com.cfl.model.ClickToCallScenario;
 import com.cfl.model.CollectionItem;
@@ -27,6 +30,7 @@ import com.cfl.model.DeliveryMethod;
 import com.cfl.model.DeliveryOption;
 import com.cfl.model.FavoriteStation;
 import com.cfl.model.GeneralSetting;
+import com.cfl.model.GeneralSettingResponse;
 import com.cfl.model.HomeBannerResponse;
 import com.cfl.model.PaymentOption;
 import com.cfl.model.Station;
@@ -638,6 +642,18 @@ public class MasterService implements IMasterService {
 	public GeneralSetting loadGeneralSetting() {
 		GeneralSettingDatabaseService generalSettingDatabaseService = new GeneralSettingDatabaseService(applicationContext);
 		GeneralSetting generalSetting = generalSettingDatabaseService.selectGeneralSetting();
+		if(generalSetting == null || generalSetting.getBookingUrl() == null || generalSetting.getBookingUrl().isEmpty()){
+			IMasterDataService iMasterDataService = new MasterDataService();
+            LogUtils.e("loadGeneralSetting", "loadGeneralSetting form package");
+			try {
+				GeneralSettingResponse generalSettingResponse = iMasterDataService.getGeneralSettingFromPackage(applicationContext, NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey());
+				if(generalSettingResponse != null){
+					generalSetting = generalSettingResponse.getGeneralSetting();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		return generalSetting;
 	}
 
