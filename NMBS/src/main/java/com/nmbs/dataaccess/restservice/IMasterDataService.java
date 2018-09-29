@@ -18,6 +18,7 @@ import com.nmbs.model.CollectionItem;
 import com.nmbs.model.DeliveryMethod;
 import com.nmbs.model.FAQCategory;
 import com.nmbs.model.GeneralSetting;
+import com.nmbs.model.GeneralSettingResponse;
 import com.nmbs.model.HomeBannerResponse;
 import com.nmbs.model.MasterDataResponse;
 import com.nmbs.model.OriginDestinationRule;
@@ -106,5 +107,7 @@ public interface IMasterDataService {
 
 	public void cleanLastModifiedHomeBanner(Context context);
 	public TrainIconResponse storeTrainIcon(Context context) throws InvalidJsonError, JSONException;
+	public GeneralSettingResponse getGeneralSettingFromPackage(Context context, String language)throws Exception;
+
 
 }

@@ -54,7 +54,7 @@ public class CreateSubScriptionAsyncTask extends AsyncTask<Void, Void, Void>{
 				executeCreateAction(hafasUser);
 			}
 		}catch (Exception e){
-
+			return null;
 		}
 		return null;
 	}		

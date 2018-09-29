@@ -272,7 +272,10 @@ public class PushService implements IPushService {
                 return user.getUserId();
             }
         }else{
-            return sendUserToServer(hafasUser);
+            if(hafasUser != null && hafasUser.getRegisterId() != null)
+                return sendUserToServer(hafasUser);
+            else
+                return "";
         }
     }
 
@@ -695,9 +698,9 @@ public class PushService implements IPushService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(NMBSApplication.getInstance().getTestService().isEmptyUser()){
+        /*if(NMBSApplication.getInstance().getTestService().isEmptyUser()){
             return "";
-        }
+        }*/
         return userId;
     }
 
