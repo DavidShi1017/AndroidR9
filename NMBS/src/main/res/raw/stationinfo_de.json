@@ -1,71 +1,486 @@
 {
-  "Stations": [
-    {
-      "Code": "LULUX",
-      "Name": "Luxembourg",
-      "OpeningHours": "",
-      "FloorPlanDownloadURL": "",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Bruessel-Midi?affiliation=App&utm_campaign=cfl_app&utm_medium=referral_app&utm_source=cfl_app",
-      "Longitude": "6.133923",
-      "Latitude": "49.600024",
-      "Street": "Place de la Gare",
-      "Number": "11",
-      "PostalCode": "1616",
-      "City": "Luxembourg",
-      "Country": "Luxembourg",
-      "StationInfos": [
+    "Stations": [
         {
-          "Title": "Bahnhof Bruxelles-Midi / Brussel-Zuid (Brüssel)",
-          "Content": "Der Bahnhof Brüssel-Süd, der von Thalys, Eurostar, TGV® und ICE angefahren wird, ist Europas wichtigster Eisenbahnverkehrsknotenpunkt und der ideale Ausgangsbahnhof für Zugreisen nach Deutschland, Frankreich, Großbritannien, in die Niederlande und nach Luxemburg. Darüber hinaus erreichen Sie auch ganz leicht alle anderen belgischen Bahnhöfe.",
-          "Image": ""
+            "Code": "LULUX",
+            "Name": "Luxembourg",
+            "OpeningHours": "",
+            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/LULUX/Map_Gare-de-Luxembourg.ashx",
+            "MoreDetailsURL": "",
+            "Longitude": "6.133923",
+            "Latitude": "49.600024",
+            "Street": "Place de la Gare",
+            "Number": "11",
+            "PostalCode": "1616",
+            "City": "Luxembourg",
+            "Country": "Luxembourg",
+            "StationInfos": [
+                {
+                    "Title": "Infopoints am Bahnhof",
+                    "Content": "Luxemburg Hauptbahnhof ist der ideale Startpunkt für Ihre Reise nach Deutschland, Belgien, Frankreich oder zu anderen europäischen Destinationen. Direktanschlüsse mit dem TGV nach Paris, Straßburg, Montpellier und Marseille.\r\n",
+                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Luxembourg.ashx"
+                }
+            ],
+            "Parkings": [
+                {
+                    "Title": "Parking",
+                    "Content": "Parkhaus in Bahnhofnähe. Geöffnet 24/7.",
+                    "Address": "Place de la gare, L-1616 Luxembourg",
+                    "Latitude": "49.5991488",
+                    "Longitude": "6.131214"
+                }
+            ],
+            "StationFacilities": [
+                {
+                    "Title": "W-LAN"
+                },
+                {
+                    "Title": "Geschäfte"
+                },
+                {
+                    "Title": "Geldautomaten"
+                },
+                {
+                    "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
+                },
+                {
+                    "Title": "Restaurants"
+                },
+                {
+                    "Title": "Carsharing"
+                },
+                {
+                    "Title": "Taxi Station"
+                },
+                {
+                    "Title": "Wartesaal"
+                },
+                {
+                    "Title": "Öffentlicher Personennahverkehr"
+                },
+                {
+                    "Title": "Gepäckaufbewahrung"
+                },
+                {
+                    "Title": "Toiletten und Duschen"
+                }
+            ]
         },
         {
-          "Title": "Infopoints am Bahnhof",
-          "Content": "Es gibt verschiedene Informationsstellen am Bahnhof, wie Infoschalter für den Inlandsverkehr und für den internationalen Verkehr. Am Bahnhof Bruxelles-Midi/Brussel-Zuid (Brüssel) befinden sich auch 1 Thalys-Infoschalter und 1 Touristeninformation der Stadt Brüssel.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
+            "Code": "BEBMI",
+            "Name": "Brüssel-Midi",
+            "OpeningHours": "",
+            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_DE_Optimized.ashx",
+            "MoreDetailsURL": "",
+            "Longitude": "4.333527",
+            "Latitude": "50.8357532",
+            "Street": "Rue de France",
+            "Number": "",
+            "PostalCode": "1060",
+            "City": "Brussel",
+            "Country": "Belgien",
+            "StationInfos": [
+                {
+                    "Title": "Bahnhof Bruxelles-Midi / Brussel-Zuid (Brüssel)",
+                    "Content": "Der Bahnhof Brüssel-Süd, der von Thalys, Eurostar, TGV® und ICE angefahren wird, ist Europas wichtigster Eisenbahnverkehrsknotenpunkt und der ideale Ausgangsbahnhof für Zugreisen nach Deutschland, Frankreich, Großbritannien, in die Niederlande und nach Luxemburg. Darüber hinaus erreichen Sie auch ganz leicht alle anderen belgischen Bahnhöfe.",
+                    "Image": ""
+                },
+                {
+                    "Title": "Infopoints am Bahnhof",
+                    "Content": "Es gibt verschiedene Informationsstellen am Bahnhof, wie Infoschalter für den Inlandsverkehr und für den internationalen Verkehr. Am Bahnhof Bruxelles-Midi/Brussel-Zuid (Brüssel) befinden sich auch 1 Thalys-Infoschalter und 1 Touristeninformation der Stadt Brüssel.",
+                    "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
+                }
+            ],
+            "Parkings": [
+                {
+                    "Title": "Q-Park \"Gare du Midi\"",
+                    "Content": "Direkter Zugang zum Bahnhof Bruxelles-Midi/Brussel-Zuid (Brüssel). Täglich durchgehend geöffnet.",
+                    "Address": "Rue de France 40, 1060 Brüssel",
+                    "Latitude": "50.834617",
+                    "Longitude": "4.3307218"
+                }
+            ],
+            "StationFacilities": [
+                {
+                    "Title": "W-LAN"
+                },
+                {
+                    "Title": "Wartesäle und Lounges"
+                },
+                {
+                    "Title": "Geschäfte"
+                },
+                {
+                    "Title": "Geldautomaten"
+                },
+                {
+                    "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
+                },
+                {
+                    "Title": "Restaurants"
+                },
+                {
+                    "Title": "Auto-und Fahrradverleih"
+                },
+                {
+                    "Title": "Taxi"
+                },
+                {
+                    "Title": "Öffentlicher Personennahverkehr"
+                },
+                {
+                    "Title": "Toiletten"
+                }
+            ]
+        },
+        {
+            "Code": "DEDUH",
+            "Name": "Düsseldorf Hbf",
+            "OpeningHours": "",
+            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEDUH/MAP_Duesseldorf.ashx",
+            "MoreDetailsURL": "",
+            "Longitude": "6.7929443",
+            "Latitude": "51.2202453",
+            "Street": "",
+            "Number": "",
+            "PostalCode": "",
+            "City": "",
+            "Country": "",
+            "StationInfos": [
+                {
+                    "Title": "Infopoints am Bahnhof",
+                    "Content": "Der Hauptbahnhof liegt an Deutschlands verkehrsreichster Zugstrecke. Mehr als 300 Regional-und Fernzüge halten hier.",
+                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Duesseldorf.ashx"
+                }
+            ],
+            "Parkings": [
+                {
+                    "Title": "Vorplatz Düsseldorf Hbf ",
+                    "Content": "Täglich durchgehen geöffnet.",
+                    "Address": "Konrad-Adenauer-Platz 13-14, 40227 Düsseldorf",
+                    "Latitude": "51.2196071",
+                    "Longitude": "6.7890726"
+                },
+                {
+                    "Title": "Parkhaus am Hauptbahnhof",
+                    "Content": "Täglich durchgehen geöffnet.",
+                    "Address": "Charlottenstr. 62, 40210 Düsseldorf",
+                    "Latitude": "51.2216162",
+                    "Longitude": "6.7861244"
+                }
+            ],
+            "StationFacilities": [
+                {
+                    "Title": "W-LAN"
+                },
+                {
+                    "Title": "Geschäfte"
+                },
+                {
+                    "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
+                },
+                {
+                    "Title": "Autovermietung"
+                },
+                {
+                    "Title": "Wartesaal"
+                },
+                {
+                    "Title": "DB Lounge"
+                },
+                {
+                    "Title": "Schließfächer"
+                },
+                {
+                    "Title": "Taxi"
+                },
+                {
+                    "Title": "Öffentlicher Personennahverkehr"
+                },
+                {
+                    "Title": "Toiletten"
+                }
+            ]
+        },
+        {
+            "Code": "FRPST",
+            "Name": "Paris Est",
+            "OpeningHours": "",
+            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPST/MAP_Paris-est.ashx",
+            "MoreDetailsURL": "",
+            "Longitude": "2.3562452",
+            "Latitude": "48.876389",
+            "Street": "",
+            "Number": "",
+            "PostalCode": "",
+            "City": "",
+            "Country": "",
+            "StationInfos": [
+                {
+                    "Title": "Infopoints am Bahnhof",
+                    "Content": "Der Bahnhof Paris-Est ist einer der sechs großen Kopfbahnhöfe der französischen Hauptstadt. Er befindet sich in der Nähe der Gare du Nord.",
+                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/PARIS.ashx"
+                }
+            ],
+            "Parkings": [
+                {
+                    "Title": "Parkhaus \"P1\"",
+                    "Content": "Einfahrt über die rue du 8 Mai 1945.",
+                    "Address": "Rue du 8 Mai 1945, 75010 Paris",
+                    "Latitude": "48.876389",
+                    "Longitude": "2.3562452"
+                },
+                {
+                    "Title": "Parkhaus \"P2 Saint Martin\"",
+                    "Content": "Einfahrt über die rue du Faubourg Saint-Martin.",
+                    "Address": "Rue du Faubourg Saint-Martin., 75010 Paris",
+                    "Latitude": "48.876389",
+                    "Longitude": "2.3562452"
+                }
+            ],
+            "StationFacilities": [
+                {
+                    "Title": "W-LAN"
+                },
+                {
+                    "Title": "Geschäfte"
+                },
+                {
+                    "Title": "Restaurants"
+                },
+                {
+                    "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
+                },
+                {
+                    "Title": "Gepäckaufbewahrung"
+                },
+                {
+                    "Title": "Öffentlicher Personennahverkehr"
+                },
+                {
+                    "Title": "Wartesaal"
+                },
+                {
+                    "Title": "Fahrkartenautomat"
+                },
+                {
+                    "Title": "Taxi"
+                },
+                {
+                    "Title": "Autovermietung"
+                },
+                {
+                    "Title": "Toiletten"
+                }
+            ]
+        },
+        {
+            "Code": "FRAEG",
+            "Name": "Strasbourg",
+            "OpeningHours": "",
+            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRAEG/MAP_Strasbourg.ashx",
+            "MoreDetailsURL": "",
+            "Longitude": "7.7325305",
+            "Latitude": "48.5864966",
+            "Street": "",
+            "Number": "",
+            "PostalCode": "",
+            "City": "",
+            "Country": "",
+            "StationInfos": [
+                {
+                    "Title": "Infopoints am Bahnhof",
+                    "Content": "Der Straßburger Hauptbahnhof bietet den Reisenden zahlreiche Anbindungen zu anderen französischen Regionen.",
+                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Strasbourg.ashx"
+                }
+            ],
+            "Parkings": [
+                {
+                    "Title": "Kurzzeitparkplatz",
+                    "Content": "Geöffnet 24/7",
+                    "Address": "20, place de la gare, 67000 Strasbourg",
+                    "Latitude": "48.5850036",
+                    "Longitude": "7.7321784"
+                },
+                {
+                    "Title": "Parking Ste Aurélie Gare",
+                    "Content": "Geöffnet 24/7",
+                    "Address": "1, Bd de Metz, 67000 Strasbourg",
+                    "Latitude": "48.5828334",
+                    "Longitude": "7.7305166"
+                }
+            ],
+            "StationFacilities": [
+                {
+                    "Title": "W-LAN"
+                },
+                {
+                    "Title": "Geschäfte"
+                },
+                {
+                    "Title": "Restaurants"
+                },
+                {
+                    "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
+                },
+                {
+                    "Title": "Gepäckaufbewahrungsschalter"
+                },
+                {
+                    "Title": "Öffentlicher Personennahverkehr"
+                },
+                {
+                    "Title": "Wartesaal"
+                },
+                {
+                    "Title": "Taxi"
+                },
+                {
+                    "Title": "Autovermietung"
+                },
+                {
+                    "Title": "Toiletten"
+                }
+            ]
+        },
+        {
+            "Code": "FRMPL",
+            "Name": "Montpellier",
+            "OpeningHours": "",
+            "FloorPlanDownloadURL": "",
+            "MoreDetailsURL": "",
+            "Longitude": "3.8942964",
+            "Latitude": "43.599435",
+            "Street": "",
+            "Number": "",
+            "PostalCode": "",
+            "City": "",
+            "Country": "",
+            "StationInfos": [
+                {
+                    "Title": "Infopoints am Bahnhof",
+                    "Content": "Der Bahnhof Montpellier-Saint-Roch ist einer der wichtigsten Bahnhöfe Südfrankreichs und Endbahnhof von mehreren TGV-Linien. Er wird täglich durch eine direkte TGV-Verbindung ab Luxemburg angefahren.",
+                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Montpellier.ashx"
+                }
+            ],
+            "Parkings": [
+                {
+                    "Title": "Parkhaus \"Saint-Roch\"",
+                    "Content": "Täglich durchgehend geöffnet.",
+                    "Address": "101, rue Alexandra David Néel, 34011 Montpellier",
+                    "Latitude": "43.6039452",
+                    "Longitude": "3.877285"
+                }
+            ],
+            "StationFacilities": [
+                {
+                    "Title": "W-LAN"
+                },
+                {
+                    "Title": "Geschäfte"
+                },
+                {
+                    "Title": "Restaurants"
+                },
+                {
+                    "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
+                },
+                {
+                    "Title": "Gepäckaufbewahrung"
+                },
+                {
+                    "Title": "Öffentlicher Personennahverkehr"
+                },
+                {
+                    "Title": "Wartesaal"
+                },
+                {
+                    "Title": "Fahrkartenautomat"
+                },
+                {
+                    "Title": "Carsharing"
+                },
+                {
+                    "Title": "Taxi"
+                },
+                {
+                    "Title": "Autovermietung"
+                },
+                {
+                    "Title": "Bank"
+                },
+                {
+                    "Title": "Toiletten"
+                }
+            ]
+        },
+        {
+            "Code": "GBSPX",
+            "Name": "London St Pancras International",
+            "OpeningHours": "",
+            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_DE.ashx",
+            "MoreDetailsURL": "",
+            "Longitude": "-0.125468",
+            "Latitude": "51.53022",
+            "Street": "Euston Road",
+            "Number": "",
+            "PostalCode": "N1C 4QP",
+            "City": "London",
+            "Country": "Großbritannien",
+            "StationInfos": [
+                {
+                    "Title": "Bahnhof London St Pancras International",
+                    "Content": "Der Bahnhof London St Pancras International ist einer der Hauptknotenpunkte für den nationalen Eisenbahnverkehr sowie Ausgangsbahnhof für internationale Bahnfahrten zum europäischen Festland.",
+                    "Image": ""
+                },
+                {
+                    "Title": "Infopoints am Bahnhof",
+                    "Content": "Verschiedene Informationsstellen befinden sich am Bahnhof London St Pancras International. Es gibt u.a. verschiedene Infoschalter für den Inlandsverkehr und für den internationalen Verkehr.",
+                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Londres.ashx"
+                }
+            ],
+            "Parkings": [
+                {
+                    "Title": "St Pancras International Parking",
+                    "Content": "Parkhaus in der Nähe des Bahnhofs London St Pancras International. Täglich durchgehend geöffnet.",
+                    "Address": "Pancras Road, Londen, N1C 4TB",
+                    "Latitude": "51.5334761",
+                    "Longitude": "-0.1308258"
+                }
+            ],
+            "StationFacilities": [
+                {
+                    "Title": "W-LAN"
+                },
+                {
+                    "Title": "Wartesäle und Lounges"
+                },
+                {
+                    "Title": "Geschäfte"
+                },
+                {
+                    "Title": "Geldautomaten"
+                },
+                {
+                    "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
+                },
+                {
+                    "Title": "Restaurants"
+                },
+                {
+                    "Title": "Auto-und Fahrradverleih"
+                },
+                {
+                    "Title": "Taxi"
+                },
+                {
+                    "Title": "Öffentlicher Personennahverkehr"
+                },
+                {
+                    "Title": "Toiletten"
+                }
+            ]
         }
-      ],
-      "Parkings": [
-        {
-          "Title": "Q-Park \"Gare du Midi\"",
-          "Content": "Direkter Zugang zum Bahnhof Bruxelles-Midi/Brussel-Zuid (Brüssel). Täglich durchgehend geöffnet.",
-          "Address": "Rue de France 40, 1060 Brüssel",
-          "Latitude": "50.834617",
-          "Longitude": "4.3307218"
-        }
-      ],
-      "StationFacilities": [
-        {
-          "Title": "W-LAN"
-        },
-        {
-          "Title": "Wartesäle und Lounges"
-        },
-        {
-          "Title": "Verschiedene Geschäfte (für Bekleidung, Souvenirs,...)"
-        },
-        {
-          "Title": "Geldausgabeautomaten"
-        },
-        {
-          "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
-        },
-        {
-          "Title": "Restaurants, bars und cafés"
-        },
-        {
-          "Title": "Toiletten"
-        },
-        {
-          "Title": "Auto-und Fahrradverleih"
-        }
-      ]
-    }
-  ],
-  "Messages": [
-
-  ],
-  "DebugMessages": [
-
-  ]
+    ],
+    "Messages": [],
+    "DebugMessages": []
 }

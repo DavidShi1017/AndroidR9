@@ -18,6 +18,7 @@ import com.cfl.adapter.StationInfoDetailFacilitiesAdapter;
 import com.cfl.adapter.StationInfoDetailInformationAdapter;
 import com.cfl.adapter.StationInfoDetailParkingAdapter;
 import com.cfl.application.NMBSApplication;
+import com.cfl.dataaccess.restservice.impl.StationInfoDataService;
 import com.cfl.log.LogUtils;
 import com.cfl.model.StationInfo;
 import com.cfl.services.IClickToCallService;
@@ -251,13 +252,20 @@ public class StationInfoDetailActivity extends BaseActivity {
         File file = stationInfoService.getStationPDF(stationInfo);
         Log.d("openPDF", "openPDF===" + file.getAbsolutePath());
         Log.d("openPDF", "openPDF file length------->" + file.length());
+        InputStream is = null;
+        String assetFileName = "";
+        String existStationCode = new StationInfoDataService().getExistStationCode(stationInfo.getCode());
+        if(existStationCode != null){
+            assetFileName = stationInfo.getCode() + "_" + settingService.getCurrentLanguagesKey().substring(0,2).toLowerCase() + ".pdf";
+        }else{
+            assetFileName = stationInfo.getCode() + ".pdf";
+        }
         //file = null;
         if (file != null && file.exists() && file.length() > 0) {
-            startActivity(PDFViewActivity.createIntent(getApplicationContext(), file, "", ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE));
+            startActivity(PDFViewActivity.createIntent(getApplicationContext(), file, assetFileName, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE));
         } else {
             //file = stationInfoService.getStationFloorPlan(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
-            InputStream is = null;
-            String assetFileName = stationInfo.getCode() + "_" + settingService.getCurrentLanguagesKey().substring(0,2).toLowerCase() + ".pdf";
+
             Log.d("openPDF", "openPDF package---assetFileName---->" + assetFileName);
 
             startActivity(PDFViewActivity.createIntent(getApplicationContext(), null, assetFileName, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE));

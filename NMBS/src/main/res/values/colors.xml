@@ -93,7 +93,7 @@
     <color name="textcolor_inprogress">#ff7f00</color>
     <color name="general_light_orange">#FEECDA</color>
     <color name="background_light_blue">#f0f0f0</color>
-	<color name="background_primaryaction">#8e0526</color>
+	<color name="background_primaryaction">#CC0033</color>
 	<color name="background_secondaryaction">#FFFFFF</color>
 	<color name="background_group_title">#eeeeee</color>
 	<color name="background_error">#fcf4f8</color>

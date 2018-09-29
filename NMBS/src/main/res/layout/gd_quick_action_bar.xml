@@ -21,6 +21,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content">
+
 	<ImageView
 		android:id="@+id/gdi_arrow_up"
 		android:layout_width="wrap_content"
@@ -86,8 +87,8 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 
-		android:layout_marginTop="0dp"
 		android:layout_below="@id/gdi_scroll"
+		android:layout_marginTop="0dp"
 		android:src="@drawable/ic_navigation_triangle" />
 
 </RelativeLayout>
