@@ -16,7 +16,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:text="@string/upload_tickets_subscribe_title"
+            android:text="@string/push_title"
             android:textColor="@color/textcolor_thirdaction"
             android:textSize="@dimen/textsize_medium" />
         <ImageView

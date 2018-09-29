@@ -324,10 +324,15 @@ public class StationInfoDataService implements IStationInfoDataService {
         language = language.substring(0, 2).toLowerCase();
         String existStationCode = getExistStationCode(stationCode);
         InputStream is = null;
-        String fileName = existStationCode + "_" + language;
+        String fileName = "";
+        if(existStationCode != null){
+            fileName = stationCode + "_" + language.substring(0,2).toLowerCase() + ".pdf";
+        }else{
+            fileName = stationCode + ".pdf";
+        }
         LogUtils.e("StationInfo", "getStationFloorPlan...fileName..." + fileName);
         try {
-            is = am.open(fileName + ".pdf");
+            is = am.open(fileName);
             if(is.available() > 0){
                 LogUtils.e("StationInfo", "getStationFloorPlan..Asset....available..." + fileName);
                 return true;

@@ -15,6 +15,7 @@
  */
 package com.nmbs.activities;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -33,12 +34,14 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.github.barteksc.pdfviewer.listener.OnErrorListener;
 import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.nmbs.R;
 import com.nmbs.log.LogUtils;
 import com.nmbs.util.ActivityConstant;
+import com.nmbs.util.Utils;
 
 
 import java.io.File;
@@ -46,7 +49,7 @@ import java.io.InputStream;
 import java.util.List;
 
 
-public class PDFViewActivity extends AppCompatActivity implements OnPageChangeListener, OnLoadCompleteListener {
+public class PDFViewActivity extends Activity implements OnPageChangeListener, OnLoadCompleteListener, OnErrorListener {
 
     private static final String TAG = PDFViewActivity.class.getSimpleName();
     private ProgressDialog progressDialog;
@@ -68,7 +71,8 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Utils.setToolBarStyle(this);
         final int SCREEN_ORIENTATION = getIntent().getIntExtra(ActivityConstant.SCREEN_ORIENTATION, 0);
         setRequestedOrientation(SCREEN_ORIENTATION);
         setContentView(R.layout.activity_pdf_view);
@@ -193,6 +197,7 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
                 .onPageChange(this)
                 .enableAnnotationRendering(true)
                 .onLoad(this)
+                .onError(this)
                 .scrollHandle(new DefaultScrollHandle(this))
                 .load();
 
@@ -293,4 +298,11 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
         return intent;
     }
 
+    @Override
+    public void onError(Throwable t) {
+        if(assetFileName != null && !assetFileName.isEmpty()){
+            displayFromAsset(assetFileName);
+        }
+        hideWaitDialog();
+    }
 }
