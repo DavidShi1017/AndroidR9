@@ -4,7 +4,7 @@
       "Code": "BEBMI",
       "Name": "Brüssel-Midi",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussel-Midi_DE",
+      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_DE_Optimized.ashx",
       "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Bruessel-Midi?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "4.333527",
       "Latitude": "50.8357532",
@@ -126,7 +126,7 @@
       "Code": "GBSPX",
       "Name": "London St Pancras International",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_DE",
+      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_DE.ashx",
       "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "-0.125468",
       "Latitude": "51.53022",
@@ -320,6 +320,10 @@
       ]
     }
   ],
-  "Messages": [],
-  "DebugMessages": []
+  "Messages": [
+
+  ],
+  "DebugMessages": [
+
+  ]
 }

@@ -38,9 +38,11 @@ import com.nmbs.services.impl.TestService;
 
 import org.apache.commons.lang.StringUtils;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -738,4 +740,19 @@ public class Utils {
 		long phoneNumber = numberProto.getNationalNumber();
 		return String.valueOf(phoneNumber);
 	}
+
+	public static String getProcessName() {
+		try {
+			File file = new File("/proc/" + android.os.Process.myPid() + "/" + "cmdline");
+			BufferedReader mBufferedReader = new BufferedReader(new FileReader(file));
+			String processName = mBufferedReader.readLine().trim();
+			mBufferedReader.close();
+			return processName;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+
 }

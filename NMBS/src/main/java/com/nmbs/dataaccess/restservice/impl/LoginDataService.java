@@ -28,8 +28,7 @@ import com.nmbs.model.ProfileInfoResponse;
 import com.nmbs.model.ResendInfoResponse;
 import com.nmbs.receivers.CheckOptionReceiver;
 import com.nmbs.services.impl.LoginService;
-import com.nmbs.util.AlarmReceiver;
-import com.nmbs.util.FileManager;
+
 import com.nmbs.util.HTTPRestServiceCaller;
 
 import java.util.Calendar;

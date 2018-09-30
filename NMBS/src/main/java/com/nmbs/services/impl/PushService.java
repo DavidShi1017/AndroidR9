@@ -25,6 +25,7 @@ import com.nmbs.model.LocalNotification;
 import com.nmbs.model.Subscription;
 import com.nmbs.model.SubscriptionResponse;
 import com.nmbs.model.SubscriptionResponseResult;
+import com.nmbs.receivers.LocalNotificationWakefulBroadcastReceiver;
 import com.nmbs.services.IPushService;
 import com.nmbs.util.AlarmReceiver;
 import com.nmbs.util.DateUtils;
@@ -708,7 +709,7 @@ public class PushService implements IPushService {
         Log.e("LocalNotification", "createLocalNotification...");
         AlarmManager alarmManager = (AlarmManager) this.applicationContext.getSystemService(Context.ALARM_SERVICE);
 
-        Intent notificationIntent = new Intent(this.applicationContext, AlarmReceiver.class);
+        Intent notificationIntent = new Intent(this.applicationContext, LocalNotificationWakefulBroadcastReceiver.class);
         //notificationIntent.setData(Uri.parse("content://calendar/calendar_alerts/1"));
 
         notificationIntent.addCategory("android.intent.category.DEFAULT");

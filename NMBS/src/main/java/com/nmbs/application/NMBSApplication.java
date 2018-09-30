@@ -73,6 +73,7 @@ import com.nmbs.util.ConstantLanguages;
 import com.nmbs.util.CrashHandler;
 import com.nmbs.util.DateUtils;
 import com.nmbs.util.SharedPreferencesUtils;
+import com.nmbs.util.Utils;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
@@ -156,70 +157,79 @@ public class NMBSApplication extends MultiDexApplication {
 	@Override
 	public void onCreate() {
 		//Log.e(TAG, "onCreate");
-		SQLiteDatabase.loadLibs(this);
-		offerService = new OfferService(this);
-		notificationService = new NotificationService(this);
-		notificationService.setNotificationOngoing(getApplicationContext(), false);
-		registerService = new RegisterService(this);
-		loginService = new LoginService(this);
-		masterService = new MasterService(this);
-		settingService = new SettingService(this);
-		assistantService = new AssistantService(this);
-		dossierService = new DossierService(this);
+		LogUtils.e("NMBSApplication", "NMBSApplication--------->");
+		String processName = Utils.getProcessName();
 
-		clickToCallService = new ClickToCallService(this);
-		ratingService = new RatingService(this);
-		checkUpdateService = new CheckUpdateService(this);
-		messageService = new MessageService(this);
-		stationInfoService = new StationInfoService(this);
-		scheduleService = new ScheduleService(this);
-		pushService = new PushService(this);
-		dossierDetailsService = new DossierDetailsService(this);
-		dossiersUpToDateService = new DossiersUpToDateService(this);
-		testService = new TestService(this);
-		trainIconsService = new TrainIconsService(this);
-		stationService = new StationService(this);
-		//dossierPromoCodeService = new DossierPromoCodeService(this);
-		//set context
-		//TrackerService.getTrackerService().setContext(this);
-		//record the number of open program
-		//TrackerService.getTracker().createPageViewTracker();
-		//initializeGa();
-		Intent intentOne = new Intent(this, CheckOptionNotificationService.class);
-		//intentOne.setAction(ACTION_START);
-		intentOne.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		startService(intentOne);
-		if(!alarmsetCheckOptionNotification){
-			//setAlarmCheckOptionsNotification();
-		}
+		//if (processName != null && !processName.isEmpty() && processName.equals(this.getPackageName())) {//判断进程名，保证只有主进程运行
+			LogUtils.e("NMBSApplication", "onCreate--------->");
+			SQLiteDatabase.loadLibs(this);
+			offerService = new OfferService(this);
+			notificationService = new NotificationService(this);
+			notificationService.setNotificationOngoing(getApplicationContext(), false);
+			registerService = new RegisterService(this);
+			loginService = new LoginService(this);
+			masterService = new MasterService(this);
+			settingService = new SettingService(this);
+			assistantService = new AssistantService(this);
+			dossierService = new DossierService(this);
 
-		if(!alarmsetCheckOption){
-			//setAlarmCheckOptions();
-		}
-		if (!alarmsetRefresh) {
-			//setAlarmRefreshDossier();
-		}
-		if (!alarmset) {
-			setAlarm();
-		}
-		Date updateTime = DossiersUpToDateService.getUpdateTime(getApplicationContext());
-		if(updateTime == null){
-			DossiersUpToDateService.saveUpdateTime(getApplicationContext(), new Date());
-			//Log.e("updateTime", "updateTime is null...");
-			String emailR6 = SharedPreferencesUtils.getSharedPreferencesByKey(SettingsActivity.PREFS_EMAIL, getApplicationContext());
-			//Log.e("updateTime", "emailR6 email is..." + emailR6);
-			SettingsPref.saveSettingsEmail(getApplicationContext(), emailR6);
-		}else {
+			clickToCallService = new ClickToCallService(this);
+			ratingService = new RatingService(this);
+			checkUpdateService = new CheckUpdateService(this);
+			messageService = new MessageService(this);
+			stationInfoService = new StationInfoService(this);
+			scheduleService = new ScheduleService(this);
+			pushService = new PushService(this);
+			dossierDetailsService = new DossierDetailsService(this);
+			dossiersUpToDateService = new DossiersUpToDateService(this);
+			testService = new TestService(this);
+			trainIconsService = new TrainIconsService(this);
+			stationService = new StationService(this);
+			//dossierPromoCodeService = new DossierPromoCodeService(this);
+			//set context
+			//TrackerService.getTrackerService().setContext(this);
+			//record the number of open program
+			//TrackerService.getTracker().createPageViewTracker();
+			//initializeGa();
+			Intent intentOne = new Intent(this, CheckOptionNotificationService.class);
+			//intentOne.setAction(ACTION_START);
+			intentOne.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			startService(intentOne);
+			if(!alarmsetCheckOptionNotification){
+				//setAlarmCheckOptionsNotification();
+			}
 
-		}
-		android.util.Log.e("UpToDate", "alarmsetUptudate::::" + alarmsetUptudate);
-		if (!alarmsetUptudate) {
-			setAlarmUpdate();
-		}
-		if(TestService.isTestMode){
-			//CrashHandler crashHandler = CrashHandler.getInstance();
-			//crashHandler.init(getApplicationContext());
-		}
+			if(!alarmsetCheckOption){
+				//setAlarmCheckOptions();
+			}
+			if (!alarmsetRefresh) {
+				//setAlarmRefreshDossier();
+			}
+			if (!alarmset) {
+				setAlarm();
+			}
+			Date updateTime = DossiersUpToDateService.getUpdateTime(getApplicationContext());
+			if(updateTime == null){
+				DossiersUpToDateService.saveUpdateTime(getApplicationContext(), new Date());
+				//Log.e("updateTime", "updateTime is null...");
+				String emailR6 = SharedPreferencesUtils.getSharedPreferencesByKey(SettingsActivity.PREFS_EMAIL, getApplicationContext());
+				//Log.e("updateTime", "emailR6 email is..." + emailR6);
+				SettingsPref.saveSettingsEmail(getApplicationContext(), emailR6);
+			}else {
+
+			}
+			android.util.Log.e("UpToDate", "alarmsetUptudate::::" + alarmsetUptudate);
+			if (!alarmsetUptudate) {
+				setAlarmUpdate();
+			}
+			if(TestService.isTestMode){
+				//CrashHandler crashHandler = CrashHandler.getInstance();
+				//crashHandler.init(getApplicationContext());
+			}
+		//}
+
+
+
 	}
 
 
