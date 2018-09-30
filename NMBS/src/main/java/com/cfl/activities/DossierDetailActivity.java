@@ -246,7 +246,7 @@ public class DossierDetailActivity extends BaseActivity {
                     dossierDetailConnectionAdapter.getConnectionsView(connection, dossier, llDossierConnections, shouldRefresh, realTimeConnection);
                 }
             }
-            Log.e("StationInfo", "codes------->" + codes.size());
+            //Log.e("StationInfo", "codes------->" + codes.size());
             if(dossier.getConnections() == null || dossier.getConnections().size() == 0){
                 rlConnections.setVisibility(View.GONE);
                 //llDossierConnectionsInfo.setVisibility(View.GONE);
@@ -257,7 +257,7 @@ public class DossierDetailActivity extends BaseActivity {
             StationInfoResponse stationInfoResponse = stationInfoService.getStationInfoResponseInLocal(getApplicationContext());
             List<StationInfo> stationInfos = dossierDetailsService.getStationInfoFromDossier(stationInfoResponse, codes);
             llDossierStationInfoNames.removeAllViews();
-            Log.e("StationInfo", "codes------->" + codes.size());
+            //Log.e("StationInfo", "codes------->" + codes.size());
             dossierDetailStationInfoAdapter = new DossierDetailStationInfoNameAdapter(this);
             for(StationInfo stationInfo : stationInfos){
                 if(stationInfo != null){

@@ -32,6 +32,7 @@ import com.cfl.application.NMBSApplication;
 import com.cfl.async.AsyncImageLoader;
 import com.cfl.async.RealTimeInfoAsyncTask;
 import com.cfl.exceptions.NetworkError;
+import com.cfl.log.LogUtils;
 import com.cfl.model.Dossier;
 import com.cfl.model.DossierDetailParameter;
 import com.cfl.model.DossierDetailsResponse;
@@ -148,6 +149,13 @@ public class TicketsDetailActivity extends BaseActivity {
         if(dossier != null){
             dossierId = dossier.getDossierId();
         }
+        ivTicketsExpand.clear();
+        ivBarcodesExpand.clear();
+        ivDetailInfosExpand.clear();
+        llTicketsContent.clear();
+        llBarcodesContent.clear();
+        llDetailInfosContent.clear();
+
         if(dossierTravelSegment != null && dossierTravelSegment.getTickets() != null){
 
             List<Ticket> tickets = dossierTravelSegment.getTickets();
@@ -216,6 +224,7 @@ public class TicketsDetailActivity extends BaseActivity {
                         showBarcode();
                     }
                 });
+
                 llBarcodesContent.add(llBarcodeContent);
                 ivBarcodesExpand.add(ivBarcodeExpand);
 
@@ -227,8 +236,8 @@ public class TicketsDetailActivity extends BaseActivity {
                         showDetailInfo();
                     }
                 });
-                llDetailInfosContent.add(llDetailInfoContent);
-                ivDetailInfosExpand.add(ivDetailInfoExpand);
+                //llDetailInfosContent.add(llDetailInfoContent);
+               // ivDetailInfosExpand.add(ivDetailInfoExpand);
 
                 initTicketView();
                 initBarcoidtView();
@@ -791,6 +800,7 @@ public class TicketsDetailActivity extends BaseActivity {
     }
 
     private void initTicketView(){
+        LogUtils.e("TicketsDetailActivity", "isExpandTicket--------->" + isExpandTicket);
         if(isExpandTicket){
             if(ivTicketsExpand.size() > 0 && pagePosition < ivTicketsExpand.size()){
                 ivTicketsExpand.get(pagePosition).setImageResource(R.drawable.ic_minus);
@@ -808,6 +818,7 @@ public class TicketsDetailActivity extends BaseActivity {
         }
     }
     private void initBarcoidtView(){
+        LogUtils.e("TicketsDetailActivity", "isExpandBarcode--------->" + isExpandBarcode);
         if(isExpandBarcode){
             if(ivBarcodesExpand.size() > 0 && pagePosition < ivBarcodesExpand.size()){
                 ivBarcodesExpand.get(pagePosition).setImageResource(R.drawable.ic_minus);
@@ -827,6 +838,7 @@ public class TicketsDetailActivity extends BaseActivity {
     }
 
     private void initDetailView(){
+        LogUtils.e("TicketsDetailActivity", "isExpandDetailInfo--------->" + isExpandDetailInfo);
         if(isExpandDetailInfo){
             if(llDetailInfosContent.size() > 0 && pagePosition < llDetailInfosContent.size()){
                 llDetailInfosContent.get(pagePosition).setVisibility(View.VISIBLE);
@@ -845,6 +857,7 @@ public class TicketsDetailActivity extends BaseActivity {
     }
 
     public void showTicket(){
+        LogUtils.e("TicketsDetailActivity", "isExpandTicket--------->" + isExpandTicket);
         if(isExpandTicket){
             isExpandTicket = false;
             if(ivTicketsExpand.size() > 0 && pagePosition < ivTicketsExpand.size()){
@@ -865,6 +878,7 @@ public class TicketsDetailActivity extends BaseActivity {
     }
 
     public void showBarcode(){
+        LogUtils.e("TicketsDetailActivity", "isExpandBarcode--------->" + isExpandBarcode);
         if(isExpandBarcode){
             isExpandBarcode = false;
             if(ivBarcodesExpand.size() > 0 && pagePosition < ivBarcodesExpand.size()){
@@ -885,6 +899,7 @@ public class TicketsDetailActivity extends BaseActivity {
     }
 
     public void showDetailInfo(){
+        LogUtils.e("TicketsDetailActivity", "isExpandDetailInfo--------->" + isExpandDetailInfo);
         if(isExpandDetailInfo){
             isExpandDetailInfo = false;
             if(ivDetailInfosExpand.size() > 0 && pagePosition < ivDetailInfosExpand.size()){
