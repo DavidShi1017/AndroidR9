@@ -10,7 +10,7 @@
         "CheckLastUpdateTimestampPassword": false,
         "MaxRealTimeInfoHorizon": 2,
         "DossierAftersalesLifetime": 40,
-        "BookingUrl": "https://travel.accept.b-europe.com/cfl/voyager/mobile?affiliation=App&utm_campaign=cfl_app&utm_medium=referral_app&utm_source=cfl_app",
+        "BookingUrl": "https://travel.accept.b-europe.com/cfl/reisen/mobile?affiliation=App&utm_campaign=cfl_app&utm_medium=referral_app&utm_source=cfl_app",
         "LffUrl": "",
         "BelgiumPhoneNumber": "",
         "InternationalPhoneNumber": "",
