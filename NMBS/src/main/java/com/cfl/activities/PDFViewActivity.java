@@ -52,7 +52,7 @@ import java.util.List;
 public class PDFViewActivity extends Activity implements OnPageChangeListener, OnLoadCompleteListener, OnErrorListener {
 
     private static final String TAG = PDFViewActivity.class.getSimpleName();
-    private ProgressDialog progressDialog;
+
     private final static int REQUEST_CODE = 42;
     public static final int PERMISSION_CODE = 200;
 
@@ -84,7 +84,6 @@ public class PDFViewActivity extends Activity implements OnPageChangeListener, O
         pdfView = (PDFView) findViewById(R.id.pdfView);
         file = (File)getIntent().getSerializableExtra(ActivityConstant.LOCAL_PDF_URL);
         assetFileName = getIntent().getStringExtra(ActivityConstant.ASSET_FILENAME);
-        showWaitDialog();
     }
 
     @Override
@@ -110,38 +109,6 @@ public class PDFViewActivity extends Activity implements OnPageChangeListener, O
         }
     }
 
-    // show progressDialog.
-    private void showWaitDialog() {
-        LogUtils.e("LogUtils", " showWaitDialog....");
-        runOnUiThread(new Runnable() {
-            public void run() {
-                if (progressDialog == null) {
-                    //Log.e(TAG, "Show Wait Dialog....");
-                    progressDialog = ProgressDialog.show(PDFViewActivity.this,
-                            getString(R.string.alert_loading),
-                            getString(R.string.alert_waiting), true);
-                }
-            }
-        });
-
-    }
-
-    // hide progressDialog
-    public void hideWaitDialog() {
-        //Log.e(TAG, "Hide Wait Dialog....");
-        LogUtils.e("LogUtils", " hideWaitDialog....");
-        runOnUiThread(new Runnable() {
-            public void run() {
-                if (progressDialog != null) {
-
-                    //Log.e(TAG, "progressDialog is.... " + progressDialog);
-                    progressDialog.dismiss();
-                    progressDialog = null;
-                }
-            }
-        });
-
-    }
 
 /*    @AfterViews
     void afterViews() {
@@ -250,7 +217,7 @@ public class PDFViewActivity extends Activity implements OnPageChangeListener, O
         Log.e(TAG, "modDate = " + meta.getModDate());
 
         printBookmarksTree(pdfView.getTableOfContents(), "-");*/
-        hideWaitDialog();
+
     }
 
 /*    public void printBookmarksTree(List<PdfDocument.Bookmark> tree, String sep) {
@@ -303,6 +270,5 @@ public class PDFViewActivity extends Activity implements OnPageChangeListener, O
         if(assetFileName != null && !assetFileName.isEmpty()){
             displayFromAsset(assetFileName);
         }
-        hideWaitDialog();
     }
 }

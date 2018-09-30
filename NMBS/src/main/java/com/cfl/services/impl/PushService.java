@@ -12,6 +12,7 @@ import android.util.Log;
 import android.util.Xml;
 
 import com.cfl.log.LogUtils;
+import com.cfl.receivers.LocalNotificationWakefulBroadcastReceiver;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.cfl.application.NMBSApplication;
 import com.cfl.async.GetSubScriptionListAsyncTask;
@@ -716,7 +717,7 @@ public class PushService implements IPushService {
         Log.e("LocalNotification", "createLocalNotification...");
         AlarmManager alarmManager = (AlarmManager) this.applicationContext.getSystemService(Context.ALARM_SERVICE);
 
-        Intent notificationIntent = new Intent(this.applicationContext, AlarmReceiver.class);
+        Intent notificationIntent = new Intent(this.applicationContext, LocalNotificationWakefulBroadcastReceiver.class);
         //notificationIntent.setData(Uri.parse("content://calendar/calendar_alerts/1"));
 
         notificationIntent.addCategory("android.intent.category.DEFAULT");

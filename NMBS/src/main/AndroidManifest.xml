@@ -427,13 +427,9 @@
             android:name=".util.LocalNotificationReceiver"
             android:process=":push" />
         <receiver
-            android:name=".util.AlarmReceiver"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="BROADCAST_ACTION" />
-            </intent-filter>
-        </receiver>
+            android:name=".receivers.LocalNotificationWakefulBroadcastReceiver"
+            android:enabled="true" android:process=":remote"
+            android:exported="false"></receiver>
         <receiver
             android:name=".receivers.CheckOptionReceiver"
             android:enabled="true"
