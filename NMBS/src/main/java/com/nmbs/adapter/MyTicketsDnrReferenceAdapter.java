@@ -80,7 +80,7 @@ public class MyTicketsDnrReferenceAdapter {
         });
         if(TestService.isTestMode && !isActive){
             btn.setVisibility(View.VISIBLE);
-        }
+        }btn.setVisibility(View.GONE);
             if(dossierDetailsResponse != null){
                 tvDnr.setText(dossierDetailsResponse.getDossierId());
                 if(DossierDetailsService.DossierStateError.equalsIgnoreCase(dossierDetailsResponse.getDossierState())){

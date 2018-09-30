@@ -148,6 +148,12 @@ public class TicketsDetailActivity extends BaseActivity {
         if(dossier != null){
             dossierId = dossier.getDossierId();
         }
+        ivTicketsExpand.clear();
+        ivBarcodesExpand.clear();
+        ivDetailInfosExpand.clear();
+        llTicketsContent.clear();
+        llBarcodesContent.clear();
+        llDetailInfosContent.clear();
         if(dossierTravelSegment != null && dossierTravelSegment.getTickets() != null){
 
             List<Ticket> tickets = dossierTravelSegment.getTickets();
