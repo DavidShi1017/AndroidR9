@@ -601,9 +601,9 @@ public class Utils {
 		/*UAT --> dieter.hautekeete@b-rail.be
 		Production --> internet-int@b-rail.be*/
 		if(TestService.isTestMode){
-			data.setData(Uri.parse("mailto:dieter.hautekeete@b-rail.be"));
+			data.setData(Uri.parse("mailto:anthony.cauwelier@b-rail.be"));
 		}else{
-			data.setData(Uri.parse("mailto:internet-int@b-rail.be"));
+			data.setData(Uri.parse("mailto:hometicketing@cfl.lu"));
 		}
 
 		data.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.feedback_email_subject));

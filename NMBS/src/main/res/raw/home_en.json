@@ -2,9 +2,21 @@
   "WizardItems": [
     {
       "Title": "Welcome",
-      "Description": "Discover the restyled CFL app and explore its many new features which will assist you during your train journey: get push notifications with real-time info about your trip, book your tickets on our mobile site and upload them into the app, stay updated on our latest offers, check the fare calendar for the lowest fares to our top destinations,... and much more. Have a nice trip!",
+      "Description": "Discover the new CFL International app and explore its many new features which will assist you during your train journey: get push notifications with real-time info about your trip, book your tickets, stay updated on our latest offers,... and much more. Have a nice trip!",
       "HighResImage": "WizardWelcome",
       "LowResImage": "WizardWelcome",
+      "AreaTitle": "",
+      "AreaIcon": "icon-ico-beurope-reduction",
+      "NewInRelease": true,
+      "Context": [
+        "HOME"
+      ]
+    },
+    {
+      "Title": "New: real-time travel info",
+      "Description": "From now on, you'll also receive real-time info about your upcoming trips, so you'll always have the latest travel info. Among other things, our app will inform you about potential delays or cancellations of thousands of trains throughout Europe, about specific travel info based on a train station or booking reference, or info relevant to your journey. You can easily manage your notifications via \"Real-time alerts\", where you'll be able to decide which push notifications you'd like to receive.",
+      "HighResImage": "wizardRealTime",
+      "LowResImage": "wizardRealTime",
       "AreaTitle": "",
       "AreaIcon": "icon-ico-beurope-reduction",
       "NewInRelease": true,
@@ -19,7 +31,7 @@
       "LowResImage": "wizardHelp",
       "AreaTitle": "MyTickets",
       "AreaIcon": "icon-icoTrainTicket",
-      "NewInRelease": false,
+      "NewInRelease": true,
       "Context": [
         "MYTICKETS",
         "HOME"
@@ -32,12 +44,16 @@
       "LowResImage": "wizardNewBooking",
       "AreaTitle": "MyTickets",
       "AreaIcon": "icon-icoTrainTicket",
-      "NewInRelease": false,
+      "NewInRelease": true,
       "Context": [
         "HOME"
       ]
     }
   ],
-  "Messages": [],
-  "DebugMessages": []
+  "Messages": [
+
+  ],
+  "DebugMessages": [
+
+  ]
 }

@@ -2,9 +2,21 @@
   "WizardItems": [
     {
       "Title": "Willkommen",
-      "Description": "Entdecken Sie unsere neu gestaltete App mit neuen Funktionen, die Ihnen Ihre Zugreisen noch weiter vereinfachen: erhalten Sie Echtzeit Push Meldungen zu Ihrer Reise, buchen Sie Ihre Tickets über unsere \"mobil-freundliche\" Website und laden Sie diese dann in die App hoch, informieren Sie sich zu unseren aktuellen Angeboten oder finden Sie die günstigsten Preise zu unseren Top-Reisezielen in unserem Preiskalender,... und vieles mehr. Wir wünschen Ihnen schon jetzt schöne Zugreisen!",
+      "Description": "Entdecken Sie unsere neu gestaltete App mit neuen Funktionen, die Ihnen Ihre Zugreisen noch weiter vereinfachen: erhalten Sie Echtzeit Push Meldungen zu Ihrer Reise, informieren Sie sich zu unseren aktuellen Angeboten,... und vieles mehr. Wir wünschen Ihnen schon jetzt schöne Zugreisen!",
       "HighResImage": "WizardWelcome",
       "LowResImage": "WizardWelcome",
+      "AreaTitle": "",
+      "AreaIcon": "icon-ico-beurope-reduction",
+      "NewInRelease": true,
+      "Context": [
+        "HOME"
+      ]
+    },
+    {
+      "Title": "Neu: Echtzeit-Meldungen",
+      "Description": "Ab sofort erhalten Sie auch Echtzeit-Informationen zu Ihrer geplanten Reise, damit Sie jederzeit über den aktuellsten Stand Ihrer Reise informiert sind: Verspätungen oder Ausfälle von tausenden Zügen in Europa, spezielle Reiseinformationen basiert auf Ihren Bahnhof oder Ihre Buchungsreferenz, passende Informationen zu Ihrer Zugreise. Sie können Ihre Benachrichtigungen selber einstellen über die Rubrik \"Echtzeit Meldungen\".\r\n",
+      "HighResImage": "wizardRealTime",
+      "LowResImage": "wizardRealTime",
       "AreaTitle": "",
       "AreaIcon": "icon-ico-beurope-reduction",
       "NewInRelease": true,
@@ -19,7 +31,7 @@
       "LowResImage": "wizardHelp",
       "AreaTitle": "",
       "AreaIcon": "icon-icoTrainTicket",
-      "NewInRelease": false,
+      "NewInRelease": true,
       "Context": [
         "MYTICKETS",
         "HOME"
@@ -32,12 +44,16 @@
       "LowResImage": "wizardNewBooking",
       "AreaTitle": "",
       "AreaIcon": "icon-icoTrainTicket",
-      "NewInRelease": false,
+      "NewInRelease": true,
       "Context": [
         "HOME"
       ]
     }
   ],
-  "Messages": [],
-  "DebugMessages": []
+  "Messages": [
+
+  ],
+  "DebugMessages": [
+
+  ]
 }
