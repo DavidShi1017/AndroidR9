@@ -885,7 +885,7 @@ ALLER SUR L\'APP</string>
   <string name="my_tickets_upcoming_travels">Prochains voyages</string>
   <string name="my_tickets_past_travels">Derniers voyages</string>
   <string name="my_tickets_dossier_error">Les informations de réservation n\'ont pas pu être récupérées</string>
-  <string name="my_tickets_dossier_inprogress">Récupérations des informations de réservation</string>
+  <string name="my_tickets_dossier_inprogress">Votre dossier est en cours de création.</string>
   <string name="my_tickets_upload_new">AJOUTER DE NOUVEAUX BILLETS</string>
   <string name="my_tickets_no_ticket">Vous n\'avez aucun billet pour le moment.</string>
   <string name="my_tickets_no_active_ticket">Vous n\'avez pas de voyage à venir pour le moment. </string>

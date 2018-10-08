@@ -1052,7 +1052,7 @@ won\'t take more than a minute. Thanks for your support.</string>
     <string name="my_tickets_upcoming_travels">Upcoming trips</string>
     <string name="my_tickets_past_travels">Past trips</string>
     <string name="my_tickets_dossier_error">Booking info couldn\'t be retrieved</string>
-    <string name="my_tickets_dossier_inprogress">Retrieving booking info</string>
+    <string name="my_tickets_dossier_inprogress">Your booking is still being created and processed.</string>
     <string name="my_tickets_upload_new">UPLOAD NEW TICKETS</string>
     <string name="my_tickets_no_ticket">Currently you do not have any tickets.</string>
     <string name="my_tickets_no_active_ticket">Currently you do not have any upcoming trips.</string>

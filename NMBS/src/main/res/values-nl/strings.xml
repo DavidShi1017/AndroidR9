@@ -596,7 +596,7 @@
   <string name="departuredetail_view_traininfo_wifi">Gratis Wi-Fi aan boord</string>
   <string name="departuredetail_view_traininfo_restaurant">Restaurant aan boord</string>
   <string name="departuredetail_view_traininfo_bar">Barrijtuig aan boord</string>
-  <string name="departuredetail_view_traininfo_minibar">Mini-barrijtuig aan boord</string>
+  <string name="departuredetail_view_traininfo_minibar">At-seat trolley service</string>
   <string name="departuredetail_view_traininfo_bike">Fietsen toegestaan aan boord</string>
   <string name="departuredetail_view_offerinfo_promo">Promotarief</string>
   <string name="departuredetail_view_offerinfo_corporate">Volgende bedrijfscontracten werden in rekening gebracht</string>
@@ -892,7 +892,7 @@ GA NAAR APP</string>
 <string name="my_tickets_upcoming_travels">Volgende reizen</string>
 <string name="my_tickets_past_travels">Vorige reizen</string>
 <string name="my_tickets_dossier_error">Boekingsinfo ophalen mislukt</string>
-<string name="my_tickets_dossier_inprogress">Boekingsinfo wordt opgehaald</string>
+<string name="my_tickets_dossier_inprogress">Uw dossier wordt nog aangemaakt en verwerkt.</string>
 <string name="my_tickets_upload_new">NIEUWE TICKETS OPLADEN</string>
 <string name="my_tickets_no_ticket">U hebt momenteel geen tickets.</string>
 <string name="my_tickets_no_active_ticket">U hebt nu geen volgende reizen.</string>

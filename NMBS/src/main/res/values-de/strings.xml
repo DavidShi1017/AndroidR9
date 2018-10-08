@@ -895,7 +895,7 @@ ZURÜCK ZUR APP</string>
 <string name="my_tickets_upcoming_travels">Zukünftige Zugreisen</string>
 <string name="my_tickets_past_travels">Vergangene Zugreisen</string>
 <string name="my_tickets_dossier_error">Buchungsinfo konnten nicht abgerufen worden</string>
-<string name="my_tickets_dossier_inprogress">Buchungsinfo wird abgerufen</string>
+<string name="my_tickets_dossier_inprogress">Ihre Buchung wird bearbeitet.</string>
 <string name="my_tickets_upload_new">NEUE TICKETS UPLOADEN</string>
 <string name="my_tickets_no_ticket">Zurzeit haben Sie keine Tickets.</string>
     <string name="my_tickets_no_active_ticket">Zurzeit haben Sie keine zukünftigen Zugreisen
