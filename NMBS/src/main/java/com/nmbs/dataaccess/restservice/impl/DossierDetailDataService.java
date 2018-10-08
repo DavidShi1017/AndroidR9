@@ -258,6 +258,7 @@ public class DossierDetailDataService extends CustomErrorMessager {
         boolean isSuccessfully = true;
         boolean hasError = false;
         List<PDF> pdfs = dossier.getPdfs();
+
         for (PDF pdf : pdfs) {
             if (pdf != null && pdf.getPdfURL() != null && !pdf.getPdfURL().equalsIgnoreCase("")){
                 String fileName = dossier.getDossierId() + "-" + pdf.getPdfId() + ".pdf";

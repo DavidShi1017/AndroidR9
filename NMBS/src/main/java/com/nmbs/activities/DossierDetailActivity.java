@@ -419,12 +419,15 @@ public class DossierDetailActivity extends BaseActivity {
             ivTicketsExpand.setImageResource(R.drawable.ic_plus);
             llDossierDetailTickets.setVisibility(View.GONE);
         }
-        if(dossierSummary != null){
-            if(dossierSummary.isPDFSuccessfully()){
+        if(dossierSummary != null && dossierSummary.isPDFSuccessfully()){
+            if(dossier.getPdfs() != null && dossier.getPdfs().size() > 0){
                 btnPdf.setVisibility(View.VISIBLE);
             }else{
                 btnPdf.setVisibility(View.GONE);
             }
+
+        }else{
+            btnPdf.setVisibility(View.GONE);
         }
     }
 

@@ -255,7 +255,12 @@ public class TicketsDetailActivity extends BaseActivity {
                     showBarcodeZone(ticket, dossierId, ivBarcode, tvBarcodeStutes);
 
                     if(dossierSummary != null && dossierSummary.isPDFSuccessfully()){
-                        btnPdf.setVisibility(View.VISIBLE);
+                        if(dossier.getPdfs() != null && dossier.getPdfs().size() > 0){
+                            btnPdf.setVisibility(View.VISIBLE);
+                        }else{
+                            btnPdf.setVisibility(View.GONE);
+                        }
+                        //btnPdf.setVisibility(View.VISIBLE);
                         tvPdfStatus.setVisibility(View.GONE);
 
                     }else{
