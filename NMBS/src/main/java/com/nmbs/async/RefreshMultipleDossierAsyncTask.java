@@ -92,7 +92,9 @@ public class RefreshMultipleDossierAsyncTask extends AsyncTask<Void, Void, Void>
                 }else{
                     if(!isSent && NMBSApplication.getInstance().getSettingService().isAutoUpdate()){
                         if(NMBSApplication.getInstance().getSettingService().isDnr()){
-                            sendNotification();
+                            if(!Utils.isAppForeground(mContext)){
+                                sendNotification();
+                            }
                         }
                         isSent = true;
                     }

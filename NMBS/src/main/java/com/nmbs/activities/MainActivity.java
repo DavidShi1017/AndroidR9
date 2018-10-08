@@ -1420,7 +1420,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 								if(loginService.isLogon()){
 									if(generalSetting.getCommercialTtlListUrl() != null && !generalSetting.getCommercialTtlListUrl().isEmpty()){
 										startActivity(WebViewActivity.createIntent(getApplicationContext(),
-												Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
+												Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.BOOKING_FLOW, ""));
 										GoogleAnalyticsUtil.getInstance().sendScreen(MainActivity.this, TrackerConstant.CommercialTTLListUrl);
 									}
 								}else{
@@ -1435,7 +1435,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 			if(loginService.isLogon()){
 				if(generalSetting.getCommercialTtlListUrl() != null && !generalSetting.getCommercialTtlListUrl().isEmpty()){
 					startActivity(WebViewActivity.createIntent(getApplicationContext(),
-							Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
+							Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.BOOKING_FLOW, ""));
 					GoogleAnalyticsUtil.getInstance().sendScreen(MainActivity.this, TrackerConstant.CommercialTTLListUrl);
 				}
 			}else{

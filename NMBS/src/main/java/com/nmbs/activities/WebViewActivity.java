@@ -224,9 +224,12 @@ public class WebViewActivity extends AppCompatActivity {
                 String CookieStr = cookieManager.getCookie(url);
                 Log.e("onPageFinished", "Cookies = " + CookieStr);*/
                 if(flow == BOOKING_FLOW){
-                    if(url.contains("ConfirmationConfirmed") && url.contains("email")){;
+                    LogUtils.d(TAG, "onPageFinished....flow...." + flow);
+                    if(url.contains("ConfirmationConfirmed") && url.contains("email")){
                         email = Utils.getUrlValue(url, "email");
                         dnr = Utils.getUrlValue(url, "dnr");
+                        LogUtils.d(TAG, "onPageFinished....email...." + email);
+                        LogUtils.d(TAG, "onPageFinished....dnr...." + dnr);
                         // upload.....
                         if(!UploadDossierAsyncTask.isUploading){
                             UploadDossierAsyncTask asyncTask = new UploadDossierAsyncTask(uploadHandler, getApplicationContext(), dnr, email);

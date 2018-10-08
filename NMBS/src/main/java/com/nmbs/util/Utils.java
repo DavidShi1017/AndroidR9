@@ -2,6 +2,7 @@ package com.nmbs.util;
 
 
 import android.app.Activity;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -578,6 +579,25 @@ public class Utils {
 				}
 			}
 		}
+	}
+	public static boolean isAppForeground(Context context) {
+		ActivityManager activityManager =
+				(ActivityManager)context.getSystemService(Service.ACTIVITY_SERVICE);
+		List<ActivityManager.RunningAppProcessInfo> runningAppProcessInfoList =
+				activityManager.getRunningAppProcesses();
+		if (runningAppProcessInfoList == null) {
+			LogUtils.d(TAG,"runningAppProcessInfoList is null!");
+			return false;
+		}
+
+		for(ActivityManager.RunningAppProcessInfo processInfo : runningAppProcessInfoList) {
+			if (processInfo.processName.equals(context.getPackageName())
+					&&(processInfo.importance ==
+					ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public static boolean isAppAlive(Context context, String packageName){
