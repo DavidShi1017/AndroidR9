@@ -374,8 +374,8 @@ public class TicketsDetailActivity extends BaseActivity {
                         }
                     }
 
-                    //addExchangebleInfo(ticket, convertView);
-                    //addRefundInfo(ticket, convertView);
+                    addExchangebleInfo(ticket, convertView);
+                    addRefundInfo(ticket, convertView);
                     addTickTypeInfo(ticket, convertView);
                     addDeliveryInfo(ticket, convertView);
                 }

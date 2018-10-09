@@ -338,6 +338,7 @@
                     android:id="@+id/ll_info_exchange"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:layout_marginTop="@dimen/margin_default"
                     android:orientation="vertical">
                     <TextView
@@ -381,6 +382,7 @@
                     android:id="@+id/ll_info_refund"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:layout_marginTop="@dimen/margin_default"
                     android:orientation="vertical">
                     <TextView

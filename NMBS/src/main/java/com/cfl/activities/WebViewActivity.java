@@ -109,9 +109,11 @@ public class WebViewActivity extends AppCompatActivity {
                     LogUtils.d(TAG, "screen....is not null");
                     view.stopLoading();
                     if (screen.equalsIgnoreCase("DossierList")) {
+                        LogUtils.d(TAG, "DossierList....");
                         finish();
                         startActivity(MyTicketsActivity.createIntent(WebViewActivity.this));
                     } else if (screen.equalsIgnoreCase("UploadDNR") || screen.equalsIgnoreCase("UploadDossier")) {
+                        LogUtils.d(TAG, "UploadDNR....");
                         String email = Utils.getUrlValue(url, "email");
                         LogUtils.e("Webview", "email------>" + email);
                         finish();
