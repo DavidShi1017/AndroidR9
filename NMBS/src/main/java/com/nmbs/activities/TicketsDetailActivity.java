@@ -76,7 +76,7 @@ public class TicketsDetailActivity extends BaseActivity {
     private DossierSummary dossierSummary;
     private TextView tvTecietCount;
     private int ticketCount;
-    boolean isExpandTicket = true, isExpandBarcode = true, isExpandDetailInfo;
+    boolean isExpandTicket = true, isExpandBarcode = true, isExpandDetailInfo = true;
     private DossierDetailsService dossierDetailsService;
     private List<ImageView> ivTicketsExpand = new ArrayList<>();
     private List<ImageView> ivBarcodesExpand = new ArrayList<>();

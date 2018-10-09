@@ -154,7 +154,11 @@ public class DossierDetailTicketLinedAdapter {
         /*Button btnToScheduleLinked = (Button) convertView.findViewById(R.id.btn_travelsegment_to_schedule_linked);*/
         LinearLayout llName = (LinearLayout)convertView.findViewById(R.id.ll_names_linked);
         LinearLayout llSeatLocation = (LinearLayout)convertView.findViewById(R.id.ll_seatlocation_linked);
-
+        if(dossierTravelSegment.getTickets() != null && dossierTravelSegment.getTickets().size() > 0){
+            btnViewTicketLinked.setVisibility(View.VISIBLE);
+        }else{
+            btnViewTicketLinked.setVisibility(View.GONE);
+        }
         btnViewTicketLinked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
