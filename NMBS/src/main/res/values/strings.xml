@@ -599,7 +599,7 @@
     <string name="departuredetail_view_traininfo_wifi">Free Wi-Fi on board</string>
     <string name="departuredetail_view_traininfo_restaurant">On-board restaurant</string>
     <string name="departuredetail_view_traininfo_bar">On-board bar buffet</string>
-    <string name="departuredetail_view_traininfo_minibar">At-seat trolley service</string>
+    <string name="departuredetail_view_traininfo_minibar">At-seat minibar service</string>
     <string name="departuredetail_view_traininfo_bike">Bikes permitted</string>
     <string name="departuredetail_view_offerinfo_promo">Special offer</string>
     <string name="departuredetail_view_offerinfo_corporate">The following corporate rate was applied</string>
