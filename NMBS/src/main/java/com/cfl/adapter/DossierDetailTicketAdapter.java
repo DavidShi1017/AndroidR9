@@ -169,7 +169,11 @@ public class DossierDetailTicketAdapter {
         ImageView ivMonitor = (ImageView)convertView.findViewById(R.id.iv_travelsegment_monitoring);
         TextView tvMonitor = (TextView)convertView.findViewById(R.id.tv_travelsegment_monitoring);
         /*Button btnToSchedule = (Button) convertView.findViewById(R.id.btn_travelsegment_to_schedule);*/
-
+        if(dossierTravelSegment.getTickets() != null && dossierTravelSegment.getTickets().size() > 0){
+            btnViewTicket.setVisibility(View.VISIBLE);
+        }else{
+            btnViewTicket.setVisibility(View.GONE);
+        }
         btnViewTicket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

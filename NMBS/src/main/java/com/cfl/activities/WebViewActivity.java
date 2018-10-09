@@ -222,7 +222,6 @@ public class WebViewActivity extends AppCompatActivity {
                 Log.e("onPageFinished", "Cookies = " + CookieStr);*/
                 if (flow == BOOKING_FLOW) {
                     if (url.contains("ConfirmationConfirmed") && url.contains("email")) {
-                        ;
                         email = Utils.getUrlValue(url, "email");
                         dnr = Utils.getUrlValue(url, "dnr");
                         // upload.....
