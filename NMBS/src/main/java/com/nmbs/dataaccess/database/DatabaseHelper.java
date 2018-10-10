@@ -522,7 +522,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	public synchronized SQLiteDatabase getWritableDatabase(){
 
-		LogUtils.e("LogUtils", " getMessageResponse from service, create database------>");
+		LogUtils.e("LogUtils", " getWritableDatabase from service, create database------>");
 		//if (SQLiteDatabase == null) {
 		try{
 			if(SQLiteDatabase == null){
@@ -530,10 +530,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			}
 		}catch (Exception e){
 			try{
-				LogUtils.e("LogUtils", " getMessageResponse from service, create database Exception------>" + e.getMessage());
+				LogUtils.e("LogUtils", " getWritableDatabase from service, create database Exception------>" + e.getMessage());
 				SQLiteDatabase = this.getWritableDatabase("dhanmbs");
 			}catch (Exception ee){
-				LogUtils.e("LogUtils", " getMessageResponse from service, create database Exception again------>" + e.getMessage());
+				LogUtils.e("LogUtils", " getWritableDatabase from service, create database Exception again------>" + e.getMessage());
 				ee.printStackTrace();
 			}
 		}

@@ -677,7 +677,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 	}
 
 	private void showOptionCount(){
-		if(loginService.isLogon()){
+		if(loginService != null && loginService.isLogon()){
 			CheckOption checkOption = loginService.getCheckOption(getApplicationContext());
 			if(checkOption != null){
 				optionCount = checkOption.getCount();
