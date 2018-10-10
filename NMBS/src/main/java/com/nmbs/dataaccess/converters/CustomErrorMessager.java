@@ -7,6 +7,7 @@ import com.nmbs.exceptions.CustomError;
 import com.nmbs.exceptions.DBooking343Error;
 import com.nmbs.exceptions.DBookingNoSeatAvailableError;
 import com.nmbs.exceptions.RequestFail;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Message;
 import com.nmbs.model.RestResponse;
 
@@ -14,7 +15,7 @@ import org.apache.commons.lang.StringUtils;
 
 public class CustomErrorMessager {
 	
-	public void throwErrorMessage(RestResponse restResponse, Context context) throws DBooking343Error, 
+	public void throwErrorMessage(RestResponse restResponse, Context context, String url) throws DBooking343Error,
 					CustomError, DBookingNoSeatAvailableError, RequestFail{
 		
 		for (Message message : restResponse.getMessages()) {
@@ -51,6 +52,13 @@ public class CustomErrorMessager {
 					responseErrorMessage = getErrorDescription(message);
 					if(responseErrorMessage == null)
 						responseErrorMessage = context.getString(R.string.DBooking_InvalidFtp);
+					throw new CustomError(responseErrorMessage);
+				}
+				if (StringUtils.equalsIgnoreCase(url, context.getString(R.string.server_url_get_dossier_detail))) {
+					LogUtils.e("UploadDossier", "UploadDossier error----------");
+					responseErrorMessage = getErrorDescription(message);
+					if(responseErrorMessage == null)
+						responseErrorMessage = context.getString(R.string.general_server_unavailable);
 					throw new CustomError(responseErrorMessage);
 				}
 				responseErrorMessage = getErrorDescription(message);

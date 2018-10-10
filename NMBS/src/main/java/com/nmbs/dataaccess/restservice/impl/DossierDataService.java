@@ -78,7 +78,7 @@ public class DossierDataService extends CustomErrorMessager implements IDossierD
 			
 			/*String responseDossierGUID = FileManager.getInstance().readExternalStoragePrivateFile(context, null, "error.json");*/
 			RestResponse restResponse = dossierResponseConverter.parseDossierGUID(responseDossierGUID);  
-			super.throwErrorMessage(restResponse, context);
+			super.throwErrorMessage(restResponse, context, "");
 			DossierService.GUID = getGUID(restResponse);
 		}
 		//Log.i(TAG, "GUID is? : " + DossierService.GUID);
@@ -89,7 +89,7 @@ public class DossierDataService extends CustomErrorMessager implements IDossierD
 		
 		//responseSecond = "{\"TotalDossierValue\": {\"Amount\": 81.9,\"CurrencyCode\": \"EUR\"},\"TotalDiscountPrice\": {\"Amount\": 0.0,\"CurrencyCode\": \"EUR\"},\"OriginStationName\": \"Aachen Hbf\",\"OriginStationRCode\": \"DEBDY\",\"DestinationStationName\": \"Aalst\",\"DestinationStationRCode\": \"BEAAL\",\"NrOfPassengers\": 1,\"ComfortClass\": 2,\"IsTwoWay\": true,\"Outbound\": {\"DepartureDateTime\": \"2014-09-26T10:35:00\",\"ArrivalDateTime\": \"2014-09-26T13:17:00\",\"NrOfTransfers\": 3,\"OptionalReservationsIncluded\": false,\"HasLegsWithTicketNotIncluded\": false},\"Inbound\": {\"DepartureDateTime\": \"2014-09-26T16:39:00\",\"ArrivalDateTime\": \"2014-09-26T18:36:00\",\"NrOfTransfers\": 1,\"HasLegsWithTicketNotIncluded\": false},\"DnrId\": \"JCHTDKL\",\"PnrIds\": [\"ENLDCAFG\",\"QYFMSW\"],\"TotalPrice\": {\"Amount\": 81.9,\"CurrencyCode\": \"EUR\"},\"TotalTravelPrice\": { \"Amount\": 81.9,\"CurrencyCode\": \"EUR\"},\"TotalInsurancePrice\": {\"Amount\": 0.0,\"CurrencyCode\": \"EUR\"},\"HasInsurance\": false,\"HasReservations\": true,\"HasOverbookings\": false,\"OrderItemState\": \"Provisional\",\"Passengers\": [{\"Id\": \"AA\",\"PassengerType\": \"A\",\"ReductionCards\": [],\"FtpCards\": []}],\"DeliveryOptions\": [{\"Method\": \"STAU\",\"PaymentOptions\": [{\"Method\": \"VISA\"},{\"Method\": \"ECMC\"},{\"Method\": \"AMEX\"}]}],\"SeatLocations\": [],\"Messages\": [],\"DebugMessages\": []}";
 		dossierResponse = dossierResponseConverter.parseDossier(responseSecond);
-		super.throwErrorMessage(dossierResponse, context);
+		super.throwErrorMessage(dossierResponse, context, "");
 		return dossierResponse;		
 	}
 	/**
@@ -135,7 +135,7 @@ public class DossierDataService extends CustomErrorMessager implements IDossierD
 		
 		DossierResponseConverter dossierResponseConverter = new DossierResponseConverter();;
 		dossierResponse = dossierResponseConverter.parseDossier(response);
-		super.throwErrorMessage(dossierResponse, context);
+		super.throwErrorMessage(dossierResponse, context, "");
 		return dossierResponse;
 	}
 	
@@ -208,7 +208,7 @@ public class DossierDataService extends CustomErrorMessager implements IDossierD
 		
 		DossierResponseConverter dossierResponseConverter = new DossierResponseConverter();;
 		dossierResponse = dossierResponseConverter.parseDossier(response);
-		super.throwErrorMessage(dossierResponse, context);
+		super.throwErrorMessage(dossierResponse, context, "");
 		//Log.i("executeAbortPayment", "dossierResponseConverter......");
 		return dossierResponse;
 	}

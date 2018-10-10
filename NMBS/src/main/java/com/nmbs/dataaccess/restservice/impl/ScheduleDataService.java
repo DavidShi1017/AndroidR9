@@ -52,7 +52,7 @@ public class ScheduleDataService extends CustomErrorMessager implements ISchedul
 				HTTPRestServiceCaller.API_VERSION_VALUE_7);
 
 		RestResponse restResponse = realTimeConnectionConverter.parseRefreshConnection(responseFirst);
-		super.throwErrorMessage(restResponse, context);
+		super.throwErrorMessage(restResponse, context, "");
 
 		realTimeConnectionResponse = realTimeConnectionConverter.parseConnection(responseFirst);
 		return realTimeConnectionResponse;
@@ -73,7 +73,7 @@ public class ScheduleDataService extends CustomErrorMessager implements ISchedul
 		//Log.e("ScheduleResponse", "ScheduleResponse....First" + responseFirst);
 
 		RestResponse restResponse = scheduleResponseConverter.parseSearchSchedule(responseFirst);
-		super.throwErrorMessage(restResponse, context);
+		super.throwErrorMessage(restResponse, context, "");
 		GUID = getGUID(restResponse);
 
 		String urlStringOfOfferQueries = context.getString(R.string.server_url_schedule_query) +"/" + GUID;
@@ -86,7 +86,7 @@ public class ScheduleDataService extends CustomErrorMessager implements ISchedul
 		*/
 		//System.out.println("@@@@@@@@@@@@@"+responseSecond);
 		scheduleResponse = scheduleResponseConverter.parseSchedule(responseSecond);
-		super.throwErrorMessage(scheduleResponse, context);
+		super.throwErrorMessage(scheduleResponse, context, "");
 		return scheduleResponse;
 	}
 
@@ -102,9 +102,9 @@ public class ScheduleDataService extends CustomErrorMessager implements ISchedul
 				HTTPRestServiceCaller.HTTP_POST_METHOD, 15000, false, "", HTTPRestServiceCaller.API_VERSION_VALUE_6);
 		ScheduleResponseConverter scheduleResponseConverter = new ScheduleResponseConverter();
 		RestResponse restResponse = scheduleResponseConverter.parseSearchSchedule(response);
-		super.throwErrorMessage(restResponse, context);
+		super.throwErrorMessage(restResponse, context, "");
 		scheduleResponse = scheduleResponseConverter.parseSchedule(response);
-		super.throwErrorMessage(scheduleResponse, context);
+		super.throwErrorMessage(scheduleResponse, context, "");
 		return scheduleResponse;
 	}
 
