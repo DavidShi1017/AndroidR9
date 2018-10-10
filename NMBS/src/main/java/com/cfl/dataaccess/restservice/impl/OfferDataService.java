@@ -85,7 +85,7 @@ public class OfferDataService extends CustomErrorMessager implements IOfferDataS
 		
 		OfferResponseConverter offerResponseConverter = new OfferResponseConverter();
 		RestResponse restResponse = offerResponseConverter.parseSearchOffer(responseFirst);
-		super.throwErrorMessage(restResponse, context);
+		super.throwErrorMessage(restResponse, context, "");
 		OfferService.GUID = getGUID(restResponse);
 		
 		String urlStringOfOfferQueries = context.getString(R.string.server_url_offer_queries) +"/" + OfferService.GUID;
@@ -94,9 +94,9 @@ public class OfferDataService extends CustomErrorMessager implements IOfferDataS
 		//FileManager.getInstance().createExternalStoragePrivateFileFromString(context, "OfferQuery.json", responseSecond);
 
 		restResponse = offerResponseConverter.parseSearchOffer(responseSecond);
-		super.throwErrorMessage(restResponse, context);
+		super.throwErrorMessage(restResponse, context, "");
 		offerResponse = offerResponseConverter.parseOffer(responseSecond, offerQuery.getTravelType(), comforClass);
-		super.throwErrorMessage(offerResponse, context);
+		super.throwErrorMessage(offerResponse, context, "");
 		List<Travel> traveList = offerResponse.getTravelList();
 		if (traveList != null) {
 			
@@ -146,10 +146,10 @@ public class OfferDataService extends CustomErrorMessager implements IOfferDataS
 		
 		OfferResponseConverter offerResponseConverter = new OfferResponseConverter();
 		RestResponse restResponse = offerResponseConverter.parseSearchOffer(response);
-		super.throwErrorMessage(restResponse, context);
+		super.throwErrorMessage(restResponse, context, "");
 		offerResponse = offerResponseConverter.parseOffer(response, additionalConnectionsParameter.getTravelType(), comforClass);
 		
-		super.throwErrorMessage(offerResponse, context);
+		super.throwErrorMessage(offerResponse, context, "");
 		return offerResponse;		
 	}
 

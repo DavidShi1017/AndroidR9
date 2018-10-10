@@ -114,7 +114,7 @@ public class AssistantDataService extends CustomErrorMessager implements IAssist
 		
 		//stringHttpResponse = FileManager.getInstance().readExternalStoragePrivateFile(context, DNR, DNR + ".json");
 		DossierAftersalesResponse dossierAftersalesResponse = assistantConverter.parsesDossierAftersalesResponse(stringHttpResponse);
-		super.throwErrorMessage(dossierAftersalesResponse, context);
+		super.throwErrorMessage(dossierAftersalesResponse, context, "");
 		if (dossierAftersalesResponse != null) {
 			try {
 				stringHttpResponse = AESUtils.encrypt(DNR, stringHttpResponse);

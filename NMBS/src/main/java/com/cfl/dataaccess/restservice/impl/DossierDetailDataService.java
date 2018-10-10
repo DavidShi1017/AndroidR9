@@ -127,7 +127,7 @@ public class DossierDetailDataService extends CustomErrorMessager {
         //stringHttpResponse = FileManager.getInstance().readExternalStoragePrivateFile(context, DNR, DNR + ".json");
         DossierDetailConverter dossierDetailConverter = new DossierDetailConverter();
         DossierDetailsResponse dossierResponse = dossierDetailConverter.parsesDossierDetailResponse(stringHttpResponse);
-        super.throwErrorMessage(dossierResponse, context);
+        super.throwErrorMessage(dossierResponse, context, context.getString(R.string.server_url_get_dossier_detail));
         if (dossierResponse != null && dossierResponse.getDossier() != null) {
             //Log.d(TAG, "Get dossier response Successful......................");
             boolean dossierPushEnabled = false;

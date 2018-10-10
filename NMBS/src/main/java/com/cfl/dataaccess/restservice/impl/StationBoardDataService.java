@@ -404,7 +404,7 @@ public class StationBoardDataService extends CustomErrorMessager implements ISta
 		
 		AssistantConverter assistantConverter = new AssistantConverter();
 		stationBoardResponse = assistantConverter.parsesStationBoard(response);
-		super.throwErrorMessage(stationBoardResponse, context);
+		super.throwErrorMessage(stationBoardResponse, context, "");
 		if(stationBoardResponse.getStationBoardRows() == null || stationBoardResponse.getStationBoardRows().size() == 0){
 			throw new TimeOutError();
 		}else{
@@ -486,7 +486,7 @@ public class StationBoardDataService extends CustomErrorMessager implements ISta
 		
 		StationBoardBulkConverter stationBoardBulkConverter = new StationBoardBulkConverter();
 		stationBoardBulkResponse = stationBoardBulkConverter.parsesStationBoardBulk(response);
-		super.throwErrorMessage(stationBoardBulkResponse, context);
+		super.throwErrorMessage(stationBoardBulkResponse, context, "");
 
 		int stationBoardBulkCallErrorCount = 0;
 		for (StationBoardBulk stationBoardBulk : stationBoardBulkResponse.getStationBoardBulks()) {
