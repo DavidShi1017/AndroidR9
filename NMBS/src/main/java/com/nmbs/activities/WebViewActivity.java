@@ -223,7 +223,24 @@ public class WebViewActivity extends AppCompatActivity {
                 /*CookieManager cookieManager = CookieManager.getInstance();
                 String CookieStr = cookieManager.getCookie(url);
                 Log.e("onPageFinished", "Cookies = " + CookieStr);*/
-                if(flow == BOOKING_FLOW){
+
+                if(flow == EXCHANGE_FLOW){
+                    if(url.contains("ConfirmationConfirmed")){
+                        refreshDossier();
+                        //refresh....
+                    }else if(url.contains("ConfirmationProvisional")){
+
+                    }else if(url.contains("ConfirmationError")){
+                        refreshDossier();
+                        //refresh....
+                    }
+                }else if(flow == REFUND_FLOW){
+                    if(url.contains("ConfirmationSuccess")){
+                        isRefundSuccess = true;
+                        refreshDossier();
+                        //refresh....
+                    }
+                }else{
                     LogUtils.d(TAG, "onPageFinished....flow...." + flow);
                     if(url.contains("ConfirmationConfirmed") && url.contains("email")){
                         email = Utils.getUrlValue(url, "email");
@@ -240,22 +257,6 @@ public class WebViewActivity extends AppCompatActivity {
                         dnr = Utils.getUrlValue(url, "dnr");
                     }else if(url.contains("Booking-Confirmation") && url.contains("ConfirmationError")){
 
-                    }
-                }else if(flow == EXCHANGE_FLOW){
-                    if(url.contains("ConfirmationConfirmed")){
-                        refreshDossier();
-                        //refresh....
-                    }else if(url.contains("ConfirmationProvisional")){
-
-                    }else if(url.contains("ConfirmationError")){
-                        refreshDossier();
-                        //refresh....
-                    }
-                }else if(flow == REFUND_FLOW){
-                    if(url.contains("ConfirmationSuccess")){
-                        isRefundSuccess = true;
-                        refreshDossier();
-                        //refresh....
                     }
                 }
 
