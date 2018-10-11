@@ -174,14 +174,14 @@
                     <ImageView
                         android:id="@+id/iv_schedule_connection_train_type_icon_first"
                         android:layout_width="0dp"
-                        android:layout_height="16dp"
+                        android:layout_height="20dp"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
                         android:scaleType="fitCenter"/>
                     <ImageView
                         android:id="@+id/iv_schedule_connection_train_type_icon_second"
                         android:layout_width="0dp"
-                        android:layout_height="16dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
@@ -196,7 +196,7 @@
                     <ImageView
                         android:id="@+id/iv_schedule_connection_train_type_icon_third"
                         android:layout_width="0dp"
-                        android:layout_height="16dp"
+                        android:layout_height="20dp"
                         android:adjustViewBounds="true"
                         android:layout_weight="1"
                         android:scaleType="fitCenter"
@@ -204,7 +204,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_marginLeft="@dimen/margin_default"
-                        android:layout_height="16dp"
+                        android:layout_height="20dp"
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:text="..."/>

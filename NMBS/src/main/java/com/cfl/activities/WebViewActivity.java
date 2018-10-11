@@ -220,22 +220,7 @@ public class WebViewActivity extends AppCompatActivity {
                 /*CookieManager cookieManager = CookieManager.getInstance();
                 String CookieStr = cookieManager.getCookie(url);
                 Log.e("onPageFinished", "Cookies = " + CookieStr);*/
-                if (flow == BOOKING_FLOW) {
-                    if (url.contains("ConfirmationConfirmed") && url.contains("email")) {
-                        email = Utils.getUrlValue(url, "email");
-                        dnr = Utils.getUrlValue(url, "dnr");
-                        // upload.....
-                        if (!UploadDossierAsyncTask.isUploading) {
-                            UploadDossierAsyncTask asyncTask = new UploadDossierAsyncTask(uploadHandler, getApplicationContext(), dnr, email);
-                            asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-                        }
-                    } else if (url.contains("ConfirmationProvisional") && url.contains("email")) {
-                        email = Utils.getUrlValue(url, "email");
-                        dnr = Utils.getUrlValue(url, "dnr");
-                    } else if (url.contains("Booking-Confirmation") && url.contains("ConfirmationError")) {
-
-                    }
-                } else if (flow == EXCHANGE_FLOW) {
+                if (flow == EXCHANGE_FLOW) {
                     if (url.contains("ConfirmationConfirmed")) {
                         refreshDossier();
                         //refresh....
@@ -250,6 +235,21 @@ public class WebViewActivity extends AppCompatActivity {
                         isRefundSuccess = true;
                         refreshDossier();
                         //refresh....
+                    }
+                }else {
+                    if (url.contains("ConfirmationConfirmed") && url.contains("email")) {
+                        email = Utils.getUrlValue(url, "email");
+                        dnr = Utils.getUrlValue(url, "dnr");
+                        // upload.....
+                        if (!UploadDossierAsyncTask.isUploading) {
+                            UploadDossierAsyncTask asyncTask = new UploadDossierAsyncTask(uploadHandler, getApplicationContext(), dnr, email);
+                            asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                        }
+                    } else if (url.contains("ConfirmationProvisional") && url.contains("email")) {
+                        email = Utils.getUrlValue(url, "email");
+                        dnr = Utils.getUrlValue(url, "dnr");
+                    } else if (url.contains("Booking-Confirmation") && url.contains("ConfirmationError")) {
+
                     }
                 }
 

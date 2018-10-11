@@ -84,25 +84,30 @@ public class ScheduleAdapter {
 
         for (RealTimeInfoLeg realTimeInfoLeg : realTimeConnection.getRealTimeInfoLegs()) {
             LogUtils.e("TrainType", "TrainType-------->" + realTimeInfoLeg.getTrainType() );
+            if(realTimeInfoLeg.getTrainType() == null){
+                continue;
+            }
             boolean isHaveTrainIcon = false;
             if(!realTimeInfoLeg.isTrainLeg()){
                 //tempMap.put("Walk", null);
             }else{
                 for (TrainIcon trainIcon : (trainIconList == null ? new ArrayList<TrainIcon>() : trainIconList)) {
                     for (String icon : trainIcon.getLinkedTrainBrands()) {
-                        LogUtils.e("TrainType", "icon-------->" + icon );
+                        //LogUtils.e("TrainType", "icon-------->" + icon );
                         if (realTimeInfoLeg != null && realTimeInfoLeg.getTrainType() != null) {
                             if (icon != null && icon.contains(realTimeInfoLeg.getTrainType())) {
                                 tempMap.put(realTimeInfoLeg.getTrainType(), trainIcon);
                                 isHaveTrainIcon = true;
                             }
 
+                        }else{
+                            continue;
                         }
                     }
                 }
             }
 
-            if (!isHaveTrainIcon) {
+            if (!isHaveTrainIcon ) {
                 if(!tempMap.containsKey("DefaultTrainTypeIcon")){
                     tempMap.put("DefaultTrainTypeIcon", null);
                 }
@@ -306,6 +311,11 @@ public class ScheduleAdapter {
             AsyncImageLoader.getInstance().loadDrawable(activity, fullImageUrl, imageUrl,
                     imageView, null, new AsyncImageLoader.ImageCallback() {
                         public void imageLoaded(Bitmap imageDrawable, String imageUrl, View view) {
+                            if(defaultTrainType != null && defaultTrainType.toUpperCase().contains("BUS")){
+                                LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 64);
+                                layout.setMargins(10, 0, 0, 0);
+                                view.setLayoutParams(layout);
+                            }
                             if(imageDrawable == null){
                                 ((ImageView) view).setImageResource(ImageUtil.getTrainTypeImageId(defaultTrainType));
                             }else{
