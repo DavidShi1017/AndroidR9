@@ -17,6 +17,7 @@ import com.cfl.activities.ScheduleResultDetailActivity;
 import com.cfl.activities.view.FitImageView;
 import com.cfl.application.NMBSApplication;
 import com.cfl.async.AsyncImageLoader;
+import com.cfl.log.LogUtils;
 import com.cfl.model.RealTimeConnection;
 import com.cfl.model.RealTimeInfoLeg;
 import com.cfl.model.TrainIcon;
@@ -82,12 +83,14 @@ public class ScheduleAdapter {
         Map<String, TrainIcon> tempMap = new LinkedHashMap<>();
 
         for (RealTimeInfoLeg realTimeInfoLeg : realTimeConnection.getRealTimeInfoLegs()) {
+            LogUtils.e("TrainType", "TrainType-------->" + realTimeInfoLeg.getTrainType() );
             boolean isHaveTrainIcon = false;
             if(!realTimeInfoLeg.isTrainLeg()){
                 //tempMap.put("Walk", null);
             }else{
                 for (TrainIcon trainIcon : (trainIconList == null ? new ArrayList<TrainIcon>() : trainIconList)) {
                     for (String icon : trainIcon.getLinkedTrainBrands()) {
+                        LogUtils.e("TrainType", "icon-------->" + icon );
                         if (realTimeInfoLeg != null && realTimeInfoLeg.getTrainType() != null) {
                             if (icon != null && icon.contains(realTimeInfoLeg.getTrainType())) {
                                 tempMap.put(realTimeInfoLeg.getTrainType(), trainIcon);
