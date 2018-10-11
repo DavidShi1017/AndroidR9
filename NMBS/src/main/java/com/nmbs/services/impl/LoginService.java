@@ -174,22 +174,31 @@ public class LoginService {
 	}
 
 	public void saveCheckOptionViaUrl(String url){
-		String countStr = Utils.getUrlValue(url, "count");
-		String expirationStr = Utils.getUrlValue(url, "expiration");
-		LogUtils.d(TAG, "countStr...." + countStr);
-		if(countStr != null && !countStr.isEmpty()){
-			LoginDataService dataService = new LoginDataService();
-			int count = Integer.valueOf(countStr);
-			if(count > 0){
-				if(expirationStr != null && !expirationStr.isEmpty()){
-					Date expiration = DateUtils.stringToDate(expirationStr);
-					dataService.saveCheckOption(applicationContext, count, expiration);
+		//String countStr = Utils.getUrlValue(url, "count");
+		//String expirationStr = Utils.getUrlValue(url, "expiration");
+		LogUtils.d(TAG, "saveCheckOptionViaUrl...." + url);
+		if(url.contains("#")){
+			String str = url.substring(url.indexOf("#") + 1);
+			String countStr = str.substring(0, 1);
+			String expirationStr = str.substring(2);
+			LogUtils.d(TAG, "countStr...." + countStr);
+			LogUtils.d(TAG, "expirationStr...." + expirationStr);
+			if(countStr != null && !countStr.isEmpty()){
+				LoginDataService dataService = new LoginDataService();
+				int count = Integer.valueOf(countStr);
+				if(count > 0){
+					if(expirationStr != null && !expirationStr.isEmpty()){
+						Date expiration = DateUtils.stringToDateWithUnderline(expirationStr);
+						dataService.saveCheckOption(applicationContext, count, expiration);
+						LogUtils.d(TAG, "expiration...." + expiration);
+					}
+				}else {
+					CheckOption checkOption = new CheckOption(count, null);
+					dataService.cancelCheckOption(applicationContext, checkOption);
 				}
-			}else {
-				CheckOption checkOption = new CheckOption(count, null);
-				dataService.cancelCheckOption(applicationContext, checkOption);
 			}
 		}
+
 	}
 
 	public void logOutFully(){

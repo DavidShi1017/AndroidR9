@@ -1308,6 +1308,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		}
 		showLogin();
 		dossier();
+		showOptionCount();
 		messateCount = messageService.getMessageResponse().getMobileMessages().size();
 		/*if (migrateDossierReceiver == null) {
 			migrateDossierReceiver = new MigrateDossierReceiver();
@@ -1420,7 +1421,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 								if(loginService.isLogon()){
 									if(generalSetting.getCommercialTtlListUrl() != null && !generalSetting.getCommercialTtlListUrl().isEmpty()){
 										startActivity(WebViewActivity.createIntent(getApplicationContext(),
-												Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.BOOKING_FLOW, ""));
+												Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.OPTION_FLOW, ""));
 										GoogleAnalyticsUtil.getInstance().sendScreen(MainActivity.this, TrackerConstant.CommercialTTLListUrl);
 									}
 								}else{
@@ -1435,7 +1436,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 			if(loginService.isLogon()){
 				if(generalSetting.getCommercialTtlListUrl() != null && !generalSetting.getCommercialTtlListUrl().isEmpty()){
 					startActivity(WebViewActivity.createIntent(getApplicationContext(),
-							Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.BOOKING_FLOW, ""));
+							Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.OPTION_FLOW, ""));
 					GoogleAnalyticsUtil.getInstance().sendScreen(MainActivity.this, TrackerConstant.CommercialTTLListUrl);
 				}
 			}else{

@@ -56,6 +56,7 @@ public class WebViewActivity extends AppCompatActivity {
     public final static int EXCHANGE_FLOW = 1;
     public final static int REFUND_FLOW = 2;
     public final static int NORMAL_FLOW = 3;
+    public final static int OPTION_FLOW = 4;
     private int flow;
     private static Activity lastActivity;
     private String responseErrorMessage;
@@ -210,7 +211,7 @@ public class WebViewActivity extends AppCompatActivity {
                             return true;
                         }
                     }
-                    NMBSApplication.getInstance().getLoginService().saveCheckOptionViaUrl(url);
+
                 }
 
                 return super.shouldOverrideUrlLoading(view, url);
@@ -242,6 +243,10 @@ public class WebViewActivity extends AppCompatActivity {
                     }
                 }else{
                     LogUtils.d(TAG, "onPageFinished....flow...." + flow);
+                    String str = url.substring(url.indexOf("#") + 1);
+                    if(str != null && str.length() == 28){
+                        NMBSApplication.getInstance().getLoginService().saveCheckOptionViaUrl(url);
+                    }
                     if(url.contains("ConfirmationConfirmed") && url.contains("email")){
                         email = Utils.getUrlValue(url, "email");
                         dnr = Utils.getUrlValue(url, "dnr");

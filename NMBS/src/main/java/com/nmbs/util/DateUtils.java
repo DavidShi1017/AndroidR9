@@ -150,6 +150,25 @@ public class DateUtils {
 		}
 		return date;
 	}
+
+	public static Date stringToDateWithUnderline(String dateStr) {
+		Date date = null;
+		if (dateStr != null) {
+			try {
+				SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
+						"yyyy_MM_dd_HH_mm");
+				if (!dateStr.isEmpty()) {
+					date = simpleDateFormat.parse(dateStr);
+				}
+
+			} catch (ParseException e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+		return date;
+	}
+
 	/**
 	 * get Application local time
 	 * 
