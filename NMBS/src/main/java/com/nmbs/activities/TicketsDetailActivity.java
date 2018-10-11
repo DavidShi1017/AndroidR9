@@ -14,11 +14,13 @@ import android.support.v4.view.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.nmbs.R;
@@ -32,6 +34,7 @@ import com.nmbs.application.NMBSApplication;
 import com.nmbs.async.AsyncImageLoader;
 import com.nmbs.async.RealTimeInfoAsyncTask;
 import com.nmbs.exceptions.NetworkError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Dossier;
 import com.nmbs.model.DossierDetailParameter;
 import com.nmbs.model.DossierDetailsResponse;
@@ -94,6 +97,7 @@ public class TicketsDetailActivity extends BaseActivity {
     private RealTimeInfoRequestParameter realTimeInfoRequestParameter;
     private int screenBrightness;
     private LinearLayout btnPdf;
+    private List<ScrollView> slRoots = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,7 +135,7 @@ public class TicketsDetailActivity extends BaseActivity {
                 tvTecietCount.setText(getResources().getString(R.string.general_ticket) + " " + index + " " + getResources().getString(R.string.general_of) + " " + ticketCount);
                 isExpandTicket = true;
                 isExpandBarcode = true;
-                isExpandDetailInfo = false;
+                isExpandDetailInfo = true;
                 initTicketView();
                 initBarcoidtView();
                 initDetailView();
@@ -180,6 +184,9 @@ public class TicketsDetailActivity extends BaseActivity {
                 LinearLayout llTariffs = (LinearLayout) convertView.findViewById(R.id.ll_tariffs);
                 TextView tvSwipes = (TextView) convertView.findViewById(R.id.tv_tickets_detail_swipe_to_next);
                 ImageView ivTrainIcon = (ImageView) convertView.findViewById(R.id.iv_li_ticket_detail_train_icon);
+                ScrollView slRoot = (ScrollView) convertView.findViewById(R.id.sl_root);
+                LogUtils.e("ScrollView", "ScrollView--------->" + slRoot);
+                slRoots.add(slRoot);
                 //ivBarcode.setDisplayType(ImageViewTouchBase.DisplayType.NONE);
                 //ivBarcode.setDoubleTapEnabled(true);
                 //ivBarcode.setQuickScaleEnabled(true);
@@ -856,6 +863,9 @@ public class TicketsDetailActivity extends BaseActivity {
     }
 
     public void showTicket(){
+        if(slRoots.size() > 0 && pagePosition < slRoots.size()){
+            slRoots.get(pagePosition).getViewTreeObserver().removeOnGlobalLayoutListener(globalLayoutListener);
+        }
         if(isExpandTicket){
             isExpandTicket = false;
             if(ivTicketsExpand.size() > 0 && pagePosition < ivTicketsExpand.size()){
@@ -876,6 +886,9 @@ public class TicketsDetailActivity extends BaseActivity {
     }
 
     public void showBarcode(){
+        if(slRoots.size() > 0 && pagePosition < slRoots.size()){
+            slRoots.get(pagePosition).getViewTreeObserver().removeOnGlobalLayoutListener(globalLayoutListener);
+        }
         if(isExpandBarcode){
             isExpandBarcode = false;
             if(ivBarcodesExpand.size() > 0 && pagePosition < ivBarcodesExpand.size()){
@@ -896,6 +909,9 @@ public class TicketsDetailActivity extends BaseActivity {
     }
 
     public void showDetailInfo(){
+        if(slRoots.size() > 0 && pagePosition < slRoots.size()){
+            slRoots.get(pagePosition).getViewTreeObserver().addOnGlobalLayoutListener(globalLayoutListener);
+        }
         if(isExpandDetailInfo){
             isExpandDetailInfo = false;
             if(ivDetailInfosExpand.size() > 0 && pagePosition < ivDetailInfosExpand.size()){
@@ -914,6 +930,24 @@ public class TicketsDetailActivity extends BaseActivity {
             }
         }
     }
+
+    private ViewTreeObserver.OnGlobalLayoutListener globalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+
+        @Override
+        public void onGlobalLayout() {
+            try {Thread.sleep(100);} catch (InterruptedException e) {}
+            Handler handler = new Handler();
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if(slRoots.size() > 0 && pagePosition < slRoots.size()){
+                        slRoots.get(pagePosition).fullScroll(View.FOCUS_DOWN);
+                        slRoots.get(pagePosition).getViewTreeObserver().removeOnGlobalLayoutListener(globalLayoutListener);
+                    }
+                }
+            });
+        }
+    };
     @Override
     protected void onResume() {
         // Log.d(TAG, "onResume");
