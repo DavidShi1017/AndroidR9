@@ -181,7 +181,7 @@ public class LoginDataService {
                 if(profileInfoResponse.getProfileInfo().getFirstName() != null){
                     email = profileInfoResponse.getProfileInfo().getEmail();
                 }
-                LogonInfo logonInfo1Update = new LogonInfo(logonInfo.getCustomerId(), firstName, email, logonInfo.getCode(),
+                LogonInfo logonInfo1Update = new LogonInfo(logonInfo.getCustomerId(), firstName, logonInfo.getEmail(), logonInfo.getCode(),
                         logonInfo.getPhoneNumber(), logonInfo.getState(), logonInfo.getStateDescription(), logonInfo.getPersonId(),
                         logonInfo.getLastUpdateTimestampPassword(), logonInfo.getLoginProvider());
                 loginDataBaseService.insertLogonInfo(logonInfo1Update);

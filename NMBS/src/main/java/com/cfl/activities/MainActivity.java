@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,6 +36,7 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.cfl.exceptions.CrashHandler;
+import com.crashlytics.android.Crashlytics;
 import com.facebook.appevents.AppEventsLogger;
 import com.google.ads.conversiontracking.AdWordsAutomatedUsageReporter;
 import com.cfl.R;
@@ -103,6 +105,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import io.fabric.sdk.android.Fabric;
 
 @SuppressLint("NewApi")
 public class MainActivity extends BaseActivity implements RatingListener {
@@ -189,7 +193,22 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		if(FunctionConfig.kFunLinkToNationalApp){
 			bindNationalApp();
 		}
+		final Fabric fabric = new Fabric.Builder(this)
+				.kits(new Crashlytics())
+				.debuggable(true)  // Enables Crashlytics debugger
+				.build();
+		Fabric.with(fabric);
+		/*Button crashButton = new Button(this);
+		crashButton.setText("Crash!");
+		crashButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View view) {
+				Crashlytics.getInstance().crash(); // Force a crash
+			}
+		});
 
+		addContentView(crashButton, new ViewGroup.LayoutParams(
+				ViewGroup.LayoutParams.MATCH_PARENT,
+				ViewGroup.LayoutParams.WRAP_CONTENT));*/
 		initValue();
 		//System.out.println(s.equals("any string"));
 		RelativeLayout rlTest = (RelativeLayout) findViewById(R.id.rl_test) ;

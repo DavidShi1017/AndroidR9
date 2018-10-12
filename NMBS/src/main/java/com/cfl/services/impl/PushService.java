@@ -361,7 +361,7 @@ public class PushService implements IPushService {
 
         SubscriptionDataBaseService subscriptionDataBaseService = new SubscriptionDataBaseService(applicationContext);
         if(subscription!= null){
-            Subscription subscriptionRepeated = subscriptionDataBaseService.readSubscriptionById(subscription.getSubscriptionId());
+            Subscription subscriptionRepeated = subscriptionDataBaseService.readSubscriptionByAll(subscription);
             if(subscriptionRepeated == null){
                 return subscriptionDataBaseService.insertSubscription(subscription);
             }

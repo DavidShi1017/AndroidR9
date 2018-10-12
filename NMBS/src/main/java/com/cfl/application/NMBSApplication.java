@@ -152,8 +152,8 @@ public class NMBSApplication extends MultiDexApplication {
 	public void onCreate() {
 		//Log.e(TAG, "onCreate");
 		SQLiteDatabase.loadLibs(this);
-		CrashHandler crashHandler = CrashHandler.getInstance();
-		crashHandler.init(getApplicationContext());
+		/*CrashHandler crashHandler = CrashHandler.getInstance();
+		crashHandler.init(getApplicationContext());*/
 
 		offerService = new OfferService(this);
 		notificationService = new NotificationService(this);
