@@ -383,4 +383,36 @@ public class SubscriptionDataBaseService {
         cursor.close();
         return subscription;
     }
+
+    public Subscription readSubscriptionByAll(Subscription sub) {
+        //Log.d("cursorNum", "reconctx..." + reconctx);
+        //Log.d("cursorNum", "date..." + date);
+        if(sub == null){
+            return null;
+        }
+        Subscription subscription = null;
+        Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
+                SUBSCRIPTION_DEPARTURE + "='" + sub.getDeparture() + "' " +
+                        "and " + SUBSCRIPTION_ID + "='" + sub.getSubscriptionId() + "' and " + SUBSCRIPTION_ORIGINSTATIONRCODE + "='" + sub.getOriginStationRcode() + "' " +
+                        "and " + SUBSCRIPTION_DESTINATIONSTATIONRCODE + "='" + sub.getDestinationStationRcode() + "' " +
+                        "and " + SUBSCRIPTION_dnr + "='" + sub.getDnr() + "'",
+                null, null, null, null);
+        int cursorNum = cursor.getCount();
+        Log.d("cursorNum", "cursorNum..." + cursorNum);
+        if(cursorNum > 0){
+            cursor.moveToPosition(0);
+            String id = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_ID));
+            String ctx = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_RECONCTX));
+            String originCode = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_ORIGINSTATIONRCODE));
+            String desCode = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_DESTINATIONSTATIONRCODE));
+            String departureDate = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_DEPARTURE));
+            String originName = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_ORIGIN_NAME));
+            String desName = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_DESNAME));
+            String dnr = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_dnr));
+            String connectionId = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_Connection_id));
+            subscription = new Subscription(id,ctx,originCode,desCode,departureDate,originName,desName,dnr, connectionId);
+        }
+        cursor.close();
+        return subscription;
+    }
 }

@@ -34,6 +34,7 @@ import com.nmbs.application.NMBSApplication;
 import com.nmbs.async.ProfileInfoAsyncTask;
 import com.nmbs.dataaccess.database.DossierDatabaseService;
 import com.nmbs.exceptions.NetworkError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierDetailParameter;
 import com.nmbs.model.DossierDetailsResponse;
 import com.nmbs.model.DossierSummary;
@@ -282,8 +283,10 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 	}
 
 	private void setViewStateBasedOnModel() {
+
 		LogonInfo loginInfo = NMBSApplication.getInstance().getLoginService().getLogonInfo();
 		String email = "";
+		LogUtils.e("email", "setViewStateBasedOnModel email--------->" + email);
 		if(loginInfo != null){
 			email = loginInfo.getEmail();
 		}

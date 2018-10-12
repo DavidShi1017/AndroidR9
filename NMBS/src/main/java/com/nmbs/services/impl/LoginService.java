@@ -111,6 +111,7 @@ public class LoginService {
 	public void setEmail(String email){
 		LoginDataBaseService loginDataBaseService = new LoginDataBaseService(applicationContext);
 		LogonInfo logonInfo = loginDataBaseService.getLogonInfo();
+		LogUtils.e("email", "setEmail email--------->" + email);
 		if(logonInfo != null){
 			loginDataBaseService.deleteLogonInfo();
 			LogonInfo logonInfo1Update = new LogonInfo(logonInfo.getCustomerId(), logonInfo.getFirstName(), email, logonInfo.getCode(),

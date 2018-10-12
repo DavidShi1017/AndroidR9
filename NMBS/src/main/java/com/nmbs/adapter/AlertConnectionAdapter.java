@@ -160,8 +160,8 @@ public class AlertConnectionAdapter {
         TextView tvReconctx = (TextView)convertView.findViewById(R.id.tv_alert_subscription_reconctx);
 
         if(TestService.isTestMode){
-            tvId.setVisibility(View.VISIBLE);
-            tvReconctx.setVisibility(View.VISIBLE);
+            tvId.setVisibility(View.GONE);
+            tvReconctx.setVisibility(View.GONE);
             tvId.setText("Subscription id: " + this.notDnrSubscriptionList.get(position).getSubscriptionId());
             tvReconctx.setText("ReconCtx: " + this.notDnrSubscriptionList.get(position).getReconCtx());
         }
