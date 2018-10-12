@@ -79,7 +79,7 @@ public class LogonInfo implements Serializable {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return phoneNumber == null? "": "";
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -91,7 +91,7 @@ public class LogonInfo implements Serializable {
     }
 
     public String getCode() {
-        return code;
+        return code == null? "": "";
     }
 
     public String getPersonId() {

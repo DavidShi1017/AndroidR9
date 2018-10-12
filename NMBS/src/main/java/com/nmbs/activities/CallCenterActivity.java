@@ -180,16 +180,16 @@ public class CallCenterActivity extends BaseActivity {
 			prefix = logonInfo.getCode();
 		}
 
-		LogUtils.e("prefix", "Code----->" + prefix);
+		//LogUtils.e("prefix", "Code----->" + prefix);
 		final String prefixArray[] = this.getResources().getStringArray(R.array.phoneNumber_prefix);
 		for(int i = 0; i < prefixArray.length; i++){
-			LogUtils.e("prefix", "prefix----->" + prefixArray[i].toString());
+			//LogUtils.e("prefix", "prefix----->" + prefixArray[i].toString());
 			String prefixinArray = prefixArray[i].substring(1);
-			if(prefixArray[i] != null && prefix.equalsIgnoreCase(prefixinArray)){
+			if(prefixArray[i] != null && prefixinArray.equalsIgnoreCase(prefix)){
 				which = i;
 			}
 		}
-		LogUtils.e("prefix", "which----->" + which);
+		//LogUtils.e("prefix", "which----->" + which);
 		TypedArray ar = this.getResources().obtainTypedArray(R.array.phoneNumber_country_logo);
 		int len = ar.length();
 		final int[] resIds = new int[len];
