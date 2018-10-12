@@ -16,6 +16,7 @@ import com.cfl.async.CheckOptionAsyncTask;
 import com.cfl.async.DossierUpToDateAsyncTask;
 import com.cfl.async.MobileMessageAsyncTask;
 import com.cfl.async.RefreshMultipleDossierAsyncTask;
+import com.cfl.exceptions.CrashHandler;
 import com.cfl.services.IMessageService;
 import com.cfl.services.ISettingService;
 import com.cfl.util.AppLanguageUtils;
@@ -36,7 +37,7 @@ public class BaseActivity extends Activity {
 				getMessageData();
 			}
 		}
-		
+
 	}
 
 	protected void attachBaseContext(Context newBase) {

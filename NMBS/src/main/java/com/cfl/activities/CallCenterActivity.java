@@ -185,7 +185,7 @@ public class CallCenterActivity extends BaseActivity {
 		for(int i = 0; i < prefixArray.length; i++){
 			LogUtils.e("prefix", "prefix----->" + prefixArray[i].toString());
 			String prefixinArray = prefixArray[i].substring(1);
-			if(prefixArray[i] != null && prefix.equalsIgnoreCase(prefixinArray)){
+			if(prefixArray[i] != null && prefixinArray.equalsIgnoreCase(prefix)){
 				which = i;
 			}
 		}

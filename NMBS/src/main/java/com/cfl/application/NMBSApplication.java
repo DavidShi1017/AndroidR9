@@ -6,29 +6,24 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.os.SystemClock;
+
 import android.preference.PreferenceManager;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
-
-import com.google.android.gms.analytics.GoogleAnalytics;
+import com.cfl.exceptions.CrashHandler;
 import com.google.android.gms.analytics.Tracker;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.cfl.R;
 import com.cfl.activity.SettingsActivity;
 import com.cfl.async.GetSubScriptionListAsyncTask;
 import com.cfl.async.MobileMessageAsyncTask;
-import com.cfl.exceptions.NetworkError;
+
 import com.cfl.log.LogUtils;
 import com.cfl.preferences.SettingsPref;
 import com.cfl.receivers.AlarmsBroadcastReceiver;
 import com.cfl.receivers.AlarmsRefreshDossierBroadcastReceiver;
-import com.cfl.receivers.CheckOptionNotificationReceiver;
+
 import com.cfl.receivers.CheckOptionReceiver;
 import com.cfl.receivers.UpdateAlarmsBroadcastReceiver;
 import com.cfl.services.IAssistantService;
@@ -70,7 +65,7 @@ import com.cfl.services.impl.TrackerService;
 import com.cfl.services.impl.TrainIconsService;
 import com.cfl.util.AppLanguageUtils;
 import com.cfl.util.ConstantLanguages;
-import com.cfl.util.CrashHandler;
+
 import com.cfl.util.DateUtils;
 import com.cfl.util.SharedPreferencesUtils;
 
@@ -157,6 +152,9 @@ public class NMBSApplication extends MultiDexApplication {
 	public void onCreate() {
 		//Log.e(TAG, "onCreate");
 		SQLiteDatabase.loadLibs(this);
+		CrashHandler crashHandler = CrashHandler.getInstance();
+		crashHandler.init(getApplicationContext());
+
 		offerService = new OfferService(this);
 		notificationService = new NotificationService(this);
 		notificationService.setNotificationOngoing(getApplicationContext(), false);

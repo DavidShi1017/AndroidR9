@@ -617,6 +617,28 @@ public class Utils {
 		context.startActivity(data);
 	}
 
+	public static void sendEmail(Context context, String emailStr){
+		Intent data = new Intent(Intent.ACTION_SENDTO);
+		data.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		/*UAT --> dieter.hautekeete@b-rail.be
+		Production --> internet-int@b-rail.be*/
+		if(TestService.isTestMode){
+			data.setData(Uri.parse("mailto:david.shi@delaware.pro"));
+		}else{
+			data.setData(Uri.parse("mailto:hometicketing@cfl.lu"));
+		}
+
+		data.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.feedback_email_subject));
+		String appVersion = SettingsPref.getSettingsVersion(context) + "\n";
+		String osType = "Android" + "\n";
+		String osVersion = android.os.Build.VERSION.RELEASE + "\n";
+		String deviceType = android.os.Build.BRAND + " " + android.os.Build.MODEL;
+
+		String body = appVersion + osType + osVersion + deviceType;
+		data.putExtra(Intent.EXTRA_TEXT, emailStr);
+		context.startActivity(data);
+	}
+
 	/**
 	 * 保存全局异常信息
 	 * @param exceptionString 全局异常信息
@@ -737,4 +759,6 @@ public class Utils {
 		long phoneNumber = numberProto.getNationalNumber();
 		return String.valueOf(phoneNumber);
 	}
+
+
 }

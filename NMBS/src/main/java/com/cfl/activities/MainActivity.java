@@ -34,6 +34,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.cfl.exceptions.CrashHandler;
 import com.facebook.appevents.AppEventsLogger;
 import com.google.ads.conversiontracking.AdWordsAutomatedUsageReporter;
 import com.cfl.R;
@@ -166,6 +167,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		//setStatusBarColor(this, getResources().getColor(R.color.background_activity_title));
 		Utils.setToolBarStyle(this);
+
         settingService = ((NMBSApplication) getApplication()).getSettingService();
         messageService = ((NMBSApplication) getApplication()).getMessageService();
 		masterService = ((NMBSApplication) getApplication()).getMasterService();
@@ -178,7 +180,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		clickToCallService = ((NMBSApplication) getApplication()).getClickToCallService();
 		checkUpdateService = ((NMBSApplication) getApplication()).getCheckUpdateService();
 		assistantService = ((NMBSApplication) getApplication()).getAssistantService();
-
+		///btnRefresh.setVisibility(View.VISIBLE);
 		setContentView(R.layout.activity_main);
         bindAllViewElements();
         if(FunctionConfig.kFunMobileBanner){
@@ -889,7 +891,17 @@ public class MainActivity extends BaseActivity implements RatingListener {
 	}
 
     public void messages(View view) {
-
+		/*String str = null;
+		str.substring(1);*/
+		/*Thread thread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				Log.d("Sandy", "I am a sub thread");
+				String s = null;
+				s.toString();  //抛出NullPointException
+			}
+		}, "sub  thread");
+		thread.start();*/
 		isGoto = true;
 		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
 		if(drawerOpen){

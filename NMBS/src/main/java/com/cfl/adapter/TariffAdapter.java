@@ -44,7 +44,11 @@ public class TariffAdapter {
         TextView tvConditions = (TextView)convertView.findViewById(R.id.tv_conditions);
 
         if(condition != null){
-            tvConditions.setText(Html.fromHtml("<b>" + condition.getKey() + "</b>: " + condition.getValue()));
+            if(condition.getKey() != null){
+                if(!condition.getKey().equalsIgnoreCase("Ticket info")){
+                    tvConditions.setText(Html.fromHtml("<b>" + condition.getKey() + "</b>: " + condition.getValue()));
+                }
+            }
         }
         linearLayout.addView(convertView);
     }
