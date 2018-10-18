@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 
+import com.cfl.receivers.CheckOptionNotificationReceiver;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 import com.cfl.R;
@@ -273,7 +274,7 @@ public class LoginDataService {
     private void createCheckOptionReceiver(Context context, long time, int id){
         LogUtils.e("CheckOptionReceiver", "createCheckOptionReceiver...");
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent notificationIntent = new Intent(context, CheckOptionReceiver.class);
+        Intent notificationIntent = new Intent(context, CheckOptionNotificationReceiver.class);
         notificationIntent.putExtra("RequestCode", 00);
         notificationIntent.addCategory("android.intent.category.DEFAULT");
 

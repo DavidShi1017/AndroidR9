@@ -529,6 +529,12 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 				case 0:
 					Bundle bundle = msg.getData();
 					String errorMsg = bundle.getString(LoginAsyncTask.Intent_Key_Error);
+					boolean resetLogin = bundle.getBoolean(ForgotPwdAsyncTask.Intent_Key_resetLogin);
+					LogUtils.e("forgotPwd", "forgotPwd---resetLogin---->" + resetLogin);
+					if(resetLogin){
+						etPwd.setText("");
+						etEmail.setText("");
+					}
 					showDialogAlertError(errorMsg);
 					break;
 				case 1:

@@ -203,7 +203,7 @@ public class LoginService {
 		LoginDataService loginDataService = new LoginDataService();
 		try {
 			loginDataService.executeProfileInfoSync(applicationContext, NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey(),
-                    getLogonInfo().getCustomerId(), getControl());
+					getLogonInfo().getCustomerId(), getControl(getLogonInfo()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -214,7 +214,7 @@ public class LoginService {
 		LoginDataService loginDataService = new LoginDataService();
 		try {
 			loginDataService.executeCheckOption(applicationContext, NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey(),
-					getLogonInfo().getCustomerId(), getControl());
+					getLogonInfo().getCustomerId(), getControl(getLogonInfo()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -281,14 +281,20 @@ public class LoginService {
 		}
 	}
 
-	public String getControl(){
+	public String getControl(LogonInfo logonInfo){
 		String salt = NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getRestSalt();
+		LogUtils.e("getControl", "decrypStr------->" + salt);
 		String decrypStr = DecryptUtils.decryptData(salt);
 		String sha1 = "";
-		try {
-			sha1 = Utils.sha1(loginInfo.getCustomerId() + decrypStr);
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+		if(logonInfo != null){
+			try {
+				LogUtils.e("getControl", "CustomerId------->" + logonInfo.getCustomerId());
+				LogUtils.e("getControl", "decrypStr------->" + decrypStr);
+				sha1 = Utils.sha1(logonInfo.getCustomerId() + decrypStr);
+				LogUtils.e("getControl", "sha1------->" + sha1);
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+			}
 		}
 		return sha1;
 	}

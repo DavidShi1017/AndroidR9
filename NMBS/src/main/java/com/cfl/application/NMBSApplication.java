@@ -12,6 +12,7 @@ import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.cfl.exceptions.CrashHandler;
+import com.cfl.receivers.CheckOptionNotificationReceiver;
 import com.google.android.gms.analytics.Tracker;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.cfl.R;
@@ -41,7 +42,7 @@ import com.cfl.services.IScheduleService;
 import com.cfl.services.ISettingService;
 import com.cfl.services.IStationInfoService;
 import com.cfl.services.impl.AssistantService;
-import com.cfl.services.impl.CheckOptionNotificationService;
+
 import com.cfl.services.impl.CheckUpdateService;
 import com.cfl.services.impl.ClickToCallService;
 import com.cfl.services.impl.DossierDetailsService;
@@ -183,10 +184,10 @@ public class NMBSApplication extends MultiDexApplication {
 		//record the number of open program
 		//TrackerService.getTracker().createPageViewTracker();
 		//initializeGa();
-		Intent intentOne = new Intent(this, CheckOptionNotificationService.class);
+		/*Intent intentOne = new Intent(this, CheckOptionNotificationService.class);
 		//intentOne.setAction(ACTION_START);
 		intentOne.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		startService(intentOne);
+		startService(intentOne);*/
 		if(!alarmsetCheckOptionNotification){
 			//setAlarmCheckOptionsNotification();
 		}
@@ -197,9 +198,12 @@ public class NMBSApplication extends MultiDexApplication {
 		if (!alarmsetRefresh) {
 			//setAlarmRefreshDossier();
 		}
-		if (!alarmset) {
+		setAlarmCheckOptions();
+		registerNotification();
+		setAlarmRefreshDossier();
+		/*if (!alarmset) {
 			setAlarm();
-		}
+		}*/
 		Date updateTime = DossiersUpToDateService.getUpdateTime(getApplicationContext());
 		if(updateTime == null){
 			DossiersUpToDateService.saveUpdateTime(getApplicationContext(), new Date());
@@ -226,27 +230,46 @@ public class NMBSApplication extends MultiDexApplication {
 		return activityTop;
 	}
 
-	public void setAlarmRefreshDossier() {
+	private void registerNotification(){
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY, 15);
+		cal.set(Calendar.MINUTE, 01);
+		cal.set(Calendar.SECOND, 00);
+		cal.set(Calendar.MILLISECOND, 00);
+		AlarmManager am = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+		Intent intent = new Intent(this, CheckOptionNotificationReceiver.class);
+		//Intent intent = new Intent();
+		//对应BroadcastReceiver中intentFilter的action
+		//intent.setAction("BROADCAST_ACTION");
+		PendingIntent pendingIntent =
+				PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		am.setInexactRepeating(AlarmManager.RTC, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+	}
 
-		Date date = DateUtils.getAfterManyHour(new Date(), 1);
-		long firstTime = date.getTime();
+	public void setAlarmRefreshDossier() {
+		Calendar cal = Calendar.getInstance();
+
+		cal.set(Calendar.HOUR_OF_DAY, 17);
+		cal.set(Calendar.MINUTE, 10);
+		cal.set(Calendar.SECOND, 00);
+		cal.set(Calendar.MILLISECOND, 00);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		Intent intent = new Intent(NMBSApplication.getInstance(), AlarmsRefreshDossierBroadcastReceiver.class);
 		int RequestCode = NMBSApplication.REQUESTCODE_REFRESH;
 		intent.putExtra("RequestCode", RequestCode);
 		PendingIntent sender = PendingIntent.getBroadcast(NMBSApplication.getInstance(), RequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
+		LogUtils.d("setAlarmRefreshDossier", sdf.format(cal.getTime()));
 		AlarmManager am = (AlarmManager) NMBSApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
 		//am.cancel(sender);
-		am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, firstTime,4 * 60 * 60 * 1000, sender);
+		am.setRepeating(AlarmManager.RTC, cal.getTimeInMillis(),4 * 60 * 60 * 1000, sender);
 
-		alarmsetRefresh = true;
 	}
 
 	public void setAlarmCheckOptions() {
 		// setup of Alarm for sync Material
 		Calendar cal = Calendar.getInstance();
 
-		cal.set(Calendar.HOUR_OF_DAY, 4);
+		cal.set(Calendar.HOUR_OF_DAY, 14);
 		cal.set(Calendar.MINUTE, 30);
 		cal.set(Calendar.SECOND, 00);
 		cal.set(Calendar.MILLISECOND, 00);

@@ -50,7 +50,7 @@ public class ResendAsyncTask extends AsyncTask<Void, Void, Void> {
             }
             /*String salt = NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getRestSalt();
             String decrypStr = DecryptUtils.decryptData(salt);*/
-            String sha1 = loginService.getControl();
+            String sha1 = loginService.getControl(logonInfo);
             ResendInfoResponse resendInfoResponse = loginService.resend(customerId, sha1,
                     NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey());
 

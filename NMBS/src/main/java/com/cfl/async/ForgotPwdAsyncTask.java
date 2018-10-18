@@ -24,6 +24,8 @@ public class ForgotPwdAsyncTask extends AsyncTask<Void, Void, Void> {
     private Handler handler;
     private String email;
     public static final String Intent_Key_Error = "Error";
+    public static final String Intent_Key_resetLogin = "resetLogin";
+
     public ForgotPwdAsyncTask(Context context, Handler handler, String email){
         this.mContext = context;
         this.handler = handler;
@@ -41,13 +43,14 @@ public class ForgotPwdAsyncTask extends AsyncTask<Void, Void, Void> {
         try {
             LoginService loginService = NMBSApplication.getInstance().getLoginService();
             String customerId = "";
-
+            boolean resetLogin = false;
             ForgotPwdInfoResponse forgotPwdInfoResponse = loginService.forgotPwd(email,  NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey());
 
             if(forgotPwdInfoResponse != null){
                 if(forgotPwdInfoResponse.getForgotPwdInfo() != null){
                     if(forgotPwdInfoResponse.getForgotPwdInfo().isSuccess()){
                         errorMsg = "";
+                        resetLogin = forgotPwdInfoResponse.getForgotPwdInfo().isResetLogin();
                     }else {
                         errorMsg = forgotPwdInfoResponse.getForgotPwdInfo().getFailureMessage();
                     }
@@ -63,12 +66,12 @@ public class ForgotPwdAsyncTask extends AsyncTask<Void, Void, Void> {
                 }
             }
             LogUtils.d("ResendAsyncTask", "doInBackground---errorMsg---->" + errorMsg);
-            sendMessageByWhat(errorMsg);
+            sendMessageByWhat(errorMsg, resetLogin);
         } catch (Exception e) {
             e.printStackTrace();
             errorMsg = mContext.getResources().getString(R.string.general_server_unavailable);
             LogUtils.d("ResendAsyncTask", "doInBackground---Exception---->" + e.getMessage());
-            sendMessageByWhat(errorMsg);
+            sendMessageByWhat(errorMsg, false);
         }
         return null;
     }
@@ -77,10 +80,11 @@ public class ForgotPwdAsyncTask extends AsyncTask<Void, Void, Void> {
         super.onPostExecute(result);
 
     }
-    private void sendMessageByWhat(String errorMsg){
+    private void sendMessageByWhat(String errorMsg, boolean resetLogin){
         Message message = new Message();
         Bundle bundle = new Bundle();
         bundle.putSerializable(Intent_Key_Error, errorMsg);
+        bundle.putSerializable(Intent_Key_resetLogin, resetLogin);
         if(errorMsg != null && !errorMsg.isEmpty()){
             message.what = 0;
         }else{
