@@ -10,6 +10,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -77,6 +78,7 @@ import com.nmbs.services.IClickToCallService;
 import com.nmbs.services.IMasterService;
 import com.nmbs.services.IMessageService;
 import com.nmbs.services.IPushService;
+
 import com.nmbs.services.impl.DossierDetailsService;
 import com.nmbs.services.impl.DossiersUpToDateService;
 import com.nmbs.services.impl.LoginService;
@@ -181,7 +183,15 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		clickToCallService = ((NMBSApplication) getApplication()).getClickToCallService();
 		checkUpdateService = ((NMBSApplication) getApplication()).getCheckUpdateService();
 		assistantService = ((NMBSApplication) getApplication()).getAssistantService();
-
+		/*Intent intentOne = new Intent(this, CheckOptionNotificationService.class);
+		//intentOne.setAction(ACTION_START);
+		intentOne.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		//startService(intentOne);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			startForegroundService(intentOne);
+		} else {
+			startService(intentOne);
+		}*/
 		setContentView(R.layout.activity_main);
         bindAllViewElements();
 		showHomeBanner();

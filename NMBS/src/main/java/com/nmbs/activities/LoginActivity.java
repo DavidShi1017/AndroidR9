@@ -508,7 +508,7 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 	@Override
 	public void callback() {
 		//resend
-		LogUtils.d("LoginActivity", "resend------->");
+		LogUtils.d("LoginActivity", "resend------->" + logonInfo.getCustomerId());
 		showWaitDialog();
 		ResendAsyncTask asyncTask = new ResendAsyncTask(getApplicationContext(), resendHandler, logonInfo, emailString);
 		asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
@@ -540,7 +540,13 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 			switch (msg.what) {
 				case 0:
 					Bundle bundle = msg.getData();
-					String errorMsg = bundle.getString(LoginAsyncTask.Intent_Key_Error);
+					String errorMsg = bundle.getString(ForgotPwdAsyncTask.Intent_Key_Error);
+					boolean resetLogin = bundle.getBoolean(ForgotPwdAsyncTask.Intent_Key_resetLogin);
+					LogUtils.e("forgotPwd", "forgotPwd---resetLogin---->" + resetLogin);
+					if(resetLogin){
+						etPwd.setText("");
+						etEmail.setText("");
+					}
 					showDialogAlertError(errorMsg);
 					break;
 				case 1:

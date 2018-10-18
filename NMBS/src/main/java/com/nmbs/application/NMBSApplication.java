@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -43,10 +44,8 @@ import com.nmbs.services.IOfferService;
 import com.nmbs.services.IPushService;
 import com.nmbs.services.IRegisterService;
 import com.nmbs.services.IScheduleService;
-import com.nmbs.services.ISettingService;
 import com.nmbs.services.IStationInfoService;
 import com.nmbs.services.impl.AssistantService;
-import com.nmbs.services.impl.CheckOptionNotificationService;
 import com.nmbs.services.impl.CheckUpdateService;
 import com.nmbs.services.impl.ClickToCallService;
 import com.nmbs.services.impl.DossierDetailsService;
@@ -191,10 +190,9 @@ public class NMBSApplication extends MultiDexApplication {
 			//record the number of open program
 			//TrackerService.getTracker().createPageViewTracker();
 			//initializeGa();
-			Intent intentOne = new Intent(this, CheckOptionNotificationService.class);
-			//intentOne.setAction(ACTION_START);
-			intentOne.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			startService(intentOne);
+
+
+
 			if(!alarmsetCheckOptionNotification){
 				//setAlarmCheckOptionsNotification();
 			}
@@ -205,9 +203,12 @@ public class NMBSApplication extends MultiDexApplication {
 			if (!alarmsetRefresh) {
 				//setAlarmRefreshDossier();
 			}
-			if (!alarmset) {
+		setAlarmCheckOptions();
+		registerNotification();
+		setAlarmRefreshDossier();
+/*			if (!alarmset) {
 				setAlarm();
-			}
+			}*/
 			Date updateTime = DossiersUpToDateService.getUpdateTime(getApplicationContext());
 			if(updateTime == null){
 				DossiersUpToDateService.saveUpdateTime(getApplicationContext(), new Date());
@@ -227,9 +228,6 @@ public class NMBSApplication extends MultiDexApplication {
 				//crashHandler.init(getApplicationContext());
 			}
 		//}
-
-
-
 	}
 
 
@@ -238,27 +236,27 @@ public class NMBSApplication extends MultiDexApplication {
 		return activityTop;
 	}
 
-	public void setAlarmRefreshDossier() {
-
-		Date date = DateUtils.getAfterManyHour(new Date(), 1);
-		long firstTime = date.getTime();
-		Intent intent = new Intent(NMBSApplication.getInstance(), AlarmsRefreshDossierBroadcastReceiver.class);
-		int RequestCode = NMBSApplication.REQUESTCODE_REFRESH;
-		intent.putExtra("RequestCode", RequestCode);
-		PendingIntent sender = PendingIntent.getBroadcast(NMBSApplication.getInstance(), RequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-		AlarmManager am = (AlarmManager) NMBSApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
-		//am.cancel(sender);
-		am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, firstTime,4 * 60 * 60 * 1000, sender);
-
-		alarmsetRefresh = true;
+	private void registerNotification(){
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY, 16);
+		cal.set(Calendar.MINUTE, 01);
+		cal.set(Calendar.SECOND, 00);
+		cal.set(Calendar.MILLISECOND, 00);
+		AlarmManager am = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+		Intent intent = new Intent(this, CheckOptionNotificationReceiver.class);
+		//Intent intent = new Intent();
+		//对应BroadcastReceiver中intentFilter的action
+		//intent.setAction("BROADCAST_ACTION");
+		PendingIntent pendingIntent =
+				PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		am.setInexactRepeating(AlarmManager.RTC, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
 	}
 
 	public void setAlarmCheckOptions() {
 		// setup of Alarm for sync Material
 		Calendar cal = Calendar.getInstance();
 
-		cal.set(Calendar.HOUR_OF_DAY, 4);
+		cal.set(Calendar.HOUR_OF_DAY, 14);
 		cal.set(Calendar.MINUTE, 30);
 		cal.set(Calendar.SECOND, 00);
 		cal.set(Calendar.MILLISECOND, 00);
@@ -272,10 +270,26 @@ public class NMBSApplication extends MultiDexApplication {
 
 		AlarmManager am = (AlarmManager) NMBSApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
 		am.cancel(sender);
-
 		am.setRepeating(AlarmManager.RTC, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, sender);
+	}
 
-		alarmsetCheckOption = true;
+	public void setAlarmRefreshDossier() {
+		Calendar cal = Calendar.getInstance();
+
+		cal.set(Calendar.HOUR_OF_DAY, 17);
+		cal.set(Calendar.MINUTE, 10);
+		cal.set(Calendar.SECOND, 00);
+		cal.set(Calendar.MILLISECOND, 00);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		Intent intent = new Intent(NMBSApplication.getInstance(), AlarmsRefreshDossierBroadcastReceiver.class);
+		int RequestCode = NMBSApplication.REQUESTCODE_REFRESH;
+		intent.putExtra("RequestCode", RequestCode);
+		PendingIntent sender = PendingIntent.getBroadcast(NMBSApplication.getInstance(), RequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		LogUtils.d("setAlarmRefreshDossier", sdf.format(cal.getTime()));
+		AlarmManager am = (AlarmManager) NMBSApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
+		//am.cancel(sender);
+		am.setRepeating(AlarmManager.RTC, cal.getTimeInMillis(),4 * 60 * 60 * 1000, sender);
+
 	}
 
 	public void setAlarmCheckOptionsNotification() {

@@ -440,9 +440,9 @@
                 <action android:name="BROADCAST_ACTION" />
             </intent-filter>
         </receiver>
-        <service android:name=".services.impl.CheckOptionNotificationService"
+        <!--<service android:name=".services.impl.CheckOptionNotificationService"
             android:enabled="true"
-            android:process="system"/>
+            android:process="system"/>-->
 
 
 <!--        <receiver

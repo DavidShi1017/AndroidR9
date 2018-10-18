@@ -8,10 +8,10 @@
       "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Bruessel-Midi?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "4.333527",
       "Latitude": "50.8357532",
-      "Street": "Rue de France",
+      "Street": "Rue de France,",
       "Number": "",
       "PostalCode": "1060",
-      "City": "Brussel",
+      "City": "Brussel,",
       "Country": "Belgien",
       "StationInfos": [
         {
@@ -65,7 +65,7 @@
       "Code": "DEKOH",
       "Name": "Köln Hbf",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_Koeln_DE",
+      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_KoelnHBF_De.ashx",
       "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "6.957843",
       "Latitude": "50.942151",
@@ -130,10 +130,10 @@
       "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "-0.125468",
       "Latitude": "51.53022",
-      "Street": "Euston Road",
+      "Street": "Euston Road,",
       "Number": "",
       "PostalCode": "N1C 4QP",
-      "City": "London",
+      "City": "London,",
       "Country": "Großbritannien",
       "StationInfos": [
         {
@@ -187,7 +187,7 @@
       "Code": "NLASC",
       "Name": "Amsterdam Centraal",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_De2",
+      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_De_resized.ashx",
       "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "4.8980833",
       "Latitude": "52.3791283",
@@ -262,7 +262,7 @@
       "Code": "FRPNO",
       "Name": "Paris Nord",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_DE",
+      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_De_resized.ashx",
       "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "2.3540123",
       "Latitude": "48.8809481",
@@ -320,10 +320,6 @@
       ]
     }
   ],
-  "Messages": [
-
-  ],
-  "DebugMessages": [
-
-  ]
+  "Messages": [],
+  "DebugMessages": []
 }

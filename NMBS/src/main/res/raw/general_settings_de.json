@@ -13,16 +13,12 @@
         "MaxRealTimeInfoHorizon": 2,
         "DossierAftersalesLifetime": 40,
         "BookingUrl": "https://www.accept.b-europe.com/DE/Buchen/Mobile?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-        "LffUrl": "http://www.accept.b-europe.com/DE/Buchen/Kalender/General?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+        "LffUrl": "https://www.accept.b-europe.com/DE/Buchen/Kalender/General?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
         "BelgiumPhoneNumber": "",
         "InternationalPhoneNumber": "024353223",
         "AllowContextRegistration": true,
         "InsuranceConditionsPdf": "https://www.b-europe.com/Media/files/touring/Touring_Conditions_DE.pdf"
     },
-    "Messages": [
-
-    ],
-    "DebugMessages": [
-
-    ]
+    "Messages": [],
+    "DebugMessages": []
 }

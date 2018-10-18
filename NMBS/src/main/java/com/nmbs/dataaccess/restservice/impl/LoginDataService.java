@@ -26,6 +26,7 @@ import com.nmbs.model.LoginResponse;
 import com.nmbs.model.LogonInfo;
 import com.nmbs.model.ProfileInfoResponse;
 import com.nmbs.model.ResendInfoResponse;
+import com.nmbs.receivers.CheckOptionNotificationReceiver;
 import com.nmbs.receivers.CheckOptionReceiver;
 import com.nmbs.services.impl.LoginService;
 
@@ -279,7 +280,7 @@ public class LoginDataService {
     private void createCheckOptionReceiver(Context context, long time, int id){
         LogUtils.e("CheckOptionReceiver", "createCheckOptionReceiver...");
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent notificationIntent = new Intent(context, CheckOptionReceiver.class);
+        Intent notificationIntent = new Intent(context, CheckOptionNotificationReceiver.class);
         notificationIntent.putExtra("RequestCode", 00);
         notificationIntent.addCategory("android.intent.category.DEFAULT");
 

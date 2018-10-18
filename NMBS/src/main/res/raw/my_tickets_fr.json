@@ -4,7 +4,7 @@
       "Title": "Aide en temps réel",
       "Description": "Vous avez besoin de votre référence de réservation pour intégrer votre réservation dans l’app. Votre référence de réservation (DNR) est composé de 7 caractères. Il se trouve sur la page de confirmation ou dans votre e-mail de confirmation. Ajoutez un billet en indiquant la référence de réservation (DNR) et l'adresse e-mail liée à réservation. Dans l’onglet \"Mes billets\", retrouvez également toutes les informations liées à votre référence de réservation (DNR).\r\n",
       "HighResImage": "wizardHelp",
-      "LowResImage": "/~/media/ImagesNew/Mobile/wizardHelp.ashx?sc=0.5",
+      "LowResImage": "wizardHelp",
       "AreaTitle": "",
       "AreaIcon": "icon-icoTrainTicket",
       "NewInRelease": true,

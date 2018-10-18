@@ -1032,7 +1032,7 @@ public class DossierDetailsService {
         if(logonInfo != null){
             customerId = logonInfo.getCustomerId();
         }
-        hash = NMBSApplication.getInstance().getLoginService().getControl();
+        hash = NMBSApplication.getInstance().getLoginService().getControl(logonInfo);
         AutoRetrievalDossiersTask task = new AutoRetrievalDossiersTask(context, customerId, hash, getDossiers());
         task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }

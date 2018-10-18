@@ -26,6 +26,7 @@ public class AlarmsRefreshDossierBroadcastReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
+		LogUtils.i(TAG, "AlarmsRefreshDossierBroadcastReceiver Receivered...");
 		try {
 			Bundle bundle = intent.getExtras();
 			int e_requestCode = bundle.getInt("RequestCode");

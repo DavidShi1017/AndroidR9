@@ -1,10 +1,12 @@
 package com.nmbs.services.impl;
 
 import android.app.AlarmManager;
+import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
@@ -23,10 +25,14 @@ public class CheckOptionNotificationService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        LogUtils.e("NotificationService", "NotificationService  create---------->");
-        setAlarmCheckOptions();
-        registerNotification();
-        setAlarmRefreshDossier();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            LogUtils.e("CheckOptionNotificationService", "Build.VERSION.SDK_INT---------->" +  Build.VERSION_CODES.O);
+            LogUtils.e("CheckOptionNotificationService", "NotificationService  create---------->");
+            startForeground(1 ,new Notification()); //这个id不要和应用内的其他同志id一样，不行就写 int.maxValue()        //context.startForeground(SERVICE_ID, builder.getNotification());
+        }
+
+
     }
 
     private void registerNotification(){
@@ -67,9 +73,12 @@ public class CheckOptionNotificationService extends Service {
     }
 
     public void setAlarmRefreshDossier() {
+        Calendar cal = Calendar.getInstance();
 
-        Date date = DateUtils.getAfterManyHour(new Date(), 1);
-        long firstTime = date.getTime();
+        cal.set(Calendar.HOUR_OF_DAY, 17);
+        cal.set(Calendar.MINUTE, 05);
+        cal.set(Calendar.SECOND, 00);
+        cal.set(Calendar.MILLISECOND, 00);
         Intent intent = new Intent(NMBSApplication.getInstance(), AlarmsRefreshDossierBroadcastReceiver.class);
         int RequestCode = NMBSApplication.REQUESTCODE_REFRESH;
         intent.putExtra("RequestCode", RequestCode);
@@ -77,9 +86,11 @@ public class CheckOptionNotificationService extends Service {
 
         AlarmManager am = (AlarmManager) NMBSApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
         //am.cancel(sender);
-        am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, firstTime,4 * 60 * 60 * 1000, sender);
+        am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, cal.getTimeInMillis(),4 * 60 * 60 * 1000, sender);
 
     }
+
+
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
