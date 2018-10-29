@@ -1,2 +1,2 @@
 /*include ':appcompat'*/
-include ':NMBS', ':android-pdf-viewer'
+include ':NMBS'
