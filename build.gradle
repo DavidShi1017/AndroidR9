@@ -3,15 +3,20 @@ buildscript {
     repositories {
         mavenCentral()
         jcenter()
-
-        google()
         maven {
             url 'https://maven.fabric.io/public'
         }
+        maven { url 'https://maven.google.com' }
+        maven {
+            url "https://dl.bintray.com/android/android-tools"
+        }
+
+        maven { url "https://jitpack.io" }
+        google()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.3'
-        classpath 'com.google.gms:google-services:4.0.1'
+        classpath 'com.google.gms:google-services:4.1.0'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         // Add dependency
@@ -20,14 +25,13 @@ buildscript {
     allprojects {
         repositories {
             jcenter()
-            google()
+
             maven { url "https://jitpack.io" }
-            /*flatDirs {
-                dirs 'libs'
-            } */
+            maven { url 'https://maven.google.com' }
             maven {
-                url 'https://maven.google.com/'
+                url "https://dl.bintray.com/android/android-tools"
             }
+            google()
         }
     }
 }
