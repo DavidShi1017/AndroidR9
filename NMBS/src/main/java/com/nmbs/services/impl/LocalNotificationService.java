@@ -69,11 +69,6 @@ public class LocalNotificationService extends Service {
         return START_NOT_STICKY;
     }
 
-    @Override
-    public void onDestroy() {
-        // TODO Auto-generated method stub
-        super.onDestroy();
-    }
     Intent[] makeIntentStack(Context context) {
         Intent[] intents = new Intent[2];
         intents[0] = Intent.makeRestartActivityTask(new ComponentName(context, MainActivity.class));

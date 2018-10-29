@@ -54,6 +54,7 @@ import com.nmbs.services.IMasterService;
 import com.nmbs.services.IMessageService;
 import com.nmbs.services.IPushService;
 import com.nmbs.services.IStationInfoService;
+import com.nmbs.services.impl.DaemonService;
 import com.nmbs.services.impl.DossierDetailsService;
 import com.nmbs.services.impl.DossiersUpToDateService;
 import com.nmbs.services.impl.PushNotificationRegistrationIntentService;
@@ -102,7 +103,7 @@ public class StartActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-
+		startService(new Intent(this, DaemonService.class));
 		if(getIntent().getBundleExtra(ActivityConstant.RECEIVE_PUSH_SUBSCRIPTION_ID) != null){
 			subscriptionId = getIntent().getStringExtra(ActivityConstant.RECEIVE_PUSH_SUBSCRIPTION_ID);
 		}
@@ -135,6 +136,11 @@ public class StartActivity extends BaseActivity {
 		//Log.d(TAG, "onCreate....");
 		setContentView(R.layout.start_view);
 		showWaitDialog();
+
+	}
+
+	private void execute(){
+
 		if(NMBSApplication.getInstance().getLoginService().isLogon()){
 			LogonInfo logonInfo = NMBSApplication.getInstance().getLoginService().getLogonInfo();
 			LogUtils.e("syncCheckPwd", " LoginService  isLogon...." );
@@ -159,10 +165,6 @@ public class StartActivity extends BaseActivity {
 		}else{
 			gotoHome();
 		}
-	}
-
-	private void execute(){
-
 		executorService.submit(new Runnable() {
 			public void run() {
 				LogUtils.e("LogUtils", " GengeralSettingAsyncTask run....");

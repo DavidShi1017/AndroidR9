@@ -43,7 +43,9 @@ public interface IPushService {
     public void addAllLocalNotification(List<DossierTravelSegment> dossierTravelSegments);
     public void addAllLocalNotificationFromDatabase();
     public void deleteAllLocalNotification();
-
+    public int getPushId(Date date);
+    public long getPushTime(Date date);
+    public void createLocalNotification(long time, int id);
     public List<Subscription> readAllSubscriptionsNoDnr();
     public List<Subscription> readAllSubscriptionsWithDnr();
     public void deleteLocalNotificationFromDatabase(DossierTravelSegment dossierTravelSegment);

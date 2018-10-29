@@ -705,7 +705,7 @@ public class PushService implements IPushService {
         return userId;
     }
 
-    private void createLocalNotification(long time, int id){
+    public void createLocalNotification(long time, int id){
         Log.e("LocalNotification", "createLocalNotification...");
         AlarmManager alarmManager = (AlarmManager) this.applicationContext.getSystemService(Context.ALARM_SERVICE);
 
@@ -717,12 +717,17 @@ public class PushService implements IPushService {
  /*       Intent intent = new Intent(this.applicationContext, AlarmReceiver.class);
         PendingIntent sender = PendingIntent.getBroadcast(this.applicationContext, id, intent, 0);*/
         PendingIntent broadcast = PendingIntent.getBroadcast(this.applicationContext, id, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, time, broadcast);
+            /*AlarmManager.AlarmClockInfo info = new AlarmManager.AlarmClockInfo(calendar.getTimeInMillis(), alarmIntentRTC);
+            alarmManagerRTC.setAlarmClock(info, alarmIntentRTC);*/
+
+        } else if (Build.VERSION.SDK_INT >= 19) {
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, time, broadcast);
-        }else {
+        } else {
             alarmManager.set(AlarmManager.RTC_WAKEUP, time, broadcast);
         }
-
     }
 
     private void cancelLocalNotification(int id){
@@ -764,8 +769,8 @@ public class PushService implements IPushService {
                     if(dossierTravelSegments.get(i).getDepartureDateTime().getTime() > currentDate.getTime()
                             && currentDate.getTime() <= getPushTime(dossierTravelSegments.get(i).getDepartureDate())){
                         Log.e("LocalNotification", "getDepartureDate().getTime()>currentDate.getTime()...");
-                        java.util.Random r = new java.util.Random();
-                        int id = r.nextInt();
+                        //java.util.Random r = new java.util.Random();
+                        int id = getPushId(dossierTravelSegments.get(i).getDepartureDate());
                         Log.e("LocalNotification", "id..." + id);
                         if(localNotification ==  null){
                             travelSegmentDatabaseService.insertTravelSegment(dossierTravelSegments.get(i), id, false);
@@ -797,7 +802,15 @@ public class PushService implements IPushService {
         }
     }
 
-    private long getPushTime(Date date){
+    public int getPushId(Date date){
+        int id = 0;
+        if(date != null){
+            id = date.getYear() + date.getMonth() + date.getDay();
+        }
+        return id;
+    }
+
+    public long getPushTime(Date date){
 
         Calendar cal=Calendar.getInstance();
         cal.setTime(date);

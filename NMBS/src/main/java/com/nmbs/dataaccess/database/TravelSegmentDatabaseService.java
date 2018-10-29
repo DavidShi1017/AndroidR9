@@ -62,7 +62,7 @@ public class TravelSegmentDatabaseService {
 		}
 	}
 
-	public List<LocalNotification> getAllTravelSegment(Context context) {
+	public List<LocalNotification> getAllTravelSegment() {
 		LocalNotification localNotification = null;
 		List<LocalNotification> localNotifications = new ArrayList<LocalNotification>();
 		Cursor cursor = sqLiteDatabase.query(DB_Dossier_TravelSegment, null, null, null, null, null, null);

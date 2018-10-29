@@ -1529,7 +1529,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 				tvTitle.setText(getResources().getString(R.string.home_title_welcome) + " " + logonInfo.getFirstName());
 			}
 			tvMenuLogin.setText(getResources().getString(R.string.menu_content_manageprofile));
-			tvMenuLogon.setText(getResources().getString(R.string.menu_content_manageprofile));
+			//tvMenuLogon.setText(getResources().getString(R.string.menu_content_manageprofile));
 
 			//rlMyOption.setBackgroundColor(getColor(R.color.background_my_option));
 			//rlMyOption.set
