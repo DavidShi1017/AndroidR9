@@ -426,10 +426,7 @@
         <receiver
             android:name=".util.LocalNotificationReceiver"
             android:process=":push" />
-        <receiver
-            android:name=".receivers.LocalNotificationWakefulBroadcastReceiver"
-            android:enabled="true" android:process=":remote"
-            android:exported="false"></receiver>
+
         <receiver
             android:name=".receivers.CheckOptionReceiver"
             android:enabled="true"
@@ -488,6 +485,23 @@
         <service android:name="com.google.android.gms.analytics.CampaignTrackingService"
             android:enabled="true"
             android:exported="false" />
+
+        <receiver
+            android:name=".receivers.LocalNotificationWakefulBroadcastReceiver"
+            android:enabled="true" android:process=":remote"
+            android:exported="false">
+        </receiver>
+        <receiver android:name=".receivers.TestBootReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name=".services.impl.DaemonService"
+            android:process=":daemon"
+            android:exported="true" >
+        </service>
     </application>
 
 

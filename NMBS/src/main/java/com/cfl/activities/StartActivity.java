@@ -20,6 +20,7 @@ import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.cfl.services.impl.DaemonService;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.cfl.R;
@@ -100,7 +101,7 @@ public class StartActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-
+		startService(new Intent(this, DaemonService.class));
 		if(getIntent().getBundleExtra(ActivityConstant.RECEIVE_PUSH_SUBSCRIPTION_ID) != null){
 			subscriptionId = getIntent().getStringExtra(ActivityConstant.RECEIVE_PUSH_SUBSCRIPTION_ID);
 		}
@@ -160,7 +161,30 @@ public class StartActivity extends BaseActivity {
 	}
 
 	private void execute(){
+		if(NMBSApplication.getInstance().getLoginService().isLogon()){
+			LogonInfo logonInfo = NMBSApplication.getInstance().getLoginService().getLogonInfo();
+			LogUtils.e("syncCheckPwd", " LoginService  isLogon...." );
+			LogUtils.e("syncCheckPwd", " LoginService  isCheckLastUpdateTimestampPassword...." +
+					NMBSApplication.getInstance().getMasterService().loadGeneralSetting().isCheckLastUpdateTimestampPassword());
+			LogUtils.e("syncCheckPwd", " LoginService  getPersonId...." +
+					logonInfo.getPersonId());
+			LogUtils.e("syncCheckPwd", " LoginService  getLoginProvider...." +
+					logonInfo.getLoginProvider());
 
+			if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting().isCheckLastUpdateTimestampPassword()
+					&& logonInfo != null
+					&& logonInfo != null
+					&& !logonInfo.getPersonId().isEmpty()
+					&& "CRIS".equalsIgnoreCase(logonInfo.getLoginProvider())){
+
+				CheckLastUpdatePwdAsyncTask asyncTask = new CheckLastUpdatePwdAsyncTask(getApplicationContext(), handler);
+				asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+			}else {
+				gotoHome();
+			}
+		}else{
+			gotoHome();
+		}
 		if(NMBSApplication.getInstance().getLoginService().isLogon() && !CheckOptionAsyncTask.isChecking){
 			CheckOptionAsyncTask asyncTask = new CheckOptionAsyncTask(getApplicationContext());
 			asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);

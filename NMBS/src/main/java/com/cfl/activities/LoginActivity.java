@@ -365,8 +365,8 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 			LogUtils.d("loginGoogle", "account---Id---->" + account.getId());
 			LogUtils.d("loginGoogle", "account---IdToken---->" + account.getIdToken());
 			LogUtils.d("loginGoogle", "account---DisplayName---->" + account.getDisplayName());
-			LogUtils.d("loginGoogle", "account---ExpirationTime---->" + new Date(account.getExpirationTimeSecs()));
-			LogUtils.d("loginGoogle", "account---ObfuscatedIdentifier---->" + account.getObfuscatedIdentifier());
+			//LogUtils.d("loginGoogle", "account---ExpirationTime---->" + new Date(account.getExpirationTimeSecs()));
+			//LogUtils.d("loginGoogle", "account---ObfuscatedIdentifier---->" + account.getObfuscatedIdentifier());
 			LogUtils.d("loginGoogle", "account---Email---->" + account.getEmail());
 			LogUtils.d("loginGoogle", "account---FamilyName---->" + account.getFamilyName());
 			LogUtils.d("loginGoogle", "account---GivenName---->" + account.getGivenName());
