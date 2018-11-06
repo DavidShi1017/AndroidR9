@@ -1049,7 +1049,7 @@ ALLER SUR L\'APP</string>
     <string name="menu_content_loginorcreateprofile">Connectez-vous ou inscrivez-vous</string>
     <string name="logout">Déconnexion</string>
     <string name="logout_popupinfo">Voulez-vous vraiment vous déconnecter? Vous n\'aurez plus l\'occasion de prendre une option, réserver plus vite, etc.</string>
-    <string name="myoptions_popupinfo">todo</string>
+    <string name="myoptions_popupinfo">Pour accèder aux services en ligne de vos options, vous devez être connecte à votre compte MyTrain.</string>
     <string name="home_login_teaser_title">Profitez des avantages MyTrain et enregistrez-vous.</string>
     <string name="home_login_teaser_usp_1">Réservez plus vite</string>
     <string name="home_login_teaser_usp_2">Sauvegardez vos voyageurs fréquents</string>

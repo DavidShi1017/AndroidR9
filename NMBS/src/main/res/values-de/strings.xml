@@ -1064,7 +1064,7 @@ ZURÜCK ZUR APP</string>
     <string name="menu_content_loginorcreateprofile">Einloggen oder anmelden</string>
     <string name="logout">Ausloggen</string>
     <string name="logout_popupinfo">Möchten Sie sich abmelden? Sie werden keine Optionen mehr nehmen können, schneller buchen, usw.</string>
-    <string name="myoptions_popupinfo">todo</string>
+    <string name="myoptions_popupinfo">Bitte melden Sie sich an, um eine Option auf Ihren Buchungen zu nehmen.</string>
     <string name="home_login_teaser_title">Melden Sie sich an und nutzen Sie die MyTrain Vorteile</string>
     <string name="home_login_teaser_usp_1">Buchen Sie schneller</string>
     <string name="home_login_teaser_usp_2">Speichern Sie Vielfahrer</string>
