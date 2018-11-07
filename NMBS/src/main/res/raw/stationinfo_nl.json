@@ -4,8 +4,8 @@
       "Code": "BEBMI",
       "Name": "Brussel-Zuid",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_NL_Optimized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/NL/Stations/Brussel-Zuid?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_NL_Optimized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/NL/Stations/Brussel-Zuid?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "4.333527",
       "Latitude": "50.8357532",
       "Street": "Fonsnylaan",
@@ -22,7 +22,7 @@
         {
           "Title": "Informatiediensten",
           "Content": "Er zijn verschillende informatiepunten in het station. Zo vindt u er meerdere informatiebalies voor het nationale en internationale verkeer. In Brussel-Zuid bevindt zich verder een Thalys informatiebalie en een kantoor van de toeristische dienst van Brussel.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
         }
       ],
       "Parkings": [
@@ -65,8 +65,8 @@
       "Code": "DEKOH",
       "Name": "Köln Hbf",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_KoelnHBF_NL.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/NL/Stations/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_KoelnHBF_NL.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/NL/Stations/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "6.957843",
       "Latitude": "50.942151",
       "Street": "Trankgasse",
@@ -83,7 +83,7 @@
         {
           "Title": "Informatiediensten",
           "Content": "Er zijn verschillende informatiepunten beschikbaar in het station van Köln Hbf (Keulen), zoals een centraal infopunt voor reisinformatie en toeristische info. Verder vindt u er ook een informatiepunt voor binnenlands en internationaal verkeer.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
         }
       ],
       "Parkings": [
@@ -126,8 +126,8 @@
       "Code": "GBSPX",
       "Name": "London St Pancras International",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_NL.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/NL/Stations/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_NL.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/NL/Stations/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "-0.125468",
       "Latitude": "51.53022",
       "Street": "Euston Road",
@@ -144,7 +144,7 @@
         {
           "Title": "Informatiediensten",
           "Content": "In het station van London St Pancras International vindt u verschillende informatiepunten, waaronder informatiebalies voor het nationale verkeer en internationale verkeer.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
         }
       ],
       "Parkings": [
@@ -187,8 +187,8 @@
       "Code": "NLASC",
       "Name": "Amsterdam Centraal",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_Nl_resized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/NL/Stations/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_Nl_resized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/NL/Stations/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "4.8980833",
       "Latitude": "52.3791283",
       "Street": "Stationsplein",
@@ -205,7 +205,7 @@
         {
           "Title": "Informatiediensten",
           "Content": "Er zijn verschillende informatiepunten in het station van Amsterdam Centraal. U vindt er onder andere loketten (\"Tickets & Service Offices\") waar u meer info krijgt over nationale en internationale reizen, algemene informatiepunten en een kantoor van de toeristische dienst van Amsterdam.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
         }
       ],
       "Parkings": [
@@ -262,8 +262,8 @@
       "Code": "FRPNO",
       "Name": "Paris Nord ",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_Nl_resized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/NL/Stations/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_Nl_resized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/NL/Stations/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "2.3540123",
       "Latitude": "48.8809481",
       "Street": "Rue de Dunkerque",
@@ -280,7 +280,7 @@
         {
           "Title": "Informatiediensten",
           "Content": "In het station van Paris Nord (Parijs) vindt u verschillende informatiebalies voor het nationale en internationale verkeer, net als een kantoor van de toeristische dienst van Parijs.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
         }
       ],
       "Parkings": [

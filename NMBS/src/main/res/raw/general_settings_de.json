@@ -3,22 +3,26 @@
         "RestSalt": "7aXorvkeHuJoTOGF4C2+hw==",
         "AutoLogonSalt": "IwxU9ijXqekUcEQjRQOmmQ==",
         "FacebookAppId": "571736719664754",
-        "GoogleAppId": "531995485739-cr143kqfjmfc5t33r57h7hl0mpbeh3nj.apps.googleusercontent.com",
-        "CreateProfileUrl": "http://www.accept.b-europe.com/DE/AppPages/AppProfileB2CCreatePage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-        "ProfileOverviewUrl": "http://www.accept.b-europe.com/DE/AppPages/AppProfileOverviewPage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-        "CommercialTtlListUrl": "http://www.accept.b-europe.com/DE/AppPages/AppTtlDossierListPage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-        "PrivacyPolicyUrl": "http://www.accept.b-europe.com/DE/Rechtlich/Datenschutz?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+        "GoogleAppId": "531995485739-j1aa3ff3bm7gavcee4lu1h6cdeol371k.apps.googleusercontent.com",
+        "CreateProfileUrl": "https://www.b-europe.com/DE/AppPages/AppProfileB2CCreatePage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+        "ProfileOverviewUrl": "https://www.b-europe.com/DE/AppPages/AppProfileOverviewPage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+        "CommercialTtlListUrl": "https://www.b-europe.com/DE/AppPages/AppTtlDossierListPage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+        "PrivacyPolicyUrl": "https://www.b-europe.com/DE/Rechtlich/Datenschutz?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
         "Domain": "b-europe",
         "CheckLastUpdateTimestampPassword": false,
         "MaxRealTimeInfoHorizon": 2,
         "DossierAftersalesLifetime": 40,
-        "BookingUrl": "https://www.accept.b-europe.com/DE/Buchen/Mobile?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-        "LffUrl": "https://www.accept.b-europe.com/DE/Buchen/Kalender/General?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+        "BookingUrl": "https://www.b-europe.com/DE/Buchen/Mobile?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+        "LffUrl": "https://www.b-europe.com/DE/Buchen/Kalender/General?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
         "BelgiumPhoneNumber": "",
-        "InternationalPhoneNumber": "024353223",
+        "InternationalPhoneNumber": "+32 (0)2 801 90 10",
         "AllowContextRegistration": true,
         "InsuranceConditionsPdf": "https://www.b-europe.com/Media/files/touring/Touring_Conditions_DE.pdf"
     },
-    "Messages": [],
-    "DebugMessages": []
+    "Messages": [
+
+    ],
+    "DebugMessages": [
+
+    ]
 }

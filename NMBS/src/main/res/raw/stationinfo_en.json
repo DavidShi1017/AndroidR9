@@ -4,8 +4,8 @@
       "Code": "BEBMI",
       "Name": "Bruxelles-Midi/Brussel-Zuid",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_EN_Optimized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/EN/Stations/Brussels-Midi?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_EN_Optimized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/EN/Stations/Brussels-Midi?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "4.333527",
       "Latitude": "50.8357532",
       "Street": "Rue de France,",
@@ -22,7 +22,7 @@
         {
           "Title": "Travel and tourist information services",
           "Content": "At Bruxelles-Midi/Brussel-Zuid train station, you'll find several information desks for domestic and international travel, as well as an international Thalys info desk and a a Brussels Tourist Office desk.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
         }
       ],
       "Parkings": [
@@ -65,8 +65,8 @@
       "Code": "DEKOH",
       "Name": "Köln Hbf",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_KoelnHBF_En.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/EN/Stations/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_KoelnHBF_En.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/EN/Stations/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "6.957843",
       "Latitude": "50.942151",
       "Street": "Trankgasse",
@@ -83,7 +83,7 @@
         {
           "Title": "Travel and tourist information services",
           "Content": "You can find several info desks at Köln Hbf (Cologne) train station, including central information centres for travel and tourist info and an information centre for domestic and international travel.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
         }
       ],
       "Parkings": [
@@ -126,8 +126,8 @@
       "Code": "GBSPX",
       "Name": "London St Pancras International",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_EN.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/EN/Stations/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_EN.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/EN/Stations/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "-0.125468",
       "Latitude": "51.53022",
       "Street": "Euston Road,",
@@ -144,7 +144,7 @@
         {
           "Title": "Travel and tourist information services",
           "Content": "London St Pancras International train station features several information desks, among which you'll find information desks for national and international travel.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
         }
       ],
       "Parkings": [
@@ -187,8 +187,8 @@
       "Code": "NLASC",
       "Name": "Amsterdam Centraal",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_En_resized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/EN/Stations/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_En_resized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/EN/Stations/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "4.8980833",
       "Latitude": "52.3791283",
       "Street": "Stationsplein",
@@ -205,7 +205,7 @@
         {
           "Title": "Travel and tourist information services",
           "Content": "You can get travel info from several locations at Amsterdam Centraal train station. The Ticket & Service Offices can provide you with info on domestic and international train journeys. The station also features general information desks and an Amsterdam Tourist Office desk.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
         }
       ],
       "Parkings": [
@@ -262,8 +262,8 @@
       "Code": "FRPNO",
       "Name": "Paris Nord",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_En_resized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/EN/Stations/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_En_resized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/EN/Stations/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "2.3540123",
       "Latitude": "48.8809481",
       "Street": "Rue de Dunkerque",
@@ -280,7 +280,7 @@
         {
           "Title": "Travel and tourist information services",
           "Content": "If you need travel or tourist info, Paris Nord train station has several information desks for national and international travel, as well as a Paris Tourist Office desk.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
         }
       ],
       "Parkings": [

@@ -4,8 +4,8 @@
       "Code": "BEBMI",
       "Name": "Bruxelles-Midi",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_FR_Optimized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/FR/Gares/Bruxelles-Midi?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_FR_Optimized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/FR/Gares/Bruxelles-Midi?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "4.333527",
       "Latitude": "50.8357532",
       "Street": "Rue de France,",
@@ -22,7 +22,7 @@
         {
           "Title": "Services d'information",
           "Content": "Il existe différents points d'information dans l'enceinte de la gare. Vous y trouverez plusieurs stands d'information pour le trafic national et international. A la gare de Bruxelles-Midi, il y a aussi un stand d'information Thalys spécifique et un bureau de l'Office du Tourisme bruxellois.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
         }
       ],
       "Parkings": [
@@ -65,8 +65,8 @@
       "Code": "DEKOH",
       "Name": "Köln Hbf",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_KoelnHBF_Fr.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/FR/Gares/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_KoelnHBF_Fr.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/FR/Gares/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "6.957843",
       "Latitude": "50.942151",
       "Street": "Trankgasse",
@@ -83,7 +83,7 @@
         {
           "Title": "Services d'information",
           "Content": "Il existe différents points d'information dans l'enceinte de la gare de Köln Hbf (Cologne). Vous y trouverez des points d'info pour renseignements liés au voyage, un point d'info touristique et un point d'info et guichets pour le trafic national et international.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
         }
       ],
       "Parkings": [
@@ -126,8 +126,8 @@
       "Code": "GBSPX",
       "Name": "London St Pancras International",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_FR.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/FR/Gares/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_FR.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/FR/Gares/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "-0.125468",
       "Latitude": "51.53022",
       "Street": "Euston Road,",
@@ -144,7 +144,7 @@
         {
           "Title": "Services d'information",
           "Content": "A la gare de London St Pancras International (Londres), il existe différents point d'information, comme des stands d'information pour le trafic national et international.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
         }
       ],
       "Parkings": [
@@ -187,8 +187,8 @@
       "Code": "NLASC",
       "Name": "Amsterdam Centraal",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_Fr_resized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/FR/Gares/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_Fr_resized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/FR/Gares/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "4.8980833",
       "Latitude": "52.3791283",
       "Street": "Stationsplein",
@@ -205,7 +205,7 @@
         {
           "Title": "Services d'information",
           "Content": "Il existe différents points d'information dans l'enceinte de la gare. Vous y trouverez des guichets (\"Tickets & Service Offices\") pour tous infos sur des voyages domestiques et internationales, des stands d'information générale et un bureau de l'Office du Tourisme d'Amsterdam.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
         }
       ],
       "Parkings": [
@@ -262,8 +262,8 @@
       "Code": "FRPNO",
       "Name": "Paris Nord",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_Fr_resized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/FR/Gares/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_Fr_resized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/FR/Gares/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "2.3540123",
       "Latitude": "48.8809481",
       "Street": "Rue de Dunkerque",
@@ -280,7 +280,7 @@
         {
           "Title": "Services d'information",
           "Content": "La gare de Paris Nord dispose des différents points d'information pour le trafic national et international. Il y a aussi un bureau de l'Office du Tourisme parisien.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
         }
       ],
       "Parkings": [

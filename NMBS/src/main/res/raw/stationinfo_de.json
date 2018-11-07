@@ -4,8 +4,8 @@
       "Code": "BEBMI",
       "Name": "Brüssel-Midi",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_DE_Optimized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Bruessel-Midi?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_DE_Optimized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/DE/Bahnhoefe/Bruessel-Midi?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "4.333527",
       "Latitude": "50.8357532",
       "Street": "Rue de France,",
@@ -22,7 +22,7 @@
         {
           "Title": "Infopoints am Bahnhof",
           "Content": "Es gibt verschiedene Informationsstellen am Bahnhof, wie Infoschalter für den Inlandsverkehr und für den internationalen Verkehr. Am Bahnhof Bruxelles-Midi/Brussel-Zuid (Brüssel) befinden sich auch 1 Thalys-Infoschalter und 1 Touristeninformation der Stadt Brüssel.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
         }
       ],
       "Parkings": [
@@ -65,8 +65,8 @@
       "Code": "DEKOH",
       "Name": "Köln Hbf",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_KoelnHBF_De.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEKOH/MAP_KoelnHBF_De.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/DE/Bahnhoefe/Koeln-Hbf?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "6.957843",
       "Latitude": "50.942151",
       "Street": "Trankgasse",
@@ -83,7 +83,7 @@
         {
           "Title": "Infopoints am Bahnhof",
           "Content": "Am Bahnhof gibt es verschiedene Informationsstellen für Reiseinformationen und touristische Informationen. Am Kölner Bahnhof finden Sie auch Informationsstelle für Inlands- und internationalen Verkehr.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/KolnHBF.ashx"
         }
       ],
       "Parkings": [
@@ -126,8 +126,8 @@
       "Code": "GBSPX",
       "Name": "London St Pancras International",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_DE.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_DE.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/DE/Bahnhoefe/London-St-Pancras?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "-0.125468",
       "Latitude": "51.53022",
       "Street": "Euston Road,",
@@ -144,7 +144,7 @@
         {
           "Title": "Infopoints am Bahnhof",
           "Content": "Verschiedene Informationsstellen befinden sich am Bahnhof London St Pancras International. Es gibt u.a. verschiedene Infoschalter für den Inlandsverkehr und für den internationalen Verkehr.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/LondenStPancras.ashx"
         }
       ],
       "Parkings": [
@@ -187,8 +187,8 @@
       "Code": "NLASC",
       "Name": "Amsterdam Centraal",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_De_resized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/NLASC/MAP_Amsterdam_De_resized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/DE/Bahnhoefe/Amsterdam-Centraal?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "4.8980833",
       "Latitude": "52.3791283",
       "Street": "Stationsplein",
@@ -205,7 +205,7 @@
         {
           "Title": "Infopoints am Bahnhof",
           "Content": "Es gibt verschiedene Informationsstellen am Bahnhof. Alle Informationen über Ihre nationale und internationale Reisen finden Sie am Schalter (\"Tickets & Service Offices\"). Am Bahnhof Amsterdam Centraal gibt es auch allgemeine Schalter und 1 Touristeninformation der Stadt Amsterdam.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/AmsterdamCentraal.ashx"
         }
       ],
       "Parkings": [
@@ -262,8 +262,8 @@
       "Code": "FRPNO",
       "Name": "Paris Nord",
       "OpeningHours": "",
-      "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_De_resized.ashx",
-      "MoreDetailsURL": "http://www.accept.b-europe.com/DE/Bahnhoefe/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+      "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPNO/MAP_Paris-Nord_De_resized.ashx",
+      "MoreDetailsURL": "https://www.b-europe.com/DE/Bahnhoefe/Paris-Nord?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
       "Longitude": "2.3540123",
       "Latitude": "48.8809481",
       "Street": "Rue de Dunkerque",
@@ -280,7 +280,7 @@
         {
           "Title": "Infopoints am Bahnhof",
           "Content": "Es gibt verschiedene Informationsstellen am Bahnhof Paris Nord, z.B. Infoschalter für den Inlandsverkehr und für den internationalen Verkehr. Am Bahnhof finden Sie auch 1 Touristeninformation der Stadt Paris.",
-          "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
+          "Image": "https://static.b-europe.com/-/media/ImagesNew/Mobile/ParisNord.ashx"
         }
       ],
       "Parkings": [
