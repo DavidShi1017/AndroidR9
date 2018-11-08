@@ -1043,8 +1043,8 @@ GA NAAR APP</string>
   <string name="general_or">OF</string>
   <string name="aftersales_exchange_button_title">ONLINE \n OMWISSELING</string>
   <string name="aftersales_refund_button_title">ONLINE \n TERUGBETALING</string>
-  <string name="aftersales_exchange_unavailable">Terugbetaling niet mogelijk</string>
-  <string name="aftersales_refund_unavailable">Omwisseling niet mogelijk</string>
+  <string name="aftersales_exchange_unavailable">Omwisseling niet mogelijk</string>
+  <string name="aftersales_refund_unavailable">Terugbetaling niet mogelijk</string>
   <string name="aftersales_unavailable_generalinfo">Deze operatie is tijdelijk niet mogelijk omwille van technische problemen. Probeer later nog eens of neem contact op met ons Contact Center voor dringende gevallen. </string>
 
 

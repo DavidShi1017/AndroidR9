@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.net.http.SslError;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -74,6 +76,13 @@ public class WebViewOverlayActivity extends AppCompatActivity {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 LogUtils.d(TAG, "onPageStarted...." + url);
+            }
+
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                LogUtils.e(TAG, "onReceivedSslError....error...." + error);
+                handler.proceed();
+                super.onReceivedSslError(view, handler, error);
             }
 
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -215,6 +224,13 @@ public class WebViewOverlayActivity extends AppCompatActivity {
                     resultMsg.sendToTarget();
 
                     newWebView.setWebViewClient(new WebViewClient() {
+
+                        @Override
+                        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                            LogUtils.e(TAG, "onReceivedSslError....error...." + error);
+                            handler.proceed();
+                            super.onReceivedSslError(view, handler, error);
+                        }
 
                         @Override
                         public boolean shouldOverrideUrlLoading(WebView view, String url) {
