@@ -539,7 +539,8 @@ public class DossierDetailActivity extends BaseActivity {
     public void click2call(View view){
         startActivity(com.nmbs.activities.CallCenterActivity.createIntent(DossierDetailActivity.this, clickToCallScenarioId, null, dossier));
     }
-    public void exchange(View view){
+        public void exchange(View view){
+
         startActivity(com.nmbs.activities.CallCenterActivity.createIntent(DossierDetailActivity.this, ClickToCallService.Exchange, null, dossier));
     }
 

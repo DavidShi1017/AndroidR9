@@ -6,7 +6,7 @@
         "GoogleAppId": "531995485739-p5ccc69kbjut7j3i2rjmuci4fkqmcp7s.apps.googleusercontent.com",
         "CreateProfileUrl": "https://www.b-europe.com/NL/AppPages/AppProfileB2CCreatePage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
         "ProfileOverviewUrl": "https://www.b-europe.com/NL/AppPages/AppProfileOverviewPage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
-        "CommercialTtlListUrl": "https://www.b-europe.com/NL/AppPages/AppTtlDossierListPage?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
+        "CommercialTtlListUrl": "",
         "PrivacyPolicyUrl": "https://www.b-europe.com/NL/Juridisch/Privacy?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app",
         "Domain": "b-europe",
         "CheckLastUpdateTimestampPassword": false,
@@ -19,10 +19,6 @@
         "AllowContextRegistration": true,
         "InsuranceConditionsPdf": "https://www.b-europe.com/Media/files/touring/Touring_Conditions_NL.pdf"
     },
-    "Messages": [
-
-    ],
-    "DebugMessages": [
-
-    ]
+    "Messages": [],
+    "DebugMessages": []
 }
