@@ -34,6 +34,7 @@ import com.nmbs.R;
 
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.exceptions.NetworkError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.ClickToCallContext;
 import com.nmbs.model.ClickToCallParameter;
 import com.nmbs.model.ClickToCallScenario;
@@ -271,7 +272,7 @@ public class MorePassengerActivity extends BaseActivity {
 	private void executeDossierAftersales() {
 
 		if (!assistantService.hasExchangeable(order)) {
-			Log.e(TAG, "RefreshDossier...to get Exchangeable");
+			LogUtils.e(TAG, "RefreshDossier...to get Exchangeable");
 			reEnableDossierAfterSaleState();
 		}
 	}
@@ -318,7 +319,7 @@ public class MorePassengerActivity extends BaseActivity {
 			descTextView.setText(getString(R.string.othertravelpaty_view_desc));
 			title.setText(getString(R.string.booking_flow_step1));
 			createClickToCallParameterWithOfferQuery();
-			Log.d(TAG, "ClickToCallFinished..." + MasterIntentService.isClickToCallFinished);
+			LogUtils.d(TAG, "ClickToCallFinished..." + MasterIntentService.isClickToCallFinished);
 			if (!MasterIntentService.isClickToCallFinished) {
 				showWaitDialog();
 				if (serviceStateReceiver == null) {
@@ -558,7 +559,7 @@ public class MorePassengerActivity extends BaseActivity {
 	private void reEnableDossierAfterSaleState(){
 		if (myState == null){
 			//Initial call
-			Log.i(TAG, "myState is null");		
+			LogUtils.i(TAG, "myState is null");
 			myState = new MyState();					
 				//getDossierData("MXMYQWZ"); Testing
 															
@@ -591,7 +592,7 @@ public class MorePassengerActivity extends BaseActivity {
 			
 			switch (msg.what) {
 			case ServiceConstant.MESSAGE_WHAT_OK:
-				Log.d(TAG, "dossierAfterSaleHandler receive MESSAGE_WHAT_OK");
+				LogUtils.d(TAG, "dossierAfterSaleHandler receive MESSAGE_WHAT_OK");
 				break;
 			case ServiceConstant.MESSAGE_WHAT_ERROR:
 				/*Toast.makeText(MorePassengerActivity.this,
@@ -710,7 +711,7 @@ public class MorePassengerActivity extends BaseActivity {
 	class ServiceStateReceiver extends BroadcastReceiver {
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			Log.d(TAG, "onReceive got CLICK_TO_CALL_SERVICE_ACTION broadcast");
+			LogUtils.d(TAG, "onReceive got CLICK_TO_CALL_SERVICE_ACTION broadcast");
 			if (ServiceConstant.CLICK_TO_CALL_SERVICE_ACTION.equalsIgnoreCase(intent.getAction().toString())) {
 				hideWaitDialog();
 			}

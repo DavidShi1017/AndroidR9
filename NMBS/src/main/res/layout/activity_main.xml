@@ -462,6 +462,7 @@
                             android:paddingRight="10dp"
                             >
                             <LinearLayout
+                                android:id="@+id/ll_train_tickets"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:weightSum="5"
@@ -504,7 +505,7 @@
                                     android:id="@+id/rl_lowestFares"
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/home_menu_height"
-                                    android:layout_marginLeft="@dimen/home_menu_margin_left"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_weight="1"
                                     android:onClick="lowestFares"
                                     android:background="@color/background_menu_home">
@@ -538,7 +539,7 @@
                                     android:id="@+id/rl_mytickets"
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/home_menu_height"
-                                    android:layout_marginLeft="@dimen/home_menu_margin_left"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_weight="1"
                                     android:onClick="myTickets"
                                     android:background="@drawable/home_menu_rounded_group"
@@ -598,7 +599,7 @@
                                     android:id="@+id/rl_uploadtickets"
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/home_menu_height"
-                                    android:layout_marginLeft="@dimen/home_menu_margin_left"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_weight="1"
                                     android:onClick="uploadTickets"
                                     android:background="@drawable/home_menu_rounded_group"
@@ -634,7 +635,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/home_menu_height"
 
-                                    android:layout_marginLeft="@dimen/home_menu_margin_left"
+                                    android:layout_marginLeft="10dp"
                                     android:onClick="myOption"
                                     android:layout_weight="1"
                                     android:background="@drawable/home_menu_rounded_group">

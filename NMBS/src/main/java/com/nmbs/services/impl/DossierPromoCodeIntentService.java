@@ -9,6 +9,7 @@ import com.nmbs.dataaccess.restservice.impl.DossierPromoCodeDataService;
 import com.nmbs.exceptions.CustomError;
 import com.nmbs.exceptions.NetworkError;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierResponse;
 import com.nmbs.model.PromoParameter;
 
@@ -84,15 +85,15 @@ public class DossierPromoCodeIntentService extends IntentService {
 	 * @param Exception
 	 */
 	public void catchError(NetworkError error, Exception e, DossierResponse dossierResponse) {
-		
-		Log.d(TAG, "catchError.....");
-		Log.d(TAG, "dossierResponse....." + dossierResponse);
+
+		LogUtils.d(TAG, "catchError.....");
+		LogUtils.d(TAG, "dossierResponse....." + dossierResponse);
 		broadcastIntent.setAction(ServiceConstant.INTENT_ACTION_DOSSIER_PROMO_CODE_ERROR);
 		broadcastIntent.addCategory(Intent.CATEGORY_DEFAULT);
 		broadcastIntent.putExtra(ServiceConstant.PARAM_OUT_ERROR, error);
 		broadcastIntent.putExtra(ServiceConstant.PARAM_OUT_MSG, dossierResponse);
 		broadcastIntent.putExtra(ServiceConstant.PARAM_OUT_ERROR_MESSAGE, e.getMessage());
-		Log.i(TAG, "Error message : " + e.getMessage());
+		LogUtils.i(TAG, "Error message : " + e.getMessage());
 		sendBroadcast(broadcastIntent);
 		
 		if (e != null) {

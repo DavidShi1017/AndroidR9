@@ -7,6 +7,7 @@ import android.util.Log;
 
 
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.CreateSubscriptionParameter;
 import com.nmbs.model.HafasUser;
 import com.nmbs.model.RealTimeConnection;
@@ -39,7 +40,7 @@ public class CreateSubScriptionAsyncTask extends AsyncTask<Void, Void, Void>{
 			HafasUser hafasUser = pushService.getUser();
 			if(hafasUser==null||"".equals(hafasUser.getUserId())){
 				String userId = pushService.retryCreateUser(language);
-				Log.d(TAG, "createSubscription ...." + userId);
+				LogUtils.d(TAG, "createSubscription ...." + userId);
 				if("".equals(userId)){
 					Intent broadcastIntent = new Intent(ServiceConstant.PUSH_CREATE_SUBSCRIPTION_ACTION);
 					broadcastIntent.putExtra(ActivityConstant.CREATE_SUBSCRIPTION_RESULT,"");
@@ -50,7 +51,7 @@ public class CreateSubScriptionAsyncTask extends AsyncTask<Void, Void, Void>{
 				}
 
 			}else{
-				Log.d(TAG, "createSubscription ...." + hafasUser.getUserId());
+				LogUtils.d(TAG, "createSubscription ...." + hafasUser.getUserId());
 				executeCreateAction(hafasUser);
 			}
 		}catch (Exception e){

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Subscription;
 
 import net.sqlcipher.database.SQLiteDatabase;
@@ -61,7 +62,7 @@ public class SubscriptionDataBaseService {
             sqLiteDatabase.insert(DB_TABLE_SUBSCRIPTION, subscription.getSubscriptionId(),
                     contentValues);
             sqLiteDatabase.setTransactionSuccessful();
-            Log.d("insertSubscription", "insert Subscription Successful...");
+            LogUtils.d("insertSubscription", "insert Subscription Successful...");
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,7 +75,7 @@ public class SubscriptionDataBaseService {
     }
 
     public boolean deleteSubscription(String subscriptionId) {
-        Log.e("deleteSubscription", "deleteSubscription....");
+        LogUtils.e("deleteSubscription", "deleteSubscription....");
         sqLiteDatabase.beginTransaction();
         try {
             sqLiteDatabase.delete(DB_TABLE_SUBSCRIPTION, SUBSCRIPTION_ID + "=?", new String[]{subscriptionId});
@@ -117,10 +118,10 @@ public class SubscriptionDataBaseService {
             String connectionId = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_Connection_id));
             subscription = new Subscription(id,ctx,originCode,desCode,departureDate,originName,desName,dnr, connectionId);
             subscriptions.add(subscription);
-            Log.d("readSubscription", "reconctx..." + ctx);
-            Log.d("readSubscription", "date..." + departureDate);
+            LogUtils.d("readSubscription", "reconctx..." + ctx);
+            LogUtils.d("readSubscription", "date..." + departureDate);
         }
-        Log.d("readSubscription", "subscriptions size is..." + subscriptions.size());
+        LogUtils.d("readSubscription", "subscriptions size is..." + subscriptions.size());
         cursor.close();
         return subscriptions;
     }
@@ -228,7 +229,7 @@ public class SubscriptionDataBaseService {
             subscriptions.add(subscription);
         }
         cursor.close();
-        Log.e("subscriptions", "subscriptions size is==" + subscriptions.size());
+        LogUtils.e("subscriptions", "subscriptions size is==" + subscriptions.size());
         if(subscriptions.size() > 0){
             return true;
         }else{
@@ -258,7 +259,7 @@ public class SubscriptionDataBaseService {
             subscriptions.add(subscription);
         }
         cursor.close();
-        Log.e("subscriptions", "subscriptions size is==" + subscriptions.size());
+        LogUtils.e("subscriptions", "subscriptions size is==" + subscriptions.size());
         if(subscriptions.size() > 0){
             return true;
         }else{
@@ -267,14 +268,14 @@ public class SubscriptionDataBaseService {
     }
 
     public Subscription readSubscriptionByReconctxAndDepartureDate(String reconctx, String date) {
-        Log.d("cursorNum", "reconctx..." + reconctx);
-        Log.d("cursorNum", "date..." + date);
+        LogUtils.d("cursorNum", "reconctx..." + reconctx);
+        LogUtils.d("cursorNum", "date..." + date);
         Subscription subscription = null;
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_RECONCTX_HASH_CODE + "='" + reconctx +"' and " + SUBSCRIPTION_DEPARTURE + "='" + date + "'",
                 null, null, null, null);
         int cursorNum = cursor.getCount();
-        Log.d("cursorNum", "cursorNum..." + cursorNum);
+        LogUtils.d("cursorNum", "cursorNum..." + cursorNum);
         if(cursorNum > 0){
             cursor.moveToPosition(0);
             String id = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_ID));
@@ -293,14 +294,14 @@ public class SubscriptionDataBaseService {
     }
 
     public Subscription readSubscriptionByConnectionId(String conId) {
-        Log.d("cursorNum", "connectionId..." + conId);
+        LogUtils.d("cursorNum", "connectionId..." + conId);
 
         Subscription subscription = null;
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_Connection_id + "='" + conId + "'",
                 null, null, null, null);
         int cursorNum = cursor.getCount();
-        Log.d("cursorNum", "cursorNum..." + cursorNum);
+        LogUtils.d("cursorNum", "cursorNum..." + cursorNum);
         if(cursorNum > 0){
             cursor.moveToPosition(0);
             String id = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_ID));
@@ -338,7 +339,7 @@ public class SubscriptionDataBaseService {
             sqLiteDatabase.update(DB_TABLE_SUBSCRIPTION, contentValues,
                     SUBSCRIPTION_ID+"='"+subscriptionId+"'",null);
             sqLiteDatabase.setTransactionSuccessful();
-            Log.d("updateSubscription", "update Subscription Successful...");
+            LogUtils.d("updateSubscription", "update Subscription Successful...");
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -348,7 +349,7 @@ public class SubscriptionDataBaseService {
         }
     }
     public boolean deleteSubscriptionByDnr(String dnr) {
-        Log.e("deleteSubscription", "deleteSubscription....");
+        LogUtils.e("deleteSubscription", "deleteSubscription....");
         sqLiteDatabase.beginTransaction();
         try {
             sqLiteDatabase.delete(DB_TABLE_SUBSCRIPTION, SUBSCRIPTION_dnr + "=?", new String[]{dnr});
@@ -398,7 +399,7 @@ public class SubscriptionDataBaseService {
                         "and " + SUBSCRIPTION_dnr + "='" + sub.getDnr() + "'",
                 null, null, null, null);
         int cursorNum = cursor.getCount();
-        Log.d("cursorNum", "cursorNum..." + cursorNum);
+        LogUtils.d("cursorNum", "cursorNum..." + cursorNum);
         if(cursorNum > 0){
             cursor.moveToPosition(0);
             String id = cursor.getString(cursor.getColumnIndexOrThrow(SUBSCRIPTION_ID));

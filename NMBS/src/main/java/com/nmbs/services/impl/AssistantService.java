@@ -56,6 +56,7 @@ import com.nmbs.exceptions.DBookingNoSeatAvailableError;
 import com.nmbs.exceptions.InvalidJsonError;
 import com.nmbs.exceptions.RequestFail;
 import com.nmbs.exceptions.TimeOutError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Connection;
 import com.nmbs.model.DossierAftersalesResponse;
 import com.nmbs.model.DossierDetailParameter;
@@ -451,7 +452,7 @@ public class AssistantService implements IAssistantService {
 
 	public AsyncDossierAfterSaleResponse searchDossierAfterSale(Order order, List<Order> orders, ISettingService settingService,
 			boolean hasConnection, boolean isRefreshAllRealTime) {
-		Log.d(TAG, "searchDossierAfterSale ...");
+		LogUtils.d(TAG, "searchDossierAfterSale ...");
 
 		List<Order> newOrders = null;
 		Map<String, Order> ordersMap = new HashMap<String, Order>();
@@ -599,7 +600,7 @@ public class AssistantService implements IAssistantService {
 	}
 
 	public void deleteDataByDNR(String dnr) {
-		Log.e("MigrateDossier", "deleteDataByDNR::::" + dnr);
+		LogUtils.e("MigrateDossier", "deleteDataByDNR::::" + dnr);
 		AssistantDatabaseService assistantDatabaseService = new AssistantDatabaseService(
 				applicationContext);
 		assistantDatabaseService.deleteOrder(dnr);
@@ -1085,7 +1086,7 @@ public class AssistantService implements IAssistantService {
     
     public void refreshDossierAftersales(List<Order> orders, String currentLanguage){
 
-    	Log.d(TAG, "RefreshDossier...");
+		LogUtils.d(TAG, "RefreshDossier...");
     	List<Order> dossiers = new ArrayList<Order>();
     	
 		
@@ -1097,8 +1098,8 @@ public class AssistantService implements IAssistantService {
 	    	for (Order order : newOrders) {
 	    	
 	    		if (!hasExchangeable(order)) {
-	    			
-	    			Log.e(TAG, "RefreshDossier...to get Exchangeable");
+
+					LogUtils.e(TAG, "RefreshDossier...to get Exchangeable");
 	    				
 	    			dossiers.add(order);    								
 	    			
@@ -1107,7 +1108,7 @@ public class AssistantService implements IAssistantService {
 		}
 
     	if (dossiers.size() > 0) {
-    		Log.e(TAG, "RefreshDossier...");
+			LogUtils.e(TAG, "RefreshDossier...");
     		if (dossiers.size() == 1) {
     			DossierAfterSaleIntentService.startService(applicationContext, dossiers.get(0), currentLanguage, true, null, true);
 			}else {
@@ -1132,7 +1133,7 @@ public class AssistantService implements IAssistantService {
     public boolean hasExchangeable(Order order){
     	if (order != null && order.getOrderState() == OrderItemStateType.OrderItemStateTypeConfirmed.ordinal()) {
 			if (order.getExchangeable() == null || order.getRefundable() == null) {
-				Log.e(TAG, "RefreshDossier...to get Exchangeable");    				
+				LogUtils.e(TAG, "RefreshDossier...to get Exchangeable");
 				return false;
 			}    				
 		}

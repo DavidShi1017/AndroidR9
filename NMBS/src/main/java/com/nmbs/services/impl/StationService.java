@@ -11,6 +11,7 @@ import com.nmbs.dataaccess.database.FavoriteStationsDatabaseService;
 import com.nmbs.dataaccess.restservice.IStationInfoDataService;
 import com.nmbs.dataaccess.restservice.impl.StationInfoDataService;
 import com.nmbs.exceptions.InvalidJsonError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Station;
 import com.nmbs.model.StationInfo;
 import com.nmbs.model.StationInfoResponse;
@@ -58,9 +59,9 @@ public class StationService{
 
             InputStream is = applicationContext.getResources().openRawResource(resourcesId);
             String stringHttpResponse = FileManager.getInstance().readFileWithInputStream(is);
-            Log.e("Converter", "start.....");
+            LogUtils.e("Converter", "start.....");
             StationResponse stationResponse = masterResponseConverter.parseStation(stringHttpResponse);
-            Log.e("Converter", "end.....");
+            LogUtils.e("Converter", "end.....");
             if (stationResponse != null) {
                 stationList = stationResponse.getStations();
 

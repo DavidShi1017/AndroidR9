@@ -23,6 +23,7 @@ import com.nmbs.R;
 import com.nmbs.activities.MyTicketsActivity;
 
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Dossier;
 import com.nmbs.model.DossierSummary;
 import com.nmbs.services.ISettingService;
@@ -147,7 +148,7 @@ public class DialogSubNotification extends Dialog {
                 if (dossier != null) {
                     isInProgress = true;
                     executeSubscription();
-                    Log.d(TAG, "isEnable..." + isEnable);
+                    LogUtils.d(TAG, "isEnable..." + isEnable);
                     if(isEnable){
                         if(pageFlag == NMBSApplication.PAGE_Dossier_Details){
                             GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.UPLOAD_TICKET_CATEGORY, TrackerConstant.DOSSIER_SELECT_DISABLE_NOTIFICATION, "");
@@ -197,7 +198,7 @@ public class DialogSubNotification extends Dialog {
         dossierSummary = dossierDetailsService.getDossier(dossier.getDossierId());
         if (dossierSummary != null && dossier != null){
             isEnable = dossierSummary.isDossierPushEnabled();
-            Log.d(TAG, "dossierSummary.isDossierPushEnabled().........." + dossierSummary.isDossierPushEnabled());
+            LogUtils.d(TAG, "dossierSummary.isDossierPushEnabled().........." + dossierSummary.isDossierPushEnabled());
 
             if(dossierSummary.isDossierPushEnabled()){
                 tvEnable.setText(activity.getResources().getString(R.string.general_disable_notifications));

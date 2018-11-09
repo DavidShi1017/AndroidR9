@@ -2,6 +2,7 @@ package com.nmbs.services.impl;
 
 
 import com.nmbs.exceptions.NetworkError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierResponse;
 
 
@@ -101,7 +102,7 @@ public class AsyncAbortPaymentDossierResponse extends BroadcastReceiver{
 			NetworkError error = (NetworkError) intent.getSerializableExtra(ServiceConstant.PARAM_OUT_ERROR);
 			String errorMessage = intent.getStringExtra(ServiceConstant.PARAM_OUT_ERROR_MESSAGE);
 
-			Log.e(TAG, "errorMessage......error... " + errorMessage);
+			LogUtils.e(TAG, "errorMessage......error... " + errorMessage);
 			bundle.putSerializable(ServiceConstant.PARAM_OUT_ERROR, error);
 			bundle.putSerializable(ServiceConstant.PARAM_OUT_ERROR_MESSAGE, errorMessage);
 			callErrorHandler(bundle,ServiceConstant.MESSAGE_WHAT_ABORT_PAYMENT_ERROR);

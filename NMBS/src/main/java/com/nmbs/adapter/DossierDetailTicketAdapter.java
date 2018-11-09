@@ -21,6 +21,7 @@ import com.nmbs.activities.TicketsDetailActivity;
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.async.RealTimeInfoAsyncTask;
 import com.nmbs.dataaccess.restservice.impl.DossierDetailDataService;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Connection;
 import com.nmbs.model.Dossier;
 import com.nmbs.model.DossierSummary;
@@ -290,7 +291,7 @@ public class DossierDetailTicketAdapter {
         }
         tvTrainInfo.setText(trainType + " " + dossierTravelSegment.getTrainNumber() + " - "
                 + dossierDetailsService.comfortClass(dossierTravelSegment.getComfortClass()));
-        Log.e("SegmentType", "SegmentType---->" + dossierTravelSegment.getSegmentType());
+        LogUtils.e("SegmentType", "SegmentType---->" + dossierTravelSegment.getSegmentType());
         if(DossierDetailsService.SegmentType_MARKETPRICE.equalsIgnoreCase(dossierTravelSegment.getSegmentType())){
 
             tvDepartureDate.setText(DateUtils.dateTimeToString(dossierTravelSegment.getDepartureDateTime(), DateUtils.getRightFormat()));

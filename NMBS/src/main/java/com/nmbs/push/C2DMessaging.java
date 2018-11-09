@@ -5,7 +5,10 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 import android.util.Log;
-/** 
+
+import com.nmbs.log.LogUtils;
+
+/**
  * Utilities for device registration. 
  * 
  * Will keep track of the registration token in a private preference. 
@@ -48,7 +51,7 @@ public class C2DMessaging {
 	}
 	
 	public void clearRegistrationId(Context context) {
-		Log.d(TAG, "Clear RegistrationId.");
+		LogUtils.d(TAG, "Clear RegistrationId.");
 		Editor editor = this.prefs.edit();
 		editor.putString(REGISTRATION_ID_KEY, "");
 		editor.putLong(LAST_REGISTRATION_CHANGE, System.currentTimeMillis());
@@ -56,7 +59,7 @@ public class C2DMessaging {
 	}
 	
 	public void setRegistrationId(Context context, String registrationId) {
-		Log.d(TAG, "Store RegistrationId: "+registrationId);
+		LogUtils.d(TAG, "Store RegistrationId: "+registrationId);
 		Editor editor = this.prefs.edit();
 		editor.putString(REGISTRATION_ID_KEY, registrationId);
 		editor.commit();
@@ -73,7 +76,7 @@ public class C2DMessaging {
 	 */
 	public String getRegistrationId(Context context) {		
 		String registrationId = this.prefs.getString(REGISTRATION_ID_KEY, "");
-		Log.d(TAG, "Get the Store RegistrationId: "+registrationId);
+		LogUtils.d(TAG, "Get the Store RegistrationId: "+registrationId);
 		return registrationId;
 	}
 	

@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.async.MigrateDossierAsyncTask;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.GeneralSetting;
 import com.nmbs.model.Order;
 
@@ -30,11 +31,11 @@ public class EmailBroadcastReceiver extends BroadcastReceiver {
 			int e_requestCode = bundle.getInt("RequestCode");
 			String text = bundle.getString("Text");
 			if (e_requestCode == NMBSApplication.REQUESTCODE_EMAIL_SYNC) {
-				Log.i(TAG, "EmailBroadcast Receivered...");
+				LogUtils.i(TAG, "EmailBroadcast Receivered...");
 
 				//Email email = new Email();
 				//email.sendEmail(text);
-				Log.i(TAG, "EmailBroadcast Receivered..." + text);
+				LogUtils.i(TAG, "EmailBroadcast Receivered..." + text);
 			}
 		} catch (Exception e) {
 			//Log.i(TAG, e.getMessage());

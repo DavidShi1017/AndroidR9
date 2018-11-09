@@ -42,6 +42,7 @@ import com.nmbs.R;
 import com.nmbs.adapter.PDFAdapter;
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.dataaccess.database.AssistantDatabaseService;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierAftersalesResponse;
 import com.nmbs.model.HomePrintTicket;
 import com.nmbs.model.Order;
@@ -505,7 +506,7 @@ public class BarcodeForPersonActivity extends BaseActivity implements
 			AssistantDatabaseService databaseService = new AssistantDatabaseService(
 					BarcodeForPersonActivity.this);
 			barcodesId = dossierAftersalesResponse.getDnrId() + "-" + params[0];
-			Log.i("TAG", databaseService.readBarCodes(barcodesId).toString()+"");
+			LogUtils.i("TAG", databaseService.readBarCodes(barcodesId).toString()+"");
 			mBitmap = BitmapFactory.decodeByteArray(
 					databaseService.readBarCodes(barcodesId), 0,
 					databaseService.readBarCodes(barcodesId).length);

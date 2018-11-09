@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.nmbs.exceptions.NetworkError;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Dossier;
 import com.nmbs.model.DossierAftersalesResponse;
 import com.nmbs.model.DossierDetailsResponse;
@@ -113,14 +114,14 @@ public class AsyncDossierAfterSaleResponse extends BroadcastReceiver{
 			NetworkError error = (NetworkError) intent.getSerializableExtra(ServiceConstant.PARAM_OUT_ERROR);
 			String errorMessage = intent.getStringExtra(ServiceConstant.PARAM_OUT_ERROR_MESSAGE);
 			bundle.putSerializable(ServiceConstant.PARAM_OUT_ERROR_MESSAGE, errorMessage);
-			Log.e(TAG, "Dossier.....catchError error" + error);
+			LogUtils.e(TAG, "Dossier.....catchError error" + error);
 			bundle.putSerializable(ServiceConstant.PARAM_OUT_ERROR, error);
 			callErrorHandler(bundle);
 			context.unregisterReceiver(this);
 		}
 		//if receive response
 		if (ServiceConstant.INTENT_ACTION_DOSSIER_DETAIL_RESPONSE.equals(receiveAction)) {
-			Log.i(TAG,"Dossier received.....");
+			LogUtils.i(TAG,"Dossier received.....");
 			DossierDetailsResponse dossierResponse = (DossierDetailsResponse) intent.getExtras().get(ServiceConstant.PARAM_OUT_MSG);
 		
 			this.dossierResponse = dossierResponse;

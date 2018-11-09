@@ -16,6 +16,7 @@ import android.database.SQLException;
 
 import android.util.Log;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.OfferQuery.ComforClass;
 import com.nmbs.model.Order;
 import com.nmbs.model.StationBoardBulk;
@@ -184,7 +185,7 @@ public class AssistantDatabaseService {
 			try {
 				contentValues.put(PDFS_ID, pdfId);
 				contentValues.put(PDFS_CONTENT, pdfContent);
-				Log.d("TAG", "insertOrder...." + pdfId);
+				LogUtils.d("TAG", "insertOrder...." + pdfId);
 				sqLiteDatabase.insert(DB_TABLE_PDFS, PDFS_ID, contentValues);
 
 				// Log.d(tag, "insertOrder....");
@@ -349,7 +350,7 @@ public class AssistantDatabaseService {
 			contentValues.put(ORDERS_HAS_DUPLICATED_STATIONBOARD,String.valueOf(true));
 			contentValues.put(ORDERS_DUPLICATED_STATIONBOARD_ID, stationboardId);
 
-			Log.d(tag, "updateOrdersRelationStationboard for...." + travelSegmentID + "====Stationboard id is...." + stationboardId);
+			LogUtils.d(tag, "updateOrdersRelationStationboard for...." + travelSegmentID + "====Stationboard id is...." + stationboardId);
 			// Log.e(TAG, "CallSuccessFul=======" +
 			// stationBoardBulk.isIsCancelled());
 			sqLiteDatabase.update(DB_TABLE_ORDERS, contentValues, ORDERS_TRAVEL_SEGMENT_ID + " = '" + travelSegmentID + "'", null);

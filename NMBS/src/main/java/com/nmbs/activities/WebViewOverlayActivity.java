@@ -128,7 +128,7 @@ public class WebViewOverlayActivity extends AppCompatActivity {
                             finish();
                             return true;
                         } catch (Exception e) {
-                            Log.d(TAG, "Exception...." + url);
+                            LogUtils.d(TAG, "Exception...." + url);
                         }
                         return true;
                     }
@@ -179,7 +179,7 @@ public class WebViewOverlayActivity extends AppCompatActivity {
 
             @Override
             public void onPageFinished(WebView view, String url) {
-                Log.d(TAG, "onPageFinished...." + url);
+                LogUtils.d(TAG, "onPageFinished...." + url);
 
                 if(url.contains("ConfirmationConfirmed") && url.contains("email")){;
                     email = Utils.getUrlValue(url, "email");
@@ -219,13 +219,13 @@ public class WebViewOverlayActivity extends AppCompatActivity {
             @Override
             public void onReceivedTitle(WebView view, String title) {
                 super.onReceivedTitle(view, title);
-                Log.d("ANDROID_LAB", "TITLE=" + title);
+                LogUtils.d("ANDROID_LAB", "TITLE=" + title);
                 tvTitle.setText(title);
             }
             @Override
             public boolean onCreateWindow(WebView view, boolean isDialog,
                                           boolean isUserGesture, Message resultMsg) {
-                Log.d(TAG, "Open the Window..");
+                LogUtils.d(TAG, "Open the Window..");
                 if(NetworkUtils.isOnline(WebViewOverlayActivity.this)) {
                     WebView newWebView = new WebView(WebViewOverlayActivity.this);
                     view.addView(newWebView);
@@ -244,7 +244,7 @@ public class WebViewOverlayActivity extends AppCompatActivity {
                         @Override
                         public boolean shouldOverrideUrlLoading(WebView view, String url) {
                             webView.loadUrl(url);
-                            Log.d(TAG, "Open the Window.." + url);
+                            LogUtils.d(TAG, "Open the Window.." + url);
                             return true;
                         }
                     });
@@ -271,7 +271,7 @@ public class WebViewOverlayActivity extends AppCompatActivity {
     };
 
     public static Intent createIntent(Context context, String url){
-        Log.d(TAG, "url...." + url);
+        LogUtils.d(TAG, "url...." + url);
         Intent intent = new Intent(context, WebViewOverlayActivity.class);
         intent.putExtra(Intent_Key_Url, url);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

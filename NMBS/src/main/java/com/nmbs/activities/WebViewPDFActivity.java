@@ -86,7 +86,7 @@ public class WebViewPDFActivity extends AppCompatActivity {
     }
 
     public static Intent createIntent(Context context, String url){
-        Log.d(TAG, "url...." + url);
+        LogUtils.d(TAG, "url...." + url);
         Intent intent = new Intent(context, WebViewPDFActivity.class);
         intent.putExtra(Intent_Key_Url, url);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

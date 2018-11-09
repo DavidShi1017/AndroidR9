@@ -44,7 +44,7 @@ public class DecryptUtils {
             ecipher.init(Cipher.ENCRYPT_MODE, skeySpec, ivParameterSpec);
             dstBuff = ecipher.doFinal("*szJu_Vi".getBytes());
             //String Base64Str = Convert.ToBase64String(myByte);
-            Log.e("Test", "test------->" + Base64.encodeToString(dstBuff, Base64.DEFAULT));
+            LogUtils.e("Test", "test------->" + Base64.encodeToString(dstBuff, Base64.DEFAULT));
         } catch (Exception e) {
             e.printStackTrace();
         }

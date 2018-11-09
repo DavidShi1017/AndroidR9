@@ -4,6 +4,8 @@ package com.nmbs.util;
 import android.content.Context;
 import android.util.Log;
 
+import com.nmbs.log.LogUtils;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpVersion;
@@ -69,11 +71,11 @@ public class HttpRetriever {
 
 			URL url = new URL(stringURL);
 			if (url.getProtocol().toLowerCase().equals("https")) {
-				Log.e("HttpRetriever", "https...");
+				LogUtils.e("HttpRetriever", "https...");
 				//HttpsURLConnection urlConnection = GetHttps(stringURL);
 				inputStream = GetHttps(stringURL);
 				//inputStream = urlConnection.getInputStream();
-				Log.e("HttpRetriever", "inputStream..." + inputStream);
+				LogUtils.e("HttpRetriever", "inputStream..." + inputStream);
 			}else{
 				URLConnection urlConnection = url.openConnection();
 				urlConnection.setConnectTimeout(20000);
@@ -136,7 +138,7 @@ public class HttpRetriever {
 		//Log.e("HOMEBANNER", https +"conn..." + conn.getResponseCode());
 		//conn.setRequestProperty("Accept-Charset", "UTF-8");
 		//conn.get
-		Log.e("conn", "getContentType--------->" + conn.getContentType());
+		LogUtils.e("conn", "getContentType--------->" + conn.getContentType());
 		if(conn.getContentType().contains("text/html")){
 			throw new Exception();
 		}

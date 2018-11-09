@@ -12,6 +12,7 @@ import com.nmbs.exceptions.InvalidJsonError;
 import com.nmbs.exceptions.NetworkError;
 import com.nmbs.handler.RestMasterDataHandler;
 import com.nmbs.listeners.ActivityPostExecuteListener;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.CollectionItem;
 import com.nmbs.model.CollectionResponse;
 import com.nmbs.model.Currency;
@@ -276,7 +277,7 @@ public class SettingService implements ISettingService {
 	 * @param /localeLanguage
 	 */
 	public void updateConfigurationLocale(String MLocale){
-		Log.e("LocaleChangedUtils", "updateConfigurationLanguage. Locale is " + MLocale);
+		LogUtils.e("LocaleChangedUtils", "updateConfigurationLanguage. Locale is " + MLocale);
 		/*Locale locale = null;
 		if(!"".equals(MLocale) && MLocale != null){
 			if(MLocale.contains("_")){
@@ -298,7 +299,7 @@ public class SettingService implements ISettingService {
 		Resources resources = this.applicationContext.getResources();
 		Configuration configuration = resources.getConfiguration();
 		Locale locale = AppLanguageUtils.getLocaleByLanguage(MLocale);
-		Log.e("locale", "locale---->" + locale.getLanguage());
+		LogUtils.e("locale", "locale---->" + locale.getLanguage());
 		// app locale
 /*		Locale locale = null;
 

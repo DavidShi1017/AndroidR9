@@ -15,6 +15,7 @@ import android.os.Looper;
 import android.util.Log;
 
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 import com.nmbs.receivers.AlarmsBroadcastReceiver;
 import com.nmbs.receivers.EmailBroadcastReceiver;
 
@@ -114,16 +115,16 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 infos.put("versionCode", versionCode);
             }
         } catch (PackageManager.NameNotFoundException e) {
-            Log.e(TAG, "an error occured when collect package info", e);
+            LogUtils.e(TAG, "an error occured when collect package info", e);
         }
         Field[] fields = Build.class.getDeclaredFields();
         for (Field field : fields) {
             try {
                 field.setAccessible(true);
                 infos.put(field.getName(), field.get(null).toString());
-                Log.d(TAG, field.getName() + " : " + field.get(null));
+                LogUtils.d(TAG, field.getName() + " : " + field.get(null));
             } catch (Exception e) {
-                Log.e(TAG, "an error occured when collect crash info", e);
+                LogUtils.e(TAG, "an error occured when collect crash info", e);
             }
         }
     }
@@ -164,7 +165,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             }
             return fileName;
         } catch (Exception e) {
-            Log.e(TAG, "an error occured while writing file...", e);
+            LogUtils.e(TAG, "an error occured while writing file...", e);
         }
         return null;
     }

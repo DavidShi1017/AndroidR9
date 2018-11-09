@@ -12,6 +12,7 @@ import com.nmbs.exceptions.ConnectionError;
 import com.nmbs.exceptions.InvalidJsonError;
 import com.nmbs.exceptions.RequestFail;
 import com.nmbs.exceptions.TimeOutError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.CheckAppUpdate;
 import com.nmbs.preferences.SettingsPref;
 import com.nmbs.services.ICheckUpdateService;
@@ -163,7 +164,7 @@ public class CheckUpdateService implements ICheckUpdateService {
 		boolean flag = false;
 		//Log.e("isCheckAppVersion", "this.checkAppUpdate::::" + checkAppUpdate);
 		if(this.checkAppUpdate != null){
-			Log.e("isCheckAppVersion", "checkAppUpdate.isUpToDate()::::" + checkAppUpdate.isUpToDate());
+			LogUtils.e("isCheckAppVersion", "checkAppUpdate.isUpToDate()::::" + checkAppUpdate.isUpToDate());
 			if(this.checkAppUpdate.isUpToDate()){
 				return false;
 			}

@@ -13,6 +13,7 @@ import com.nmbs.application.NMBSApplication;
 import com.nmbs.dataaccess.database.DossierDatabaseService;
 import com.nmbs.dataaccess.restservice.impl.DossierDetailDataService;
 import com.nmbs.exceptions.CustomError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierDetailsResponse;
 import com.nmbs.model.DossierSummary;
 import com.nmbs.services.impl.DossierDetailsService;
@@ -55,18 +56,18 @@ public class RefreshDossierAsyncTask extends AsyncTask<Void, Void, Void> {
 
     public void refreshDossier() {
         final DossierDetailDataService dossierDetailDataService = new DossierDetailDataService();
-        Log.d("refreshDossier", "uploading Dossier::::" );
+        LogUtils.d("refreshDossier", "uploading Dossier::::" );
         DossierDetailsResponse dossierResponse = null;
         try {
             dossierResponse = dossierDetailDataService.executeDossierDetail(mContext, null,
                    dnr, NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey(), true, false, true);
             isRefreshing = false;
             if(dossierResponse == null || dossierResponse.getDossier() == null){
-                Log.d("refreshDossier", "is not UploadSuccessful::::" );
+                LogUtils.d("refreshDossier", "is not UploadSuccessful::::" );
                 isRefreshSuccessful = false;
                 sendMessageByWhat(mContext.getResources().getString(R.string.general_server_unavailable));
             }else{
-                Log.d("refreshDossier", "isUploadSuccessful::::" );
+                LogUtils.d("refreshDossier", "isUploadSuccessful::::" );
                 DossierDatabaseService dossierDatabaseService = new DossierDatabaseService(mContext);
                 DossierSummary dossierSummary = dossierDatabaseService.selectDossier(dossierResponse.getDossier().getDossierId());
                 dossierDetailsService.setCurrentDossier(dossierResponse.getDossier());
@@ -76,12 +77,12 @@ public class RefreshDossierAsyncTask extends AsyncTask<Void, Void, Void> {
                 sendMessageByWhat(null);
             }
         } catch (CustomError customError) {
-            Log.d("refreshDossier", "is not UploadSuccessful::::" );
+            LogUtils.d("refreshDossier", "is not UploadSuccessful::::" );
             isRefreshSuccessful = false;
             isRefreshing = false;
             sendMessageByWhat(customError.getMessage());
         } catch (Exception e) {
-            Log.d("refreshDossier", "is not UploadSuccessful::::" );
+            LogUtils.d("refreshDossier", "is not UploadSuccessful::::" );
             isRefreshSuccessful = false;
             isRefreshing = false;
             sendMessageByWhat(mContext.getResources().getString(R.string.general_server_unavailable));

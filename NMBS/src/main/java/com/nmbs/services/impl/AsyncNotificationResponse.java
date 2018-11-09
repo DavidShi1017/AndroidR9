@@ -2,6 +2,7 @@ package com.nmbs.services.impl;
 
 import com.nmbs.dataaccess.restservice.impl.NotificationDataService;
 import com.nmbs.dataaccess.restservice.impl.NotificationDataService.ErrorNotification;
+import com.nmbs.log.LogUtils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -84,7 +85,7 @@ public class AsyncNotificationResponse extends BroadcastReceiver {
 		}
 		//if receive response
 		if (ServiceConstant.INTENT_ACTION_NOTIFICATION_RESPONSE.equals(receiveAction)) {
-			Log.i(TAG,"LoginResponse received");
+			LogUtils.i(TAG,"LoginResponse received");
 			callHandler();
 			context.unregisterReceiver(this);
 		}

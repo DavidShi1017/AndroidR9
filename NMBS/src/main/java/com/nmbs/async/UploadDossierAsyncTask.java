@@ -23,6 +23,7 @@ import com.nmbs.exceptions.InvalidJsonError;
 import com.nmbs.exceptions.NetworkError;
 import com.nmbs.exceptions.RequestFail;
 import com.nmbs.exceptions.TimeOutError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierDetailParameter;
 import com.nmbs.model.DossierDetailsResponse;
 import com.nmbs.model.DossierSummary;
@@ -82,18 +83,18 @@ public class UploadDossierAsyncTask extends AsyncTask<Void, Void, Void> {
 
     public void uploadDossier() {
         final DossierDetailDataService dossierDetailDataService = new DossierDetailDataService();
-        Log.d("uploadDossier", "uploading Dossier::::" );
+        LogUtils.d("uploadDossier", "uploading Dossier::::" );
         DossierDetailsResponse dossierResponse = null;
         String responseErrorMessage = null;
         try {
             dossierResponse = dossierDetailDataService.executeDossierDetail(mContext, email,
                    dnr, NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey(), true, false, true);
             if(dossierResponse == null || dossierResponse.getDossier() == null){
-                Log.d("uploadDossier", "is not UploadSuccessful::::" );
+                LogUtils.d("uploadDossier", "is not UploadSuccessful::::" );
                 isUploadSuccessful = false;
                 sendMessageByWhat(mContext.getResources().getString(R.string.general_server_unavailable));
             }else{
-                Log.d("uploadDossier", "isUploadSuccessful::::" );
+                LogUtils.d("uploadDossier", "isUploadSuccessful::::" );
                 isUploadSuccessful = true;
                 sendMessageByWhat(null);
                 dossierDetailsService.enableSubscription(dossierResponse.getDossier(), handlerEnable, NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey());
@@ -112,7 +113,7 @@ public class UploadDossierAsyncTask extends AsyncTask<Void, Void, Void> {
             sendMessageByWhat(responseErrorMessage);
 
         }catch (CustomError e) {
-            Log.d("uploadDossier", "is not UploadSuccessful::::" );
+            LogUtils.d("uploadDossier", "is not UploadSuccessful::::" );
             isUploadSuccessful = false;
             sendMessageByWhat(e.getMessage());
 
@@ -166,7 +167,7 @@ public class UploadDossierAsyncTask extends AsyncTask<Void, Void, Void> {
                         dossierDetailsService.setCurrentDossierSummary(dossierSummary);
                     }
                     GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
-                    Log.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
+                    LogUtils.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
                     break;
                 case 1:
                     if (dossierSummary != null){
@@ -177,7 +178,7 @@ public class UploadDossierAsyncTask extends AsyncTask<Void, Void, Void> {
                     }
                     //finish();
                     GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
-                    Log.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
+                    LogUtils.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
                     break;
                 case 2:
                     if(dossierSummary != null){
@@ -192,7 +193,7 @@ public class UploadDossierAsyncTask extends AsyncTask<Void, Void, Void> {
                 case PushService.USER_ERROR:
                     //createSubscriptionErrorView.setText(activity.getResources().getString(R.string.alert_subscription_missingID));
                     GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
-                    Log.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
+                    LogUtils.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
                     break;
             }
         };

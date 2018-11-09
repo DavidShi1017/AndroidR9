@@ -158,7 +158,7 @@ public class PDFViewActivity extends Activity implements OnPageChangeListener, O
 
     private void displayFromFile(File file) {
         pdfFileName = file.getName();
-        Log.d("openPDF", "openPDF===" + pdfFileName);
+        LogUtils.d("openPDF", "openPDF===" + pdfFileName);
         pdfView.fromFile(file)
                 .defaultPage(pageNumber)
                 .onPageChange(this)

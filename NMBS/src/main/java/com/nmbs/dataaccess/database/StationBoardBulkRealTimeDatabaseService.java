@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.StationBoardBulk;
 import com.nmbs.model.StationBoardBulkResponse;
 import com.nmbs.model.StationBoardResponse;
@@ -59,8 +60,8 @@ public class StationBoardBulkRealTimeDatabaseService {
 					contentValues.put(STATIONBOARD_REALTIME_CALLSUCCESSFUL, String.valueOf(stationBoardBulk.isCallSuccessFul()));
 					contentValues.put(STATIONBOARD_REALTIME_DELAY, stationBoardBulk.getDelay());
 					contentValues.put(STATIONBOARD_REALTIME_ISCANCELLED, stationBoardBulk.isIsCancelled());
-					
-					Log.d(TAG, "CallSuccessFul=======" + stationBoardBulk.isCallSuccessFul());
+
+					LogUtils.d(TAG, "CallSuccessFul=======" + stationBoardBulk.isCallSuccessFul());
 					
 					sqLiteDatabase.insert(DB_TABLE_STATIONBOARD_REALTIME , ID, contentValues);	
 				}																
@@ -97,7 +98,7 @@ public class StationBoardBulkRealTimeDatabaseService {
 
 			String id = cursor.getString(cursor.getColumnIndexOrThrow(STATIONBOARD_REALTIME_ID));
 			boolean callSuccessFul = Boolean.valueOf(cursor.getString(cursor.getColumnIndexOrThrow(STATIONBOARD_REALTIME_CALLSUCCESSFUL)));
-			Log.d(TAG, "boolean callSuccessFul=======" + callSuccessFul);
+			LogUtils.d(TAG, "boolean callSuccessFul=======" + callSuccessFul);
 			double delay = cursor.getDouble(cursor.getColumnIndexOrThrow(STATIONBOARD_REALTIME_DELAY));
 			boolean isCancelled = Boolean.valueOf(cursor.getString(cursor.getColumnIndexOrThrow(STATIONBOARD_REALTIME_ISCANCELLED)));
 						

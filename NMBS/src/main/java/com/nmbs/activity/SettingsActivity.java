@@ -32,6 +32,7 @@ import com.nmbs.dataaccess.database.CollectionItemDatabaseService;
 import com.nmbs.dataaccess.restservice.IMasterDataService;
 import com.nmbs.dataaccess.restservice.impl.MasterDataService;
 import com.nmbs.exceptions.NetworkError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.CheckAppUpdate;
 import com.nmbs.model.CollectionItem;
 import com.nmbs.model.Currency;
@@ -127,8 +128,8 @@ public class SettingsActivity extends BasePreferenceActivity implements OnPrefer
 		}else{
 			addPreferencesFromResource(R.xml.preferences_low_level);
 		}
-		
-		Log.d(TAG, "onCreate");
+
+		LogUtils.d(TAG, "onCreate");
 		if(version < 11){
 			setTheme(R.style.SettingsThemeForVersion2X);
 		}
@@ -516,7 +517,7 @@ public class SettingsActivity extends BasePreferenceActivity implements OnPrefer
 		}*/
 		
 		if (preference.getKey().equals(PREFS_LANGUAGE)) {
-			Log.d(TAG, "User will update data in: " + newValue);
+			LogUtils.d(TAG, "User will update data in: " + newValue);
 
 			selectedNewLanguage = (String) newValue;
 			

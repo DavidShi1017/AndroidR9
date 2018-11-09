@@ -219,7 +219,7 @@ public class NMBSApplication extends MultiDexApplication {
 			}else {
 
 			}
-			android.util.Log.e("UpToDate", "alarmsetUptudate::::" + alarmsetUptudate);
+		LogUtils.e("UpToDate", "alarmsetUptudate::::" + alarmsetUptudate);
 			if (!alarmsetUptudate) {
 				setAlarmUpdate();
 			}
@@ -323,7 +323,7 @@ public class NMBSApplication extends MultiDexApplication {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-		android.util.Log.d("ScantecApplication", sdf.format(cal.getTime()));
+		LogUtils.d("ScantecApplication", sdf.format(cal.getTime()));
 
 		Intent intent = new Intent(NMBSApplication.getInstance(), AlarmsBroadcastReceiver.class);
 		int RequestCode = NMBSApplication.REQUESTCODE_MATERIAL_SYNC;
@@ -351,7 +351,7 @@ public class NMBSApplication extends MultiDexApplication {
 			calUpDte.set(Calendar.MINUTE, cal.get(Calendar.MINUTE));
 			calUpDte.set(Calendar.SECOND, cal.get(Calendar.SECOND));
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-			android.util.Log.e("UpToDate", "Start time is::::" + sdf.format(calUpDte.getTime()));
+			LogUtils.e("UpToDate", "Start time is::::" + sdf.format(calUpDte.getTime()));
 
 			Intent intent = new Intent(NMBSApplication.getInstance(), UpdateAlarmsBroadcastReceiver.class);
 			int RequestCode = REQUESTCODE_UPDATE;
@@ -373,7 +373,7 @@ public class NMBSApplication extends MultiDexApplication {
 		t = new Timer();
 		t.schedule(new TimerTask() {
 			public void run() {
-				android.util.Log.e("timeOut", "timeOut::::run");
+				LogUtils.e("timeOut", "timeOut::::run");
 				GetSubScriptionListAsyncTask.isAlertSubscriptionFinished = true;
 				Intent alertCountIntent = new Intent(ServiceConstant.PUSH_GET_SUBSCRIPTION_LIST_ACTION);
 				getApplicationContext().sendBroadcast(alertCountIntent);

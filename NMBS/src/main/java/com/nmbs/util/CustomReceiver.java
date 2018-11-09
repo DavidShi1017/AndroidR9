@@ -6,16 +6,18 @@ import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 
+import com.nmbs.log.LogUtils;
+
 public class CustomReceiver extends BroadcastReceiver {
 
 	private static final String CAMPAIGN_SOURCE_PARAM = "utm_source";
 	
 	@Override
 	public void onReceive(Context context, Intent intent) {
-	    Log.d("debug", "waking receiver");
-	    Log.d("debug", "waking receiver" + intent.getAction());
-	    Log.d("debug", "waking receiver" + intent.getDataString());
-	    Log.d("debug", "waking receiver" + intent.getStringExtra("referrer"));
+		LogUtils.d("debug", "waking receiver");
+		LogUtils.d("debug", "waking receiver" + intent.getAction());
+		LogUtils.d("debug", "waking receiver" + intent.getDataString());
+		LogUtils.d("debug", "waking receiver" + intent.getStringExtra("referrer"));
 	    Uri uri = intent.getData();
 		/*
 	    MapBuilder.createAppView().setAll(getReferrerMapFromUri(uri));

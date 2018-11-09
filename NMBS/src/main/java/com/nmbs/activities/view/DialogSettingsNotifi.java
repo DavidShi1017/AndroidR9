@@ -30,6 +30,7 @@ import com.nmbs.async.CheckUpdateAsyncTask;
 import com.nmbs.async.UpdateSubscriptionUserAsyncTask;
 import com.nmbs.exceptions.NetworkError;
 import com.nmbs.listeners.SettingsListener;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.HafasUser;
 import com.nmbs.services.impl.ServiceConstant;
 import com.nmbs.services.impl.SettingService;
@@ -123,7 +124,7 @@ public class DialogSettingsNotifi extends Dialog {
                 upDateUser(hafasUser);
 
             }else{
-                Log.e("hafasUser", " hafasUser is null...");
+                LogUtils.e("hafasUser", " hafasUser is null...");
                 tvError.setVisibility(View.VISIBLE);
                 tvError.setText(context.getString(R.string.alert_updateuser_failed));
                 //dismiss();
@@ -151,8 +152,8 @@ public class DialogSettingsNotifi extends Dialog {
                 startTime = startTime * 60;
             }
         }
-        Log.e("delayTime", "delayTime===" + delayTime);
-        Log.e("startTime", "startTime===" + startTime);
+        LogUtils.e("delayTime", "delayTime===" + delayTime);
+        LogUtils.e("startTime", "startTime===" + startTime);
         HafasUser newHafasUser = new HafasUser(hafasUser.getUserId(),
                 NMBSApplication.getInstance().getPushService().getRegistrationId(), NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey(),
                 delayTime, delayTime, startTime);

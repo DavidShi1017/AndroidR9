@@ -249,8 +249,8 @@ public class StationInfoDetailActivity extends BaseActivity {
 
     public void openPDF(View view){
         File file = stationInfoService.getStationPDF(stationInfo);
-        Log.d("openPDF", "openPDF===" + file.getAbsolutePath());
-        Log.d("openPDF", "openPDF file length------->" + file.length());
+        LogUtils.d("openPDF", "openPDF===" + file.getAbsolutePath());
+        LogUtils.d("openPDF", "openPDF file length------->" + file.length());
         InputStream is = null;
         String assetFileName = "";
         String existStationCode = new StationInfoDataService().getExistStationCode(stationInfo.getCode());
@@ -265,7 +265,7 @@ public class StationInfoDetailActivity extends BaseActivity {
         } else {
             //file = stationInfoService.getStationFloorPlan(getApplicationContext(), stationInfo.getCode(), settingService.getCurrentLanguagesKey());
 
-            Log.d("openPDF", "openPDF package---assetFileName---->" + assetFileName);
+            LogUtils.d("openPDF", "openPDF package---assetFileName---->" + assetFileName);
 
             startActivity(PDFViewActivity.createIntent(getApplicationContext(), null, assetFileName, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE));
 

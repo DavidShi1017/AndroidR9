@@ -27,6 +27,7 @@ import com.nmbs.adapter.MessageAdapter;
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.async.MobileMessageAsyncTask;
 import com.nmbs.async.ProfileInfoAsyncTask;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.GeneralSetting;
 import com.nmbs.model.MobileMessage;
 import com.nmbs.model.MobileMessageResponse;
@@ -131,7 +132,7 @@ public class MessageActivity extends BaseActivity {
 			if (railwayMessages != null && railwayMessages.size() > 0) {
 				addMessageGroup(railwayMessages, MobileMessageResponse.MESSAGETYPE_RAILWAY, railwayMessages.size());
 			}
-			Log.e("mobileMessageResponse", "functionalMessages..." + functionalMessages.size());
+			LogUtils.e("mobileMessageResponse", "functionalMessages..." + functionalMessages.size());
 		}
 	}
 	
@@ -195,7 +196,7 @@ public class MessageActivity extends BaseActivity {
 	}
 
 	public void refresh(View view){
-		Log.e("Messages",  "refresh...");
+		LogUtils.e("Messages",  "refresh...");
 		MobileMessageAsyncTask mobileMessageAsyncTask = new MobileMessageAsyncTask(messageService, settingService.getCurrentLanguagesKey(), getApplicationContext());
 		mobileMessageAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 		showWaitDialog();

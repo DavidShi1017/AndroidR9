@@ -4,6 +4,7 @@ import java.util.List;
 import com.nmbs.R;
 import com.nmbs.activity.MyTicketsActivity;
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.GeneralSetting;
 import com.nmbs.model.Order;
 import com.nmbs.services.IAssistantService;
@@ -50,7 +51,7 @@ public class OrderAsyncTask extends AsyncTask<IAssistantService, Void, List<Orde
 
 	@Override
 	protected List<Order> doInBackground(IAssistantService... params) {
-		Log.e(TAG, "handler receive: doInBackground...!");
+		LogUtils.e(TAG, "handler receive: doInBackground...!");
 		assistantService = params[0];
 		generalSetting = masterService.loadGeneralSetting();
 		assistantService.setGeneralSetting(generalSetting);
@@ -101,7 +102,7 @@ public class OrderAsyncTask extends AsyncTask<IAssistantService, Void, List<Orde
 	}*/
 	//send handler message
 	private void sendMessageByWhat(int messageWhat){
-		Log.e(TAG, "handler receive: sendMessageByWhat...!");
+		LogUtils.e(TAG, "handler receive: sendMessageByWhat...!");
 		Message message = new Message();
 		message.what = messageWhat;
 		mHandler.sendMessage(message);		

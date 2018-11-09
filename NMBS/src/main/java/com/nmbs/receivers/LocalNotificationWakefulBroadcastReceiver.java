@@ -24,11 +24,11 @@ import java.util.Date;
 public class LocalNotificationWakefulBroadcastReceiver extends WakefulBroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.e("LocalNotification", "AlarmReceiver...");
+        LogUtils.e("LocalNotification", "AlarmReceiver...");
         if(NMBSApplication.getInstance().getSettingService().isTravelReminders()){
             buildLocalNotification(context);
         }else {
-            Log.e("LocalNotification", "AlarmReceiver...Canceled....");
+            LogUtils.e("LocalNotification", "AlarmReceiver...Canceled....");
         }
     }
 

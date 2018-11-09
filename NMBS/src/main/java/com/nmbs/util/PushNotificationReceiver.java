@@ -15,6 +15,7 @@ import com.nmbs.activities.MainActivity;
 import com.nmbs.activities.MyTicketsActivity;
 import com.nmbs.activities.PushNotificationErrorActivity;
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 
 import java.util.List;
 
@@ -28,10 +29,10 @@ public class PushNotificationReceiver extends BroadcastReceiver {
         //判断app进程是否存活
         String sid = intent.getStringExtra(ActivityConstant.RECEIVE_PUSH_SUBSCRIPTION_ID);
 
-        Log.e("Push", "savedInstanceState...." + sid);
+        LogUtils.e("Push", "savedInstanceState...." + sid);
         //GoogleAnalyticsUtil.getInstance().sendScreen("PushNotification");
         Activity activity = NMBSApplication.getInstance().getActivity();
-        Log.e("Push", "PushNotificationReceiver subscriptionId is..." + NMBSApplication.getInstance().getActivity());
+        LogUtils.e("Push", "PushNotificationReceiver subscriptionId is..." + NMBSApplication.getInstance().getActivity());
 
         ActivityManager am = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);

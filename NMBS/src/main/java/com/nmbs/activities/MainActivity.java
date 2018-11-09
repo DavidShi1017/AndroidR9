@@ -113,7 +113,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 
     List<MobileMessage> showMessages = null;
     private SettingService settingService = null;
-    private LinearLayout llHomeContent, llRating, llHomeDossier, llMigrateDossier, llMigratingDossier;
+    private LinearLayout llHomeContent, llRating, llHomeDossier, llMigrateDossier, llMigratingDossier,llTrainTickets;
     private IMessageService messageService;
 	private IMasterService masterService;
 	private IPushService pushService;
@@ -543,9 +543,16 @@ public class MainActivity extends BaseActivity implements RatingListener {
 
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (LinearLayout) findViewById(R.id.ll_left_menus);
+		llTrainTickets = (LinearLayout) findViewById(R.id.ll_train_tickets);
 
 		if(!DeviceUtil.isTabletDevice(this.getApplicationContext())){
-			setRlView();
+			if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting() != null
+					&& NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getCommercialTtlListUrl() != null
+					&& !NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getCommercialTtlListUrl().isEmpty()){
+				setRlView();
+			}else{
+				llTrainTickets.setWeightSum(4);
+			}
 		}
 
 		ivLogin = (ImageView) findViewById(R.id.iv_login);
@@ -596,7 +603,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		//换成方法measureView (headView)也可以
 		int headViewWidth = rlDossier.getMeasuredWidth();
 
-		Log.i(TAG, "headViewWidth-->" + headViewWidth + "  density-->" + getResources().getDisplayMetrics().densityDpi);
+		LogUtils.i(TAG, "headViewWidth-->" + headViewWidth + "  density-->" + getResources().getDisplayMetrics().densityDpi);
 		if(getResources().getDisplayMetrics().densityDpi == 480 && getResources().getDisplayMetrics().densityDpi < 560){
 			headViewWidth = 240;
 		}else if(getResources().getDisplayMetrics().densityDpi == 320 && getResources().getDisplayMetrics().densityDpi < 480){
@@ -615,7 +622,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		rlBook.setLayoutParams(new LinearLayout.LayoutParams(headViewWidth, (int)getResources().getDimension(R.dimen.home_menu_height)));
 		rlDossier.measure(0, 0);
 		int rlBookWidth = rlBook.getMeasuredWidth();
-		Log.i(TAG, "rlBookWidth-->" + rlBookWidth);
+		LogUtils.i(TAG, "rlBookWidth-->" + rlBookWidth);
 		params.setMargins(10, 0, 0, 0);
 		rlLowestFares.setLayoutParams(params);
 		rlMyTickets.setLayoutParams(params);

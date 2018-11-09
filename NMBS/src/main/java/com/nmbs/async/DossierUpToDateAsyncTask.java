@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.nmbs.application.NMBSApplication;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.services.impl.DossiersUpToDateService;
 import com.nmbs.util.NetworkUtil;
 
@@ -32,7 +33,7 @@ public class DossierUpToDateAsyncTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        Log.d("UpToDate", "DossierUpToDateAsyncTask...doInBackground");
+        LogUtils.d("UpToDate", "DossierUpToDateAsyncTask...doInBackground");
         if(NetworkUtil.isWifiConnected(mContext)){
             DossiersUpToDateService dossiersUpToDateService = NMBSApplication.getInstance().getDossiersUpToDateService();
             dossiersUpToDateService.getDossiersUpToDateResponse();

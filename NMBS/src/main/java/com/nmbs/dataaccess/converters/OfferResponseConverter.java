@@ -22,6 +22,7 @@ import com.google.gson.JsonParseException;
 
 import com.nmbs.exceptions.InvalidJsonError;
 import com.nmbs.exceptions.NoTicket;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.CombinationMatrix;
 import com.nmbs.model.CombinationMatrixRow;
 import com.nmbs.model.Connection;
@@ -376,10 +377,10 @@ public class OfferResponseConverter {
 				
 				realTimeArrivalDelta = legsObject.getString("RealTimeArrivalDelta");
 			}
-			Log.d("parseJsonAndCreateModel", "RealTimeDepartureDateTime is " + realTimeDepartureDateTime);
-			Log.d("parseJsonAndCreateModel", "RealTimeArrivalDateTime is " + realTimeArrivalDateTime);
-			Log.d("parseJsonAndCreateModel", "RealTimeDepartureDelta is " + realTimeDepartureDelta);
-			Log.d("parseJsonAndCreateModel", "RealTimeArrivalDelta is " + realTimeArrivalDelta);
+			LogUtils.d("parseJsonAndCreateModel", "RealTimeDepartureDateTime is " + realTimeDepartureDateTime);
+			LogUtils.d("parseJsonAndCreateModel", "RealTimeArrivalDateTime is " + realTimeArrivalDateTime);
+			LogUtils.d("parseJsonAndCreateModel", "RealTimeDepartureDelta is " + realTimeDepartureDelta);
+			LogUtils.d("parseJsonAndCreateModel", "RealTimeArrivalDelta is " + realTimeArrivalDelta);
 			//create json model
 			/*legData = new Leg(id, Boolean.valueOf(hasWarning)
 					 , trainNr, trainType, Boolean.valueOf(isTrainLeg)

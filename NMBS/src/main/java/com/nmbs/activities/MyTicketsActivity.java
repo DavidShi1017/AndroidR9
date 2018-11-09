@@ -456,7 +456,7 @@ public class MyTicketsActivity extends BaseActivity implements MyTicketsDnrRefer
     class RefreshDossierReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.d("RefreshDossierReceiver", "RefreshDossierReceiver...onReceive...");
+            LogUtils.d("RefreshDossierReceiver", "RefreshDossierReceiver...onReceive...");
             //realTimeFinished();
             //llTicketMigrating.setVisibility(View.GONE);
             //llTicketRefresh.setVisibility(View.GONE);

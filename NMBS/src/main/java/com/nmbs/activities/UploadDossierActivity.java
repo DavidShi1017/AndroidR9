@@ -449,7 +449,7 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 					}else {
 						TrackNotfication(TrackerConstant.UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION);
 					}
-					Log.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
+					LogUtils.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
 					break;
 				case 1:
 					if(pageFlag == NMBSApplication.PAGE_Dossier_Details){
@@ -457,7 +457,7 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 					}else {
 						TrackNotfication(TrackerConstant.UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION);
 					}
-					Log.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
+					LogUtils.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
 					if (dossierSummary != null){
 						dossierSummary.setDossierPushEnabled(true);
 						dossierDetailsService.updateDossier(dossierSummary);
@@ -470,7 +470,7 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 						dossierSummary.setDossierPushEnabled(true);
 						dossierDetailsService.updateDossier(dossierSummary);
 						dossierDetailsService.setCurrentDossierSummary(dossierSummary);
-						Log.d("Connection", "status..isPushEnabled..." + dossierSummary.isDossierPushEnabled());
+						LogUtils.d("Connection", "status..isPushEnabled..." + dossierSummary.isDossierPushEnabled());
 					}
 					break;
 				case PushService.USER_ERROR:
@@ -579,7 +579,7 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 	}
 	
 	public static Intent createUploadDossierIntent(Context context, int pageFlag, Uri uri, String dnr, String email, String errorMessage) {
-		Log.e("email", "email------>"+ email);
+		LogUtils.e("email", "email------>"+ email);
 		Intent intent = new Intent(context, UploadDossierActivity.class);
 		intent.putExtra("pageFlag", pageFlag);
 		intent.putExtra("uri", uri);

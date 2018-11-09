@@ -14,6 +14,7 @@ import android.util.Log;
 
 import com.nmbs.R;
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -40,7 +41,7 @@ public class AppLanguageUtils {
     public static void changeAppLanguage(Context context, String newLanguage) {
         Resources resources = context.getResources();
         Configuration configuration = resources.getConfiguration();
-        Log.d("changeAppLanguage", "The currentLanguage------->" + newLanguage);
+        LogUtils.d("changeAppLanguage", "The currentLanguage------->" + newLanguage);
         // app locale
         if(newLanguage != null && newLanguage.length() > 0) {
             if(newLanguage.contains("_")){
@@ -69,7 +70,7 @@ public class AppLanguageUtils {
         }
         //Log.d("changeAppLanguage", "locale------->" + newLanguage);
         Locale locale = getLocaleByLanguage(newLanguage);
-        Log.d("changeAppLanguage", "locale------->" + locale.getLanguage());
+        LogUtils.d("changeAppLanguage", "locale------->" + locale.getLanguage());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             configuration.setLocale(locale);
         } else {

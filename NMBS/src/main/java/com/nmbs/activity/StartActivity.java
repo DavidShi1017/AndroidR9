@@ -22,6 +22,7 @@ import com.nmbs.async.OrderAsyncTask;
 import com.nmbs.dataaccess.database.DatabaseHelper;
 import com.nmbs.dataaccess.restservice.IMasterDataService;
 import com.nmbs.dataaccess.restservice.impl.MasterDataService;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Order;
 import com.nmbs.services.IAssistantService;
 import com.nmbs.services.ICheckUpdateService;
@@ -74,7 +75,7 @@ public class StartActivity extends Activity {
 		LocaleChangedUtils.initLanguageSettings(getApplicationContext());// Setting
 																			// application
 														// language
-		Log.d(TAG, "onCreate....");
+		LogUtils.d(TAG, "onCreate....");
 		setContentView(R.layout.start_view);
 		assistantService = ((NMBSApplication) getApplication()).getAssistantService();
 		masterService = ((NMBSApplication) getApplication()).getMasterService();
@@ -150,7 +151,7 @@ public class StartActivity extends Activity {
 			try {
 				assistantService.refreshRealTimeFirstTime(settingService.getCurrentLanguagesKey(), orderList);
 			} catch (Exception e) {
-				Log.d(TAG, "hrefresh RealTime Failure...");
+				LogUtils.d(TAG, "hrefresh RealTime Failure...");
 				e.printStackTrace();
 			}
 		} else {
@@ -170,9 +171,9 @@ public class StartActivity extends Activity {
 		protected Void doInBackground(Void... params) {
 			
 			File unencryptedDatabase = getDatabasePath(DatabaseHelper.DATABASE_NAME);
-			Log.d(TAG, "unencryptedDatabase...." + unencryptedDatabase.isFile());
+			LogUtils.d(TAG, "unencryptedDatabase...." + unencryptedDatabase.isFile());
 				if (unencryptedDatabase.isFile()) {
-					Log.d(TAG, "encrypting Database....");
+					LogUtils.d(TAG, "encrypting Database....");
 					File encryptedDatabase = getDatabasePath(DatabaseHelper.NEW_DATABASE_NAME);
 					//encryptedDatabase.delete();
 					SQLiteDatabase database = null;
@@ -294,7 +295,7 @@ public class StartActivity extends Activity {
 
 	@Override
 	protected void onStart() {
-		Log.i(TAG, "onStart");
+		LogUtils.i(TAG, "onStart");
 	    super.onStart();
 	}
 		

@@ -430,7 +430,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion,
 			int newVersion) {
-		Log.w(DatabaseHelper.class.getName(), "onUpgrade database:" +  ", from v"+ oldVersion + " to v" + newVersion + ", which will destroy all old data");
+		LogUtils.w(DatabaseHelper.class.getName(), "onUpgrade database:" +  ", from v"+ oldVersion + " to v" + newVersion + ", which will destroy all old data");
 		db.execSQL(DB_CREATE_GENERAL_SETTINGS);
 		db.execSQL(DB_CREATE_MESSAGES);
 		db.execSQL(DB_CREATE_DOSSIER);

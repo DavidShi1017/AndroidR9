@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.util.Log;
 
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.MobileMessage;
 import com.nmbs.util.HTTPRestServiceCaller;
 
@@ -55,7 +56,7 @@ public class MessageDatabaseService {
 		if (mobileMessage != null) {
 			ContentValues contentValues = new ContentValues();
 			try {
-				Log.e(TAG, "insert message..." + mobileMessage.isNavigationInNormalWebView());
+				LogUtils.e(TAG, "insert message..." + mobileMessage.isNavigationInNormalWebView());
 				contentValues.put(MESSAGE_ID, mobileMessage.getId());
 				contentValues.put(MESSAGE_TITLE, mobileMessage.getTitle());
 				contentValues.put(MESSAGE_DESCRIPTION, mobileMessage.getDescription());
@@ -95,7 +96,7 @@ public class MessageDatabaseService {
 			for(MobileMessage message : messageList){
 
 				flag = insertOrder(message);
-				Log.e(TAG, "insert is succeed????" + flag);
+				LogUtils.e(TAG, "insert is succeed????" + flag);
 				if(!flag){
 					return flag;
 				}

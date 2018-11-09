@@ -11,6 +11,7 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.nmbs.exceptions.InvalidJsonError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.CityDetailResponse;
 import com.nmbs.model.CityResponse;
 import com.nmbs.model.ClickToCallScenarioResponse;
@@ -91,13 +92,13 @@ public class MasterResponseConverter {
 			//Log.d("parseJsonAndCreateModel", "End...");
 
 			if (collectionResponse.getCollectionItems() == null) {
-				Log.d("parseCollectionItem", "null...");
+				LogUtils.d("parseCollectionItem", "null...");
 				throw new InvalidJsonError();
 			} else {
 				return collectionResponse;
 			}
 		} catch (Exception e) {
-			Log.d("parseCollectionItem", "Exception...");
+			LogUtils.d("parseCollectionItem", "Exception...");
 			throw new InvalidJsonError();
 		}
 

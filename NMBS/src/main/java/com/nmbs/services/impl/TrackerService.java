@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.google.android.gms.analytics.Tracker;
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 
 public class TrackerService {
 	public static final String TAG = "Tracker";
@@ -32,7 +33,7 @@ public class TrackerService {
 
 	public void setContext(Context ctx) {
 		if (ctx == null) {
-			Log.e(TAG, "Context cannot be null");
+			LogUtils.e(TAG, "Context cannot be null");
 		}else {
 			gaContext = ctx;
 		}	

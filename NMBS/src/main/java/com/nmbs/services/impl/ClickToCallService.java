@@ -12,6 +12,7 @@ import com.nmbs.exceptions.ConnectionError;
 import com.nmbs.exceptions.InvalidJsonError;
 import com.nmbs.exceptions.NoTicket;
 import com.nmbs.exceptions.RequestFail;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.ClickToCallAftersalesParameter;
 import com.nmbs.model.ClickToCallAftersalesResponse;
 import com.nmbs.model.ClickToCallParameter;
@@ -64,7 +65,7 @@ public class ClickToCallService implements IClickToCallService {
 	}
 	public int getPhoneNumberWhich(){
 		SharedPreferences phoneNumberPreference = applicationContext.getSharedPreferences(CALL_CENTER_PHONE_NUMBER_SHAREDPREFERENCES_KEY, 0);
-		Log.d("SharedPreferences", "PHONE_which...." + phoneNumberPreference.getInt(PHONE_which, 2));
+		LogUtils.d("SharedPreferences", "PHONE_which...." + phoneNumberPreference.getInt(PHONE_which, 2));
 		return phoneNumberPreference.getInt(PHONE_which, 2);
 	}
 

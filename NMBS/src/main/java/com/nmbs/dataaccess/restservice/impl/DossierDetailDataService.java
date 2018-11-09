@@ -98,7 +98,7 @@ public class DossierDetailDataService extends CustomErrorMessager {
         }
 
         //Log.e(TAG, "languageBeforSetting......................" + languageBeforSetting);
-        Log.e(TAG, "dnr......................" + dnr);
+        LogUtils.e(TAG, "dnr......................" + dnr);
 
         // operate titles part.
         String stringHttpResponse = null;
@@ -134,16 +134,16 @@ public class DossierDetailDataService extends CustomErrorMessager {
             //dossierResponse.getDossier().setTravelSegments(null);
             if (dossierResponse.getDossier().getTravelSegments() != null && dossierResponse.getDossier().getTravelSegments().size() > 0){
                 if (!isUpload){
-                    Log.e(TAG, "Refresh dossier logic......................");
+                    LogUtils.e(TAG, "Refresh dossier logic......................");
                     dossierSummary = dossierDatabaseService.selectDossier(dossierResponse.getDossier().getDossierId());
                     if(dossierSummary != null){
                         DossierDetailsResponse dossierResponseOld = dossierDetailConverter.parsesDossierDetailResponse(dossierSummary.getDossierDetails());
                         if(dossierResponseOld != null && dossierResponseOld.getDossier() != null){
-                            Log.e(TAG, "Refresh dossier logic.........dossierResponseOld is not null.............");
+                            LogUtils.e(TAG, "Refresh dossier logic.........dossierResponseOld is not null.............");
                             List<DossierTravelSegment> travelSegmentsOld = dossierResponseOld.getDossier().getTravelSegments();
                             for(DossierTravelSegment dossierTravelSegment : travelSegmentsOld){
                                 if(dossierTravelSegment != null){
-                                    Log.e(TAG, "Refresh dossier logic.........dossierTravelSegmentOld is not null.............");
+                                    LogUtils.e(TAG, "Refresh dossier logic.........dossierTravelSegmentOld is not null.............");
                                     pushService.deleteLocalNotificationFromDatabase(dossierTravelSegment);
                                 }
                             }
@@ -231,7 +231,7 @@ public class DossierDetailDataService extends CustomErrorMessager {
             }*/
 
             //Thread.sleep(500);
-            Log.d(TAG, "The File name is......" + inputStream.available());
+            LogUtils.d(TAG, "The File name is......" + inputStream.available());
             //InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dossierId, inputStream));
             //InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dossierId, inputStream));
 							/*httpDownloader.downloadNetworkFile(urlString, FileManager.getInstance().getFilePath("/pdfpath/"),fileName + ".pdf");  */
@@ -310,22 +310,22 @@ public class DossierDetailDataService extends CustomErrorMessager {
                         String pdfUrl = urlPrefixString + ticket.getBarcodeURL();
                         boolean hasThisFile = FileManager.getInstance().hasExternalStoragePrivateFile(context, dossier.getDossierId(), "." + fileName);
                         //Log.d(TAG, "Starting Barcode file......" + fileName );
-                        Log.d(TAG, "Starting Barcode file urlString......" + pdfUrl );
+                        LogUtils.d(TAG, "Starting Barcode file urlString......" + pdfUrl );
                         if (!hasThisFile) {
                             hasError = download(context, pdfUrl, dossier.getDossierId(), fileName);
                             if (hasError){
-                                Log.d(TAG, "Download Barcode unsuccessful......");
+                                LogUtils.d(TAG, "Download Barcode unsuccessful......");
                                 hasError = download(context, pdfUrl, dossier.getDossierId(), fileName);
-                                Log.d(TAG, "Start Download Barcode second time......");
+                                LogUtils.d(TAG, "Start Download Barcode second time......");
                                 if (hasError){
-                                    Log.d(TAG, "Download Barcode unsuccessful second time......");
+                                    LogUtils.d(TAG, "Download Barcode unsuccessful second time......");
                                 }else{
                                     isSuccessfully = true;
-                                    Log.d(TAG, "Download Barcode Successfully......");
+                                    LogUtils.d(TAG, "Download Barcode Successfully......");
                                 }
                             }else{
                                 isSuccessfully = true;
-                                Log.d(TAG, "Download Barcode Successfully......");
+                                LogUtils.d(TAG, "Download Barcode Successfully......");
                             }
                         }
                         try {

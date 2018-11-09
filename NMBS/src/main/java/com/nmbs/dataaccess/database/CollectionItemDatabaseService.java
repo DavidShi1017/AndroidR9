@@ -14,6 +14,7 @@ import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
 
 import com.nmbs.R;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.CollectionItem;
 import com.nmbs.model.PaymentOption;
 
@@ -60,8 +61,8 @@ public class CollectionItemDatabaseService {
 				   for (CollectionItem collectionItem : languageCollectionItem) {
 						contentValues.put(COLLECTION_KEY, collectionItem.getKey());
 						contentValues.put(COLLECTION_LABEL, collectionItem.getLable());
-						
-						Log.d(tag, "Insert data to TABLE= "+tableName + "========KEY is=====" + collectionItem.getKey() + "========LableLable is=====" + collectionItem.getLable());
+
+					   LogUtils.d(tag, "Insert data to TABLE= "+tableName + "========KEY is=====" + collectionItem.getKey() + "========LableLable is=====" + collectionItem.getLable());
 						sqLiteDatabase.insert(tableName, COLLECTION_ID, contentValues);	
 						 //Log.d(tag, "Insert data to TABLE= "+tableName);
 					}	

@@ -37,6 +37,7 @@ import com.nmbs.application.NMBSApplication;
 import com.nmbs.async.RealTimeInfoAsyncTask;
 import com.nmbs.async.RefreshDossierAsyncTask;
 import com.nmbs.exceptions.NetworkError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Connection;
 import com.nmbs.model.Dossier;
 import com.nmbs.model.DossierDetailParameter;
@@ -816,7 +817,7 @@ public class DossierDetailActivity extends BaseActivity {
     class RefreshDossierReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.d("RefreshDossierReceiver", "RefreshDossierReceiver...onReceive...");
+            LogUtils.d("RefreshDossierReceiver", "RefreshDossierReceiver...onReceive...");
             //realTimeFinished();
             //llTicketMigrating.setVisibility(View.GONE);
             //llTicketRefresh.setVisibility(View.GONE);

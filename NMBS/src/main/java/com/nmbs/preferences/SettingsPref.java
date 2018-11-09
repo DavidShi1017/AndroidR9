@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.nmbs.R;
+import com.nmbs.log.LogUtils;
 import com.nmbs.util.ConstantLanguages;
 import com.nmbs.util.DeviceUtil;
 
@@ -178,7 +179,7 @@ public class SettingsPref {
 		/*SharedPreferences.Editor editor = getSettingsPreferences(context).edit();
 		editor.putString(PROPERTY_APP_LANGUAGES, languagesKey);
 		editor.commit();*/
-		Log.e("languagesKey", "saveCurrentLanguagesKey----->" + languagesKey);
+		LogUtils.e("languagesKey", "saveCurrentLanguagesKey----->" + languagesKey);
 		SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
 		editor.putString(context.getString(R.string.app_language_pref_key), languagesKey);
 		editor.commit();

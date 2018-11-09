@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
+import com.nmbs.log.LogUtils;
 
 public class DossierTravelSegment implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -260,7 +261,7 @@ public class DossierTravelSegment implements Serializable{
 			calendarDate.set(Calendar.HOUR_OF_DAY, calendarTime.get(Calendar.HOUR_OF_DAY));
 			calendarDate.set(Calendar.MINUTE, calendarTime.get(Calendar.MINUTE));
 		}
-		Log.d("getDateTime", "getDateTime===" + calendarDate.getTime());
+		LogUtils.d("getDateTime", "getDateTime===" + calendarDate.getTime());
 		return calendarDate.getTime();
 	}
 	public Date getArrivalDateTime (){
@@ -275,7 +276,7 @@ public class DossierTravelSegment implements Serializable{
 			calendarDate.set(Calendar.HOUR_OF_DAY, calendarTime.get(Calendar.HOUR_OF_DAY));
 			calendarDate.set(Calendar.MINUTE, calendarTime.get(Calendar.MINUTE));
 		}
-		Log.d("getDateTime", "getDateTime===" + calendarDate.getTime());
+		LogUtils.d("getDateTime", "getDateTime===" + calendarDate.getTime());
 		return calendarDate.getTime();
 	}
 
@@ -318,15 +319,15 @@ public class DossierTravelSegment implements Serializable{
 		for(int i = 0; i < segmentPassengers.size(); i++){
 			Passenger passenger = segmentPassengers.get(i);
 			if(passenger != null){
-				Log.e("Passengers", "id is:::" + id);
-				Log.e("Passengers", "passenger id is:::" + passenger.getId());
+				LogUtils.e("Passengers", "id is:::" + id);
+				LogUtils.e("Passengers", "passenger id is:::" + passenger.getId());
 				if(id.equalsIgnoreCase(passenger.getId())){
-					Log.e("Passengers", "passenger id is equals....");
+					LogUtils.e("Passengers", "passenger id is equals....");
 					name = passenger.getFirstName() + " " + passenger.getLastName();
 				}
 			}
 		}
-		Log.e("Passengers", "name is:::" + name);
+		LogUtils.e("Passengers", "name is:::" + name);
 		return name;
 	}
 

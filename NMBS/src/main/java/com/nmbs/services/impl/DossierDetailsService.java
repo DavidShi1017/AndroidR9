@@ -30,6 +30,7 @@ import com.nmbs.dataaccess.database.DossierDatabaseService;
 import com.nmbs.dataaccess.database.RealTimeInfoDatabaseService;
 import com.nmbs.dataaccess.database.TrainIconsDatabaseService;
 import com.nmbs.dataaccess.restservice.impl.DossierDetailDataService;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Connection;
 import com.nmbs.model.Dossier;
 import com.nmbs.model.DossierDetailsResponse;
@@ -365,7 +366,7 @@ public class DossierDetailsService {
             try {
                 //context.startActivity(intent);
             } catch (ActivityNotFoundException e) {
-                Log.e(TAG, "ActivityNotFoundException, Open PDF Failed", e);
+                LogUtils.e(TAG, "ActivityNotFoundException, Open PDF Failed", e);
             }
         } else {
             //Toast.makeText(applicationContext, applicationContext.getString(R.string.alert_status_service_not_available), Toast.LENGTH_SHORT).show();
@@ -717,7 +718,7 @@ public class DossierDetailsService {
     }
 
     public void enableSubscription(Dossier dossier, Handler handler,String language){
-        Log.d(TAG, "enableSubscription...." + dossier);
+        LogUtils.d(TAG, "enableSubscription...." + dossier);
         List<Connection> createSubscriptionByConnections = new ArrayList<>();
         IPushService pushService = NMBSApplication.getInstance().getPushService();
 
@@ -734,7 +735,7 @@ public class DossierDetailsService {
                             Subscription subscription = pushService.getSubscriptionFromLocal(connection.getReconCtx(), connection.getDeparture());
 
                             if(subscription != null){
-                                Log.d(TAG, "This connection is exist in local");
+                                LogUtils.d(TAG, "This connection is exist in local");
                                 if(subscription.getDnr() == null || subscription.getDnr().isEmpty()){
                                     //Log.d(TAG, "This connection is exist in local and no linked to dossier");
                                     boolean isDeleted = pushService.deleteSubscriptionInLocal(subscription.getSubscriptionId());
@@ -755,13 +756,13 @@ public class DossierDetailsService {
                 }
             }
             if(createSubscriptionByConnections != null && createSubscriptionByConnections.size() > 0){
-                Log.d(TAG, "createSubscriptionByConnections......" + createSubscriptionByConnections.size());
+                LogUtils.d(TAG, "createSubscriptionByConnections......" + createSubscriptionByConnections.size());
                 CreateAllSubScriptionAsyncTask asyncTask = new CreateAllSubScriptionAsyncTask(handler, dossier,
                         createSubscriptionByConnections, pushService, context,language);
                 asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
             }else{
                 if(handler != null){
-                    Log.d(TAG, "handler......");
+                    LogUtils.d(TAG, "handler......");
                     Message message = new Message();
                     message.what = 3;
                     handler.sendMessage(message);

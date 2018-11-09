@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.dataaccess.database.TravelSegmentDatabaseService;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.LocalNotification;
 import com.nmbs.receivers.LocalNotificationWakefulBroadcastReceiver;
 import com.nmbs.receivers.TestBootReceiver;
@@ -85,7 +86,7 @@ public class NotificationHelper {
      */
     public static void scheduleRepeatingElapsedNotification(Context context) {
 
-        Log.e("Notification", "Notification schedule-------");
+        LogUtils.e("Notification", "Notification schedule-------");
         //Setting intent to class where notification will be handled
         Intent intent = new Intent(context, LocalNotificationWakefulBroadcastReceiver.class);
 
@@ -142,6 +143,7 @@ public class NotificationHelper {
             for(LocalNotification localNotification : notifications){
                 if(localNotification != null){
                     int id = pushService.getPushId(localNotification.getDepartureDate());
+                    LogUtils.e("enableBootReceiver", "enableBootReceiver id----->" + id);
                     pushService.createLocalNotification(pushService.getPushTime(localNotification.getDepartureDate()), id);
                 }
             }

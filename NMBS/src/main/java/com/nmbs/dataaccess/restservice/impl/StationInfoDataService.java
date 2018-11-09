@@ -130,7 +130,7 @@ public class StationInfoDataService implements IStationInfoDataService {
             //InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dossierId, inputStream));
 							/*httpDownloader.downloadNetworkFile(urlString, FileManager.getInstance().getFilePath("/pdfpath/"),fileName + ".pdf");  */
             //Log.d("StationInfo", "The folder name is......" + dossierId);
-            Log.e("StationInfo", "The File name is......" + fileName);
+            LogUtils.e("StationInfo", "The File name is......" + fileName);
             FileManager.getInstance().createExternalStoragePrivateFile(context, inputStream, "StationFloor", fileName);
             isFinished = true;
         } catch (Exception e) {
@@ -191,14 +191,14 @@ public class StationInfoDataService implements IStationInfoDataService {
             String pdf = pdfs.get(i);
             if(pdf != null && !pdf.isEmpty()){
                 final String pdfUrl = pdf;
-                Log.e("StationInfo", "pdfurl......" + pdfUrl );
+                LogUtils.e("StationInfo", "pdfurl......" + pdfUrl );
                 final String fileName = Utils.sha1(pdf) + ".pdf";
 
                 boolean hasThisFile = FileManager.getInstance().hasExternalStoragePrivateFile(context, "StationFloor", fileName);
-                Log.e("StationInfo", "hasThisFile......" + hasThisFile );
+                LogUtils.e("StationInfo", "hasThisFile......" + hasThisFile );
                 //LogUtils.e("StationInfo", "Starting Pdf file name......" + fileName );
                 //Log.e("StationInfo", "Starting Pdf file urlString......" + pdfUrl );
-                Log.e("StationInfo", "isStore......" + isStore );
+                LogUtils.e("StationInfo", "isStore......" + isStore );
 
                 final String code = codes.get(i);
                 if (!hasThisFile) {
@@ -209,7 +209,7 @@ public class StationInfoDataService implements IStationInfoDataService {
                                 FileManager.getInstance().deleteExternalStoragePrivateFile(context, "StationFloor", fileName);
                                 download(context, pdfUrl, "StationFloor", fileName);
                             }
-                            Log.e("StationInfo", "isFinished......" + isFinished );
+                            LogUtils.e("StationInfo", "isFinished......" + isFinished );
                         }
                     }.start();
                 }

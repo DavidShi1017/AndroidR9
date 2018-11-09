@@ -21,6 +21,7 @@ import com.nmbs.exceptions.ConnectionError;
 
 import com.nmbs.exceptions.NetworkError;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.CollectionItem;
 
 import com.nmbs.model.MasterDataResponse;
@@ -113,8 +114,8 @@ public class MasterIntentService extends IntentService{
 					masterDataService.executeTrainIcons(mContext, languageBeforSetting);
 					
 				}catch (ConnectionError e) {
-					
-					Log.e("TrainIcons", "TrainIcons error...");
+
+					LogUtils.e("TrainIcons", "TrainIcons error...");
 					
 				} catch (Exception e) {
 					

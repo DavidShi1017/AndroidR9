@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.util.Log;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.City;
 import com.nmbs.model.Dossier;
 import com.nmbs.model.DossierSummary;
@@ -96,7 +97,7 @@ public class DossierDatabaseService {
 				Column_TravelSegment_Available, Column_Display_Overlay, Column_LatestTravelDate, Column_EarliestTravelDate},
 				Column_Dossier_Id + " = '"+id+ "'", null, null, null, null);
 		DossierSummary dossierSummary = null;
-		Log.d("DossierSummary", "cursor------->" + cursor.getCount());
+		LogUtils.d("DossierSummary", "cursor------->" + cursor.getCount());
 			if(cursor.getCount() > 0){
 				cursor.moveToPosition(0);
 				String dossierId = cursor.getString(cursor.getColumnIndexOrThrow(Column_Dossier_Id));

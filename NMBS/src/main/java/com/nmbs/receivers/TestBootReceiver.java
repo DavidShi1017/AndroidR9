@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.dataaccess.database.TravelSegmentDatabaseService;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.LocalNotification;
 import com.nmbs.services.IPushService;
 import com.nmbs.services.impl.PushService;
@@ -24,7 +25,7 @@ public class TestBootReceiver extends BroadcastReceiver {
         if(intent != null && intent.getAction() != null){
             if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
                 //only enabling one type of notifications for demo purposes
-                Log.e("Notification", "Notification android.intent.action.BOOT_COMPLETED-------");
+                LogUtils.e("Notification", "Notification android.intent.action.BOOT_COMPLETED-------");
                // NotificationHelper.scheduleRepeatingElapsedNotification(context);
                 NotificationHelper.enableBootReceiver(context);
 

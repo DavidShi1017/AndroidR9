@@ -14,6 +14,7 @@ import org.apache.commons.lang.StringUtils;
 import android.util.Log;
 
 import com.google.gson.annotations.SerializedName;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierResponse.OrderItemStateType;
 
 
@@ -368,7 +369,7 @@ public class DossierAftersalesResponse extends RestResponse {
 						//tariffDetails.add(this.tariffDetails.get(j));
 						if (!tariffDetailMap.containsKey(this.tariffDetails.get(j).getId())) {
 							tariffDetailMap.put(this.tariffDetails.get(j).getId(), this.tariffDetails.get(j));
-							Log.e(TAG, "put getDisplayText ===========" + this.tariffDetails.get(j).getDisplayText());
+							LogUtils.e(TAG, "put getDisplayText ===========" + this.tariffDetails.get(j).getDisplayText());
 						}
 					}
 				}
@@ -393,7 +394,7 @@ public class DossierAftersalesResponse extends RestResponse {
 		List<String> barcodes = new ArrayList<String>();
 		for (Ticket ticket : this.getTickets()) {
 			String[] barcodesStrings = ticket.getBarCodes();
-			Log.e(TAG, "barcodesStrings size==========="
+			LogUtils.e(TAG, "barcodesStrings size==========="
 					+ barcodesStrings.length);
 			for (String string : barcodesStrings) {
 				barcodes.add(string);

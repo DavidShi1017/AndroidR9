@@ -642,7 +642,7 @@ public class CallCenterActivity extends BaseActivity {
 				showWaitDialog();
 				final ClickToCallAftersalesResponse clickToCallAftersalesResponse = clickToCallService.aftersales(clickToCallAftersalesParameter);
 				if(clickToCallAftersalesResponse != null){
-					Log.e("AftersalesResponse", "AftersalesResponse url..." + clickToCallAftersalesResponse.getUrl());
+					LogUtils.e("AftersalesResponse", "AftersalesResponse url..." + clickToCallAftersalesResponse.getUrl());
 					if(!clickToCallAftersalesResponse.isActionAllowed()){
 
 						if(flow == WebViewActivity.EXCHANGE_FLOW){
@@ -685,7 +685,7 @@ public class CallCenterActivity extends BaseActivity {
 			//if(NetworkUtils.isOnline(CallCenterActivity.this)) {
 			hideWaitDialog();
 			if(url != null && NetworkUtils.isOnline(CallCenterActivity.this)){
-				Log.e("AftersalesResponse", "DNR..." + dossier.getDossierId());
+				LogUtils.e("AftersalesResponse", "DNR..." + dossier.getDossierId());
 				if(flow == WebViewActivity.EXCHANGE_FLOW){
 					GoogleAnalyticsUtil.getInstance().sendScreen(CallCenterActivity.this, TrackerConstant.EXCHANGE);
 				}else {

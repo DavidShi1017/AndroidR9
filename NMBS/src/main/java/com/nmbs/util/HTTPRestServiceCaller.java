@@ -232,7 +232,7 @@ public class HTTPRestServiceCaller {
 
 		HttpResponse response = null;
 
-		Log.d(TAG, "httpMethodFlag is: " + httpMethodFlag);
+		LogUtils.d(TAG, "httpMethodFlag is: " + httpMethodFlag);
 		//Log.d(TAG, "postJson is: " + postJson);
 		// Log.d(TAG ,"isMastdataWorking: " + isMastdataWorking );
 		 //Log.d(acceptLanguage ,"acceptLanguage: "+ acceptLanguage);
@@ -240,17 +240,17 @@ public class HTTPRestServiceCaller {
 		try {
 			if (httpMethodFlag == HTTP_POST_METHOD) {
 				StringEntity tmp = new StringEntity(postJson, HTTP.UTF_8);
-				Log.e(TAG ,"http flag: httpPost" );
+				LogUtils.e(TAG ,"http flag: httpPost" );
 				HttpPost httpPost = new HttpPost();
 				httpPost = (HttpPost) this.getHttpUriRequest(HTTP_POST_METHOD,
 						serverUrl, acceptLanguage, lastModifiedInPreferences,
 						isMastdataWorking, serviceApiVersion, postJson);
 				httpPost.setEntity(tmp);
 				response = httpClient.execute(httpPost);
-				Log.e(TAG ,"http flag: httpPost execute..." );
+				LogUtils.e(TAG ,"http flag: httpPost execute..." );
 				//Log.d(TAG ,"http flag: httpPost..." + response);
 			} else if (httpMethodFlag == HTTP_GET_METHOD) {
-				Log.e(TAG ,"http flag: HttpGet" );
+				LogUtils.e(TAG ,"http flag: HttpGet" );
 				HttpGet httpGet = new HttpGet();
 				httpGet = (HttpGet) this.getHttpUriRequest(HTTP_GET_METHOD,
 						serverUrl, acceptLanguage, lastModifiedInPreferences,

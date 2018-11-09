@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.ExtensionScheduleQuery;
 import com.nmbs.model.TravelRequest;
 import com.nmbs.util.DateUtils;
@@ -46,7 +47,7 @@ public class ScheduleQueryDataBaseService {
 			if(isExistScheduleQuery(scheduleQueryID))
 				deleteLastScheduleById(scheduleQueryID);
 			ContentValues contentValues = new ContentValues();
-			Log.e("ScheduleQuery", "insertScheduleQuery...dateTime..." + dateTime);
+			LogUtils.e("ScheduleQuery", "insertScheduleQuery...dateTime..." + dateTime);
 			sqLiteDatabase.beginTransaction();
 			try {
 				contentValues.put(LAST_QUERY_ID, scheduleQueryID);
@@ -93,14 +94,14 @@ public class ScheduleQueryDataBaseService {
 			String originName = cursor.getString(cursor.getColumnIndexOrThrow(LAST_QUERY_ORIGIN_NAME));
 			String desName = cursor.getString(cursor.getColumnIndexOrThrow(LAST_QUERY_DES_NAME));
 			String viaName = cursor.getString(cursor.getColumnIndexOrThrow(LAST_QUERY_VIA_NAME));
-			Log.e("ScheduleQuery", "dateTime..." + dateTime);
+			LogUtils.e("ScheduleQuery", "dateTime..." + dateTime);
 			Date tempDate = null;
 			if(!"".equals(dateTime)){
 				tempDate = DateUtils.stringToDateTime(dateTime, "dd MMM yyyy - HH:mm");
 			}else{
 				tempDate = new Date();
 			}
-			Log.e("ScheduleQuery", "tempDate..." + tempDate);
+			LogUtils.e("ScheduleQuery", "tempDate..." + tempDate);
 
 			extensionScheduleQuery = new ExtensionScheduleQuery(originCode,desCode,viaCode,trainNr,tempDate,Enum.valueOf(TravelRequest.TimePreference.class, preference),originName,desName,viaName);
 

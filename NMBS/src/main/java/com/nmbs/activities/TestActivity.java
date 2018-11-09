@@ -30,6 +30,7 @@ import com.nmbs.async.TrainIconsAsyncTask;
 import com.nmbs.dataaccess.database.DatabaseHelper;
 import com.nmbs.dataaccess.restservice.IMasterDataService;
 import com.nmbs.dataaccess.restservice.impl.MasterDataService;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.HafasUser;
 import com.nmbs.model.RealTimeInfoRequestParameter;
 import com.nmbs.preferences.SettingsPref;
@@ -109,7 +110,7 @@ public class TestActivity extends Activity {
 		//LocaleChangedUtils.initLanguageSettings(getApplicationContext());// Setting
 		// application
 		// language
-		Log.d(TAG, "onCreate....");
+		LogUtils.d(TAG, "onCreate....");
 		setContentView(R.layout.activity_test);
 		testService = ((NMBSApplication) getApplication()).getTestService();
 		bindAllViewsElement();
@@ -253,7 +254,7 @@ public class TestActivity extends Activity {
 
 	@Override
 	protected void onStart() {
-		Log.i(TAG, "onStart");
+		LogUtils.i(TAG, "onStart");
 	    super.onStart();
 	}
 		
@@ -261,7 +262,7 @@ public class TestActivity extends Activity {
 	protected void onResume() {
 		// showWaitDialog();
 		intiHafasView();
-		Log.i(TAG, "onStart..." + NMBSApplication.getInstance().getHafasUrl());
+		LogUtils.i(TAG, "onStart..." + NMBSApplication.getInstance().getHafasUrl());
 		super.onResume();
 	}
 

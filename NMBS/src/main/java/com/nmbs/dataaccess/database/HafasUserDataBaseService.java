@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.HafasUser;
 
 import net.sqlcipher.database.SQLiteDatabase;
@@ -34,7 +35,7 @@ public class HafasUserDataBaseService {
      * @return true means everything is OK, otherwise means failure
      */
     public boolean insertHafasUser(HafasUser hafasUser) {
-        Log.e("insertHafasUser", " insertHafasUser...." + hafasUser);
+        LogUtils.e("insertHafasUser", " insertHafasUser...." + hafasUser);
         sqLiteDatabase.beginTransaction();
         ContentValues contentValues = new ContentValues();
         contentValues.put(HAFAS_USER_ID, hafasUser.getUserId());
@@ -45,7 +46,7 @@ public class HafasUserDataBaseService {
             sqLiteDatabase.insert(DB_TABLE_HAFAS_USER, hafasUser.getUserId(),
                     contentValues);
             sqLiteDatabase.setTransactionSuccessful();
-            Log.e("insertHafasUser", " insertHafasUser....Successful");
+            LogUtils.e("insertHafasUser", " insertHafasUser....Successful");
             return true;
         } catch (Exception e) {
             e.printStackTrace();

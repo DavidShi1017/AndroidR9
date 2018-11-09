@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.StationBoard;
 import com.nmbs.model.StationBoardBulk;
 import com.nmbs.model.StationBoardBulkResponse;
@@ -103,7 +104,7 @@ public class StationBoardDatabaseService {
 				for (StationBoard stationBoard : stationBoards) {
 					StationBoard sameStationBoard = selectSameStationBoard(stationBoard);
 					if (sameStationBoard != null) {
-						Log.d(TAG, "Has same stationboard= ");	
+						LogUtils.d(TAG, "Has same stationboard= ");
 						sameStationBoards = new ArrayList<StationBoard>();
 						sameStationBoards.add(stationBoard);
 						sameStationBoardsMap = new HashMap<String, List<StationBoard>>();
@@ -514,7 +515,7 @@ public class StationBoardDatabaseService {
 			String destinationName = cursor.getString(cursor.getColumnIndexOrThrow(STATIONBOARD_DESTINATION_NAME));
 			
 			boolean callSuccessFul = Boolean.valueOf(cursor.getString(cursor.getColumnIndexOrThrow(STATIONBOARD_REALTIME_CALLSUCCESSFUL)));
-			Log.d(TAG, "boolean callSuccessFul=======" + callSuccessFul);
+			LogUtils.d(TAG, "boolean callSuccessFul=======" + callSuccessFul);
 			String delay = cursor.getString(cursor.getColumnIndexOrThrow(STATIONBOARD_REALTIME_DELAY));
 			boolean isCancelled = Boolean.valueOf(cursor.getString(cursor.getColumnIndexOrThrow(STATIONBOARD_REALTIME_ISCANCELLED)));
 			String parentIdStr = cursor.getString(cursor.getColumnIndexOrThrow(STATIONBOARD_PARENT_ID));
@@ -641,7 +642,7 @@ public class StationBoardDatabaseService {
 		if (isTypeA) {
 			Date fewLaterDayOfToday = DateUtils.getFewLaterDay(nowTime, 3);
 			String fewLaterDayOfTodayStr = DateUtils.dateToString(fewLaterDayOfToday);
-			Log.d(TAG, "nowTime is : " + nowTimeStr);
+			LogUtils.d(TAG, "nowTime is : " + nowTimeStr);
 			if (dnr != null) {
 				sql = "select * from StationBoard where StationBoard.DateTime >= '"
 						+ nowTimeStr
@@ -654,8 +655,8 @@ public class StationBoardDatabaseService {
 						+ "' and StationBoard.DateTime <= '" + fewLaterDayOfTodayStr
 						+ "' and StationBoard.type = 'A'";
 			}
-			
-			Log.d(TAG, "sql is : " + sql);
+
+			LogUtils.d(TAG, "sql is : " + sql);
 		}else {
 				
 			sql = "select * from StationBoard where StationBoard.DateTime >= '"

@@ -22,6 +22,7 @@ import com.nmbs.exceptions.InvalidJsonError;
 import com.nmbs.exceptions.JourneyPast;
 import com.nmbs.exceptions.RequestFail;
 import com.nmbs.exceptions.TimeOutError;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierAftersalesResponse;
 import com.nmbs.model.DossierResponse.OrderItemStateType;
 import com.nmbs.model.GeneralSetting;
@@ -122,7 +123,7 @@ public class AssistantDataService extends CustomErrorMessager implements IAssist
 				// TO DO NOTING...
 			}
 			FileManager.getInstance().createExternalStoragePrivateFileFromString(context, DNR, DNR + ".json", stringHttpResponse);
-			Log.d(TAG, "dossierAftersalesResponse......"+ dossierAftersalesResponse.getDnrId());
+			LogUtils.d(TAG, "dossierAftersalesResponse......"+ dossierAftersalesResponse.getDnrId());
 			//Log.d(TAG, "CityResponse......getCities....name"+ cityResponse.getCities().get(0).getName());
 			return dossierAftersalesResponse;
 		}
@@ -183,8 +184,8 @@ public class AssistantDataService extends CustomErrorMessager implements IAssist
 					allFileNameList.add(fileName);
 					
 					boolean has = FileManager.getInstance().hasExternalStoragePrivateFile(context, dossierAftersalesResponse.getDnrId(), "." + fileName);
-					Log.d(TAG, "Starting Pdf file......" + fileName );
-					Log.d(TAG, "Starting Pdf file urlString......" + urlString );
+					LogUtils.d(TAG, "Starting Pdf file......" + fileName );
+					LogUtils.d(TAG, "Starting Pdf file urlString......" + urlString );
 					if (!has) {
 						try {
 							/*if (i == 1) {
@@ -196,15 +197,15 @@ public class AssistantDataService extends CustomErrorMessager implements IAssist
 							FileManager.getInstance().createExternalStoragePrivateFile(context, afterDecryptInputStream, dossierAftersalesResponse.getDnrId(), fileName);
 							   	
 						} catch (IOException e) {
-							
-							Log.e("loadPdfUrl", "Load PDF from url Error:", e);
+
+							LogUtils.e("loadPdfUrl", "Load PDF from url Error:", e);
 							hasError = true;
 							//result = -1;
 							continue;
 						}
 						 catch (Exception e) {
-								
-								Log.e("loadPdfUrl", "Exception Load PDF from url Error:", e);
+
+							 LogUtils.e("loadPdfUrl", "Exception Load PDF from url Error:", e);
 								hasError = true;
 								//result = -1;
 								continue;
@@ -235,12 +236,12 @@ public class AssistantDataService extends CustomErrorMessager implements IAssist
 				String fileName = dnrId + "-";
 				
 				String urlString = urlPrefixString + barCode;					
-				fileName += barCode + ".png";	
-				Log.d(TAG, "Starting barcode file......"+ fileName );
+				fileName += barCode + ".png";
+				LogUtils.d(TAG, "Starting barcode file......"+ fileName );
 				allFileNameList.add(fileName);
 				boolean has = FileManager.getInstance().hasExternalStoragePrivateFile(context, dnrId, "." + fileName);
 
-				Log.e("loadPdfUrl", "Bar has......"+ has );
+				LogUtils.e("loadPdfUrl", "Bar has......"+ has );
 				
 				if (!has) {
 					try {
@@ -255,14 +256,14 @@ public class AssistantDataService extends CustomErrorMessager implements IAssist
 						options.inSampleSize = 2;
 						mBitmap = BitmapFactory.decodeFile(FileManager.getInstance().getExternalStoragePrivateFilePath(context, dnrId, fileName), options);
 						if (mBitmap == null) {
-							Log.e("loadbarcodeUrl", "no barcode");
+							LogUtils.e("loadbarcodeUrl", "no barcode");
 							hasError = true;
 							FileManager.getInstance().deleteExternalStoragePrivateFile(context, dnrId, fileName);
 						}																				
 					}
 					catch (Exception e) {
 						hasError = true;
-						Log.e("loadPdfUrl", "Load Barcode from url Error:", e);	
+						LogUtils.e("loadPdfUrl", "Load Barcode from url Error:", e);
 						//result = -1;
 						continue;
 					}
@@ -335,7 +336,7 @@ public class AssistantDataService extends CustomErrorMessager implements IAssist
 		boolean isHasError = false;
 		boolean isJourneyPast = false;
 		if(dossierAftersalesResponse != null){
-			Log.d("dossier", "dossierAftersalesResponse......" + dossierAftersalesResponse);
+			LogUtils.d("dossier", "dossierAftersalesResponse......" + dossierAftersalesResponse);
 			
 		if (dossierAftersalesResponse.getState() == OrderItemStateType.OrderItemStateTypeCancelled) {			
 			assistantDatabaseService.deleteOrder(dossierAftersalesResponse.getDnrId());
@@ -443,7 +444,7 @@ public class AssistantDataService extends CustomErrorMessager implements IAssist
 					if (dossierAftersalesLifetime != null && !StringUtils.isEmpty(dossierAftersalesLifetime)) {
 						Date date = new Date();
 						long days = (date.getTime() - departureDate.getTime()) / (24 *60 *60 * 1000);
-						Log.d("Lifetime", "days......" + days);
+						LogUtils.d("Lifetime", "days......" + days);
 						if (days > Long.valueOf(dossierAftersalesLifetime)) {
 							isJourneyPast = true;
 							continue ;
@@ -576,14 +577,14 @@ public class AssistantDataService extends CustomErrorMessager implements IAssist
 		String string;
 		DossierAftersalesResponse dossierAftersalesResponse = null;
 		try {
-			Log.d(TAG, "Read Dossier Aftersales response from sd card!!");
-			Log.d(TAG, "Read Dossier Aftersales response from sd card!!" + DNR);
+			LogUtils.d(TAG, "Read Dossier Aftersales response from sd card!!");
+			LogUtils.d(TAG, "Read Dossier Aftersales response from sd card!!" + DNR);
 			string = FileManager.getInstance().readExternalStoragePrivateFile(context, DNR, DNR + ".json");
 			string = AESUtils.decrypt(DNR, string);
-			Log.d(TAG, "Read Dossier Aftersales response from sd card!!" + string);
+			LogUtils.d(TAG, "Read Dossier Aftersales response from sd card!!" + string);
 			dossierAftersalesResponse = new AssistantConverter().parsesDossierAftersalesResponse(string);
 		} catch (Exception e) {
-			Log.e(TAG, "Read Dossier Aftersales response from sd card has Error...");
+			LogUtils.e(TAG, "Read Dossier Aftersales response from sd card has Error...");
 			e.printStackTrace();
 			return dossierAftersalesResponse;
 		}	

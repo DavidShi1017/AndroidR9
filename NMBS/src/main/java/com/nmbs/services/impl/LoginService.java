@@ -345,7 +345,7 @@ public class LoginService {
 	public AsyncLoginResponse login(Account account) {
 
 		if (account.validateLogin().equals(RegisterFeedBackTypes.REGISTERCORRECT)) {
-			Log.d(TAG, "enter loginService");
+			LogUtils.d(TAG, "enter loginService");
 			AsyncLoginResponse aresponse = new AsyncLoginResponse();
 			aresponse.registerReceiver(applicationContext);
 			//Offload processing to IntentService

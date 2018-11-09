@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 
 import com.google.gson.annotations.SerializedName;
+import com.nmbs.log.LogUtils;
 
 
 public class RealTimeInfoTravelSegment implements Serializable{
@@ -41,7 +42,7 @@ public class RealTimeInfoTravelSegment implements Serializable{
 	public String getRealTimeArrivalDelta() {
 		String arrival = "";
 		if(realTimeArrivalDelta != null && realTimeArrivalDelta.length() > 0){
-			Log.e("realTimeArrivalDelta", "realTimeArrivalDelta..." + realTimeArrivalDelta);
+			LogUtils.e("realTimeArrivalDelta", "realTimeArrivalDelta..." + realTimeArrivalDelta);
 			arrival = realTimeArrivalDelta;
 			arrival = arrival.substring(0, arrival.lastIndexOf(":"));
 			if(arrival.indexOf("-") == -1){

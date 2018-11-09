@@ -306,7 +306,7 @@ public class LoginDataService {
 
         Calendar cal=Calendar.getInstance();
         cal.setTime(date);
-        Log.e("CheckOptionReceiver", "getPushTime..." + cal.getTime());
+        LogUtils.e("CheckOptionReceiver", "getPushTime..." + cal.getTime());
         return cal.getTimeInMillis();
     }
 

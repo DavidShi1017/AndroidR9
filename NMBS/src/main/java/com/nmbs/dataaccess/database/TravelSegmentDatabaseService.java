@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierTravelSegment;
 import com.nmbs.model.LocalNotification;
 import com.nmbs.util.DateUtils;
@@ -39,7 +40,7 @@ public class TravelSegmentDatabaseService {
 
 	public boolean insertTravelSegment(DossierTravelSegment travelSegment,int id,boolean isCancel) {
 		if (travelSegment != null ) {
-			Log.d(TAG, "Insert a travelSegment for notification....." + travelSegment.getDepartureDateTime());
+			LogUtils.d(TAG, "Insert a travelSegment for notification....." + travelSegment.getDepartureDateTime());
 			ContentValues contentValues = new ContentValues();
 			sqLiteDatabase.beginTransaction();
 			try{
@@ -57,7 +58,7 @@ public class TravelSegmentDatabaseService {
 			}
 			return true;
 		}else {
-			Log.e(TAG, "DossierSummary is not inserted.");
+			LogUtils.e(TAG, "DossierSummary is not inserted.");
 			return false;
 		}
 	}
@@ -81,14 +82,14 @@ public class TravelSegmentDatabaseService {
 
 	public boolean deleteTravelSegment(DossierTravelSegment dossierTravelSegment){
 		if(dossierTravelSegment != null){
-			Log.e(TAG, "Refresh dossier logic.........deleteTravelSegment.........Date is...." + DateUtils.dateTimeToString(dossierTravelSegment.getDepartureDateTime()));
+			LogUtils.e(TAG, "Refresh dossier logic.........deleteTravelSegment.........Date is...." + DateUtils.dateTimeToString(dossierTravelSegment.getDepartureDateTime()));
 			sqLiteDatabase.beginTransaction();
 			try {
 				int result = sqLiteDatabase.delete(DB_Dossier_TravelSegment, DB_Dossier_TravelSegment_Date +"=?", new String[]{DateUtils.dateTimeToString(dossierTravelSegment.getDepartureDateTime())});
-				Log.e(TAG, "Refresh dossier logic.........deleteTravelSegment.........result...." + result);
+				LogUtils.e(TAG, "Refresh dossier logic.........deleteTravelSegment.........result...." + result);
 				if(result == 0){
 					int resultAgain = sqLiteDatabase.delete(DB_Dossier_TravelSegment, DB_Dossier_TravelSegment_Date +"=?", new String[]{DateUtils.dateToString(dossierTravelSegment.getDepartureDate())});
-					Log.e(TAG, "Refresh dossier logic.........deleteTravelSegment.........resultAgain...." + resultAgain);
+					LogUtils.e(TAG, "Refresh dossier logic.........deleteTravelSegment.........resultAgain...." + resultAgain);
 				}
 				sqLiteDatabase.setTransactionSuccessful();
 				return true;

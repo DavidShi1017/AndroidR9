@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.google.gson.annotations.SerializedName;
 import com.nmbs.R;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.PartyMember.FtpCardFeedbackTypes;
 import com.nmbs.model.PartyMember.PersonType;
 import com.nmbs.model.validation.IOfferRequestFeedback;
@@ -466,7 +467,7 @@ public class OfferQuery implements Serializable {
 	}
 
 	public boolean isDepartDateLaterReturnDate(Date departDate, Date returnDate) {
-		Log.d(TAG, "departDate is " + departDate + "   " + "returnDate is "
+		LogUtils.d(TAG, "departDate is " + departDate + "   " + "returnDate is "
 				+ returnDate);
 		SimpleDateFormat myFmt = new SimpleDateFormat("yyyy/MM/dd  HH:mm");
 

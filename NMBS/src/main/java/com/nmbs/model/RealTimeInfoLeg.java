@@ -3,6 +3,7 @@ package com.nmbs.model;
 import android.util.Log;
 
 import com.google.gson.annotations.SerializedName;
+import com.nmbs.log.LogUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -165,7 +166,7 @@ public class RealTimeInfoLeg implements Serializable{
 	public String getRealTimeArrivalDelta() {
 		String arrival = "";
 		if(realTimeArrivalDelta != null && realTimeArrivalDelta.length() > 0){
-			Log.e("realTimeArrivalDelta", "realTimeArrivalDelta..." + realTimeArrivalDelta);
+			LogUtils.e("realTimeArrivalDelta", "realTimeArrivalDelta..." + realTimeArrivalDelta);
 			arrival = realTimeArrivalDelta;
 			arrival = arrival.substring(0, arrival.lastIndexOf(":"));
 			if(arrival.indexOf("-") == -1){

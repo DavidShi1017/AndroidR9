@@ -99,7 +99,7 @@ public class FileManager {
         } catch (Exception e) {
             // Unable to create file, likely because external storage is
             // not currently mounted.
-            Log.w("ExternalStorage", "Error writing.......... " + file, e);
+			LogUtils.w("ExternalStorage", "Error writing.......... " + file, e);
         }
     }
 
@@ -268,7 +268,7 @@ public class FileManager {
 	        }  
 	        zipInputStream.close();  
 		} catch (IOException e) {
-			Log.w("ExternalStorage", "Create zip file error", e);
+			LogUtils.w("ExternalStorage", "Create zip file error", e);
 			e.printStackTrace();
 		}  
 		

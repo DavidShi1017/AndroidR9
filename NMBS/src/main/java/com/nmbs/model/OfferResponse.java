@@ -9,6 +9,8 @@ import java.util.Map;
 
 import android.util.Log;
 
+import com.nmbs.log.LogUtils;
+
 /**
  * The class OfferResponse is a sub-class of the RestResponse class. 
  * This class contains the actual response payload sent by the server. 
@@ -80,7 +82,7 @@ public class OfferResponse extends RestResponse implements Serializable{
 			String key = iter.next();
 			flexInfoKeys.add(key);
 			flexInfoValues.add(flexInfo.get(key));
-			Log.d("DepartureDetailActivity",
+			LogUtils.d("DepartureDetailActivity",
 					"HashMap - key is " + key
 							+ ", value is "
 							+ flexInfo.get(key));

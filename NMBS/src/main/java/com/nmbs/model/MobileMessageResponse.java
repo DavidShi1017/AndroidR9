@@ -10,6 +10,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import com.google.gson.annotations.SerializedName;
+import com.nmbs.log.LogUtils;
 
 public class MobileMessageResponse extends RestResponse implements Serializable{
 
@@ -41,7 +42,7 @@ public class MobileMessageResponse extends RestResponse implements Serializable{
 
 		List<MobileMessage> mobileMessages = new ArrayList<MobileMessage>();
 		for (MobileMessage mobileMessage : this.mobileMessages) {
-			Log.e("mobileMessageResponse", "this.mobileMessages..." + mobileMessage.getMessageType());
+			LogUtils.e("mobileMessageResponse", "this.mobileMessages..." + mobileMessage.getMessageType());
 			if (StringUtils.equalsIgnoreCase(messageType, mobileMessage.getMessageType())) {
 				mobileMessages.add(mobileMessage);
 			}

@@ -3,6 +3,7 @@ package com.nmbs.push;
 import java.io.IOException;
 
 import com.nmbs.dataaccess.restservice.impl.NotificationDataService;
+import com.nmbs.log.LogUtils;
 
 import android.app.AlarmManager;
 import android.app.IntentService;
@@ -110,12 +111,12 @@ public abstract class C2DMBaseReceiver extends IntentService{
             Context context = getApplicationContext();
             if (intent.getAction().equals(REGISTRATION_CALLBACK_INTENT)) {
                 handleRegistration(context, intent);
-                Log.d(TAG, "intent.getAction() = "+REGISTRATION_CALLBACK_INTENT);
+                LogUtils.d(TAG, "intent.getAction() = "+REGISTRATION_CALLBACK_INTENT);
             } else if (intent.getAction().equals(C2DM_INTENT)) {
-            	Log.d(TAG, "intent.getAction() = "+C2DM_INTENT);
+                LogUtils.d(TAG, "intent.getAction() = "+C2DM_INTENT);
                 onMessage(context, intent);
             } else if (intent.getAction().equals(C2DM_RETRY)) {
-            	Log.d(TAG, "intent.getAction() = "+C2DM_RETRY);
+                LogUtils.d(TAG, "intent.getAction() = "+C2DM_RETRY);
                 NotificationDataService.getInstance().register(context, senderId);
             }
         } finally {
@@ -138,20 +139,20 @@ public abstract class C2DMBaseReceiver extends IntentService{
     	
         final String registrationId = intent.getStringExtra(EXTRA_REGISTRATION_ID);
         if(registrationId != null){
-        	 Log.d(TAG, "Received RegistrationId = " + registrationId);        	 
+            LogUtils.d(TAG, "Received RegistrationId = " + registrationId);
         }
         
         String error = intent.getStringExtra(EXTRA_ERROR);
         String removed = intent.getStringExtra(EXTRA_UNREGISTERED);
 
         if (Log.isLoggable(TAG, Log.DEBUG)) {
-            Log.d(TAG, "dmControl: registrationId = " + registrationId +
+            LogUtils.d(TAG, "dmControl: registrationId = " + registrationId +
                 ", error = " + error + ", removed = " + removed);
         }
 
         if (removed != null) {
             // Remember we are unregistered
-        	Log.d(TAG, "Unregistered is readying...");
+            LogUtils.d(TAG, "Unregistered is readying...");
         	onUnregistered(context);
         	//C2DMessaging.getInstance(context).clearRegistrationId(context);        	
             return;
@@ -159,12 +160,12 @@ public abstract class C2DMBaseReceiver extends IntentService{
             // we are not registered, can try again
         	//C2DMessaging.getInstance(context).clearRegistrationId(context);
             // Registration failed
-            Log.e(TAG, "Registration error " + error);
+            LogUtils.e(TAG, "Registration error " + error);
             onError(context, error);
             if ("SERVICE_NOT_AVAILABLE".equals(error)) {
                 long backoffTimeMs = C2DMessaging.getInstance(context).getBackoff(context);
-                
-                Log.d(TAG, "Scheduling registration retry, backoff = " + backoffTimeMs);
+
+                LogUtils.d(TAG, "Scheduling registration retry, backoff = " + backoffTimeMs);
                 Intent retryIntent = new Intent(C2DM_RETRY);
                 PendingIntent retryPIntent = PendingIntent.getBroadcast(context, 
                         0 /*requestCode*/, retryIntent, 0 /*flags*/);
@@ -180,11 +181,11 @@ public abstract class C2DMBaseReceiver extends IntentService{
         } else {
             try {
             	C2DMessaging.getInstance(context).setRegistrationId(context, registrationId);
-            	Log.d(TAG, "Registered is readying...");
+                LogUtils.d(TAG, "Registered is readying...");
                 onRegistered(context, registrationId);
  
             } catch (IOException ex) {
-                Log.e(TAG, "Registration error " + ex.getMessage());
+                LogUtils.e(TAG, "Registration error " + ex.getMessage());
             }
         }
     }

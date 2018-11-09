@@ -9,6 +9,7 @@ import android.util.Log;
 
 
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Connection;
 import com.nmbs.model.CreateSubscriptionParameter;
 import com.nmbs.model.Dossier;
@@ -54,7 +55,7 @@ public class CreateAllSubScriptionAsyncTask extends AsyncTask<Void, Void, Void>{
 	@Override
 	protected Void doInBackground(Void... params) {
 		HafasUser hafasUser = pushService.getUser();
-		Log.e(TAG, "CreateAllSubScriptionAsyncTask, hafasUser is..." + hafasUser);
+		LogUtils.e(TAG, "CreateAllSubScriptionAsyncTask, hafasUser is..." + hafasUser);
 		if(hafasUser != null&&!"".equals(hafasUser.getUserId())){
 			Message message = executeAction(hafasUser);
 			if(message.what == Subscription_all_failed){

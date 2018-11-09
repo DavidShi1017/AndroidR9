@@ -35,6 +35,7 @@ import com.nmbs.adapter.TicketsDetailSeatlocationAdapter;
 
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.async.RealTimeAsyncTask;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierAftersalesResponse;
 import com.nmbs.model.HomePrintTicket;
 import com.nmbs.model.Order;
@@ -95,13 +96,13 @@ public class TicketActivity extends BaseActivity {
 																			// application
 																			// language
 		setContentView(R.layout.ticket_detail);
-		Log.e(TAG, "onCreate");
+		LogUtils.e(TAG, "onCreate");
 		
 		
 		
 		bindService();
 		order = getIntentData(getIntent());
-		Log.e(TAG, "onCreate/===" + order);
+		LogUtils.e(TAG, "onCreate/===" + order);
 		if(savedInstanceState != null){
 			location = savedInstanceState.getInt("location");	
 		}
@@ -813,9 +814,9 @@ public class TicketActivity extends BaseActivity {
 	class ServiceStateReceiver extends BroadcastReceiver {
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			Log.d(TAG, "onReceive got REALTIME_SERVICE_ACTION broadcast");
+			LogUtils.d(TAG, "onReceive got REALTIME_SERVICE_ACTION broadcast");
 			if (ServiceConstant.REALTIME_SERVICE_ACTION.equalsIgnoreCase(intent.getAction().toString())) {
-				Log.d(TAG, "onReceive got ERROR_COUNT is::::" + isHasError);
+				LogUtils.d(TAG, "onReceive got ERROR_COUNT is::::" + isHasError);
 				isHasError = intent.getBooleanExtra(RealTimeAsyncTask.ERROR_COUNT, false);
 				progressBar.setVisibility(View.GONE);
 				setViewStateBasedOnModel();

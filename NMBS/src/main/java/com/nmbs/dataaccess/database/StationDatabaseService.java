@@ -11,6 +11,7 @@ import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
 
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Station;
 
 
@@ -246,7 +247,7 @@ public class StationDatabaseService {
 	
 	
 	private String selectSqlSentence(int fromOrTo, String stationCode){
-		Log.d(TAG, "stationCode...." + stationCode);	
+		LogUtils.d(TAG, "stationCode...." + stationCode);
 		//fromOrTo = 0;
 		String sql = "";
 		switch (fromOrTo) {

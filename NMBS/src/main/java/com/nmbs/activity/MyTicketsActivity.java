@@ -26,6 +26,7 @@ import com.nmbs.async.OrderAsyncTask;
 import com.nmbs.dataaccess.database.AssistantDatabaseService;
 import com.nmbs.dataaccess.restservice.impl.DossierDetailDataService;
 import com.nmbs.listeners.RefreshOldDossierListener;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierDetailsResponse;
 import com.nmbs.model.Order;
 import com.nmbs.services.IAssistantService;
@@ -97,7 +98,7 @@ public class MyTicketsActivity extends BaseActivity implements RefreshOldDossier
 	}
 	
 	private void loadData() {
-		Log.e(TAG, "loadData...");
+		LogUtils.e(TAG, "loadData...");
 		orderAsyncTask = new OrderAsyncTask(mHandler, FLAG_FIND_ORDER, masterService);
 		orderAsyncTask.execute(assistantService);
 		showWaitDialog();
@@ -204,8 +205,8 @@ public class MyTicketsActivity extends BaseActivity implements RefreshOldDossier
 
 				public void refresh(List<Order> orders) {
 					if (orders != null && orders.size() > 0) {
-						Log.d(TAG, "refresh orders..." + orders.size());
-						Log.d(TAG, "refresh orders DNR..."+ orders.get(0).getDNR());
+						LogUtils.d(TAG, "refresh orders..." + orders.size());
+						LogUtils.d(TAG, "refresh orders DNR..."+ orders.get(0).getDNR());
 						isMultiple = false;
 						getDossierData(orders);
 					}
@@ -231,8 +232,8 @@ public class MyTicketsActivity extends BaseActivity implements RefreshOldDossier
 			ticketsHistoryTitleAdapter.setRefreshCallback(new RefreshCallback() {
 
 				public void refresh(List<Order> orders) {
-					Log.d(TAG, "refresh orders..." + orders.size());
-					Log.d(TAG, "refresh orders DNR..."+ orders.get(0).getDNR());
+					LogUtils.d(TAG, "refresh orders..." + orders.size());
+					LogUtils.d(TAG, "refresh orders DNR..."+ orders.get(0).getDNR());
 					isMultiple = false;
 					getDossierData(orders);
 				}
@@ -261,8 +262,8 @@ public class MyTicketsActivity extends BaseActivity implements RefreshOldDossier
 			canceledTitleAdapter.setRefreshCallback(new RefreshCallback() {
 
 				public void refresh(List<Order> orders) {
-					Log.d(TAG, "refresh orders..." + orders.size());
-					Log.d(TAG, "refresh orders DNR..."+ orders.get(0).getDNR());
+					LogUtils.d(TAG, "refresh orders..." + orders.size());
+					LogUtils.d(TAG, "refresh orders DNR..."+ orders.get(0).getDNR());
 					isMultiple = false;
 					getDossierData(orders);
 				}
@@ -305,7 +306,7 @@ public class MyTicketsActivity extends BaseActivity implements RefreshOldDossier
 
 	private Handler mHandler = new Handler() {
 		public void handleMessage(Message msg) {
-			Log.e(TAG, "handler receive: handleMessage...!");
+			LogUtils.e(TAG, "handler receive: handleMessage...!");
 			switch (msg.what) {
 			case ServiceConstant.MESSAGE_WHAT_OK:
 
@@ -384,7 +385,7 @@ public class MyTicketsActivity extends BaseActivity implements RefreshOldDossier
 
 	@Override
 	protected void onRestart() {
-		Log.d(TAG, "onRestart...");
+		LogUtils.d(TAG, "onRestart...");
 		loadData();
 		super.onRestart();
 	}
@@ -473,23 +474,23 @@ public class MyTicketsActivity extends BaseActivity implements RefreshOldDossier
 
 			DossierDetailDataService dossierDetailDataService = new DossierDetailDataService();
 			for(int i = 0; i < orders.size(); i++){
-				Log.d(TAG, "migrate orders size is..." + orders.size());
-				Log.d(TAG, "migrate DNR one by one...");
+				LogUtils.d(TAG, "migrate orders size is..." + orders.size());
+				LogUtils.d(TAG, "migrate DNR one by one...");
 				try {
 					String dnr = orders.get(i).getDNR();
 					String email = orders.get(i).getEmail();
 					DossierDetailsResponse dossierResponse = dossierDetailDataService.executeDossierDetail(mContext, email, dnr, languageBeforSetting, true, false, true);
 					if (dossierResponse == null) {
-						Log.e(TAG, "migrate...DNR...ERROR");
+						LogUtils.e(TAG, "migrate...DNR...ERROR");
 						hasError = true;
 					}else{
-						Log.e(TAG, "migrate...DNR...DONE..." + dnr);
+						LogUtils.e(TAG, "migrate...DNR...DONE..." + dnr);
 						AssistantDatabaseService assistantDatabaseService = new AssistantDatabaseService(mContext);
 						assistantDatabaseService.deleteOrder(dnr);
 					}
 
 				} catch (Exception e) {
-					Log.e(TAG, "Exception...");
+					LogUtils.e(TAG, "Exception...");
 					hasError = true;
 					continue;
 				}

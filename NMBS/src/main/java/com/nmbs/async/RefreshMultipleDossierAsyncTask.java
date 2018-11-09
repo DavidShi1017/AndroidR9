@@ -138,7 +138,7 @@ public class RefreshMultipleDossierAsyncTask extends AsyncTask<Void, Void, Void>
                         dossierDetailsService.setCurrentDossierSummary(dossierSummary);
                     }
                     GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
-                    Log.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
+                    LogUtils.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
                     break;
                 case 1:
                     if (dossierSummary != null){
@@ -149,7 +149,7 @@ public class RefreshMultipleDossierAsyncTask extends AsyncTask<Void, Void, Void>
                     }
                     //finish();
                     GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
-                    Log.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
+                    LogUtils.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
                     break;
                 case 2:
                     if(dossierSummary != null){
@@ -164,7 +164,7 @@ public class RefreshMultipleDossierAsyncTask extends AsyncTask<Void, Void, Void>
                 case PushService.USER_ERROR:
                     //createSubscriptionErrorView.setText(activity.getResources().getString(R.string.alert_subscription_missingID));
                     GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
-                    Log.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
+                    LogUtils.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
                     break;
             }
         };

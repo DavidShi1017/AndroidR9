@@ -77,8 +77,8 @@ android {
         multiDexEnabled true
         applicationId "com.nmbs"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        versionCode 46
-        flavorDimensions "46"
+        versionCode 47
+        flavorDimensions "47"
     }
 
     // map for the version code

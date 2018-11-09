@@ -16,6 +16,7 @@ import com.nmbs.activity.AssistantNoConfirmedActivity;
 import com.nmbs.activity.LinearLayoutForListView;
 import com.nmbs.activity.TicketActivity;
 import com.nmbs.adapter.TicketsAdapter.ReloadCallback;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierResponse.OrderItemStateType;
 import com.nmbs.model.Order;
 import com.nmbs.services.IAssistantService;
@@ -167,8 +168,8 @@ public class TicketsTitleAdapter extends ArrayAdapter<TickesHelper> {
 			
 			public void onClick(View v) {
 				int position = v.getId();
-				Log.e("orders", "orders..." + orders);
-				Log.e("orders", "orders..." + orders.size());
+				LogUtils.e("orders", "orders..." + orders);
+				LogUtils.e("orders", "orders..." + orders.size());
 				if (orders.get(position).getTravelSegmentID() != null
 						&& !"".equalsIgnoreCase(orders.get(position).getTravelSegmentID())) {
 

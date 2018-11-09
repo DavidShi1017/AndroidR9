@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Account;
 import com.nmbs.model.AdditionalConnectionsParameter;
 import com.nmbs.model.AdditionalScheduleQueryParameter;
@@ -230,7 +231,7 @@ public class ObjectToJsonUtils {
 
 		String postClickToCallParameter = gson.toJson(clickToCallAftersalesParameter);
 		//postClickToCallParameter = postClickToCallParameter.replace("null", "[]");
-		Log.d("AftersalesParameter", "ClickToCallAftersalesParameter...." + postClickToCallParameter);
+		LogUtils.d("AftersalesParameter", "ClickToCallAftersalesParameter...." + postClickToCallParameter);
 
 		return postClickToCallParameter;
 	}

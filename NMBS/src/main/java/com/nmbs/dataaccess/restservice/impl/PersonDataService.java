@@ -17,6 +17,7 @@ import com.nmbs.exceptions.InvalidJsonError;
 import com.nmbs.exceptions.RequestFail;
 import com.nmbs.exceptions.TimeOutError;
 import com.nmbs.exceptions.NoTicket;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Account;
 import com.nmbs.model.Person;
 import com.nmbs.util.HTTPRestServiceCaller;
@@ -56,7 +57,7 @@ public class PersonDataService implements IPersonDataService{
 			httpResponseString = httpRestServiceCaller.executeHTTPRequest(context.getApplicationContext(), postJsonString
 					, urlString ,"en", HTTPRestServiceCaller.HTTP_POST_METHOD, 50000, false, "", HTTPRestServiceCaller.API_VERSION_VALUE_3);
 		} catch (RequestFail e) {
-			Log.d("executeRegister", "RequestFail", e);
+			LogUtils.d("executeRegister", "RequestFail", e);
 			e.printStackTrace();
 		}		
 		if (httpResponseString == null || "".equals(httpResponseString)) {

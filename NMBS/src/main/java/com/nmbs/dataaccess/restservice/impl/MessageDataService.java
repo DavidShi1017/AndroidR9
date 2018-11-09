@@ -17,6 +17,7 @@ import com.nmbs.dataaccess.converters.MessageResponseConverter;
 import com.nmbs.dataaccess.database.MessageDatabaseService;
 import com.nmbs.dataaccess.restservice.IMessageDataService;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.MobileMessage;
 import com.nmbs.model.MobileMessageResponse;
 import com.nmbs.util.FileManager;
@@ -32,7 +33,7 @@ public class MessageDataService implements IMessageDataService {
 	private static final String TAG = MessageDatabaseService.class.getSimpleName();
 	
 	public MobileMessageResponse getMessageResponse(Context context, String language, boolean isChangeLanguage) throws Exception {
-		Log.e("Messages", "getMessageResponse...." + language);
+		LogUtils.e("Messages", "getMessageResponse...." + language);
 		String stringHttpResponse = null;
 		MobileMessageResponse messageResponse = null;
 		String urlString = context.getString(R.string.server_url_get_messages);

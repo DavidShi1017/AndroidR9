@@ -18,6 +18,7 @@ import com.nmbs.exceptions.DonotContainTicket;
 import com.nmbs.exceptions.JourneyPast;
 import com.nmbs.exceptions.NetworkError;
 
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierAftersalesResponse;
 import com.nmbs.model.GeneralSetting;
 import com.nmbs.model.StationBoardCollection;
@@ -67,7 +68,7 @@ public class AddExistingTicketIntentService extends IntentService {
 		order = (Order)intent.getSerializableExtra(ServiceConstant.PARAM_IN_MSG);
 		if (order != null) {
 			DNR = order.getDNR();
-			Log.d(TAG, "dossierAftersalesResponse...DNR..." + DNR);
+			LogUtils.d(TAG, "dossierAftersalesResponse...DNR..." + DNR);
 		}
 		languageBeforSetting = (String) intent.getSerializableExtra(ServiceConstant.PARAM_IN_LANGUAGE);
 		assistantDataService = new AssistantDataService();
@@ -76,7 +77,7 @@ public class AddExistingTicketIntentService extends IntentService {
 	}
 	
 	private void handleOrder(){
-		Log.d(TAG, "handleOrdersIsNull...DNR...");
+		LogUtils.d(TAG, "handleOrdersIsNull...DNR...");
 		String dossierAftersalesLifetime = "";
 		GeneralSetting generalSetting = null;
 		try {
@@ -100,22 +101,22 @@ public class AddExistingTicketIntentService extends IntentService {
 			sendBroadcast(dossierAftersalesResponse);
 			
 		}catch (ConnectionError e) {
-			Log.d(TAG, "ConnectionError...: ");			
+			LogUtils.d(TAG, "ConnectionError...: ");
 			catchError(NetworkError.wrongCombination, null);
 			
-		}catch (DonotContainTicket e) {	
-			Log.d(TAG, "DonotContainTicket...: ");			
+		}catch (DonotContainTicket e) {
+			LogUtils.d(TAG, "DonotContainTicket...: ");
 			catchError(NetworkError.donotContainTicke, null);
 			
-		}catch (JourneyPast e) {		
-			Log.d(TAG, "JourneyPast...: ");			
+		}catch (JourneyPast e) {
+			LogUtils.d(TAG, "JourneyPast...: ");
 			catchError(NetworkError.journeyPast, null);		
 			
 		}catch (CustomError e) {
 			catchError(NetworkError.CustomError, e);
 		}catch (Exception e) {
 			e.printStackTrace();
-			Log.d(TAG, "Exception...: ");		
+			LogUtils.d(TAG, "Exception...: ");
 			catchError(NetworkError.TIMEOUT, null);
 		}
 		
@@ -145,7 +146,7 @@ public class AddExistingTicketIntentService extends IntentService {
 	}
 	
 	private void sendBroadcast(DossierAftersalesResponse dossierAftersalesResponse){
-		Log.e(TAG, "dossierAftersalesResponse...." + dossierAftersalesResponse);
+		LogUtils.e(TAG, "dossierAftersalesResponse...." + dossierAftersalesResponse);
 		if(dossierAftersalesResponse != null){
 			if (isCorrupted) {
 				hasError = true;
@@ -183,7 +184,7 @@ public class AddExistingTicketIntentService extends IntentService {
 
 	 */
 	public void catchError(NetworkError error, Exception e){
-		Log.e(TAG, "catchError error" + error);
+		LogUtils.e(TAG, "catchError error" + error);
 		broadcastIntent.setAction(ServiceConstant.INTENT_ACTION_DOSSIER_AFTERSALE_ERROR);
 		broadcastIntent.addCategory(Intent.CATEGORY_DEFAULT);
 		broadcastIntent.putExtra(ServiceConstant.PARAM_OUT_ERROR, error);

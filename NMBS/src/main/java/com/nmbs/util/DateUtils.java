@@ -12,6 +12,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.nmbs.R;
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.Station;
 import com.nmbs.services.impl.SettingService;
 
@@ -190,7 +191,7 @@ public class DateUtils {
 
 		String dateStr = "";
 		if (date != null) {
-			Log.e("FormatToHrDate", "Hour..." + date.getHours());
+			LogUtils.e("FormatToHrDate", "Hour..." + date.getHours());
 			if(date.getHours() > 0){
 				SimpleDateFormat sdfDateToStr = new SimpleDateFormat("H:mm");
 				dateStr = sdfDateToStr.format(date);
@@ -705,7 +706,7 @@ public class DateUtils {
 	public static String getRightFormat(){
 		String language = NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey();
 		String format = "";
-		Log.e("language", "language..." + language);
+		LogUtils.e("language", "language..." + language);
 		if (SettingService.LANGUAGE_EN.contains(language)) {
 			format = formatDateEn;
 		}else if(SettingService.LANGUAGE_FR.contains(language)){

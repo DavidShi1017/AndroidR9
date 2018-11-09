@@ -18,6 +18,7 @@ import com.nmbs.dataaccess.database.HafasUserDataBaseService;
 import com.nmbs.dataaccess.database.SubscriptionDataBaseService;
 import com.nmbs.dataaccess.database.TravelSegmentDatabaseService;
 import com.nmbs.exceptions.RequestFail;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.CreateSubscriptionParameter;
 import com.nmbs.model.DossierTravelSegment;
 import com.nmbs.model.HafasUser;
@@ -283,7 +284,7 @@ public class PushService implements IPushService {
     @Override
     public String createSubScription(CreateSubscriptionParameter subScription) throws RequestFail{
 
-        Log.e(TAG, "createSubScription............");
+        LogUtils.e(TAG, "createSubScription............");
         String postData = "<SubscriptionRequestList\n" +
                 "    xmlns=\"hafas_abo_v1\">\n" +
                 "    <createSubscriptionRequest id=\"1\" userId=\""+subScription.getUserId()+"\">\n" +
@@ -309,9 +310,9 @@ public class PushService implements IPushService {
                 "    </createSubscriptionRequest>\n" +
                 "</SubscriptionRequestList>";
         //System.out.println(postData);
-        Log.e(TAG, postData);
+        LogUtils.e(TAG, postData);
         String responseData = httpRestServiceCaller.executePushHttpRequest(applicationContext, NMBSApplication.getInstance().getHafasUrl(), postData);
-        Log.e(TAG, responseData);
+        LogUtils.e(TAG, responseData);
         XmlPullParser parser = Xml.newPullParser();
         String subscriptionId = "";
         try{
@@ -617,7 +618,7 @@ public class PushService implements IPushService {
         deleteDataStr.append("</SubscriptionRequestList>");
         //System.out.println(deleteDataStr.toString());
         String responseData = httpRestServiceCaller.executePushHttpRequest(applicationContext, NMBSApplication.getInstance().getHafasUrl(), deleteDataStr.toString());
-        Log.i(TAG, responseData);
+        LogUtils.i(TAG, responseData);
         XmlPullParser parser = Xml.newPullParser();
         List<SubscriptionResponse> subscriptionResponseList = new ArrayList<SubscriptionResponse>();
         try {
@@ -706,7 +707,7 @@ public class PushService implements IPushService {
     }
 
     public void createLocalNotification(long time, int id){
-        Log.e("LocalNotification", "createLocalNotification...");
+        LogUtils.e("LocalNotification", "createLocalNotification...");
         AlarmManager alarmManager = (AlarmManager) this.applicationContext.getSystemService(Context.ALARM_SERVICE);
 
         Intent notificationIntent = new Intent(this.applicationContext, LocalNotificationWakefulBroadcastReceiver.class);
@@ -731,7 +732,7 @@ public class PushService implements IPushService {
     }
 
     private void cancelLocalNotification(int id){
-        Log.e("cancel", "id..." + id);
+        LogUtils.e("cancel", "id..." + id);
         Intent intent = new Intent(this.applicationContext, AlarmReceiver.class);
         //intent.setData(Uri.parse("content://calendar/calendar_alerts/1"));
         PendingIntent sender = PendingIntent.getBroadcast(this.applicationContext, id, intent, PendingIntent.FLAG_CANCEL_CURRENT);
@@ -742,16 +743,16 @@ public class PushService implements IPushService {
     }
 
     public void addAllLocalNotification(List<DossierTravelSegment> dossierTravelSegments){
-        Log.e("LocalNotification", "addAllLocalNotification...");
+        LogUtils.e("LocalNotification", "addAllLocalNotification...");
         TravelSegmentDatabaseService travelSegmentDatabaseService = new TravelSegmentDatabaseService(applicationContext);
         SettingService settingService = NMBSApplication.getInstance().getSettingService();
         if(settingService.isTravelReminders()){
-            Log.e("LocalNotification", "isTravelReminders...");
+            LogUtils.e("LocalNotification", "isTravelReminders...");
             for(int i=0;i<dossierTravelSegments.size();i++){
                 if(dossierTravelSegments.get(i).getDepartureDate() != null){
-                    Log.e("LocalNotification", "DepartureDate() != null...");
+                    LogUtils.e("LocalNotification", "DepartureDate() != null...");
                     String DateStr = DateUtils.dateTimeToString(dossierTravelSegments.get(i).getDepartureDateTime());
-                    Log.e("LocalNotification", "DateStr..." + DateStr);
+                    LogUtils.e("LocalNotification", "DateStr..." + DateStr);
                     LocalNotification localNotification = travelSegmentDatabaseService.queryTravelSegmentByDate(applicationContext, DateStr);
                     Date currentDate=new Date();//取时间
 
@@ -764,14 +765,14 @@ public class PushService implements IPushService {
                     calendar.add(Calendar.DAY_OF_MONTH, 1);*/
                     currentDate=calendar.getTime();
 
-                    Log.e("LocalNotification", "getDepartureDate().getTime(): " + dossierTravelSegments.get(i).getDepartureDate());
-                    Log.e("LocalNotification", "currentDate().getTime(): " + currentDate.getTime());
+                    LogUtils.e("LocalNotification", "getDepartureDate().getTime(): " + dossierTravelSegments.get(i).getDepartureDate());
+                    LogUtils.e("LocalNotification", "currentDate().getTime(): " + currentDate.getTime());
                     if(dossierTravelSegments.get(i).getDepartureDateTime().getTime() > currentDate.getTime()
                             && currentDate.getTime() <= getPushTime(dossierTravelSegments.get(i).getDepartureDate())){
-                        Log.e("LocalNotification", "getDepartureDate().getTime()>currentDate.getTime()...");
+                        LogUtils.e("LocalNotification", "getDepartureDate().getTime()>currentDate.getTime()...");
                         //java.util.Random r = new java.util.Random();
                         int id = getPushId(dossierTravelSegments.get(i).getDepartureDate());
-                        Log.e("LocalNotification", "id..." + id);
+                        LogUtils.e("LocalNotification", "id..." + id);
                         if(localNotification ==  null){
                             travelSegmentDatabaseService.insertTravelSegment(dossierTravelSegments.get(i), id, false);
                             createLocalNotification(getPushTime(dossierTravelSegments.get(i).getDepartureDate()), id);
@@ -817,7 +818,7 @@ public class PushService implements IPushService {
         cal.add(Calendar.DAY_OF_MONTH, -1);
         cal.set(Calendar.HOUR_OF_DAY,16);
         cal.set(Calendar.MINUTE,0);
-        Log.e("LocalNotification", "getPushTime..." + cal.getTime());
+        LogUtils.e("LocalNotification", "getPushTime..." + cal.getTime());
         return cal.getTimeInMillis();
     }
 

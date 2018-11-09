@@ -39,6 +39,7 @@ import com.nmbs.R;
 import com.nmbs.activities.MainActivity;
 import com.nmbs.activities.PushNotificationErrorActivity;
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 import com.nmbs.util.ActivityConstant;
 import com.nmbs.util.PushNotificationReceiver;
 
@@ -53,7 +54,7 @@ public class MyGcmListenerService extends FirebaseMessagingService {
     // [START receive_message]
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage){
-        Log.e("Push", "onMessageReceived...");
+        LogUtils.e("Push", "onMessageReceived...");
         if(remoteMessage != null){
             if (remoteMessage.getData().size() > 0) {
                 //Log.e(TAG, "Message data payload: " + remoteMessage.getData());
