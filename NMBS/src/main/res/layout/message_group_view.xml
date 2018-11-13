@@ -58,7 +58,7 @@
             android:textSize="@dimen/textsize_medium" />
     </RelativeLayout>
 
-    <com.cfl.activity.LinearLayoutForListView
+    <com.cflint.activity.LinearLayoutForListView
         android:id="@+id/lv_message_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

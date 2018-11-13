@@ -20,7 +20,7 @@
         android:background="@color/background_activity_title"
         android:padding="10dp">
 
-        <com.cfl.activities.view.FitImageView
+        <com.cflint.activities.view.FitImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

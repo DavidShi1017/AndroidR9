@@ -28,7 +28,7 @@
 			android:textColor="@color/textcolor_secondaction"
 			android:textSize="@dimen/textsize_header" />
 	</RelativeLayout>
-	<com.cfl.activities.view.NumberProgressBar
+	<com.cflint.activities.view.NumberProgressBar
 		android:id="@+id/number_progress_bar"
 		style="@style/NumberProgressBar_Default"
 		/>

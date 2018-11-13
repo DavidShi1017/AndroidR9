@@ -65,7 +65,7 @@
         
         android:textAppearance="@style/small_text_style"
         android:textColor="@color/departure_return_travel_selected_depature_view_other_text_color" />
-    <com.cfl.activity.TouchImageView
+    <com.cflint.activity.TouchImageView
         
         android:id="@+id/barcode_for_person_view_image"
         android:layout_below="@+id/barcode_for_person_view_see_details"

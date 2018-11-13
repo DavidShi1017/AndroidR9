@@ -95,7 +95,7 @@
                 android:textSize="@dimen/textsize_smaller" />
             >
 
-            <com.cfl.activities.view.FitImageView
+            <com.cflint.activities.view.FitImageView
                 android:id="@+id/iv_message_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tarrif_view_conditions_info_textview" >
 
-        <com.cfl.activity.LinearLayoutForListView
+        <com.cflint.activity.LinearLayoutForListView
             android:id="@+id/tarrif_view_tarrif_detail_list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

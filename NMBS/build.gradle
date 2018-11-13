@@ -75,7 +75,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 26
         multiDexEnabled true
-        applicationId "com.cfl"
+        applicationId "com.cflint"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         versionCode 1
         flavorDimensions "1"

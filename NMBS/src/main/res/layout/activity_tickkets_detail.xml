@@ -76,7 +76,7 @@
 
     </LinearLayout>
 
-    <com.cfl.activities.view.MyViewPager
+    <com.cflint.activities.view.MyViewPager
         android:id="@+id/vf_ticket_detail_view_pager"
         android:layout_width="match_parent"
         android:layout_below="@id/rl_tickets_detail_header"

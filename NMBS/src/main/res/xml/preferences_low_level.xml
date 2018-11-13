@@ -16,11 +16,11 @@
     <PreferenceCategory android:title="@string/setting_view_account" >
         <Preference 
             android:summary="@string/settings_view_personal_info_description"/>
-        <com.cfl.util.EncryptEditTextPreference
+        <com.cflint.util.EncryptEditTextPreference
             android:key="firstname"
             android:summary="@string/setting_view_first_name_alert"
             android:title="@string/general_first_name" />
-        <com.cfl.util.EncryptEditTextPreference
+        <com.cflint.util.EncryptEditTextPreference
             android:key="lastname"
             android:summary="@string/setting_view_last_name_alert"
             android:title="@string/general_name" />
@@ -31,19 +31,19 @@
             android:summary="@string/setting_view_salutation_alert"
             android:title="@string/general_salutation" />
 
-        <com.cfl.util.EncryptEditTextPreference
+        <com.cflint.util.EncryptEditTextPreference
             android:inputType="number"
             android:key="phonenumber"
             android:summary="@string/setting_view__mobile_number_alert"
             android:title="@string/book_view_mobile_phone_number" />
-        <com.cfl.util.EncryptEditTextPreference
+        <com.cflint.util.EncryptEditTextPreference
             android:inputType="textEmailAddress"
             android:key="email"
             android:summary="@string/setting_view_email_alert"
             android:title="@string/book_email_view_email_add" />
-        <com.cfl.activity.DeleteButtonPreference
+        <com.cflint.activity.DeleteButtonPreference
              android:key="deleteButtons" >
-         </com.cfl.activity.DeleteButtonPreference>
+         </com.cflint.activity.DeleteButtonPreference>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/settings_automatic_update_title" >
         <Preference 

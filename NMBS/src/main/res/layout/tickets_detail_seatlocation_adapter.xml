@@ -183,7 +183,7 @@
             android:layout_height="10dp"
             android:layout_below="@+id/tickets_detail_seatlocation_adapter_view_train_name_textview" />
 
-        <com.cfl.activity.LinearLayoutForListView
+        <com.cflint.activity.LinearLayoutForListView
             android:id="@+id/tickets_detail_seatlocation_adapter_view_passengers_list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

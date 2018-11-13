@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "770938111303",
-    "firebase_url": "https://test-7d280.firebaseio.com",
-    "project_id": "test-7d280",
-    "storage_bucket": "test-7d280.appspot.com"
+    "project_number": "558190397440",
+    "firebase_url": "https://cfl-international-app.firebaseio.com",
+    "project_id": "cfl-international-app",
+    "storage_bucket": "cfl-international-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:770938111303:android:a58656ad8d0e3a5c",
+        "mobilesdk_app_id": "1:558190397440:android:2380060167107c88",
         "android_client_info": {
-          "package_name": "com.nmbs"
+          "package_name": "com.cflint"
         }
       },
       "oauth_client": [
         {
-          "client_id": "770938111303-6qmipl6tfmksauh9mrfek8n28r90969n.apps.googleusercontent.com",
+          "client_id": "558190397440-tg9m12a0b8o90n3d5akfpi733o12o038.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBP05zBkbpEpBiqMqc66_X_WUhyEDb-6bw"
+          "current_key": "AIzaSyAGRgdqffnsTl8ZzBaw3Bqv1hSTyUgGfVA"
         }
       ],
       "services": {

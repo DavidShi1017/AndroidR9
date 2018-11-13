@@ -10,7 +10,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
-    <com.cfl.activity.TouchImageView
+    <com.cflint.activity.TouchImageView
         
         android:id="@+id/barcode_for_person_view_image"
         
