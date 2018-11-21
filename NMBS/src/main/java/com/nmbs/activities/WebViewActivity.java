@@ -122,7 +122,6 @@ public class WebViewActivity extends AppCompatActivity {
                         startActivity(MyTicketsActivity.createIntent(WebViewActivity.this));
                     } else if (screen.equalsIgnoreCase("UploadDNR") || screen.equalsIgnoreCase("UploadDossier")) {
                         String email = Utils.getUrlValue(url, "email");
-                        String dnr = Utils.getUrlValue(url, "dnr");
                         LogUtils.e("Webview", "email------>" + email);
                         finish();
                         startActivity(UploadDossierActivity.createUploadDossierIntent(WebViewActivity.this,
