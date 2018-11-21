@@ -99,6 +99,7 @@ public class WebViewOverlayActivity extends AppCompatActivity {
                         startActivity(MyTicketsActivity.createIntent(WebViewOverlayActivity.this));
                     } else if (screen.equalsIgnoreCase("UploadDNR")) {
                         String email = Utils.getUrlValue(url, "email");
+                        String dnr = Utils.getUrlValue(url, "dnr");
                         finish();
                         startActivity(UploadDossierActivity.createUploadDossierIntent(WebViewOverlayActivity.this,
                                 NMBSApplication.PAGE_UploadTicket_DNR, null, dnr, email, responseErrorMessage));
