@@ -26,16 +26,20 @@ import java.util.Date;
 
 public class CheckOptionReceiver extends BroadcastReceiver {
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(final Context context, Intent intent) {
         LogUtils.e("CheckOptionReceiver", "CheckOptionReceiver...");
         Bundle bundle = intent.getExtras();
         int e_requestCode = bundle.getInt("RequestCode");
         LogUtils.e("CheckOptionReceiver", "CheckOptionReceiver..." + e_requestCode);
+        new Thread() {
+            public void run() {
+                if(NMBSApplication.getInstance().getLoginService().isLogon() && !CheckOptionAsyncTask.isChecking){
+                    CheckOptionAsyncTask asyncTask = new CheckOptionAsyncTask(context);
+                    asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                }
+            }
+        }.start();
 
-        if(NMBSApplication.getInstance().getLoginService().isLogon() && !CheckOptionAsyncTask.isChecking){
-            CheckOptionAsyncTask asyncTask = new CheckOptionAsyncTask(context);
-            asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        }
 
     }
 

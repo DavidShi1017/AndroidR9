@@ -32,24 +32,29 @@ import java.util.Date;
 
 public class CheckOptionNotificationReceiver extends BroadcastReceiver {
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(final Context context, Intent intent) {
         LogUtils.e("CheckOptionNotificationReceiver", "CheckOptionNotificationReceiver...");
         Bundle bundle = intent.getExtras();
         //int e_requestCode = intent.getIntExtra("RequestCode", 0);
         //LogUtils.e("CheckOptionReceiver", "CheckOptionReceiver..." + e_requestCode);
-        if(NMBSApplication.getInstance().getSettingService().isOptions()){
-            if(NMBSApplication.getInstance().getLoginService().isLogon()){
-                CheckOption checkOption = NMBSApplication.getInstance().getLoginService().getCheckOption(context);
-                if(checkOption!= null && checkOption.getExpiration() != null){
-                    Date date = DateUtils.getFewLaterDay(new Date(), 1);
-                    LogUtils.e("CheckOptionNotificationReceiver", "CheckOptionReceiver------Expiration------->" + checkOption.getExpiration().getDate());
-                    LogUtils.e("CheckOptionNotificationReceiver", "CheckOptionReceiver------FewLaterDay------->" + date.getDate());
-                    if(date.getDate() == checkOption.getExpiration().getDate()){
-                        sendNotification(context);
+        new Thread() {
+            public void run() {
+                if(NMBSApplication.getInstance().getSettingService().isOptions()){
+                    if(NMBSApplication.getInstance().getLoginService().isLogon()){
+                        CheckOption checkOption = NMBSApplication.getInstance().getLoginService().getCheckOption(context);
+                        if(checkOption!= null && checkOption.getExpiration() != null){
+                            Date date = DateUtils.getFewLaterDay(new Date(), 1);
+                            LogUtils.e("CheckOptionNotificationReceiver", "CheckOptionReceiver------Expiration------->" + checkOption.getExpiration().getDate());
+                            LogUtils.e("CheckOptionNotificationReceiver", "CheckOptionReceiver------FewLaterDay------->" + date.getDate());
+                            if(date.getDate() == checkOption.getExpiration().getDate()){
+                                sendNotification(context);
+                            }
+                        }
                     }
                 }
             }
-        }
+        }.start();
+
 
     }
 

@@ -430,7 +430,7 @@ public class CallCenterActivity extends BaseActivity {
 										   @NonNull String[] permissions, @NonNull int[] grantResults) {
 		switch (requestCode) {
 			case REQUEST_CODE_ASK_PERMISSIONS:
-				if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+				if (permissions.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
 					Toast.makeText(CallCenterActivity.this, "READ_PHONE_STATE Denied", Toast.LENGTH_SHORT)
 							.show();
 				} else {
