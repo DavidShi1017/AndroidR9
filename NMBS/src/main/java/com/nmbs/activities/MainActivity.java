@@ -197,11 +197,11 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		showHomeBanner();
 		bindNationalApp();
 		initValue();
-		final Fabric fabric = new Fabric.Builder(this)
+		/*final Fabric fabric = new Fabric.Builder(this)
 				.kits(new Crashlytics())
 				.debuggable(true)  // Enables Crashlytics debugger
 				.build();
-		Fabric.with(fabric);
+		Fabric.with(fabric);*/
 /*		Button crashButton = new Button(this);
 		crashButton.setText("Crash!");
 		crashButton.setOnClickListener(new View.OnClickListener() {
@@ -551,7 +551,9 @@ public class MainActivity extends BaseActivity implements RatingListener {
 					&& !NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getCommercialTtlListUrl().isEmpty()){
 				setRlView();
 			}else{
-				llTrainTickets.setWeightSum(4);
+				if(llTrainTickets != null){
+					llTrainTickets.setWeightSum(4);
+				}
 			}
 		}
 

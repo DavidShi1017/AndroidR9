@@ -57,6 +57,7 @@ public class LoginService {
 	private LogonInfo loginInfo;
 	
 	public LoginService(Context context){
+		LogUtils.e("NMBSApplication", "LoginService::::" + context);
 		this.applicationContext = context;
 	}
 

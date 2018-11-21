@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 
 import com.nmbs.model.LogonInfo;
@@ -31,7 +32,7 @@ public class LoginDataBaseService {
     public static final String LOGIN_LOGINPROVIDER  = "LoginProvider";
 
     public LoginDataBaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);
+        dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }
     public boolean insertLogonInfo(LogonInfo logonInfo) {
@@ -71,8 +72,11 @@ public class LoginDataBaseService {
     }
 
     public LogonInfo getLogonInfo() {
-
+        LogUtils.d("LoginDataBaseService", "getLogonInfo....");
         LogonInfo logonInfo = null;
+        if(sqLiteDatabase == null){
+            return logonInfo;
+        }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_LOGIN, null, null, null, null, null, null);
         int cursorNum = cursor.getCount();
         if(cursorNum > 0){
@@ -97,6 +101,9 @@ public class LoginDataBaseService {
     }
 
     public boolean deleteLogonInfo() {
+        if(sqLiteDatabase == null){
+            return false;
+        }
         int isDelete;
         isDelete = sqLiteDatabase.delete(DB_TABLE_LOGIN, null, null);
         if (isDelete > 0) {

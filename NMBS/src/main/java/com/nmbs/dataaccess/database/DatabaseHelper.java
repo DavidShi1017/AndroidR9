@@ -522,7 +522,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	public synchronized SQLiteDatabase getWritableDatabase(){
 
-		LogUtils.e("LogUtils", " getWritableDatabase from service, create database------>");
+		//LogUtils.e("LogUtils", " getWritableDatabase from service, create database------>");
 		//if (SQLiteDatabase == null) {
 		try{
 			if(SQLiteDatabase == null){

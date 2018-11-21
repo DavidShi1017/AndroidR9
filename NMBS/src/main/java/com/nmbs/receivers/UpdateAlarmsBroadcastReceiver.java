@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.async.DossierUpToDateAsyncTask;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.GeneralSetting;
 import com.nmbs.model.Order;
 
@@ -29,6 +30,7 @@ public class UpdateAlarmsBroadcastReceiver extends BroadcastReceiver {
 			Bundle bundle = intent.getExtras();
 			int e_requestCode = bundle.getInt("RequestCode");
 			//android.util.Log.e("UpToDate", "e_requestCode...");
+			LogUtils.e("UpdateAlarmsBroadcastReceiver", "UpdateAlarmsBroadcastReceiver..." + e_requestCode);
 			if (e_requestCode == NMBSApplication.REQUESTCODE_UPDATE) {
 				DossierUpToDateAsyncTask asyncTask = new DossierUpToDateAsyncTask(context);
 				asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);

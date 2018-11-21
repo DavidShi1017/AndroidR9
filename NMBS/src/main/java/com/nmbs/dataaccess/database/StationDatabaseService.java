@@ -40,6 +40,7 @@ public class StationDatabaseService {
     public StationDatabaseService(Context context) { 
         dbHelper = DatabaseHelper.getInstance(context);  
         sqLiteDatabase = dbHelper.getWritableDatabase();
+
     }    
     
     

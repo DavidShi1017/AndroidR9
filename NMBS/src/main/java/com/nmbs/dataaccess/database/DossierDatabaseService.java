@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.util.Log;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.City;
 import com.nmbs.model.Dossier;
@@ -50,7 +51,7 @@ public class DossierDatabaseService {
     private DatabaseHelper dbHelper;
 
     public DossierDatabaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);  
+        dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }
 
@@ -58,29 +59,33 @@ public class DossierDatabaseService {
 		if (dossierSummary != null ) {
 			//Log.d(TAG, "Insert a Dossier....." + dossierSummary.getDossierId());
 			ContentValues contentValues = new ContentValues();
-			sqLiteDatabase.beginTransaction();
-			try{
-				contentValues.put(Column_Dossier_Id, dossierSummary.getDossierId());
-				contentValues.put(Column_Dossier_Details, dossierSummary.getDossierDetails());
-				contentValues.put(Column_Dossier_Date, dossierSummary.getDossierDate());
-				contentValues.put(Column_Dossier_PushEnabled, String.valueOf(dossierSummary.isDossierPushEnabled()));
-				contentValues.put(Column_PDF_Successfully, String.valueOf(dossierSummary.isPDFSuccessfully()));
-				contentValues.put(Column_Barcode_Successfully, String.valueOf(dossierSummary.isBarcodeSuccessfully()));
-				contentValues.put(Column_TravelSegment_Available, String.valueOf(dossierSummary.isTravelSegmentAvailable()));
-				contentValues.put(Column_Display_Overlay, String.valueOf(dossierSummary.isDisplayOverlay()));
-				contentValues.put(Column_LatestTravelDate, DateUtils.dateTimeToString(dossierSummary.getLatestTravelDate()));
-				contentValues.put(Column_EarliestTravelDate, DateUtils.dateTimeToString(dossierSummary.getEarliestTravel()));
+			if(sqLiteDatabase != null){
+				sqLiteDatabase.beginTransaction();
+				try{
+					contentValues.put(Column_Dossier_Id, dossierSummary.getDossierId());
+					contentValues.put(Column_Dossier_Details, dossierSummary.getDossierDetails());
+					contentValues.put(Column_Dossier_Date, dossierSummary.getDossierDate());
+					contentValues.put(Column_Dossier_PushEnabled, String.valueOf(dossierSummary.isDossierPushEnabled()));
+					contentValues.put(Column_PDF_Successfully, String.valueOf(dossierSummary.isPDFSuccessfully()));
+					contentValues.put(Column_Barcode_Successfully, String.valueOf(dossierSummary.isBarcodeSuccessfully()));
+					contentValues.put(Column_TravelSegment_Available, String.valueOf(dossierSummary.isTravelSegmentAvailable()));
+					contentValues.put(Column_Display_Overlay, String.valueOf(dossierSummary.isDisplayOverlay()));
+					contentValues.put(Column_LatestTravelDate, DateUtils.dateTimeToString(dossierSummary.getLatestTravelDate()));
+					contentValues.put(Column_EarliestTravelDate, DateUtils.dateTimeToString(dossierSummary.getEarliestTravel()));
 
-				sqLiteDatabase.insert(DB_Dossier , Column_Id, contentValues);
-				sqLiteDatabase.setTransactionSuccessful();
-			}finally{
-				sqLiteDatabase.endTransaction();
+					sqLiteDatabase.insert(DB_Dossier , Column_Id, contentValues);
+					sqLiteDatabase.setTransactionSuccessful();
+				}finally{
+					sqLiteDatabase.endTransaction();
+				}
+				return true;
 			}
-			return true;
+
 		}else {
 			//Log.e(TAG, "DossierSummary is not inserted.");
 			return false;
 		}
+		return false;
 	}
 
 	  /**
@@ -90,13 +95,17 @@ public class DossierDatabaseService {
      */
 
 	public DossierSummary selectDossier(String id) throws SQLException {
+		DossierSummary dossierSummary = null;
+		if(sqLiteDatabase == null){
+			return dossierSummary;
+		}
 
 		Cursor cursor = sqLiteDatabase.query(DB_Dossier, new String[] {
 				Column_Dossier_Id, Column_Dossier_Details, Column_Dossier_Date,
 				Column_Dossier_PushEnabled, Column_PDF_Successfully, Column_Barcode_Successfully,
 				Column_TravelSegment_Available, Column_Display_Overlay, Column_LatestTravelDate, Column_EarliestTravelDate},
 				Column_Dossier_Id + " = '"+id+ "'", null, null, null, null);
-		DossierSummary dossierSummary = null;
+
 		LogUtils.d("DossierSummary", "cursor------->" + cursor.getCount());
 			if(cursor.getCount() > 0){
 				cursor.moveToPosition(0);
@@ -119,6 +128,9 @@ public class DossierDatabaseService {
 
 	public boolean isPushEnable(String id) throws SQLException {
 		//Log.d(TAG, "Select GeneralSetting.");
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_Dossier, new String[]{
 						Column_Dossier_Id, Column_Dossier_Details, Column_Dossier_Date,
 						Column_Dossier_PushEnabled, Column_PDF_Successfully, Column_Barcode_Successfully,
@@ -153,6 +165,9 @@ public class DossierDatabaseService {
 		Cursor cursor = null;
 		Date nowTime = new Date();
 		String nowTimeStr = DateUtils.dateToString(nowTime);
+		if(sqLiteDatabase == null){
+			return dossiersSummary;
+		}
 		if(isActive){
 			cursor = sqLiteDatabase.query(DB_Dossier, new String[]{
 							Column_Dossier_Id, Column_Dossier_Details, Column_Dossier_Date,
@@ -198,6 +213,9 @@ public class DossierDatabaseService {
 	public List<DossierSummary> selectDossierAll() throws SQLException {
 		List<DossierSummary> dossiersSummary = new ArrayList<>();
 		//Log.d(TAG, "Select GeneralSetting.");
+		if(sqLiteDatabase == null){
+			return dossiersSummary;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_Dossier, new String[]{
 						Column_Dossier_Id, Column_Dossier_Details, Column_Dossier_Date,
 						Column_Dossier_PushEnabled, Column_PDF_Successfully, Column_Barcode_Successfully,
@@ -205,7 +223,7 @@ public class DossierDatabaseService {
 				null, null, null, null, "");
 		DossierSummary dossierSummary = null;
 		int cursorNum = cursor.getCount();
-
+		LogUtils.d("DossierDatabaseService", "selectDossierAll......");
 		for (int i = 0; i < cursorNum; i++) {
 			cursor.moveToPosition(i);
 			String dossierId = cursor.getString(cursor.getColumnIndexOrThrow(Column_Dossier_Id));
@@ -232,6 +250,9 @@ public class DossierDatabaseService {
 	public List<DossierSummary> selectPasetDossier(int dossierAftersalesLifetime) throws SQLException {
 		List<DossierSummary> dossiersSummary = new ArrayList<>();
 		//Log.d(TAG, "Select GeneralSetting.");
+		if(sqLiteDatabase == null){
+			return dossiersSummary;
+		}
 		String pastTime = DateUtils.dateToString(DateUtils.getTheDayBeforeYesterday(dossierAftersalesLifetime));
 		Cursor cursor = sqLiteDatabase.query(DB_Dossier, new String[]{
 						Column_Dossier_Id, Column_Dossier_Details, Column_Dossier_Date,
@@ -265,6 +286,9 @@ public class DossierDatabaseService {
 
 	public void deleteDossier(String id) {
 		//Log.d(TAG, "delete Dossier, id= " + id);
+		if(sqLiteDatabase == null){
+			return;
+		}
 		int isDelete = sqLiteDatabase.delete(DB_Dossier, Column_Dossier_Id + "='" + id + "'", null) ;
 		//Log.d(TAG, "isDelete ..." + isDelete);
 	}
@@ -277,6 +301,9 @@ public class DossierDatabaseService {
 	 */
 	public boolean deleteMasterData(String tableName) {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		isDelete = sqLiteDatabase.delete(tableName, null, null) ;
 		//Log.d(TAG, "Delete all data in " + tableName);
 		if(isDelete > 0){

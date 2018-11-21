@@ -107,6 +107,13 @@ public class StartActivity extends BaseActivity {
 		if(getIntent().getBundleExtra(ActivityConstant.RECEIVE_PUSH_SUBSCRIPTION_ID) != null){
 			subscriptionId = getIntent().getStringExtra(ActivityConstant.RECEIVE_PUSH_SUBSCRIPTION_ID);
 		}
+
+		//LogUtils.e("NMBSApplication", "NMBSApplication::::" + NMBSApplication.getInstance().getApplicationContext());
+		//LogUtils.e("NMBSApplication", "NMBSApplication::::" + NMBSApplication.getContext());
+
+		//LogUtils.e("NMBSApplication", "NMBSApplication::::" + NMBSApplication.getInstance());
+
+
 		/*Uri uri = getIntent().getData();
 		String screen = "";
 		if(uri != null){

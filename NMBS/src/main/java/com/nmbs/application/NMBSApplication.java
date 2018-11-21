@@ -260,6 +260,10 @@ public class NMBSApplication extends MultiDexApplication {
 		cal.set(Calendar.MINUTE, 30);
 		cal.set(Calendar.SECOND, 00);
 		cal.set(Calendar.MILLISECOND, 00);
+		/*Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY));
+		cal.set(Calendar.MINUTE, cal.get(Calendar.MINUTE));
+		cal.set(Calendar.SECOND, cal.get(Calendar.SECOND));*/
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		LogUtils.d("setAlarmCheckOptions", sdf.format(cal.getTime()));
 
@@ -359,7 +363,7 @@ public class NMBSApplication extends MultiDexApplication {
 			PendingIntent sender = PendingIntent.getBroadcast(NMBSApplication.getInstance(), RequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 			AlarmManager am = (AlarmManager) NMBSApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
-			am.cancel(sender);
+			//am.cancel(sender);
 
 			am.setRepeating(AlarmManager.RTC, calUpDte.getTimeInMillis(), AlarmManager.INTERVAL_DAY, sender);
 			//android.util.Log.e("UpToDate", "getNextAlarmClock::::" + am.getNextAlarmClock());
@@ -490,7 +494,10 @@ public class NMBSApplication extends MultiDexApplication {
 	 * Constructor.
 	 */
 	public NMBSApplication() {
+		//LogUtils.e("NMBSApplication", "this::::" + this);
+
 		instance = this;
+		//LogUtils.e("NMBSApplication", "this::::" + NMBSApplication.getInstance().getApplicationContext());
 	}
 
 	/**

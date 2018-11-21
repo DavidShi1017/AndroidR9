@@ -1,11 +1,13 @@
 package com.nmbs.dataaccess.database;
 
 
+import android.app.NativeActivity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierTravelSegment;
 import com.nmbs.model.LocalNotification;
@@ -34,7 +36,7 @@ public class TravelSegmentDatabaseService {
     private DatabaseHelper dbHelper;
 
     public TravelSegmentDatabaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);  
+        dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }
 
@@ -42,6 +44,9 @@ public class TravelSegmentDatabaseService {
 		if (travelSegment != null ) {
 			LogUtils.d(TAG, "Insert a travelSegment for notification....." + travelSegment.getDepartureDateTime());
 			ContentValues contentValues = new ContentValues();
+			if(sqLiteDatabase == null){
+				return false;
+			}
 			sqLiteDatabase.beginTransaction();
 			try{
 				String cancelFlag = "1";
@@ -66,6 +71,9 @@ public class TravelSegmentDatabaseService {
 	public List<LocalNotification> getAllTravelSegment() {
 		LocalNotification localNotification = null;
 		List<LocalNotification> localNotifications = new ArrayList<LocalNotification>();
+		if(sqLiteDatabase == null){
+			return localNotifications;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_Dossier_TravelSegment, null, null, null, null, null, null);
 		int cursorNum = cursor.getCount();
 		for (int i = 0; i < cursorNum; i++) {
@@ -81,6 +89,9 @@ public class TravelSegmentDatabaseService {
 	}
 
 	public boolean deleteTravelSegment(DossierTravelSegment dossierTravelSegment){
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if(dossierTravelSegment != null){
 			LogUtils.e(TAG, "Refresh dossier logic.........deleteTravelSegment.........Date is...." + DateUtils.dateTimeToString(dossierTravelSegment.getDepartureDateTime()));
 			sqLiteDatabase.beginTransaction();
@@ -106,6 +117,9 @@ public class TravelSegmentDatabaseService {
 
 	public LocalNotification queryTravelSegmentByDate(Context context, String date){
 		LocalNotification localNotification = null;
+		if(sqLiteDatabase == null){
+			return localNotification;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_Dossier_TravelSegment, null, DB_Dossier_TravelSegment_Date+"='"+date+"'", null, null, null, null);
 		int cursorNum = cursor.getCount();
 		for (int i = 0; i < cursorNum; i++) {
@@ -120,6 +134,9 @@ public class TravelSegmentDatabaseService {
 	}
 
 	public boolean updateTravelSegmentByDate(Context context, String date,boolean isCancel){
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		sqLiteDatabase.beginTransaction();
 		String cancelFlag = "1";
 		if(isCancel){
