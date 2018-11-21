@@ -127,7 +127,7 @@ public class MyTicketsActivity extends BaseActivity implements MyTicketsDnrRefer
 
     }
 
-    private void bindAllViewElements(){
+    private void initView(){
         this.dnrList = (LinearLayout)findViewById(R.id.ll_my_tickets_dnr_list);
         tvActive = (TextView) findViewById(R.id.tv_active);
         tvInActive = (TextView) findViewById(R.id.tv_inactive);
@@ -135,13 +135,18 @@ public class MyTicketsActivity extends BaseActivity implements MyTicketsDnrRefer
         llTicketRefresh = (LinearLayout) findViewById(R.id.ll_my_tickets_refresh_and_view_layout);
         llTicketMigrating = (LinearLayout) findViewById(R.id.ll_mytickey_migrating);
         llAotoRetrieval = (LinearLayout) findViewById(R.id.ll_mytickey_auto_retrieval);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (LinearLayout) findViewById(R.id.ll_left_menus);
+    }
+
+    private void bindAllViewElements(){
+        initView();
         if (AutoRetrievalDossiersTask.isWorking){
             llAotoRetrieval.setVisibility(View.VISIBLE);
         }else{
             llAotoRetrieval.setVisibility(View.GONE);
         }
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (LinearLayout) findViewById(R.id.ll_left_menus);
+
     }
 
     private void bindAllListeners(){
@@ -423,7 +428,7 @@ public class MyTicketsActivity extends BaseActivity implements MyTicketsDnrRefer
 
     @Override
     protected void onResume() {
-
+        initView();
         if(UploadDossierAsyncTask.isUploading){
             showWaitDialog();
         }

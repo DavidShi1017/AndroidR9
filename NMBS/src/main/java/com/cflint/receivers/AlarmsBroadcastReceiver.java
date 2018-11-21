@@ -22,21 +22,26 @@ public class AlarmsBroadcastReceiver extends BroadcastReceiver {
 	public AlarmsBroadcastReceiver() {
 	}
 
-	@Override
-	public void onReceive(Context context, Intent intent) {
+	public void onReceive(final Context context, Intent intent) {
 		try {
 			Bundle bundle = intent.getExtras();
 			int e_requestCode = bundle.getInt("RequestCode");
 			if (e_requestCode == NMBSApplication.REQUESTCODE_MATERIAL_SYNC) {
-				GeneralSetting generalSetting = NMBSApplication.getInstance().getMasterService().loadGeneralSetting();
-				String dossierAftersalesLifetime = String.valueOf(generalSetting.getDossierAftersalesLifetime());
-				List<Order> listOrders = NMBSApplication.getInstance().getAssistantService().searchOrders(0, dossierAftersalesLifetime);
-				if(listOrders != null && listOrders.size() > 0){
-					MigrateDossierAsyncTask asyncTask = new MigrateDossierAsyncTask( null, NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey(),
-							context, listOrders);
-					asyncTask.execute((Void) null);
-					//Log.i(TAG, "MigrateDossierAsyncTask execute...");
-				}
+				new Thread() {
+					public void run() {
+						GeneralSetting generalSetting = NMBSApplication.getInstance().getMasterService().loadGeneralSetting();
+						String dossierAftersalesLifetime = String.valueOf(generalSetting.getDossierAftersalesLifetime());
+						List<Order> listOrders = NMBSApplication.getInstance().getAssistantService().searchOrders(0, dossierAftersalesLifetime);
+						if(listOrders != null && listOrders.size() > 0){
+							MigrateDossierAsyncTask asyncTask = new MigrateDossierAsyncTask( null, NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey(),
+									context, listOrders);
+							asyncTask.execute((Void) null);
+							//Log.i(TAG, "MigrateDossierAsyncTask execute...");
+						}
+					}
+				}.start();
+
+
 				//Log.i(TAG, "AlarmsBroadcast Receivered...");
 			}
 		} catch (Exception e) {

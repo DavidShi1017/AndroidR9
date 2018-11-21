@@ -681,7 +681,7 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 							if(isGoto){
 								if(generalSetting != null && generalSetting.getBookingUrl() != null && !generalSetting.getBookingUrl().isEmpty()){
 									//Utils.openProwser(SettingsActivity.this, generalSetting.getBookingUrl(), clickToCallService);
-									if(NetworkUtils.isOnline(getApplicationContext())) {
+									if(NetworkUtils.isOnline(LoginActivity.this)) {
 										GoogleAnalyticsUtil.getInstance().sendScreen(LoginActivity.this, TrackerConstant.BOOKING);
 										startActivity(WebViewActivity.createIntent(getApplicationContext(),
 												Utils.getUrl(generalSetting.getBookingUrl()), WebViewActivity.BOOKING_FLOW, ""));
@@ -711,7 +711,7 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 							if(isGoto){
 								if(generalSetting != null && generalSetting.getLffUrl()!= null && !generalSetting.getLffUrl().isEmpty()){
 									//Utils.openProwser(SettingsActivity.this, generalSetting.getLffUrl(), clickToCallService);
-									if(NetworkUtils.isOnline(getApplicationContext())) {
+									if(NetworkUtils.isOnline(LoginActivity.this)) {
 										GoogleAnalyticsUtil.getInstance().sendScreen(LoginActivity.this, TrackerConstant.LLF);
 										startActivity(WebViewActivity.createIntent(LoginActivity.this,
 												Utils.getUrl(generalSetting.getLffUrl()), WebViewActivity.BOOKING_FLOW, ""));

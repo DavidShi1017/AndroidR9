@@ -337,7 +337,7 @@ public class DossierDetailActivity extends BaseActivity {
         }
     }
 
-    private void bindAllViewElements(){
+    private void initView(){
         tvDossierError = (TextView) findViewById(R.id.tv_dossier_error);
         tvDossierFullfilmentFailed = (TextView) findViewById(R.id.tv_dossier_fullfilment_failed);
         tvDossierInprogres = (TextView) findViewById(R.id.tv_dossier_inprogress);
@@ -360,7 +360,7 @@ public class DossierDetailActivity extends BaseActivity {
         tvPickupStation = (TextView) findViewById(R.id.tv_pickup_station_value);
         tvAttention = (TextView) findViewById(R.id.tv_attention);
         ivBookingInfoExpand = (ImageView) findViewById(R.id.iv_bookinginfo_expand_action);
-        initBookingInfoView();
+
         //Tickets part
         rlTickets = (RelativeLayout)findViewById(R.id.rl_dossier_detail_tickets);
         ivTicketsExpand = (ImageView) findViewById(R.id.iv_tickets_expand_action);
@@ -369,15 +369,6 @@ public class DossierDetailActivity extends BaseActivity {
         tvTicketsIntroduction = (TextView) findViewById(R.id.tv_tickets_introduction);
 
         btnPdf = (Button)findViewById(R.id.btn_pdf);
-        initTicketsView();
-        //Connection part
-        llDossierConnectionsInfo = (LinearLayout)findViewById(R.id.ll_dossier_detail_connection);
-        llDossierConnections = (LinearLayout)findViewById(R.id.ll_dossier_connections);
-        rlConnections = (RelativeLayout)findViewById(R.id.rl_dossier_detail_connections);
-        ivConnectionExpand = (ImageView) findViewById(R.id.iv_dossier_detail_connections_expand_action);
-        initConnectionView();
-        /*LinearLayout root = (LinearLayout)findViewById(R.id.root);
-        root.setVisibility(View.GONE);*/
 
         rlStationifo = (RelativeLayout)findViewById(R.id.rl_stationifo);
         ivStationInfoExpand = (ImageView) findViewById(R.id.iv_dossier_detail_stationinfo_expand_action);
@@ -393,19 +384,24 @@ public class DossierDetailActivity extends BaseActivity {
         btnRealTime = (Button)findViewById(R.id.btn_realtime);
         llDossierFooter = (LinearLayout)findViewById(R.id.ll_dossier_footer);
 
-        ivCall = findViewById(R.id.iv_call);
-        if(FunctionConfig.kFunClickToCall){
-            ivCall.setVisibility(View.VISIBLE);
-        }else {
-            ivCall.setVisibility(View.INVISIBLE);
-        }
+    }
 
-        btnCancelChange = findViewById(R.id.btn_cancel_change);
-        if(FunctionConfig.kFunAftersales){
-            btnCancelChange.setVisibility(View.VISIBLE);
-        }else {
-            btnCancelChange.setVisibility(View.GONE);
-        }
+    private void bindAllViewElements(){
+        initView();
+
+        initBookingInfoView();
+
+        initTicketsView();
+        //Connection part
+        llDossierConnectionsInfo = (LinearLayout)findViewById(R.id.ll_dossier_detail_connection);
+        llDossierConnections = (LinearLayout)findViewById(R.id.ll_dossier_connections);
+        rlConnections = (RelativeLayout)findViewById(R.id.rl_dossier_detail_connections);
+        ivConnectionExpand = (ImageView) findViewById(R.id.iv_dossier_detail_connections_expand_action);
+        initConnectionView();
+        /*LinearLayout root = (LinearLayout)findViewById(R.id.root);
+        root.setVisibility(View.GONE);*/
+
+
         initStationInfoView();
     }
 
@@ -821,7 +817,7 @@ public class DossierDetailActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        initView();
         if(RefreshDossierAsyncTask.isRefreshing){
             showWaitDialog();
         }

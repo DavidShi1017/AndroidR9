@@ -30,9 +30,14 @@ public class AlarmsRefreshDossierBroadcastReceiver extends BroadcastReceiver {
 			Bundle bundle = intent.getExtras();
 			int e_requestCode = bundle.getInt("RequestCode");
 			if (e_requestCode == NMBSApplication.REQUESTCODE_REFRESH) {
-				if(NMBSApplication.getInstance().getLoginService().isLogon() && !AutoRetrievalDossiersTask.isWorking){
-					NMBSApplication.getInstance().getDossierDetailsService().autoRetrievalDossiers();
-				}
+				new Thread() {
+					public void run() {
+						if(NMBSApplication.getInstance().getLoginService().isLogon() && !AutoRetrievalDossiersTask.isWorking){
+							NMBSApplication.getInstance().getDossierDetailsService().autoRetrievalDossiers();
+						}
+					}
+				}.start();
+
 				LogUtils.i(TAG, "AlarmsRefreshDossierBroadcastReceiver Receivered...");
 			}
 		} catch (Exception e) {

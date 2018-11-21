@@ -221,6 +221,7 @@ public class DossierConnectionDetailActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		//Log.d(TAG, "onResume");
+		bindAllViewElement();
 		super.onResume();
 	}
 

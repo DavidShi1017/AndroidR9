@@ -162,6 +162,7 @@ public class AlertDeleteDnrActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		//Log.d(TAG, "onResume");
+		bindView();
 		createSubScriptionReceiver();
 		initData();
 		super.onResume();

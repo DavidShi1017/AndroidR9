@@ -494,23 +494,68 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		}
 	}
 
-	private void bindAllViewElements() {
+	private void initView(){
 		this.viewPager = (ViewPager)findViewById(R.id.vf_ticket_detail_view_pager);
 
-        llHomeContent = (LinearLayout) findViewById(R.id.ll_home_content);
-        Drawable drawable = new BitmapDrawable(getResources(), ImageUtil.compressImage(getApplicationContext(), R.drawable.ic_home_background));
-        llHomeContent.setBackground(drawable);
-
-        pbMessages = (ProgressBar) findViewById(R.id.pb_messages);
+		llHomeContent = (LinearLayout) findViewById(R.id.ll_home_content);
+		pbMessages = (ProgressBar) findViewById(R.id.pb_messages);
 		pbAlert = (ProgressBar) findViewById(R.id.pb_alert);
 		pbTickets = (ProgressBar) findViewById(R.id.pb_tickets);
 
-        tvMessageCount = (TextView) findViewById(R.id.tv_message_count);
+		tvMessageCount = (TextView) findViewById(R.id.tv_message_count);
 		llRating = (LinearLayout) findViewById(R.id.ll_rating);
 		tvRatingInfo = (TextView) findViewById(R.id.tv_rating_info);
 		tvAlertCount = (TextView) findViewById(R.id.tv_alert_subscription_count);
 		btnNo = (Button) findViewById(R.id.btn_no);
 		btnYes = (Button) findViewById(R.id.btn_yes);
+		rlDossier = (RelativeLayout) findViewById(R.id.rl_dossier);
+		tvTicketCount = (TextView) findViewById(R.id.tv_ticket_count);
+		llHomeDossier = (LinearLayout) findViewById(R.id.ll_home_dossier);
+		llMigrateDossier = (LinearLayout) findViewById(R.id.ll_migrate_dossier);
+		llMigratingDossier = (LinearLayout) findViewById(R.id.ll_migrating_dossier);
+		btnRefresh = (Button) findViewById(R.id.btn_refresh);
+		tvNationalApp = (TextView) findViewById(R.id.tv_national_app);
+
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerList = (LinearLayout) findViewById(R.id.ll_left_menus);
+
+
+
+		ivLogout = (ImageView) findViewById(R.id.iv_logout);
+		llLogin = (LinearLayout) findViewById(R.id.ll_login);
+
+		tvTitle = (TextView) findViewById(R.id.tv_title);
+		tvMenuLogin = (TextView) findViewById(R.id.tv_menu_login);
+		rlMyOption = (RelativeLayout) findViewById(R.id.rl_my_option);
+
+		llMask = (LinearLayout) findViewById(R.id.ll_mask);
+		tvMenuLogon = (TextView) findViewById(R.id.tv_menu_logon);
+		rlMenuMyOption = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_myoptions);
+		rlMainMenuLogin = (RelativeLayout) findViewById(R.id.rl_main_menu_login);
+
+		rlAlerts = (RelativeLayout) findViewById(R.id.rl_alerts);
+
+		tvOptionCount = (TextView) findViewById(R.id.tv_option_count);
+		pbOption = (ProgressBar) findViewById(R.id.pb_option);
+
+		rlBook = (RelativeLayout) findViewById(R.id.rl_book);
+
+		rlLowestFares = (RelativeLayout) findViewById(R.id.rl_lowestFares);
+		rlMyTickets = (RelativeLayout) findViewById(R.id.rl_mytickets);
+		rlUploadTickets = (RelativeLayout) findViewById(R.id.rl_uploadtickets);
+		rlMainMenuMessage = (RelativeLayout) findViewById(R.id.rl_main_menu_message);
+		rlMainMenuAbout = (RelativeLayout) findViewById(R.id.rl_main_menu_about);
+		rlMainMenuStationboard = (RelativeLayout) findViewById(R.id.rl_main_menu_stationboard);
+		rlMainMenuSchedules = (RelativeLayout) findViewById(R.id.rl_main_menu_schedules);
+		rlMainMenuStations = (RelativeLayout) findViewById(R.id.rl_main_menu_stations);
+	}
+
+	private void bindAllViewElements() {
+		initView();
+        Drawable drawable = new BitmapDrawable(getResources(), ImageUtil.compressImage(getApplicationContext(), R.drawable.ic_home_background));
+        llHomeContent.setBackground(drawable);
+
+
         if (!MobileMessageAsyncTask.isMessageFinished) {
             pbMessages.setVisibility(View.VISIBLE);
             tvMessageCount.setVisibility(View.GONE);
@@ -529,29 +574,19 @@ public class MainActivity extends BaseActivity implements RatingListener {
 			showAlertCount();
 		}
 
-		rlDossier = (RelativeLayout) findViewById(R.id.rl_dossier);
-		tvTicketCount = (TextView) findViewById(R.id.tv_ticket_count);
-		llHomeDossier = (LinearLayout) findViewById(R.id.ll_home_dossier);
-		llMigrateDossier = (LinearLayout) findViewById(R.id.ll_migrate_dossier);
-		llMigratingDossier = (LinearLayout) findViewById(R.id.ll_migrating_dossier);
-		btnRefresh = (Button) findViewById(R.id.btn_refresh);
-		tvNationalApp = (TextView) findViewById(R.id.tv_national_app);
 
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mDrawerList = (LinearLayout) findViewById(R.id.ll_left_menus);
 
 		if(!DeviceUtil.isTabletDevice(this.getApplicationContext())){
 			//setRlView();
 		}
 
-		ivLogin = (ImageView) findViewById(R.id.iv_login);
+
 		if(FunctionConfig.kFunMyProfile){
 			ivLogin.setVisibility(View.VISIBLE);
 		}else {
 			ivLogin.setVisibility(View.GONE);
 		}
-		ivLogout = (ImageView) findViewById(R.id.iv_logout);
-		llLogin = (LinearLayout) findViewById(R.id.ll_login);
+
 
 		if(FunctionConfig.kFunMyProfile){
 			llLogin.setVisibility(View.VISIBLE);
@@ -559,30 +594,24 @@ public class MainActivity extends BaseActivity implements RatingListener {
 			llLogin.setVisibility(View.GONE);
 		}
 
-		tvTitle = (TextView) findViewById(R.id.tv_title);
-		tvMenuLogin = (TextView) findViewById(R.id.tv_menu_login);
-		rlMyOption = (RelativeLayout) findViewById(R.id.rl_my_option);
+
 		if(FunctionConfig.kFunMyProfile){
 			rlMyOption.setVisibility(View.VISIBLE);
 		}else {
 			rlMyOption.setVisibility(View.INVISIBLE);
 		}
-		llMask = (LinearLayout) findViewById(R.id.ll_mask);
-		tvMenuLogon = (TextView) findViewById(R.id.tv_menu_logon);
-		rlMenuMyOption = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_myoptions);
-		rlMainMenuLogin = (RelativeLayout) findViewById(R.id.rl_main_menu_login);
+
 		if(FunctionConfig.kFunMyProfile){
 			rlMainMenuLogin.setVisibility(View.VISIBLE);
 		}else {
 			rlMainMenuLogin.setVisibility(View.GONE);
 		}
-		tvOptionCount = (TextView) findViewById(R.id.tv_option_count);
-		pbOption = (ProgressBar) findViewById(R.id.pb_option);
+
 
 		//if(!CheckOptionAsyncTask.isChecking){
 			showOptionCount();
 		//}
-		rlAlerts = (RelativeLayout) findViewById(R.id.rl_alerts);
+
 
 		if(FunctionConfig.kFunManagePush){
 			rlAlerts.setVisibility(View.VISIBLE);
@@ -590,7 +619,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 			rlAlerts.setVisibility(View.GONE);
 		}
 
-		rlBook = (RelativeLayout) findViewById(R.id.rl_book);
+
 		if(FunctionConfig.kFunBookingEntry){
 			rlBook.setVisibility(View.VISIBLE);
 			if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting() != null
@@ -604,20 +633,20 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		}else {
 			rlBook.setVisibility(View.GONE);
 		}
-		rlLowestFares = (RelativeLayout) findViewById(R.id.rl_lowestFares);
+
 		if(FunctionConfig.kFunLFFEntry){
 			rlLowestFares.setVisibility(View.VISIBLE);
 		}else {
 			rlLowestFares.setVisibility(View.GONE);
 		}
-		rlMyTickets = (RelativeLayout) findViewById(R.id.rl_mytickets);
+
 		if(FunctionConfig.kFunMyTickets){
 			rlMyTickets.setVisibility(View.VISIBLE);
 		}else {
 			rlMyTickets.setVisibility(View.GONE);
 		}
 
-		rlUploadTickets = (RelativeLayout) findViewById(R.id.rl_uploadtickets);
+
 		if(FunctionConfig.kFunUploadDNR){
 			rlUploadTickets.setVisibility(View.VISIBLE);
 		}else {
@@ -625,33 +654,33 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		}
 
 
-		rlMainMenuMessage = (RelativeLayout) findViewById(R.id.rl_main_menu_message);
+
 		if(FunctionConfig.kFunMobileMessage){
 			rlMainMenuMessage.setVisibility(View.VISIBLE);
 		}else {
 			rlMainMenuMessage.setVisibility(View.GONE);
 		}
-		rlMainMenuAbout = (RelativeLayout) findViewById(R.id.rl_main_menu_about);
+
 		if(FunctionConfig.kFunAboutThisApp){
 			rlMainMenuAbout.setVisibility(View.VISIBLE);
 		}else {
 			rlMainMenuAbout.setVisibility(View.GONE);
 		}
-		rlMainMenuStationboard = (RelativeLayout) findViewById(R.id.rl_main_menu_stationboard);
+
 		if(FunctionConfig.kFunStationboard){
 			rlMainMenuStationboard.setVisibility(View.VISIBLE);
 		}else {
 			rlMainMenuStationboard.setVisibility(View.GONE);
 		}
 
-		rlMainMenuSchedules = (RelativeLayout) findViewById(R.id.rl_main_menu_schedules);
+
 		if(FunctionConfig.kFunSchedule){
 			rlMainMenuSchedules.setVisibility(View.VISIBLE);
 		}else {
 			rlMainMenuSchedules.setVisibility(View.GONE);
 		}
 
-		rlMainMenuStations = (RelativeLayout) findViewById(R.id.rl_main_menu_stations);
+
 		if(FunctionConfig.kFunStationInfo){
 			rlMainMenuStations.setVisibility(View.VISIBLE);
 		}else {
@@ -1445,6 +1474,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		// showWaitDialog();
 		super.onResume();
 		//LogUtils.d(TAG, "onResume...");
+		initView();
 		DossiersUpToDateService.stop = true;
 		if(this.isTraceFacebook){
 			AppEventsLogger.activateApp(this);

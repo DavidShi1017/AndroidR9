@@ -123,7 +123,7 @@ public class CallCenterActivity extends BaseActivity {
 		initData();
 	}
 
-	private void bindAllViewElements() {
+	private void initView(){
 		phoneNumberTextView = (TextView) findViewById(R.id.et_call_center_phoneNumber);
 		this.intButton = (Button) findViewById(R.id.btn_call_center_int);
 		this.belgiumButton = (Button) findViewById(R.id.btn_call_center_belgium);
@@ -139,6 +139,16 @@ public class CallCenterActivity extends BaseActivity {
 		this.tvDnr = (TextView) findViewById(R.id.tv_dnr);
 		this.introTextView = (TextView) findViewById(R.id.tv_call_center_intro);
 		this.guidTextView = (TextView) findViewById(R.id.tv_call_center_guid);
+		this.vLine = findViewById(R.id.v_line);
+		this.llPhoneNumber = (LinearLayout) findViewById(R.id.ll_call_center_phone_number_edit);
+		this.tvNumberError = (TextView) findViewById(R.id.tv_number_error);
+
+		this.tvOnlineAftersalesIntroduction = (TextView) findViewById(R.id.tv_online_aftersales_introduction);
+
+	}
+
+	private void bindAllViewElements() {
+		initView();
 		if (switchCompatView.isChecked()) {
 			switchCompatView.setChecked(false);
 			phoneNumberLayout.setVisibility(View.GONE);
@@ -146,11 +156,6 @@ public class CallCenterActivity extends BaseActivity {
 			switchCompatView.setChecked(true);
 			phoneNumberLayout.setVisibility(View.VISIBLE);
 		}
-		this.vLine = findViewById(R.id.v_line);
-		this.llPhoneNumber = (LinearLayout) findViewById(R.id.ll_call_center_phone_number_edit);
-		this.tvNumberError = (TextView) findViewById(R.id.tv_number_error);
-
-		this.tvOnlineAftersalesIntroduction = (TextView) findViewById(R.id.tv_online_aftersales_introduction);
 
 		String onlineAftersales = getResources().getString(R.string.aftersales_introduction_boldtext);
 		String onlineAftersalesIntroduction = getResources().getString(R.string.aftersales_introduction_boldtext) + " " + getResources().getString(R.string.aftersales_introduction_line2);
@@ -159,6 +164,11 @@ public class CallCenterActivity extends BaseActivity {
 		SpannableStringBuilder builder = new SpannableStringBuilder(onlineAftersalesIntroduction);
 		builder.setSpan(new StyleSpan(Typeface.BOLD), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 		tvOnlineAftersalesIntroduction.setText(builder);
+	}
+	@Override
+	protected void onResume() {
+		initView();
+		super.onResume();
 	}
 
 	public void back(View view) {
@@ -420,7 +430,7 @@ public class CallCenterActivity extends BaseActivity {
 										   @NonNull String[] permissions, @NonNull int[] grantResults) {
 		switch (requestCode) {
 			case REQUEST_CODE_ASK_PERMISSIONS:
-				if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+				if (permissions.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
 					Toast.makeText(CallCenterActivity.this, "READ_PHONE_STATE Denied", Toast.LENGTH_SHORT)
 							.show();
 				} else {
@@ -671,8 +681,10 @@ public class CallCenterActivity extends BaseActivity {
 						if(flow == WebViewActivity.EXCHANGE_FLOW){
 							title = getApplicationContext().getString(R.string.aftersales_exchange_unavailable);
 						}
-						dialogError = new DialogAlertError(CallCenterActivity.this, title, getApplicationContext().getString(R.string.aftersales_unavailable_generalinfo));
-						dialogError.show();
+						if(!isFinishing()){
+							dialogError = new DialogAlertError(CallCenterActivity.this, title, getApplicationContext().getString(R.string.aftersales_unavailable_generalinfo));
+							dialogError.show();
+						}
 					}
 				});
 				e.printStackTrace();

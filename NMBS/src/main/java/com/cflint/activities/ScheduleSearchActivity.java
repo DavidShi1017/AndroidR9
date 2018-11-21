@@ -240,6 +240,7 @@ public class ScheduleSearchActivity extends BaseActivity {
 	protected void onResume() {
 		//Log.d(TAG, "onResume");
 		super.onResume();
+		bindAllViewElements();
 		if(fromCode != null && !fromCode.isEmpty() && toCode != null && !toCode.isEmpty()){
 			//ivReverse.setClickable(true);
 			ivReverse.setImageResource(R.drawable.ic_change);
