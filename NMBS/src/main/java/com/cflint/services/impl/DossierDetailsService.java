@@ -1036,4 +1036,18 @@ public class DossierDetailsService {
         AutoRetrievalDossiersTask task = new AutoRetrievalDossiersTask(context, customerId, hash, getDossiers());
         task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
+
+    public String getConditionsName(){
+        String assetName = "touring_conditions_en";
+        if (SettingService.LANGUAGE_EN.contains(NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey())) {
+            assetName = "touring_conditions_en";
+        }else if(SettingService.LANGUAGE_FR.contains(NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey())){
+            assetName = "touring_conditions_fr";
+        }else if(SettingService.LANGUAGE_NL.contains(NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey())){
+            assetName = "touring_conditions_nl";
+        }else if(SettingService.LANGUAGE_DE.contains(NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey())){
+            assetName = "touring_conditions_de";
+        }
+        return assetName;
+    }
 }

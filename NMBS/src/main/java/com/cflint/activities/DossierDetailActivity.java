@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -578,7 +579,8 @@ public class DossierDetailActivity extends BaseActivity {
                 String fileName = Utils.sha1(pdf) + ".pdf";
                 File file = FileManager.getInstance().getExternalStoragePrivateFile(getApplicationContext(), "GeneralSetting", fileName);
                 if (file.exists()) {
-                    Uri path = Uri.fromFile(file);
+                    startActivity(PDFViewActivity.createIntent(getApplicationContext(), file, "", ActivityInfo.SCREEN_ORIENTATION_PORTRAIT));
+                   /* Uri path = Uri.fromFile(file);
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setDataAndType(path, "application/pdf");
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -586,9 +588,11 @@ public class DossierDetailActivity extends BaseActivity {
                         startActivity(intent);
                     } catch (ActivityNotFoundException e) {
                         //Log.e(TAG, "ActivityNotFoundException, Open PDF Failed", e);
-                    }
+                    }*/
                 } else {
-                    Uri path = Uri.fromFile(new File("file:///android_asset/TermsAndConditions_NL.htm"));
+                    String assetName = dossierDetailsService.getConditionsName();
+                    startActivity(PDFViewActivity.createIntent(getApplicationContext(), null, assetName, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT));
+                    /*Uri path = Uri.fromFile(new File("file:///android_asset/TermsAndConditions_NL.htm"));
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setDataAndType(path, "application/pdf");
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -596,7 +600,7 @@ public class DossierDetailActivity extends BaseActivity {
                         startActivity(intent);
                     } catch (ActivityNotFoundException e) {
                         //Log.e(TAG, "ActivityNotFoundException, Open PDF Failed", e);
-                    }
+                    }*/
                 }
             }
         } catch (NoSuchAlgorithmException e) {

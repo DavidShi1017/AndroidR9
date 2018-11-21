@@ -465,7 +465,11 @@ public class Utils {
 			sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
 		}
 
-		return sb.toString();
+		if(sb != null){
+			return sb.toString();
+		}else{
+			return null;
+		}
 	}
 
 	public static String getUrl(String url){

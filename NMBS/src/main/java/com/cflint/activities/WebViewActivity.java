@@ -75,7 +75,7 @@ public class WebViewActivity extends AppCompatActivity {
         flow = getIntent().getIntExtra(Intent_Key_Flow, 3);
         dnr = getIntent().getStringExtra(Intent_Key_Dnr);
         webView = (WebView) findViewById(R.id.webview);
-        webView.getSettings().setBuiltInZoomControls(true);
+        //webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setSupportZoom(true);
         webView.getSettings().setJavaScriptEnabled(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -266,7 +266,9 @@ public class WebViewActivity extends AppCompatActivity {
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 super.onReceivedError(view, errorCode, description, failingUrl);
-                showSimpleDialog();
+                if(!isFinishing()){
+                    showSimpleDialog();
+                }
             }
 
 

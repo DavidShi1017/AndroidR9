@@ -57,7 +57,7 @@ public class WebViewOverlayActivity extends AppCompatActivity {
         url = getIntent().getStringExtra(Intent_Key_Url);
         webView = (WebView) findViewById(R.id.webview);
         tvTitle = (TextView) findViewById(R.id.tv_title);
-        webView.getSettings().setBuiltInZoomControls(true);
+        //webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setSupportZoom(true);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAppCacheEnabled(true);
@@ -189,7 +189,9 @@ public class WebViewOverlayActivity extends AppCompatActivity {
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 super.onReceivedError(view, errorCode, description, failingUrl);
-                showSimpleDialog();
+                if(!isFinishing()){
+                    showSimpleDialog();
+                }
             }
 
         });
