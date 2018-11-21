@@ -1,5 +1,6 @@
 package com.nmbs.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo.State;
@@ -44,13 +45,16 @@ public class NetworkUtils {
 		return NONE;
 	}
 
-	public static boolean isOnline (Context context){
-		if(getNetworkState(context) > 0){
+	public static boolean isOnline (Activity activity){
+		if(getNetworkState(activity) > 0){
 			return true;
 		}else {
-			DialogAlertError dialogError = new DialogAlertError(context, context.getResources().getString(R.string.general_information),
-					context.getResources().getString(R.string.alert_no_network));
-			dialogError.show();
+			if(!activity.isFinishing()){
+				DialogAlertError dialogError = new DialogAlertError(activity, activity.getResources().getString(R.string.general_information),
+						activity.getResources().getString(R.string.alert_no_network));
+				dialogError.show();
+			}
+
 			return false;
 		}
 	}

@@ -230,6 +230,7 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		//Log.d(TAG, "onResume");
+		bindAllViewElement();
 		super.onResume();
 	}
 

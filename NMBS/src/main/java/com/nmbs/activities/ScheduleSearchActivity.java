@@ -238,6 +238,7 @@ public class ScheduleSearchActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		//Log.d(TAG, "onResume");
+		bindAllViewElements();
 		super.onResume();
 		if(fromCode != null && !fromCode.isEmpty() && toCode != null && !toCode.isEmpty()){
 			//ivReverse.setClickable(true);

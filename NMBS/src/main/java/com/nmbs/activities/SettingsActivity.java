@@ -18,6 +18,7 @@ import android.support.v7.widget.SwitchCompat;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -143,7 +144,7 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
         GoogleAnalyticsUtil.getInstance().sendScreen(SettingsActivity.this, TrackerConstant.SETTINGS);
     }
 
-    private void bindAllViewsElement() {
+    private void initView(){
         llEmail = (LinearLayout) findViewById(R.id.ll_email);
         llPhone = (LinearLayout) findViewById(R.id.ll_phone);
 
@@ -165,6 +166,14 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
         tvPersonaldetailDescription = (TextView) findViewById(R.id.tv_personaldetail_description);
         btnDeletePersonal = (Button) findViewById(R.id.btn_delete_personal);
         tvSettingsTravelremindersDescriptio = (TextView) findViewById(R.id.tv_settings_travelreminders_descriptio);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initView();
+    }
+    private void bindAllViewsElement() {
+        initView();
         LinearLayout settingsOptions = findViewById(R.id.settings_options);
         if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting() != null
                 && NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getCommercialTtlListUrl() != null

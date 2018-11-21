@@ -173,7 +173,11 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 		});
 	}
 
-
+	@Override
+	protected void onResume() {
+		initView();
+		super.onResume();
+	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -214,19 +218,27 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 			//updateUI(null);
 		}
 	}
-	private void bindAllViewElements() {
+
+	private void initView(){
 		etEmail = (EditText) findViewById(R.id.et_email);
-		if(emailString == null || emailString.isEmpty()){
-			if(NMBSApplication.getInstance().getLoginService().getLogonInfo() != null){
-				emailString = NMBSApplication.getInstance().getLoginService().getLogonInfo().getEmail();
-			}
-		}
 		etEmail.setText(emailString);
 		etPwd = (EditText) findViewById(R.id.et_pwd);
 		rlEmail = (RelativeLayout) findViewById(R.id.rl_email);
 		rlPwd = (RelativeLayout) findViewById(R.id.rl_pwd);
 
 		tvEmailError = (TextView) findViewById(R.id.tv_email_error);
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerList = (LinearLayout) findViewById(R.id.ll_left_menus);
+	}
+
+	private void bindAllViewElements() {
+		initView();
+		if(emailString == null || emailString.isEmpty()){
+			if(NMBSApplication.getInstance().getLoginService().getLogonInfo() != null){
+				emailString = NMBSApplication.getInstance().getLoginService().getLogonInfo().getEmail();
+			}
+		}
+
 		if(showPwd){
 			//如果选中，显示密码
 			etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
@@ -238,8 +250,7 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 			//showPwd = true;
 			//etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 		}
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mDrawerList = (LinearLayout) findViewById(R.id.ll_left_menus);
+
 	}
 
 	private void bindAllListeners() {
@@ -693,7 +704,7 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 							if(isGoto){
 								if(generalSetting != null && generalSetting.getBookingUrl() != null && !generalSetting.getBookingUrl().isEmpty()){
 									//Utils.openProwser(SettingsActivity.this, generalSetting.getBookingUrl(), clickToCallService);
-									if(NetworkUtils.isOnline(getApplicationContext())) {
+									if(NetworkUtils.isOnline(LoginActivity.this)) {
 										GoogleAnalyticsUtil.getInstance().sendScreen(LoginActivity.this, TrackerConstant.BOOKING);
 										startActivity(WebViewActivity.createIntent(getApplicationContext(),
 												Utils.getUrl(generalSetting.getBookingUrl()), WebViewActivity.BOOKING_FLOW, ""));
@@ -723,7 +734,7 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 							if(isGoto){
 								if(generalSetting != null && generalSetting.getLffUrl()!= null && !generalSetting.getLffUrl().isEmpty()){
 									//Utils.openProwser(SettingsActivity.this, generalSetting.getLffUrl(), clickToCallService);
-									if(NetworkUtils.isOnline(getApplicationContext())) {
+									if(NetworkUtils.isOnline(LoginActivity.this)) {
 										GoogleAnalyticsUtil.getInstance().sendScreen(LoginActivity.this, TrackerConstant.LLF);
 										startActivity(WebViewActivity.createIntent(LoginActivity.this,
 												Utils.getUrl(generalSetting.getLffUrl()), WebViewActivity.BOOKING_FLOW, ""));

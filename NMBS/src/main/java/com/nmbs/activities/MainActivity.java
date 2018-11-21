@@ -498,23 +498,51 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		}
 	}
 
-	private void bindAllViewElements() {
+	private void initView(){
 		this.viewPager = (ViewPager)findViewById(R.id.vf_ticket_detail_view_pager);
-
-        llHomeContent = (LinearLayout) findViewById(R.id.ll_home_content);
-        Drawable drawable = new BitmapDrawable(getResources(), ImageUtil.compressImage(getApplicationContext(), R.drawable.ic_home_background));
-        llHomeContent.setBackground(drawable);
-
-        pbMessages = (ProgressBar) findViewById(R.id.pb_messages);
+		llHomeContent = (LinearLayout) findViewById(R.id.ll_home_content);
+		pbMessages = (ProgressBar) findViewById(R.id.pb_messages);
 		pbAlert = (ProgressBar) findViewById(R.id.pb_alert);
 		pbTickets = (ProgressBar) findViewById(R.id.pb_tickets);
-
-        tvMessageCount = (TextView) findViewById(R.id.tv_message_count);
+		tvMessageCount = (TextView) findViewById(R.id.tv_message_count);
 		llRating = (LinearLayout) findViewById(R.id.ll_rating);
 		tvRatingInfo = (TextView) findViewById(R.id.tv_rating_info);
 		tvAlertCount = (TextView) findViewById(R.id.tv_alert_subscription_count);
 		btnNo = (Button) findViewById(R.id.btn_no);
 		btnYes = (Button) findViewById(R.id.btn_yes);
+		rlDossier = (RelativeLayout) findViewById(R.id.rl_dossier);
+		tvTicketCount = (TextView) findViewById(R.id.tv_ticket_count);
+		llHomeDossier = (LinearLayout) findViewById(R.id.ll_home_dossier);
+		llMigrateDossier = (LinearLayout) findViewById(R.id.ll_migrate_dossier);
+		llMigratingDossier = (LinearLayout) findViewById(R.id.ll_migrating_dossier);
+		btnRefresh = (Button) findViewById(R.id.btn_refresh);
+		tvNationalApp = (TextView) findViewById(R.id.tv_national_app);
+
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerList = (LinearLayout) findViewById(R.id.ll_left_menus);
+		llTrainTickets = (LinearLayout) findViewById(R.id.ll_train_tickets);
+		ivLogin = (ImageView) findViewById(R.id.iv_login);
+		ivLogout = (ImageView) findViewById(R.id.iv_logout);
+		llLogin = (LinearLayout) findViewById(R.id.ll_login);
+		tvTitle = (TextView) findViewById(R.id.tv_title);
+		tvMenuLogin = (TextView) findViewById(R.id.tv_menu_login);
+		rlMyOption = (RelativeLayout) findViewById(R.id.rl_my_option);
+		llMask = (LinearLayout) findViewById(R.id.ll_mask);
+		tvMenuLogon = (TextView) findViewById(R.id.tv_menu_logon);
+		rlMenuMyOption = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_myoptions);
+
+		tvOptionCount = (TextView) findViewById(R.id.tv_option_count);
+		pbOption = (ProgressBar) findViewById(R.id.pb_option);
+		rlManage = findViewById(R.id.rl_manage);
+
+	}
+
+	private void bindAllViewElements() {
+		initView();
+        Drawable drawable = new BitmapDrawable(getResources(), ImageUtil.compressImage(getApplicationContext(), R.drawable.ic_home_background));
+		llHomeContent.setBackground(drawable);
+
+
         if (!MobileMessageAsyncTask.isMessageFinished) {
             pbMessages.setVisibility(View.VISIBLE);
             tvMessageCount.setVisibility(View.GONE);
@@ -533,17 +561,6 @@ public class MainActivity extends BaseActivity implements RatingListener {
 			showAlertCount();
 		}
 
-		rlDossier = (RelativeLayout) findViewById(R.id.rl_dossier);
-		tvTicketCount = (TextView) findViewById(R.id.tv_ticket_count);
-		llHomeDossier = (LinearLayout) findViewById(R.id.ll_home_dossier);
-		llMigrateDossier = (LinearLayout) findViewById(R.id.ll_migrate_dossier);
-		llMigratingDossier = (LinearLayout) findViewById(R.id.ll_migrating_dossier);
-		btnRefresh = (Button) findViewById(R.id.btn_refresh);
-		tvNationalApp = (TextView) findViewById(R.id.tv_national_app);
-
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mDrawerList = (LinearLayout) findViewById(R.id.ll_left_menus);
-		llTrainTickets = (LinearLayout) findViewById(R.id.ll_train_tickets);
 
 		if(!DeviceUtil.isTabletDevice(this.getApplicationContext())){
 			if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting() != null
@@ -557,19 +574,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 			}
 		}
 
-		ivLogin = (ImageView) findViewById(R.id.iv_login);
-		ivLogout = (ImageView) findViewById(R.id.iv_logout);
-		llLogin = (LinearLayout) findViewById(R.id.ll_login);
-		tvTitle = (TextView) findViewById(R.id.tv_title);
-		tvMenuLogin = (TextView) findViewById(R.id.tv_menu_login);
-		rlMyOption = (RelativeLayout) findViewById(R.id.rl_my_option);
-		llMask = (LinearLayout) findViewById(R.id.ll_mask);
-		tvMenuLogon = (TextView) findViewById(R.id.tv_menu_logon);
-		rlMenuMyOption = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_myoptions);
 
-		tvOptionCount = (TextView) findViewById(R.id.tv_option_count);
-		pbOption = (ProgressBar) findViewById(R.id.pb_option);
-		rlManage = findViewById(R.id.rl_manage);
 
 		//if(!CheckOptionAsyncTask.isChecking){
 			showOptionCount();
@@ -1341,6 +1346,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		// showWaitDialog();
 		super.onResume();
 		//LogUtils.d(TAG, "onResume...");
+		initView();
 		DossiersUpToDateService.stop = true;
 		if(this.isTraceFacebook){
 			AppEventsLogger.activateApp(this);

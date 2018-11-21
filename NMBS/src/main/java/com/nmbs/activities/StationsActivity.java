@@ -261,6 +261,7 @@ public class StationsActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		//Log.d(TAG, "onResume");
+		bindAllViewElements();
 		super.onResume();
 	}
 	

@@ -443,6 +443,7 @@ public class AlertActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		//Log.d(TAG, "onResume");
+		bindView();
 		if(GetSubScriptionListAsyncTask.isAlertSubscriptionFinished){
 			subscriptionList = pushService.readAllSubscriptions();
 			calculateSubscriptionList();
