@@ -1,54 +1,54 @@
 {
   "project_info": {
-    "project_number": "390261682744",
-    "firebase_url": "https://b-europe-app.firebaseio.com",
-    "project_id": "b-europe-app",
-    "storage_bucket": "b-europe-app.appspot.com"
+    "project_number": "558190397440",
+    "firebase_url": "https://cfl-international-app.firebaseio.com",
+    "project_id": "cfl-international-app",
+    "storage_bucket": "cfl-international-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:390261682744:android:a58656ad8d0e3a5c",
+        "mobilesdk_app_id": "1:558190397440:android:b9ec3f3306b7d43e",
         "android_client_info": {
           "package_name": "com.nmbs"
         }
       },
       "oauth_client": [
         {
-          "client_id": "390261682744-omu43fien6fmnt8eglbgq3su3mflu3qt.apps.googleusercontent.com",
+          "client_id": "558190397440-qhi1u1mrul9tpeulkk5ceit4ca187vt5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.nmbs",
-            "certificate_hash": "28276b8a6a93cf28df32899826f12746d669331d"
+            "package_name": "com.cflint",
+            "certificate_hash": "abb1e85d7639b1b4bb754ac17019012a01f8e3e7"
           }
         },
         {
-          "client_id": "390261682744-2ejafv794vh8h2nb349ojlci9ds739eh.apps.googleusercontent.com",
+          "client_id": "558190397440-tg9m12a0b8o90n3d5akfpi733o12o038.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBrvBpa3ik6xCcM9usaIGlNR5NFgzAST-k"
+          "current_key": "AIzaSyAGRgdqffnsTl8ZzBaw3Bqv1hSTyUgGfVA"
         }
       ],
       "services": {
-       "analytics_service": {
+        "analytics_service": {
           "status": 1
         },
         "appinvite_service": {
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "390261682744-2ejafv794vh8h2nb349ojlci9ds739eh.apps.googleusercontent.com",
+              "client_id": "558190397440-tg9m12a0b8o90n3d5akfpi733o12o038.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "390261682744-uvnrgmp4do63rr15vtujesi0vfk1v4eo.apps.googleusercontent.com",
+              "client_id": "558190397440-ootn4vfc4fle29evfh8jm3j52vk2bsto.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.b-europe.nmbs",
-                "app_store_id": "577730301"
+                "bundle_id": "com.cflint",
+                "app_store_id": "1438609651"
               }
             }
           ]
