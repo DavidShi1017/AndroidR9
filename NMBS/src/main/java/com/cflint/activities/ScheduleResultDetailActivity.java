@@ -283,8 +283,10 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 					initData();
 				}else{
 					isRefresh = false;
-					dialogError = new DialogAlertError(ScheduleResultDetailActivity.this, getResources().getString(R.string.general_information), getResources().getString(R.string.schedule_set_train_alert_failure_info));
-					dialogError.show();
+					if(!isFinishing()){
+						dialogError = new DialogAlertError(ScheduleResultDetailActivity.this, getResources().getString(R.string.general_information), getResources().getString(R.string.schedule_set_train_alert_failure_info));
+						dialogError.show();
+					}
 				}
 				hideWaitDialog();
 			}
@@ -292,6 +294,9 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 	}
 
 	private void showWaitDialog() {
+		if(isFinishing()){
+			return;
+		}
 		runOnUiThread(new Runnable() {
 			public void run() {
 				if (progressDialog == null) {
@@ -359,8 +364,10 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 					e.printStackTrace();
 				}
 			}else{
-				dialogError = new DialogAlertError(ScheduleResultDetailActivity.this, getResources().getString(R.string.schedule_set_train_alert_failure_title), getResources().getString(R.string.alert_subscription_missingID));
-				dialogError.show();
+				if(!isFinishing()){
+					dialogError = new DialogAlertError(ScheduleResultDetailActivity.this, getResources().getString(R.string.schedule_set_train_alert_failure_title), getResources().getString(R.string.alert_subscription_missingID));
+					dialogError.show();
+				}
 			}
 		}
 	}

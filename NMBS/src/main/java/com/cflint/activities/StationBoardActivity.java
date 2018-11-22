@@ -543,8 +543,11 @@ public class StationBoardActivity extends BaseActivity {
 									startActivity(WebViewActivity.createIntent(getApplicationContext(),
 											Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 								}else{
-									DialogMyOptions dialogMyOptions = new DialogMyOptions(StationBoardActivity.this);
-									dialogMyOptions.show();
+									if(!isFinishing()){
+										DialogMyOptions dialogMyOptions = new DialogMyOptions(StationBoardActivity.this);
+										dialogMyOptions.show();
+									}
+
 								}
 								isGoto = false;
 							}
@@ -555,8 +558,11 @@ public class StationBoardActivity extends BaseActivity {
 				startActivity(WebViewActivity.createIntent(getApplicationContext(),
 						Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 			}else{
-				DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-				dialogMyOptions.show();
+				if(!isFinishing()){
+					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+					dialogMyOptions.show();
+				}
+
 			}
 		}
 

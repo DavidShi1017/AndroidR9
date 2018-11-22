@@ -441,7 +441,10 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 							LogUtils.d("LoginActivity", "logonInfo------state---->" + LoginService.LOGIN_STATE_NOTACTIVATED);
 							DialogErrorLogin dialogAlertError = new DialogErrorLogin(LoginActivity.this, logonInfo.getStateDescription());
 							dialogAlertError.setRefreshCallback(LoginActivity.this);
-							dialogAlertError.show();
+							if(!isFinishing()){
+								dialogAlertError.show();
+							}
+
 						}else if(LoginService.LOGIN_STATE_CUSTOMERBLOCKED.equalsIgnoreCase(logonInfo.getState())){
 							LogUtils.d("LoginActivity", "logonInfo------state---->" + LoginService.LOGIN_STATE_CUSTOMERBLOCKED);
 							showDialogAlertError(logonInfo.getStateDescription());
@@ -511,12 +514,18 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 					String errorMsg = bundle.getString(LoginAsyncTask.Intent_Key_Error);
 					DialogErrorLogin dialogAlertError = new DialogErrorLogin(LoginActivity.this, errorMsg);
 					dialogAlertError.setRefreshCallback(LoginActivity.this);
-					dialogAlertError.show();
+					if(!isFinishing()){
+						dialogAlertError.show();
+					}
+
 					break;
 				case 1:
 					//finish();
-					DialogInfo dialogInfo = new DialogInfo(LoginActivity.this, getResources().getString(R.string.login_popup_resendemail_success));
-					dialogInfo.show();
+					if(!isFinishing()){
+						DialogInfo dialogInfo = new DialogInfo(LoginActivity.this, getResources().getString(R.string.login_popup_resendemail_success));
+						dialogInfo.show();
+					}
+
 					break;
 			}
 		}
@@ -539,14 +548,20 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 					break;
 				case 1:
 					//finish();
-					DialogInfo dialogInfo = new DialogInfo(LoginActivity.this, getResources().getString(R.string.login_popup_forgotpwd_success));
-					dialogInfo.show();
+					if(!isFinishing()){
+						DialogInfo dialogInfo = new DialogInfo(LoginActivity.this, getResources().getString(R.string.login_popup_forgotpwd_success));
+						dialogInfo.show();
+					}
+
 					break;
 			}
 		}
 	};
 	// show progressDialog.
 	private void showWaitDialog() {
+		if(isFinishing()){
+			return;
+		}
 		runOnUiThread(new Runnable() {
 			public void run() {
 				if(progressDialog == null){
@@ -842,8 +857,11 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 									startActivity(WebViewActivity.createIntent(getApplicationContext(),
 											Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 								}else{
-									DialogMyOptions dialogMyOptions = new DialogMyOptions(LoginActivity.this);
-									dialogMyOptions.show();
+									if(!isFinishing()){
+										DialogMyOptions dialogMyOptions = new DialogMyOptions(LoginActivity.this);
+										dialogMyOptions.show();
+									}
+
 								}
 								isGoto = false;
 							}
@@ -854,8 +872,11 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 				startActivity(WebViewActivity.createIntent(getApplicationContext(),
 						Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 			}else{
-				DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-				dialogMyOptions.show();
+				if(!isFinishing()){
+					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+					dialogMyOptions.show();
+				}
+
 			}
 		}
 

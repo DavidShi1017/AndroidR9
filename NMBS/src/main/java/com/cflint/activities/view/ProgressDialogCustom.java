@@ -21,6 +21,9 @@ public class ProgressDialogCustom {
         return instance;
     }
     public void showWaitDialog(final Activity activity) {
+        if(activity.isFinishing()){
+            return;
+        }
         activity.runOnUiThread(new Runnable() {
             public void run() {
                 if (progressDialog == null) {

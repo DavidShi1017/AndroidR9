@@ -464,8 +464,11 @@ public class MyTicketsActivity extends BaseActivity implements RefreshOldDossier
 						getResources().getString(R.string.general_server_unavailable), responseErrorMessage);
 				dialogError.show();
 			}else{
-				DialogSuccessful dialog = new DialogSuccessful(MyTicketsActivity.this, MyTicketsActivity.this);
-				dialog.show();
+				if(!isFinishing()){
+					DialogSuccessful dialog = new DialogSuccessful(MyTicketsActivity.this, MyTicketsActivity.this);
+					dialog.show();
+				}
+
 			}
 		}
 

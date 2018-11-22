@@ -491,8 +491,11 @@ public class ScheduleResultActivity extends BaseActivity {
 	private void showError(String error){
 		//Log.i(TAG, "showError.... " + error);
 		if(isLaterTrain){
-			DialogAlertError dialogError = new DialogAlertError(this, getResources().getString(R.string.general_information), error);
-			dialogError.show();
+			if(!isFinishing()){
+				DialogAlertError dialogError = new DialogAlertError(this, getResources().getString(R.string.general_information), error);
+				dialogError.show();
+			}
+
 		}else{
 			Intent intent = new Intent();
 			intent.putExtra(Intent_Key_Error, error);

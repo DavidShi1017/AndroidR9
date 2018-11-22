@@ -170,6 +170,9 @@ public class StationInfoActivity extends BaseActivity{
 		return super.onKeyDown(keyCode, event);
 	}
 	private void showWaitDialog() {
+		if(isFinishing()){
+			return;
+		}
 		runOnUiThread(new Runnable() {
 			public void run() {
 				if (progressDialog == null) {
@@ -474,8 +477,11 @@ public class StationInfoActivity extends BaseActivity{
 									startActivity(WebViewActivity.createIntent(getApplicationContext(),
 											Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 								}else{
-									DialogMyOptions dialogMyOptions = new DialogMyOptions(StationInfoActivity.this);
-									dialogMyOptions.show();
+									if(!isFinishing()){
+										DialogMyOptions dialogMyOptions = new DialogMyOptions(StationInfoActivity.this);
+										dialogMyOptions.show();
+									}
+
 								}
 								isGoto = false;
 							}
@@ -486,8 +492,11 @@ public class StationInfoActivity extends BaseActivity{
 				startActivity(WebViewActivity.createIntent(getApplicationContext(),
 						Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 			}else{
-				DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-				dialogMyOptions.show();
+				if(!isFinishing()){
+					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+					dialogMyOptions.show();
+				}
+
 			}
 		}
 

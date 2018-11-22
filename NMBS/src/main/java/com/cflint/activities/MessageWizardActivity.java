@@ -190,7 +190,9 @@ public class MessageWizardActivity extends BaseActivity implements OnGestureList
 			}else{
 				dialogCheckUpdateNotification = new DialogCheckUpdateNotification(MessageWizardActivity.this,MessageWizardActivity.this,checkUpdateService,checkAppUpdate);
 				dialogCheckUpdateNotification.setCanceledOnTouchOutside(false);
-				dialogCheckUpdateNotification.show();
+				if(!isFinishing()){
+					dialogCheckUpdateNotification.show();
+				}
 			}
 		}
 	}

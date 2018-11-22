@@ -410,8 +410,10 @@ public class ScheduleSearchActivity extends BaseActivity {
 				if(data != null){
 					String error = (String) data.getSerializableExtra(ScheduleResultActivity.Intent_Key_Error);
 					//Log.i(TAG, "showError.... " + error);
-					dialogError = new DialogAlertError(ScheduleSearchActivity.this, getResources().getString(R.string.general_information), error);
-					dialogError.show();
+					if(!isFinishing()){
+						dialogError = new DialogAlertError(ScheduleSearchActivity.this, getResources().getString(R.string.general_information), error);
+						dialogError.show();
+					}
 				}
 
 					//setTvDatetime();
@@ -707,8 +709,11 @@ public class ScheduleSearchActivity extends BaseActivity {
 									startActivity(WebViewActivity.createIntent(getApplicationContext(),
 											Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 								}else{
-									DialogMyOptions dialogMyOptions = new DialogMyOptions(ScheduleSearchActivity.this);
-									dialogMyOptions.show();
+									if(!isFinishing()){
+										DialogMyOptions dialogMyOptions = new DialogMyOptions(ScheduleSearchActivity.this);
+										dialogMyOptions.show();
+									}
+
 								}
 								isGoto = false;
 							}
@@ -719,8 +724,11 @@ public class ScheduleSearchActivity extends BaseActivity {
 				startActivity(WebViewActivity.createIntent(getApplicationContext(),
 						Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 			}else{
-				DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-				dialogMyOptions.show();
+				if(!isFinishing()){
+					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+					dialogMyOptions.show();
+				}
+
 			}
 		}
 

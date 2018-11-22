@@ -365,8 +365,11 @@ public class WebViewCreateActivity extends AppCompatActivity {
 
     public void logout(View view){
         //startActivity(LoginActivity.createIntent(MainActivity.this));
-        DialogLogout dialogLogout = new DialogLogout(WebViewCreateActivity.this, TAG);
-        dialogLogout.show();
+        if(!isFinishing()){
+            DialogLogout dialogLogout = new DialogLogout(WebViewCreateActivity.this, TAG);
+            dialogLogout.show();
+        }
+
         //finish();
     }
 
@@ -643,8 +646,11 @@ public class WebViewCreateActivity extends AppCompatActivity {
                                     startActivity(WebViewActivity.createIntent(getApplicationContext(),
                                             Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
                                 }else{
-                                    DialogMyOptions dialogMyOptions = new DialogMyOptions(WebViewCreateActivity.this);
-                                    dialogMyOptions.show();
+                                    if(!isFinishing()){
+                                        DialogMyOptions dialogMyOptions = new DialogMyOptions(WebViewCreateActivity.this);
+                                        dialogMyOptions.show();
+                                    }
+
                                 }
                                 isGoto = false;
                             }
@@ -655,8 +661,10 @@ public class WebViewCreateActivity extends AppCompatActivity {
                 startActivity(WebViewActivity.createIntent(getApplicationContext(),
                         Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
             }else{
-                DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-                dialogMyOptions.show();
+                if(!isFinishing()){
+                    DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+                    dialogMyOptions.show();
+                }
             }
         }
 

@@ -286,8 +286,11 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
     };
 
     public void changePassword(View view) {
-        DialogSettingsPassword dialog = new DialogSettingsPassword(this, this, pwd);
-        dialog.show();
+        if(!isFinishing()){
+            DialogSettingsPassword dialog = new DialogSettingsPassword(this, this, pwd);
+            dialog.show();
+        }
+
     }
 
     public void changeEmail(View view) {
@@ -296,8 +299,10 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
     }
 
     public void showNotifi(View view) {
-        DialogSettingsNotifi dialog = new DialogSettingsNotifi(this, this, selectedStartTime, selectedDelayTime);
-        dialog.show();
+        if(!isFinishing()){
+            DialogSettingsNotifi dialog = new DialogSettingsNotifi(this, this, selectedStartTime, selectedDelayTime);
+            dialog.show();
+        }
     }
 
     public void feedback(View view){
@@ -476,9 +481,11 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
                             if(NMBSApplication.getInstance().getDossierDetailsService().getDossiers() != null
                                     && NMBSApplication.getInstance().getDossierDetailsService().getDossiers().size() > 0){
                                 //Log.d(TAG, "Show DialogChangeLanguageSuccessful:::");
-
                                 DialogChangeLanguageSuccessful dialog = new DialogChangeLanguageSuccessful(SettingsActivity.this);
-                                dialog.show();
+                                if(!isFinishing()){
+                                    dialog.show();
+                                }
+
                                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                                     @Override
                                     public void onDismiss(DialogInterface dialog) {
@@ -623,6 +630,9 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
     }
 
     private void showWaitDialog() {
+        if(isFinishing()){
+            return;
+        }
         runOnUiThread(new Runnable() {
             public void run() {
                 if (progressDialog == null) {
@@ -660,7 +670,9 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
         }else{
             dialogCheckUpdateNotification = new DialogCheckUpdateNotification(SettingsActivity.this,SettingsActivity.this,checkUpdateService,checkAppUpdate);
             dialogCheckUpdateNotification.setCanceledOnTouchOutside(false);
-            dialogCheckUpdateNotification.show();
+            if(!isFinishing()){
+                dialogCheckUpdateNotification.show();
+            }
         }
     }
 
@@ -915,8 +927,11 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
                                     startActivity(WebViewActivity.createIntent(getApplicationContext(),
                                             Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
                                 }else{
-                                    DialogMyOptions dialogMyOptions = new DialogMyOptions(SettingsActivity.this);
-                                    dialogMyOptions.show();
+                                    if(!isFinishing()){
+                                        DialogMyOptions dialogMyOptions = new DialogMyOptions(SettingsActivity.this);
+                                        dialogMyOptions.show();
+                                    }
+
                                 }
                                 isGoto = false;
                             }
@@ -927,8 +942,11 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
                 startActivity(WebViewActivity.createIntent(getApplicationContext(),
                         Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
             }else{
-                DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-                dialogMyOptions.show();
+                if(!isFinishing()){
+                    DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+                    dialogMyOptions.show();
+                }
+
             }
         }
 

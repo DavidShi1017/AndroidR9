@@ -215,6 +215,9 @@ public class MessageActivity extends BaseActivity {
 	}
 	
 	private void showWaitDialog() {
+		if(isFinishing()){
+			return;
+		}
 		runOnUiThread(new Runnable() {
 			public void run() {
 				if (progressDialog == null) {
@@ -525,8 +528,11 @@ public class MessageActivity extends BaseActivity {
 									startActivity(WebViewActivity.createIntent(getApplicationContext(),
 											Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 								}else{
-									DialogMyOptions dialogMyOptions = new DialogMyOptions(MessageActivity.this);
-									dialogMyOptions.show();
+									if(!isFinishing()){
+										DialogMyOptions dialogMyOptions = new DialogMyOptions(MessageActivity.this);
+										dialogMyOptions.show();
+									}
+
 								}
 								isGoto = false;
 							}
@@ -537,8 +543,11 @@ public class MessageActivity extends BaseActivity {
 				startActivity(WebViewActivity.createIntent(getApplicationContext(),
 						Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 			}else{
-				DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-				dialogMyOptions.show();
+				if(!isFinishing()){
+					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+					dialogMyOptions.show();
+				}
+
 			}
 		}
 

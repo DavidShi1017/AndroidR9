@@ -193,11 +193,11 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		if(FunctionConfig.kFunLinkToNationalApp){
 			bindNationalApp();
 		}
-		final Fabric fabric = new Fabric.Builder(this)
+		/*final Fabric fabric = new Fabric.Builder(this)
 				.kits(new Crashlytics())
 				.debuggable(true)  // Enables Crashlytics debugger
 				.build();
-		Fabric.with(fabric);
+		Fabric.with(fabric);*/
 		/*Button crashButton = new Button(this);
 		crashButton.setText("Crash!");
 		crashButton.setOnClickListener(new View.OnClickListener() {
@@ -519,7 +519,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (LinearLayout) findViewById(R.id.ll_left_menus);
 
-
+		ivLogin = (ImageView) findViewById(R.id.iv_login);
 
 		ivLogout = (ImageView) findViewById(R.id.iv_logout);
 		llLogin = (LinearLayout) findViewById(R.id.ll_login);
@@ -934,7 +934,9 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		}else{
 			dialogCheckUpdateNotification = new DialogCheckUpdateNotification(MainActivity.this,MainActivity.this,checkUpdateService,checkAppUpdate);
 			dialogCheckUpdateNotification.setCanceledOnTouchOutside(false);
-			dialogCheckUpdateNotification.show();
+			if(!isFinishing()){
+				dialogCheckUpdateNotification.show();
+			}
 		}
 	}
 
@@ -1574,8 +1576,10 @@ public class MainActivity extends BaseActivity implements RatingListener {
 
 	public void logout(View view){
 		//startActivity(LoginActivity.createIntent(MainActivity.this));
-		DialogLogout dialogLogout = new DialogLogout(MainActivity.this, TAG);
-		dialogLogout.show();
+		if(!isFinishing()){
+			DialogLogout dialogLogout = new DialogLogout(MainActivity.this, TAG);
+			dialogLogout.show();
+		}
 	}
 
 	public void closeLogin	(View view){
@@ -1602,8 +1606,11 @@ public class MainActivity extends BaseActivity implements RatingListener {
 									startActivity(WebViewActivity.createIntent(MainActivity.this,
 											Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 								}else{
-									DialogMyOptions dialogMyOptions = new DialogMyOptions(MainActivity.this);
-									dialogMyOptions.show();
+									if(!isFinishing()){
+										DialogMyOptions dialogMyOptions = new DialogMyOptions(MainActivity.this);
+										dialogMyOptions.show();
+									}
+
 								}
 								isGoto = false;
 							}
@@ -1614,8 +1621,11 @@ public class MainActivity extends BaseActivity implements RatingListener {
 				startActivity(WebViewActivity.createIntent(MainActivity.this,
 						Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
 			}else{
-				DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-				dialogMyOptions.show();
+				if(!isFinishing()){
+					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+					dialogMyOptions.show();
+				}
+
 			}
 		}
 
