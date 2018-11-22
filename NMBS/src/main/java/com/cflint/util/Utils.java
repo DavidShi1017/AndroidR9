@@ -476,34 +476,40 @@ public class Utils {
 		String countryCode = "";
 		String phoneNumber = "";
 
-		boolean isChecked = NMBSApplication.getInstance().getSettingService().is3rdTrack();
-		if(NMBSApplication.getInstance().getLoginService().getLogonInfo() != null){
-			countryCode = "&phoneNumberCountryCode=" + NMBSApplication.getInstance().getLoginService().getLogonInfo().getCode();
-			phoneNumber = "&phoneNumberSubscriberNumber=" + NMBSApplication.getInstance().getLoginService().getLogonInfo().getPhoneNumber();
-		}
-		if(url != null){
-			if(url.contains("?")){
-				url += "&blockSmartAppBanner=true" + countryCode + phoneNumber + "&app=Android&webview=true&thirdPartyCookies=" + String.valueOf(isChecked);
-			}else{
-				url += "?blockSmartAppBanner=true" + countryCode + phoneNumber + "&app=Android&webview=true&thirdPartyCookies=" + String.valueOf(isChecked);
+		try{
+			boolean isChecked = NMBSApplication.getInstance().getSettingService().is3rdTrack();
+			if(NMBSApplication.getInstance().getLoginService().getLogonInfo() != null){
+				countryCode = "&phoneNumberCountryCode=" + NMBSApplication.getInstance().getLoginService().getLogonInfo().getCode();
+				phoneNumber = "&phoneNumberSubscriberNumber=" + NMBSApplication.getInstance().getLoginService().getLogonInfo().getPhoneNumber();
 			}
-		}
-		GeneralSetting generalSetting = NMBSApplication.getInstance().getMasterService().loadGeneralSetting();
-		try {
-			URL uri = new URL(url);
-			String domain = uri.getHost();
-            LogUtils.e(TAG, "domain------>" + domain);
-            LogUtils.e(TAG, "getDomain------>" + generalSetting.getDomain());
-			if(generalSetting != null && generalSetting.getDomain() != null){
-				if(domain.contains(generalSetting.getDomain())){
-					url = getUrlForLogin(url, generalSetting);
+			if(url != null){
+				if(url.contains("?")){
+					url += "&blockSmartAppBanner=true" + countryCode + phoneNumber + "&app=Android&webview=true&thirdPartyCookies=" + String.valueOf(isChecked);
+				}else{
+					url += "?blockSmartAppBanner=true" + countryCode + phoneNumber + "&app=Android&webview=true&thirdPartyCookies=" + String.valueOf(isChecked);
 				}
 			}
-		} catch (MalformedURLException e) {
+			GeneralSetting generalSetting = NMBSApplication.getInstance().getMasterService().loadGeneralSetting();
+			try {
+				URL uri = new URL(url);
+				String domain = uri.getHost();
+				LogUtils.e(TAG, "domain------>" + domain);
+				LogUtils.e(TAG, "getDomain------>" + generalSetting.getDomain());
+				if(generalSetting != null && generalSetting.getDomain() != null){
+					if(domain.contains(generalSetting.getDomain())){
+						url = getUrlForLogin(url, generalSetting);
+					}
+				}
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}catch (Exception e){
 			e.printStackTrace();
+		}finally {
+			LogUtils.d(TAG, "url----------->" + url);
+			return url;
 		}
-		LogUtils.d(TAG, "url----------->" + url);
-		return url;
+		//return url;
 	}
 
 	public static String getUrlForLogin(String urlStr, GeneralSetting generalSetting){
