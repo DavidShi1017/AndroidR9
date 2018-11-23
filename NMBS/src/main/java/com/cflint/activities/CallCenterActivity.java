@@ -157,8 +157,8 @@ public class CallCenterActivity extends BaseActivity {
 			phoneNumberLayout.setVisibility(View.VISIBLE);
 		}
 
-		String onlineAftersales = getResources().getString(R.string.aftersales_introduction_boldtext);
-		String onlineAftersalesIntroduction = getResources().getString(R.string.aftersales_introduction_boldtext) + " " + getResources().getString(R.string.aftersales_introduction_line2);
+		String onlineAftersales = getResources().getString(R.string.aftersales_boldtext);
+		String onlineAftersalesIntroduction = getResources().getString(R.string.aftersales_boldtext) + " " + getResources().getString(R.string.aftersales_introduction_line2);
 		int start = onlineAftersalesIntroduction.indexOf(onlineAftersales);
 		int end = start + onlineAftersales.length();
 		SpannableStringBuilder builder = new SpannableStringBuilder(onlineAftersalesIntroduction);

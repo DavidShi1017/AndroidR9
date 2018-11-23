@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:558190397440:android:2380060167107c88",
+        "mobilesdk_app_id": "1:558190397440:android:b9ec3f3306b7d43e",
         "android_client_info": {
           "package_name": "com.cflint"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "558190397440-qhi1u1mrul9tpeulkk5ceit4ca187vt5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cflint",
+            "certificate_hash": "abb1e85d7639b1b4bb754ac17019012a01f8e3e7"
+          }
+        },
         {
           "client_id": "558190397440-tg9m12a0b8o90n3d5akfpi733o12o038.apps.googleusercontent.com",
           "client_type": 3
@@ -29,8 +37,21 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558190397440-tg9m12a0b8o90n3d5akfpi733o12o038.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "558190397440-ootn4vfc4fle29evfh8jm3j52vk2bsto.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cflint",
+                "app_store_id": "1438609651"
+              }
+            }
+          ]
         },
         "ads_service": {
           "status": 2

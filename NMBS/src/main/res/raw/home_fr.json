@@ -2,7 +2,7 @@
   "WizardItems": [
     {
       "Title": "Bienvenue",
-      "Description": "Découvrez la dernière version de l’app CFL International et explorez les nouvelles fonctionnalités qui vous aideront lors de votre voyage en train: recevez des infos en temps réel via les notifications Push, réservez vos billets via notre site et chargez-les dans l’app, recevez nos dernières offres et promos,... Bon voyage!",
+      "Description": "Découvrez la nouvelle appli CFL INTERNATIONAL et explorez les nouvelles fonctionnalités qui vous aideront lors de votre voyage en train: recevez des infos en temps réel via les notifications Push, réservez vos billets via notre site et chargez-les dans l’appli, recevez nos dernières offres et promos vers vos destinations internationales,…Bon voyage !",
       "HighResImage": "WizardWelcome",
       "LowResImage": "WizardWelcome",
       "AreaTitle": "",
@@ -14,7 +14,7 @@
     },
     {
       "Title": "Nouveau: infos en temps réel",
-      "Description": "Recevez, dès à présent, des infos en temps réel concernant vos prochains voyages. Notre app vous enverra des infos relatives aux éventuels retards ou suppressions de trains dans toute l’Europe, aux départs, arrivées et correspondances dans des milliers de gares européennes et aux voyages que vous avez réservés. Vous pouvez facilement gérer vos notifications via l’onglet \"Alertes trains\", et décider vous-même les notifications que vous souhaitez recevoir. \r\n",
+      "Description": "Recevez, dès à présent, des infos en temps réel concernant vos prochains voyages. Notre appli vous enverra des infos relatives aux éventuels retards ou suppressions de trains dans toute l’Europe, aux départs, arrivées et correspondances dans des milliers de gares européennes et aux voyages que vous avez réservés. Vous pouvez facilement gérer vos notifications via l’onglet « Alertes trains », et décider vous-même les notifications que vous souhaitez recevoir",
       "HighResImage": "wizardRealTime",
       "LowResImage": "wizardRealTime",
       "AreaTitle": "",
@@ -26,7 +26,7 @@
     },
     {
       "Title": "Aide en temps réel",
-      "Description": "Vous avez besoin de votre référence de réservation pour intégrer votre réservation dans l’app. Votre référence de réservation (DNR) est composé de 7 caractères. Il se trouve sur la page de confirmation ou dans votre e-mail de confirmation. Ajoutez un billet en indiquant la référence de réservation (DNR) et l'adresse e-mail liée à réservation. Dans l’onglet \"Mes billets\", retrouvez également toutes les informations liées à votre référence de réservation (DNR).\r\n",
+      "Description": "Vous avez besoin de votre référence de réservation pour intégrer votre réservation dans l’appli. Votre référence de réservation (DNR) est composée de 7 caractères. Elle se trouve sur la page de confirmation ou dans votre e-mail de confirmation. Ajoutez un billet en indiquant la référence de réservation (DNR) et l’adresse e-mail liée à cette réservation. Dans l’onglet « Mes billets », retrouvez également toutes les informations liées à votre référence de réservation (DNR).\r\n",
       "HighResImage": "wizardHelp",
       "LowResImage": "wizardHelp",
       "AreaTitle": "",
@@ -39,7 +39,7 @@
     },
     {
       "Title": "Nouveau module de réservation",
-      "Description": "En plus d’un nouveau look, notre module de réservation a été complètement revu pour plus de facilité. Réservez vos billets via la version mobile de notre site, chargez en quelques secondes vos billets dans l’app et retrouvez tous les détails de votre réservation via l’app.",
+      "Description": "Réservez vos billets internationaux via la version mobile de notre site, chargez en quelques secondes vos billets dans l’appli et retrouvez tous les détails de votre réservation via l’appli.",
       "HighResImage": "wizardNewBooking",
       "LowResImage": "wizardNewBooking",
       "AreaTitle": "",
@@ -50,10 +50,6 @@
       ]
     }
   ],
-  "Messages": [
-
-  ],
-  "DebugMessages": [
-
-  ]
+  "Messages": [],
+  "DebugMessages": []
 }

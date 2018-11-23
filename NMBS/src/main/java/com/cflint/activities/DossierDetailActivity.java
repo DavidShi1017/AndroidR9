@@ -400,7 +400,18 @@ public class DossierDetailActivity extends BaseActivity {
         initConnectionView();
         /*LinearLayout root = (LinearLayout)findViewById(R.id.root);
         root.setVisibility(View.GONE);*/
-
+        ivCall = findViewById(R.id.iv_call);
+        if(FunctionConfig.kFunClickToCall){
+            ivCall.setVisibility(View.VISIBLE);
+        }else {
+            ivCall.setVisibility(View.INVISIBLE);
+        }
+        btnCancelChange = findViewById(R.id.btn_cancel_change);
+        if(FunctionConfig.kFunAftersales){
+            btnCancelChange.setVisibility(View.VISIBLE);
+        }else {
+            btnCancelChange.setVisibility(View.GONE);
+        }
 
         initStationInfoView();
     }

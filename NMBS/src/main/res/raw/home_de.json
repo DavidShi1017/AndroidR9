@@ -2,7 +2,7 @@
   "WizardItems": [
     {
       "Title": "Willkommen",
-      "Description": "Entdecken Sie unsere neu gestaltete App mit neuen Funktionen, die Ihnen Ihre Zugreisen noch weiter vereinfachen: erhalten Sie Echtzeit Push Meldungen zu Ihrer Reise, informieren Sie sich zu unseren aktuellen Angeboten,... und vieles mehr. Wir wünschen Ihnen schon jetzt schöne Zugreisen!",
+      "Description": "Entdecken Sie unsere neue CFL INTERNATIONAL APP mit neuen Funktionen die Ihnen Ihre Zugreisen noch weiter vereinfachen. Erhalten Sie Echtzeit Push Meldungen zu Ihrer Reise, buchen Sie Ihre Tickets über unsere Webseite und laden Sie diese dann in die App, informieren Sie sich über unsere aktuellen Angebote zu unseren internationalen Reisezielen, und vieles mehr. Wir wünschen Ihnen schon jetzt eine gute Reise!",
       "HighResImage": "WizardWelcome",
       "LowResImage": "WizardWelcome",
       "AreaTitle": "",
@@ -14,7 +14,7 @@
     },
     {
       "Title": "Neu: Echtzeit-Meldungen",
-      "Description": "Ab sofort erhalten Sie auch Echtzeit-Informationen zu Ihrer geplanten Reise, damit Sie jederzeit über den aktuellsten Stand Ihrer Reise informiert sind: Verspätungen oder Ausfälle von tausenden Zügen in Europa, spezielle Reiseinformationen basiert auf Ihren Bahnhof oder Ihre Buchungsreferenz, passende Informationen zu Ihrer Zugreise. Sie können Ihre Benachrichtigungen selber einstellen über die Rubrik \"Echtzeit Meldungen\".\r\n",
+      "Description": "Ab sofort erhalten Sie auch Echtzeit-Informationen zu Ihrer geplanten Reise, damit Sie jederzeit über den aktuellen Stand Ihrer Reise informiert sind. Verspätungen oder Ausfälle von tausenden Zügen in Europa, spezielle Reiseinformationen basiert auf Ihren Bahnhof oder Ihre Buchungsreferenz, passende Informationen zu Ihrer Zugreise. Sie können Ihre Benachrichtigungen selber einstellen über die Rubrik „Echtzeit Meldungen“.\r\n",
       "HighResImage": "wizardRealTime",
       "LowResImage": "wizardRealTime",
       "AreaTitle": "",
@@ -26,7 +26,7 @@
     },
     {
       "Title": "Hilfe in Echzeit",
-      "Description": "Um Ihre Buchung in die App hochzuladen, benötigen Sie Ihre Buchungsreferenz. Die Buchungsreferenz (DNR) besteht aus 7 Buchstaben und befindet sich auf der Buchungsbestätigungs-Seite oder -E-Mail. Um Ihr Ticket hochzuladen, geben Sie bitte die DNR-Referenz und die E-Mail-Adresse ein, die Sie für die Buchung benutzt haben. Sie finden alle Reiseinformation sortiert nach DNR-Nummer unter “Meine Tickets”. \r\n",
+      "Description": "Um Ihre Buchung in die App hochzuladen, benötigen Sie Ihre Buchungsreferenz. Die Buchungsreferenz (DNR) besteht aus 7 Buchstaben und befindet sich auf der Buchungsbestätigungsseite oder in der Bestätigungsmail. Um Ihr Ticket hochzuladen, geben Sie bitte die DNR-Referenz und die E-Mail-Adresse ein, die Sie für die Buchung benutzt haben. Sie finden alle Reiseinformationen aller DNR-Nummern unter „Meine Tickets“.\r\n",
       "HighResImage": "wizardHelp",
       "LowResImage": "wizardHelp",
       "AreaTitle": "",
@@ -39,7 +39,7 @@
     },
     {
       "Title": "Neues Buchungssytem ",
-      "Description": "Nicht nur das Design unserer App, sondern auch das Buchungssystem, ist jetzt vollständig für mobile Benutzer optimiert. Buchen Sie Ihre Tickets über unsere \"mobil-freundliche\" Website, laden Sie Ihre Tickets reibungslos in die App hoch in nur einem Klick und finden Sie Ihre Buchungs- und Reiseinformationen in der App wieder.",
+      "Description": "Buchen Sie Ihre Internationale Tickets über unsere Webseite, laden Sie Ihre Tickets reibungslos in die App hoch und finden Sie Ihre Buchungs-und Reiseinformationen in der App wieder.",
       "HighResImage": "wizardNewBooking",
       "LowResImage": "wizardNewBooking",
       "AreaTitle": "",
@@ -50,10 +50,6 @@
       ]
     }
   ],
-  "Messages": [
-
-  ],
-  "DebugMessages": [
-
-  ]
+  "Messages": [],
+  "DebugMessages": []
 }

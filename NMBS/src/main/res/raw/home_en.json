@@ -2,7 +2,7 @@
   "WizardItems": [
     {
       "Title": "Welcome",
-      "Description": "Discover the new CFL International app and explore its many new features which will assist you during your train journey: get push notifications with real-time info about your trip, book your tickets, stay updated on our latest offers,... and much more. Have a nice trip!",
+      "Description": "Discover the new CFL INTERNATIONAL app and explore its many new features which will assist you during your train journey : get push notifications with real-time info about your trip, book your tickets on our mobile site and upload them into the app, stay updated on our latest offers to your international destinations and much more. Have a nice trip!",
       "HighResImage": "WizardWelcome",
       "LowResImage": "WizardWelcome",
       "AreaTitle": "",
@@ -14,7 +14,7 @@
     },
     {
       "Title": "New: real-time travel info",
-      "Description": "From now on, you'll also receive real-time info about your upcoming trips, so you'll always have the latest travel info. Among other things, our app will inform you about potential delays or cancellations of thousands of trains throughout Europe, about specific travel info based on a train station or booking reference, or info relevant to your journey. You can easily manage your notifications via \"Real-time alerts\", where you'll be able to decide which push notifications you'd like to receive.",
+      "Description": "From now on, you’ll also receive real-time info about your up-coming trips, so you’ll always have the latest travel info. Among other things, our app will inform you about potential delays or cancellations of thousands of trains throughout Europe, about specific travel info based on a train station or booking reference, or info relevant to your journey. You can easily manage your notifications via “Real-time alerts”, where you’ll be able to decide which push notifications you’d like to receive.",
       "HighResImage": "wizardRealTime",
       "LowResImage": "wizardRealTime",
       "AreaTitle": "",
@@ -26,7 +26,7 @@
     },
     {
       "Title": "Real-time help",
-      "Description": "To add your booking to the app, you'll need your booking reference. This booking reference (DNR) is a 7-letter code which you can find on the confirmation page or in your confirmation email. Add a ticket by entering the booking reference (DNR) and the email address used to make the booking. You'll find all ticket info for each booking reference number (DNR) via \"My tickets\".",
+      "Description": "To add your booking to the app, you’ll need your booking reference. This booking reference (DNR) is a 7-letter code which you can find on the confirmation page or in your confirmation email. Add a ticket by entering the booking reference (DNR) and the email address used to make the booking. You’ll find all ticket info for each booking reference number (DNR) via “My tickets”.",
       "HighResImage": "wizardHelp",
       "LowResImage": "wizardHelp",
       "AreaTitle": "MyTickets",
@@ -39,7 +39,7 @@
     },
     {
       "Title": "New booking system",
-      "Description": "Not only has our app been completely restyled, our booking system has also been optimised for mobile users. Book your tickets on our mobile site, easily upload them into the app within seconds and then view all your booking details in the app.",
+      "Description": "Book your international tickets on our mobile site, easily upload them into the app within seconds and then view all your booking details in the app.",
       "HighResImage": "wizardNewBooking",
       "LowResImage": "wizardNewBooking",
       "AreaTitle": "MyTickets",
@@ -50,10 +50,6 @@
       ]
     }
   ],
-  "Messages": [
-
-  ],
-  "DebugMessages": [
-
-  ]
+  "Messages": [],
+  "DebugMessages": []
 }
