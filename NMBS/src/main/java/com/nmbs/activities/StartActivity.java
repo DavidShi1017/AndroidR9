@@ -564,6 +564,7 @@ public class StartActivity extends BaseActivity {
 			@Override public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
 				LogUtils.e("LogUtils", " Go to settings....");
+				finish();
 				startAppSettings();
 			}
 		});
