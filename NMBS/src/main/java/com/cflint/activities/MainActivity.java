@@ -193,11 +193,11 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		if(FunctionConfig.kFunLinkToNationalApp){
 			bindNationalApp();
 		}
-		/*final Fabric fabric = new Fabric.Builder(this)
+		final Fabric fabric = new Fabric.Builder(this)
 				.kits(new Crashlytics())
 				.debuggable(true)  // Enables Crashlytics debugger
 				.build();
-		Fabric.with(fabric);*/
+		Fabric.with(fabric);
 		/*Button crashButton = new Button(this);
 		crashButton.setText("Crash!");
 		crashButton.setOnClickListener(new View.OnClickListener() {
