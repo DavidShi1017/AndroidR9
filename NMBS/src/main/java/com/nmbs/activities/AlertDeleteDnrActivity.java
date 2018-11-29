@@ -176,6 +176,9 @@ public class AlertDeleteDnrActivity extends BaseActivity {
 	}
 
 	private void showWaitDialog() {
+		if(isFinishing()){
+			return;
+		}
 		runOnUiThread(new Runnable() {
 			public void run() {
 				if (progressDialog == null) {
@@ -217,14 +220,19 @@ public class AlertDeleteDnrActivity extends BaseActivity {
 				resultNumber = intent.getIntExtra(ActivityConstant.DELETE_SUBSCRIPTION_RESULT,0);
 				switch (resultNumber){
 					case 0:
-						dialogError = new DialogAlertError(AlertDeleteDnrActivity.this, getResources().getString(R.string.alert_delete_failure_title),
-								getResources().getString(R.string.alert_delete_subscription_failure_info));
-						dialogError.show();
+						if(!isFinishing()){
+							dialogError = new DialogAlertError(AlertDeleteDnrActivity.this, getResources().getString(R.string.alert_delete_failure_title),
+									getResources().getString(R.string.alert_delete_subscription_failure_info));
+							dialogError.show();
+						}
+
 						break;
 					case 1:
-						dialogError = new DialogAlertError(AlertDeleteDnrActivity.this, getResources().getString(R.string.alert_delete_failure_title),
-								getResources().getString(R.string.alert_subscription_not_all_deleted));
-						dialogError.show();
+						if(!isFinishing()){
+							dialogError = new DialogAlertError(AlertDeleteDnrActivity.this, getResources().getString(R.string.alert_delete_failure_title),
+									getResources().getString(R.string.alert_subscription_not_all_deleted));
+							dialogError.show();
+						}
 						break;
 					case 2:
 
@@ -244,9 +252,11 @@ public class AlertDeleteDnrActivity extends BaseActivity {
 					}
 
 				}else{
-					dialogError = new DialogAlertError(AlertDeleteDnrActivity.this, getResources().getString(R.string.alert_delete_failure_title),
-							getResources().getString(R.string.alert_delete_subscription_failure_info));
-					dialogError.show();
+					if(!isFinishing()){
+						dialogError = new DialogAlertError(AlertDeleteDnrActivity.this, getResources().getString(R.string.alert_delete_failure_title),
+								getResources().getString(R.string.alert_delete_subscription_failure_info));
+						dialogError.show();
+					}
 				}
 			}
 		}

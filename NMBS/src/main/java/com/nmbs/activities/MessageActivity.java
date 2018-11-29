@@ -215,6 +215,9 @@ public class MessageActivity extends BaseActivity {
 	}
 	
 	private void showWaitDialog() {
+		if(isFinishing()){
+			return;
+		}
 		runOnUiThread(new Runnable() {
 			public void run() {
 				if (progressDialog == null) {
@@ -528,8 +531,11 @@ public class MessageActivity extends BaseActivity {
 										GoogleAnalyticsUtil.getInstance().sendScreen(MessageActivity.this, TrackerConstant.CommercialTTLListUrl);
 									}
 								}else{
-									DialogMyOptions dialogMyOptions = new DialogMyOptions(MessageActivity.this);
-									dialogMyOptions.show();
+									if(!isFinishing()){
+										DialogMyOptions dialogMyOptions = new DialogMyOptions(MessageActivity.this);
+										dialogMyOptions.show();
+									}
+
 								}
 								isGoto = false;
 							}
@@ -543,8 +549,10 @@ public class MessageActivity extends BaseActivity {
 					GoogleAnalyticsUtil.getInstance().sendScreen(MessageActivity.this, TrackerConstant.CommercialTTLListUrl);
 				}
 			}else{
-				DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-				dialogMyOptions.show();
+				if(!isFinishing()){
+					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+					dialogMyOptions.show();
+				}
 			}
 		}
 

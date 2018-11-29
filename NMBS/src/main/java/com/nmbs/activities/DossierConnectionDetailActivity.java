@@ -269,6 +269,9 @@ public class DossierConnectionDetailActivity extends BaseActivity {
 	};
 
 	private void showWaitDialog() {
+		if(isFinishing()){
+			return;
+		}
 		runOnUiThread(new Runnable() {
 			public void run() {
 				if (progressDialog == null) {

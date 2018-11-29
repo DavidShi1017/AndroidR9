@@ -396,10 +396,13 @@ public class MyTicketsActivity extends BaseActivity implements MyTicketsDnrRefer
                         default:
                             break;
                     }
-                    DialogError dialogError = new DialogError(MyTicketsActivity.this,
-                            getResources().getString(R.string.upload_tickets_failure_title), responseErrorMessage);
+                    if(!isFinishing()){
+                        DialogError dialogError = new DialogError(MyTicketsActivity.this,
+                                getResources().getString(R.string.upload_tickets_failure_title), responseErrorMessage);
 
-                    dialogError.show();
+                        dialogError.show();
+                    }
+
                     //Log.d(TAG, "Upload dossier failure, the error msg is.........." + responseErrorMessage);
                     break;
             }
@@ -408,7 +411,9 @@ public class MyTicketsActivity extends BaseActivity implements MyTicketsDnrRefer
 
     // show progressDialog.
     private void showWaitDialog() {
-
+        if(isFinishing()){
+            return;
+        }
         if (progressDialog == null) {
             progressDialog = ProgressDialog.show(this,
                     getString(R.string.alert_loading),
@@ -794,8 +799,11 @@ public class MyTicketsActivity extends BaseActivity implements MyTicketsDnrRefer
                                         GoogleAnalyticsUtil.getInstance().sendScreen(MyTicketsActivity.this, TrackerConstant.CommercialTTLListUrl);
                                     }
                                 }else{
-                                    DialogMyOptions dialogMyOptions = new DialogMyOptions(MyTicketsActivity.this);
-                                    dialogMyOptions.show();
+                                    if(!isFinishing()){
+                                        DialogMyOptions dialogMyOptions = new DialogMyOptions(MyTicketsActivity.this);
+                                        dialogMyOptions.show();
+                                    }
+
                                 }
                                 isGoto = false;
                             }
@@ -809,8 +817,10 @@ public class MyTicketsActivity extends BaseActivity implements MyTicketsDnrRefer
                     GoogleAnalyticsUtil.getInstance().sendScreen(MyTicketsActivity.this, TrackerConstant.CommercialTTLListUrl);
                 }
             }else{
-                DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-                dialogMyOptions.show();
+                if(!isFinishing()){
+                    DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+                    dialogMyOptions.show();
+                }
             }
         }
 

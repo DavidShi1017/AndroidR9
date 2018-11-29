@@ -471,6 +471,9 @@ public class AlertActivity extends BaseActivity {
 	}
 
 	private void showWaitDialog() {
+		if(isFinishing()){
+			return;
+		}
 		runOnUiThread(new Runnable() {
 			public void run() {
 				if (progressDialog == null) {
@@ -515,9 +518,12 @@ public class AlertActivity extends BaseActivity {
 					calculateSubscriptionList();
 					refreshConnectionList(isShowDelete);
 				}else{
-					dialogError = new DialogAlertError(AlertActivity.this, getResources().getString(R.string.general_information),
-							getResources().getString(R.string.alert_subscription_missingID));
-					dialogError.show();
+					if(!isFinishing()){
+						dialogError = new DialogAlertError(AlertActivity.this, getResources().getString(R.string.general_information),
+								getResources().getString(R.string.alert_subscription_missingID));
+						dialogError.show();
+					}
+
 				}
 
 			}catch (Exception e){
@@ -805,8 +811,10 @@ public class AlertActivity extends BaseActivity {
 									}
 
 								}else{
-									DialogMyOptions dialogMyOptions = new DialogMyOptions(AlertActivity.this);
-									dialogMyOptions.show();
+									if(!isFinishing()){
+										DialogMyOptions dialogMyOptions = new DialogMyOptions(AlertActivity.this);
+										dialogMyOptions.show();
+									}
 								}
 								isGoto = false;
 							}

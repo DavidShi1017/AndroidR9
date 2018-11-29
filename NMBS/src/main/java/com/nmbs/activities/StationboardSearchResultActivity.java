@@ -312,7 +312,10 @@ public class StationboardSearchResultActivity extends BaseListActivity {
 	
 
 	// show progressDialog.
-	private void showProgressDialog(ProgressDialog progressDialog) {		
+	private void showProgressDialog(ProgressDialog progressDialog) {
+		if(isFinishing()){
+			return;
+		}
 		if(progressDialog == null){			
 			this.progressDialog = new ProgressDialog(this);
 			this.progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);

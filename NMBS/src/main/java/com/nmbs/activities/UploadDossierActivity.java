@@ -140,8 +140,11 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 			etDnr.setText(dnr);
 			etEmail.setText(email);
 			if(getIntent().getStringExtra("errorMessage") != null){
-				DialogError dialogError = new DialogError(UploadDossierActivity.this, getResources().getString(R.string.upload_tickets_failure_title), getIntent().getStringExtra("errorMessage"));
-				dialogError.show();
+				if(!isFinishing()){
+					DialogError dialogError = new DialogError(UploadDossierActivity.this, getResources().getString(R.string.upload_tickets_failure_title), getIntent().getStringExtra("errorMessage"));
+					dialogError.show();
+				}
+
 			}
 		} else {
 			setViewStateBasedOnModel();
@@ -398,8 +401,11 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 				dossierDetailsService.enableSubscription(dossierResponse.getDossier(), handlerEnabled, settingService.getCurrentLanguagesKey());
 			}
 			else{
-				DialogError dialogError = new DialogError(UploadDossierActivity.this, getResources().getString(R.string.upload_tickets_failure_title), getResources().getString(R.string.upload_tickets_failure_notravelsegment));
-				dialogError.show();
+				if(!isFinishing()){
+					DialogError dialogError = new DialogError(UploadDossierActivity.this, getResources().getString(R.string.upload_tickets_failure_title), getResources().getString(R.string.upload_tickets_failure_notravelsegment));
+					dialogError.show();
+				}
+
 			}
 		}
 
@@ -546,8 +552,11 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 				default:
 					break;
 				}
-				DialogError dialogError = new DialogError(UploadDossierActivity.this, getResources().getString(R.string.upload_tickets_failure_title), responseErrorMessage);
-				dialogError.show();
+				if(!isFinishing()){
+					DialogError dialogError = new DialogError(UploadDossierActivity.this, getResources().getString(R.string.upload_tickets_failure_title), responseErrorMessage);
+					dialogError.show();
+				}
+
 				//Log.d(TAG, "Upload dossier failure, the error msg is.........." + responseErrorMessage);
 				break;
 			}
@@ -557,7 +566,9 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 	// show progressDialog.
 	
 	private void showWaitDialog() {
-
+		if(isFinishing()){
+			return;
+		}
 		if (progressDialog == null) {
 			progressDialog = ProgressDialog.show(this,
 					getString(R.string.alert_loading),
@@ -878,8 +889,11 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 										GoogleAnalyticsUtil.getInstance().sendScreen(UploadDossierActivity.this, TrackerConstant.CommercialTTLListUrl);
 									}
 								}else{
-									DialogMyOptions dialogMyOptions = new DialogMyOptions(UploadDossierActivity.this);
-									dialogMyOptions.show();
+									if(!isFinishing()){
+										DialogMyOptions dialogMyOptions = new DialogMyOptions(UploadDossierActivity.this);
+										dialogMyOptions.show();
+									}
+
 								}
 								isGoto = false;
 							}
@@ -893,8 +907,11 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 					GoogleAnalyticsUtil.getInstance().sendScreen(UploadDossierActivity.this, TrackerConstant.CommercialTTLListUrl);
 				}
 			}else{
-				DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-				dialogMyOptions.show();
+				if(!isFinishing()){
+					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+					dialogMyOptions.show();
+				}
+
 			}
 		}
 

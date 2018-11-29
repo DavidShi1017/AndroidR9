@@ -464,28 +464,51 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 							LogUtils.d("LoginActivity", "logonInfo------state---->" + LoginService.LOGIN_STATE_NOTACTIVATED);
 							DialogErrorLogin dialogAlertError = new DialogErrorLogin(LoginActivity.this, logonInfo.getStateDescription());
 							dialogAlertError.setRefreshCallback(LoginActivity.this);
-							dialogAlertError.show();
+							if(!isFinishing()){
+								dialogAlertError.show();
+							}
 						}else if(LoginService.LOGIN_STATE_CUSTOMERBLOCKED.equalsIgnoreCase(logonInfo.getState())){
 							LogUtils.d("LoginActivity", "logonInfo------state---->" + LoginService.LOGIN_STATE_CUSTOMERBLOCKED);
-							showDialogAlertError(logonInfo.getStateDescription());
+							if(!isFinishing()){
+								showDialogAlertError(logonInfo.getStateDescription());
+							}
+
 						}else if(LoginService.LOGIN_STATE_QUERYCUSTOMERFAILURE.equalsIgnoreCase(logonInfo.getState())){
 							LogUtils.d("LoginActivity", "logonInfo------state---->" + LoginService.LOGIN_STATE_QUERYCUSTOMERFAILURE);
-							showDialogAlertError(logonInfo.getStateDescription());
+							if(!isFinishing()){
+								showDialogAlertError(logonInfo.getStateDescription());
+							}
+
 						}else if(LoginService.LOGIN_STATE_READCUSTOMERFAILURE.equalsIgnoreCase(logonInfo.getState())){
 							LogUtils.d("LoginActivity", "logonInfo------state---->" + LoginService.LOGIN_STATE_READCUSTOMERFAILURE);
-							showDialogAlertError(logonInfo.getStateDescription());
+							if(!isFinishing()){
+								showDialogAlertError(logonInfo.getStateDescription());
+							}
+
 						}else if(LoginService.LOGIN_STATE_CREATECUSTOMERFAILURE.equalsIgnoreCase(logonInfo.getState())){
 							LogUtils.d("LoginActivity", "logonInfo------state---->" + LoginService.LOGIN_STATE_CREATECUSTOMERFAILURE);
-							showDialogAlertError(logonInfo.getStateDescription());
+							if(!isFinishing()){
+								showDialogAlertError(logonInfo.getStateDescription());
+							}
+
 						}else if(LoginService.LOGIN_STATE_UPDATECUSTOMERFAILURE.equalsIgnoreCase(logonInfo.getState())){
 							LogUtils.d("LoginActivity", "logonInfo------state---->" + LoginService.LOGIN_STATE_UPDATECUSTOMERFAILURE);
-							showDialogAlertError(logonInfo.getStateDescription());
+							if(!isFinishing()){
+								showDialogAlertError(logonInfo.getStateDescription());
+							}
+
 						}else if(LoginService.LOGIN_STATE_RESOLVELOGINFAILURE.equalsIgnoreCase(logonInfo.getState())){
 							LogUtils.d("LoginActivity", "logonInfo------state---->" + LoginService.LOGIN_STATE_RESOLVELOGINFAILURE);
-							showDialogAlertError(logonInfo.getStateDescription());
+							if(!isFinishing()){
+								showDialogAlertError(logonInfo.getStateDescription());
+							}
+
 						}else if(LoginService.LOGIN_STATE_EMAILMISSING.equalsIgnoreCase(logonInfo.getState())){
 							LogUtils.d("LoginActivity", "logonInfo------state---->" + LoginService.LOGIN_STATE_EMAILMISSING);
-							showDialogAlertError(logonInfo.getStateDescription());
+							if(!isFinishing()){
+								showDialogAlertError(logonInfo.getStateDescription());
+							}
+
 						}else if(LoginService.LOGIN_STATE_SUCCESS.equalsIgnoreCase(logonInfo.getState())){
 							LogUtils.d("LoginActivity", "logonInfo------state---->" + LoginService.LOGIN_STATE_SUCCESS);
 							loginService.getLogonInfo();
@@ -503,7 +526,10 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
                     break;
                 case 1:
 					LogUtils.d("LoginActivity", "errorMsg------->" + errorMsg);
-					showDialogAlertError(errorMsg);
+					if(!isFinishing()){
+						showDialogAlertError(errorMsg);
+					}
+
                     break;
 			}
 		}
@@ -534,12 +560,18 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 					String errorMsg = bundle.getString(LoginAsyncTask.Intent_Key_Error);
 					DialogErrorLogin dialogAlertError = new DialogErrorLogin(LoginActivity.this, errorMsg);
 					dialogAlertError.setRefreshCallback(LoginActivity.this);
-					dialogAlertError.show();
+					if(!isFinishing()){
+						dialogAlertError.show();
+					}
+
 					break;
 				case 1:
 					//finish();
 					DialogInfo dialogInfo = new DialogInfo(LoginActivity.this, getResources().getString(R.string.login_popup_resendemail_success));
-					dialogInfo.show();
+					if(!isFinishing()){
+						dialogInfo.show();
+					}
+
 					break;
 			}
 		}
@@ -558,18 +590,27 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 						etPwd.setText("");
 						etEmail.setText("");
 					}
-					showDialogAlertError(errorMsg);
+					if(!isFinishing()){
+						showDialogAlertError(errorMsg);
+					}
+
 					break;
 				case 1:
 					//finish();
 					DialogInfo dialogInfo = new DialogInfo(LoginActivity.this, getResources().getString(R.string.login_popup_forgotpwd_success));
-					dialogInfo.show();
+					if(!isFinishing()){
+						dialogInfo.show();
+					}
+
 					break;
 			}
 		}
 	};
 	// show progressDialog.
 	private void showWaitDialog() {
+		if(isFinishing()){
+			return;
+		}
 		runOnUiThread(new Runnable() {
 			public void run() {
 				if(progressDialog == null){
@@ -868,8 +909,11 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 										GoogleAnalyticsUtil.getInstance().sendScreen(LoginActivity.this, TrackerConstant.CommercialTTLListUrl);
 									}
 								}else{
-									DialogMyOptions dialogMyOptions = new DialogMyOptions(LoginActivity.this);
-									dialogMyOptions.show();
+									if(!isFinishing()){
+										DialogMyOptions dialogMyOptions = new DialogMyOptions(LoginActivity.this);
+										dialogMyOptions.show();
+									}
+
 								}
 								isGoto = false;
 							}
@@ -883,8 +927,11 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 					GoogleAnalyticsUtil.getInstance().sendScreen(LoginActivity.this, TrackerConstant.CommercialTTLListUrl);
 				}
 			}else{
-				DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-				dialogMyOptions.show();
+				if(!isFinishing()){
+					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+					dialogMyOptions.show();
+				}
+
 			}
 		}
 

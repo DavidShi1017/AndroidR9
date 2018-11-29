@@ -365,6 +365,9 @@ public class ScheduleResultActivity extends BaseActivity {
 	// show progressDialog.
 	private void showProgressDialog(ProgressDialog progressDialog) {
 		if(progressDialog == null){
+			if(isFinishing()){
+				return;
+			}
 			this.progressDialog = new ProgressDialog(this);
 			this.progressDialog.setCanceledOnTouchOutside(false);
 			this.progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -492,8 +495,10 @@ public class ScheduleResultActivity extends BaseActivity {
 	private void showError(String error){
 		//Log.i(TAG, "showError.... " + error);
 		if(isLaterTrain){
-			DialogAlertError dialogError = new DialogAlertError(this, getResources().getString(R.string.general_information), error);
-			dialogError.show();
+			if(!isFinishing()){
+				DialogAlertError dialogError = new DialogAlertError(this, getResources().getString(R.string.general_information), error);
+				dialogError.show();
+			}
 		}else{
 			Intent intent = new Intent();
 			intent.putExtra(Intent_Key_Error, error);

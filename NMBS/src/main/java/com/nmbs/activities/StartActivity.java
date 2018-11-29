@@ -14,6 +14,7 @@ import android.os.Bundle;
 
 import android.os.Message;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -98,6 +99,7 @@ public class StartActivity extends BaseActivity {
 	private String subscriptionId;
 	private RealTimeInfoRequestParameter realTimeInfoRequestParameter;
 	private ExecutorService executorService = Executors.newFixedThreadPool(7);
+	public static final int PERMISSION_CODE = 2001;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -126,7 +128,13 @@ public class StartActivity extends BaseActivity {
 			String sid = b.getString(ActivityConstant.RECEIVE_PUSH_SUBSCRIPTION_ID);
 			Log.d(TAG, "savedInstanceState...." + sid);
 		}*/
+
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
+		ActivityCompat.requestPermissions(
+				this,
+				new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+				PERMISSION_CODE
+		);
 		assistantService = ((NMBSApplication) getApplication()).getAssistantService();
 		masterService = ((NMBSApplication) getApplication()).getMasterService();
 		settingService = ((NMBSApplication) getApplication()).getSettingService();
@@ -142,12 +150,14 @@ public class StartActivity extends BaseActivity {
 		// language
 		//Log.d(TAG, "onCreate....");
 		setContentView(R.layout.start_view);
-		showWaitDialog();
+		//showWaitDialog();
 
 	}
 
 	private void execute(){
-
+		if(!isFinishing()){
+			showWaitDialog();
+		}
 		if(NMBSApplication.getInstance().getLoginService().isLogon()){
 			LogonInfo logonInfo = NMBSApplication.getInstance().getLoginService().getLogonInfo();
 			LogUtils.e("syncCheckPwd", " LoginService  isLogon...." );
@@ -266,7 +276,7 @@ public class StartActivity extends BaseActivity {
 	private android.os.Handler handler = new android.os.Handler() {
 		public void handleMessage(Message msg) {
 			LogUtils.e("handler", " handler...." );
-			responseReceived();
+			//responseReceived();
 		}
 	};
 
@@ -417,6 +427,9 @@ public class StartActivity extends BaseActivity {
 	// show progressDialog.
 	private void showWaitDialog() {
 		LogUtils.e("LogUtils", " showWaitDialog....");
+		if(isFinishing()){
+			return;
+		}
 		runOnUiThread(new Runnable() {
 			public void run() {
 				if (progressDialog == null) {
@@ -456,8 +469,20 @@ public class StartActivity extends BaseActivity {
 		//Log.i(TAG, "onStart");
 		super.onStart();
 	}
-
-	private void getPermissions(){
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[],
+										   @NonNull int[] grantResults) {
+		if (requestCode == PERMISSION_CODE) {
+			if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+				execute();
+			}else {
+				if(!isFinishing()){
+					showMissingPermissionDialog();
+				}
+			}
+		}
+	}
+/*	private void getPermissions(){
 		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 			LogUtils.e("LogUtils", " No WRITE_EXTERNAL_STORAGE permission....");
 			showMissingPermissionDialog();
@@ -465,12 +490,12 @@ public class StartActivity extends BaseActivity {
 			execute();
 		}
 
-	}
+	}*/
 
 	@Override
 	protected void onResume() {
 		// showWaitDialog();
-		try {
+		/*try {
 			DatabaseHelper dbHelper = DatabaseHelper.getInstance(getApplicationContext());
 			SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabaseTest();
 			if(sqLiteDatabase != null){
@@ -481,7 +506,7 @@ public class StartActivity extends BaseActivity {
 		}catch (Exception e){
 			LogUtils.e("LogUtils", " catch getWritableDatabase Exception...." + e.getMessage());
 			getPermissions();
-		}
+		}*/
 		super.onResume();
 	}
 
@@ -503,8 +528,11 @@ public class StartActivity extends BaseActivity {
 		int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
 		if (resultCode != ConnectionResult.SUCCESS) {
 			if (apiAvailability.isUserResolvableError(resultCode)) {
-				apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
-						.show();
+				if(!isFinishing()){
+					apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+							.show();
+				}
+
 			} else {
 				//Log.i(TAG, "This device is not supported.");
 				finish();
@@ -515,6 +543,9 @@ public class StartActivity extends BaseActivity {
 	}
 
 	private void showMissingPermissionDialog() {
+		if(isFinishing()){
+			return;
+		}
 		AlertDialog.Builder builder = new AlertDialog.Builder(StartActivity.this);
 		builder.setTitle(R.string.alert_information);
 		builder.setMessage(R.string.dialog_permission);

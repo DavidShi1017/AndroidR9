@@ -474,6 +474,9 @@ public class CallCenterActivity extends BaseActivity {
 
 	// show progressDialog.
 	private void showWaitDialog() {
+		if(isFinishing()){
+			return;
+		}
 		runOnUiThread(new Runnable() {
 			public void run() {
 				if(progressDialog == null){
@@ -580,9 +583,12 @@ public class CallCenterActivity extends BaseActivity {
 									getString(R.string.general_server_unavailable),
 									Toast.LENGTH_LONG).show();
 							//finish();
-							dialogError = new DialogAlertError(CallCenterActivity.this, getResources().getString(R.string.general_information),
-									getResources().getString(R.string.general_server_unavailable));
-							dialogError.show();
+							if(!isFinishing()){
+								dialogError = new DialogAlertError(CallCenterActivity.this, getResources().getString(R.string.general_information),
+										getResources().getString(R.string.general_server_unavailable));
+								dialogError.show();
+							}
+
 							break;
 
 					}
@@ -662,13 +668,16 @@ public class CallCenterActivity extends BaseActivity {
 						if(info == null || info.isEmpty()){
 							info = getResources().getString(R.string.aftersales_unavailable_generalinfo);
 						}
-						CallCenterActivity.this.runOnUiThread(new Runnable() {
-							@Override
-							public void run() {
-								dialogError = new DialogAlertError(CallCenterActivity.this, title, info);
-								dialogError.show();
-							}
-						});
+						if(!isFinishing()){
+							CallCenterActivity.this.runOnUiThread(new Runnable() {
+								@Override
+								public void run() {
+									dialogError = new DialogAlertError(CallCenterActivity.this, title, info);
+									dialogError.show();
+								}
+							});
+						}
+
 					}
 					url = clickToCallAftersalesResponse.getUrl();
 				}

@@ -833,7 +833,9 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		}else{
 			dialogCheckUpdateNotification = new DialogCheckUpdateNotification(MainActivity.this,MainActivity.this,checkUpdateService,checkAppUpdate);
 			dialogCheckUpdateNotification.setCanceledOnTouchOutside(false);
-			dialogCheckUpdateNotification.show();
+			if(!isFinishing()){
+				dialogCheckUpdateNotification.show();
+			}
 		}
 	}
 
@@ -1439,8 +1441,10 @@ public class MainActivity extends BaseActivity implements RatingListener {
 
 	public void logout(View view){
 		//startActivity(LoginActivity.createIntent(MainActivity.this));
-		DialogLogout dialogLogout = new DialogLogout(MainActivity.this, TAG);
-		dialogLogout.show();
+		if(!isFinishing()){
+			DialogLogout dialogLogout = new DialogLogout(MainActivity.this, TAG);
+			dialogLogout.show();
+		}
 	}
 
 	public void closeLogin	(View view){
@@ -1470,8 +1474,11 @@ public class MainActivity extends BaseActivity implements RatingListener {
 										GoogleAnalyticsUtil.getInstance().sendScreen(MainActivity.this, TrackerConstant.CommercialTTLListUrl);
 									}
 								}else{
-									DialogMyOptions dialogMyOptions = new DialogMyOptions(MainActivity.this);
-									dialogMyOptions.show();
+									if(!isFinishing()){
+										DialogMyOptions dialogMyOptions = new DialogMyOptions(MainActivity.this);
+										dialogMyOptions.show();
+									}
+
 								}
 								isGoto = false;
 							}
@@ -1485,8 +1492,10 @@ public class MainActivity extends BaseActivity implements RatingListener {
 					GoogleAnalyticsUtil.getInstance().sendScreen(MainActivity.this, TrackerConstant.CommercialTTLListUrl);
 				}
 			}else{
-				DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-				dialogMyOptions.show();
+				if(!isFinishing()){
+					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
+					dialogMyOptions.show();
+				}
 			}
 		}
 

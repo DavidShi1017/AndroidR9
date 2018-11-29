@@ -599,7 +599,9 @@ public class DossierDetailActivity extends BaseActivity {
                 initData();
             }
         });
-        dialog.show();
+        if(!isFinishing()){
+            dialog.show();
+        }
     }
 
     private class MyState {
@@ -750,10 +752,12 @@ public class DossierDetailActivity extends BaseActivity {
                         default:
                             break;
                     }
-                    DialogError dialogError = new DialogError(DossierDetailActivity.this,
-                            getResources().getString(R.string.alert_mytickets_refresh_failed), responseErrorMessage);
+                    if(!isFinishing()){
+                        DialogError dialogError = new DialogError(DossierDetailActivity.this,
+                                getResources().getString(R.string.alert_mytickets_refresh_failed), responseErrorMessage);
 
-                    dialogError.show();
+                        dialogError.show();
+                    }
                     //Log.d(TAG, "Upload dossier failure, the error msg is.........." + responseErrorMessage);
                     break;
             }
@@ -762,7 +766,9 @@ public class DossierDetailActivity extends BaseActivity {
 
     // show progressDialog.
     private void showWaitDialog() {
-
+        if(isFinishing()){
+            return;
+        }
         if (progressDialog == null) {
             progressDialog = ProgressDialog.show(this,
                     getString(R.string.alert_loading),
