@@ -37,11 +37,13 @@ public final class LogUtils {
 
     private static final int CACHE_QUEUE_SIZE = 10; //缓存最多10条log信息后输出到文件
     private static final SimpleDateFormat LOG_DATE_TIME_FORMAT = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
-
     private static ExecutorService sLogExecutor = Executors.newSingleThreadExecutor();
-
     private static final String PREFIX = "(YOUR PREFIX):";
-    private static boolean sLogEnable = true;
+
+
+    private static boolean sLogEnable = false;
+
+
     private static LogLevel sLogLevel = LogLevel.DEBUG;
     private static Queue<String> sMsgQueue = new ArrayBlockingQueue<>(CACHE_QUEUE_SIZE);
     private static LogFileManager sLogFileManager;
