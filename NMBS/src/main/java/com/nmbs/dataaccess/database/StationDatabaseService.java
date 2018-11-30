@@ -11,6 +11,7 @@ import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
 
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.Station;
 
@@ -37,23 +38,14 @@ public class StationDatabaseService {
     private SQLiteDatabase sqLiteDatabase;  
     private DatabaseHelper dbHelper;  
   
-    public StationDatabaseService(Context context) { 
-        dbHelper = DatabaseHelper.getInstance(context);  
+    public StationDatabaseService(Context context) {
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
 
     }    
     
     
-    
-    
-    /**
-	 * Insert data to table.
-	 * 
-	 * @param Order
-	 *            order
-	 * @return true means everything is OK, otherwise means failure
-	 */
-	
+
 	public void startTransacstion(){
 		sqLiteDatabase.beginTransaction();
 	}
@@ -70,10 +62,16 @@ public class StationDatabaseService {
         
     /**
      * Insert data to table.
-     * @param List<Station> stations
+     * @param stations
    	 * @return true means everything is OK, otherwise means failure
      */
     public boolean insertStationCollection(List<Station> stations) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (stations != null ) {
 			ContentValues contentValues = new ContentValues();	
 			sqLiteDatabase.beginTransaction();
@@ -105,10 +103,15 @@ public class StationDatabaseService {
      * @return StationResponse
      * @throws SQLException
      */
-	public List<Station> selectStationCollection(int fromOrTo, String stationFromCode) throws SQLException {		
-				
-		
-		
+	public List<Station> selectStationCollection(int fromOrTo, String stationFromCode) throws SQLException {
+
+		List<Station> listStations = new ArrayList<Station>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return listStations;
+		}
 		String sql = selectSqlSentence(fromOrTo, stationFromCode);
 		//Log.d(tag, "Select all data....." + sql);			
 		
@@ -117,7 +120,7 @@ public class StationDatabaseService {
 		//Log.d(tag, "Select all data." + cursor.getCount());	
 		int cursorNum = cursor.getCount();
 		//Log.d(tag, "Select all data...." + cursorNum);
-		List<Station> listStations = new ArrayList<Station>();
+		//List<Station> listStations = new ArrayList<Station>();
 		Station station = null;		
 		for (int i = 0; i < cursorNum; i++) {			
 			cursor.moveToPosition(i);		
@@ -141,6 +144,12 @@ public class StationDatabaseService {
 	public List<Station> selectStationCollectionByStationCode(List<String> stationCodes) throws SQLException {		
 				
 		List<Station> listStations = new ArrayList<Station>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return listStations;
+		}
 		Station station = null;		
 		int stationCount = 0;
 		if(stationCodes != null ){			
@@ -180,7 +189,12 @@ public class StationDatabaseService {
 			throws SQLException {
 
 		Station station = null;
-
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return station;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_STATION, new String[] {
 				STATION_ID, STATION_CODE, STATION_NAME,
 				STATION_DETAIL_INFO_PATH, STATION_DESTINATION }, STATION_CODE
@@ -217,7 +231,12 @@ public class StationDatabaseService {
 			throws SQLException {
 
 		Station station = null;
-
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return station;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_STATION, new String[] {
 				STATION_ID, STATION_CODE, STATION_NAME,
 				STATION_DETAIL_INFO_PATH, STATION_DESTINATION }, STATION_NAME
@@ -277,6 +296,12 @@ public class StationDatabaseService {
 	 */
 	public boolean deleteMasterData(String tableName) {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		isDelete = sqLiteDatabase.delete(tableName, null, null) ;
 		//Log.d(tag, "Delete all data in " + tableName);
 		if(isDelete > 0){

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.StationBoardBulk;
 import com.nmbs.model.StationBoardBulkResponse;
@@ -35,14 +36,14 @@ public class StationBoardBulkRealTimeDatabaseService {
     private SQLiteDatabase sqLiteDatabase;  
     private DatabaseHelper dbHelper;  
   
-    public StationBoardBulkRealTimeDatabaseService(Context context) { 
-        dbHelper = DatabaseHelper.getInstance(context);  
+    public StationBoardBulkRealTimeDatabaseService(Context context) {
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     } 
-    
+
     /**
      * Insert data to table.
-     * @param StationBoardBulk StationBoardBulk
+     * @param  stationBoardBulkResponse
    	 * @return true means everything is OK, otherwise means failure
      */
     public boolean insertStationBoardBulkRealTime(StationBoardBulkResponse stationBoardBulkResponse) {
@@ -136,6 +137,12 @@ public class StationBoardBulkRealTimeDatabaseService {
     }
 
 	public void deleteStationBoardBulkById(String id) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return;
+		}
 		sqLiteDatabase.delete(DB_TABLE_STATIONBOARD_REALTIME, STATIONBOARD_REALTIME_ID + "='"
 				+ id + "'", null);
 	}

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.model.GeneralSetting;
 import com.nmbs.model.Station;
 import com.nmbs.model.Train;
@@ -39,11 +40,17 @@ public class TrainIconsDatabaseService {
     private DatabaseHelper dbHelper;
 
     public TrainIconsDatabaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);  
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }
 
 	public boolean insertTrainIcons(List<TrainIcon> trainIcons) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (trainIcons != null ) {
 			ContentValues contentValues = new ContentValues();
 			sqLiteDatabase.beginTransaction();
@@ -76,7 +83,13 @@ public class TrainIconsDatabaseService {
 
 	public List<TrainIcon> selectTrainIcons() throws SQLException {
 
-		List<TrainIcon> trainIcons = null;
+		List<TrainIcon> trainIcons = new ArrayList<>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return trainIcons;
+		}
 		//Log.d(TAG, "Select GeneralSetting.");
 		Cursor cursor = sqLiteDatabase.query(DB_TRAIN_ICONS, new String[] {
 						Column_BrandName,
@@ -118,6 +131,12 @@ public class TrainIconsDatabaseService {
 	 */
 	public boolean deleteData(String tableName) {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		isDelete = sqLiteDatabase.delete(tableName, null, null) ;
 		//Log.d(TAG, "Delete all data in " + tableName);
 		if(isDelete > 0){

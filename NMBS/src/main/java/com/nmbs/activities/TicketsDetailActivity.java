@@ -371,11 +371,13 @@ public class TicketsDetailActivity extends BaseActivity {
                     }
                     if(dossier != null ){
                         Tariff tariff = dossier.getTariff(ticket.getTariffId());
-                        tvTariff.setText(tariff.getTariffName());
-                        List<TariffCondition> conditions = tariff.getTariffConditions();
-                        TariffAdapter tariffAdapter = new TariffAdapter(this);
-                        for(TariffCondition tariffCondition : conditions){
-                            tariffAdapter.getTariffView(llTariffs, tariffCondition);
+                        if(tariff != null){
+                            tvTariff.setText(tariff.getTariffName());
+                            List<TariffCondition> conditions = tariff.getTariffConditions();
+                            TariffAdapter tariffAdapter = new TariffAdapter(this);
+                            for(TariffCondition tariffCondition : conditions){
+                                tariffAdapter.getTariffView(llTariffs, tariffCondition);
+                            }
                         }
                     }
 

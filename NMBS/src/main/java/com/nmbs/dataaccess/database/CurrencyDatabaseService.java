@@ -3,6 +3,7 @@ package com.nmbs.dataaccess.database;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.model.Currency;
 import android.content.ContentValues;
 import android.content.Context;
@@ -30,19 +31,25 @@ public class CurrencyDatabaseService {
     private SQLiteDatabase sqLiteDatabase;  
     private DatabaseHelper dbHelper;  
   
-    public CurrencyDatabaseService(Context context) {  
-        dbHelper = DatabaseHelper.getInstance(context);  
+    public CurrencyDatabaseService(Context context) {
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }  
         
     /**
      * Insert data to table.
-     * @param List<Currency> currencies
+     * @param currencies
    	 * @return true means everything is OK, otherwise means failure
      */
     public boolean insertCurrencyCollection(List<Currency> currencies) {
 		if (currencies != null ) {
-			ContentValues contentValues = new ContentValues();	
+			ContentValues contentValues = new ContentValues();
+			if(sqLiteDatabase == null){
+				sqLiteDatabase = dbHelper.getWritableDatabase();
+			}
+			if(sqLiteDatabase == null){
+				return false;
+			}
 			sqLiteDatabase.beginTransaction();
 			   try {
 				   for (Currency currency : currencies) {
@@ -69,12 +76,19 @@ public class CurrencyDatabaseService {
      * @return CurrencyResponse
      * @throws SQLException
      */
-	public List<Currency> selectCurrencyCollection() throws SQLException {	
+	public List<Currency> selectCurrencyCollection() throws SQLException {
+		List<Currency> currencies = new ArrayList<Currency>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return currencies;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_CURRENCY
 				, new String[] { CURRENCY_ID, CURRENCY_NAME, CURRENCY_CODE , CURRENCY_SYMBOL , NUMBER_OF_DECIMALS  }
 				, null, null, null, null, null);	
 		int cursorNum = cursor.getCount();
-		List<Currency> currencies = new ArrayList<Currency>();
+
 		Currency currency = null;
 		for (int i = 0; i < cursorNum; i++) {			
 			cursor.moveToPosition(i);		
@@ -96,13 +110,20 @@ public class CurrencyDatabaseService {
      * @return Currency
      * @throws SQLException
      */
-	public Currency selectCurrencyCollectionByCode(String currencyCode) throws SQLException {	
+	public Currency selectCurrencyCollectionByCode(String currencyCode) throws SQLException {
+		Currency currency = null;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return currency;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_CURRENCY
 				, new String[] { CURRENCY_ID, CURRENCY_NAME, CURRENCY_CODE , CURRENCY_SYMBOL , NUMBER_OF_DECIMALS  }
 				,CURRENCY_CODE+"='"+currencyCode+"'" , null, null, null, null);	
 		int cursorNum = cursor.getCount();
 		
-		Currency currency = null;
+
 		for (int i = 0; i < cursorNum; i++) {			
 			cursor.moveToPosition(i);		
 			String currencyName = cursor.getString(cursor.getColumnIndexOrThrow(CURRENCY_NAME));
@@ -124,6 +145,12 @@ public class CurrencyDatabaseService {
 	 */
 	public boolean deleteMasterData(String tableName) {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		isDelete = sqLiteDatabase.delete(DB_TABLE_CURRENCY, null, null) ;
 		//Log.d(tag, "Delete all data in " + tableName);
 		if(isDelete > 0){

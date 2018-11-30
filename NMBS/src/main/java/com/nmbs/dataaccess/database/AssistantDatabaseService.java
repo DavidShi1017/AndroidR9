@@ -16,6 +16,7 @@ import android.database.SQLException;
 
 import android.util.Log;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.OfferQuery.ComforClass;
 import com.nmbs.model.Order;
@@ -73,7 +74,7 @@ public class AssistantDatabaseService {
 	public static final String BARCODES_CONTENT = "BarCodesContent";
 
 	public AssistantDatabaseService(Context context) {
-		dbHelper = DatabaseHelper.getInstance(context);
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
 		sqLiteDatabase = dbHelper.getWritableDatabase();
 	}
 
@@ -87,6 +88,12 @@ public class AssistantDatabaseService {
 	public boolean insertOrder(Order order) {
 		if (order != null) {
 			ContentValues contentValues = new ContentValues();
+			if(sqLiteDatabase == null){
+				sqLiteDatabase = dbHelper.getWritableDatabase();
+			}
+			if(sqLiteDatabase == null){
+				return false;
+			}
 			sqLiteDatabase.beginTransaction();
 			try {
 				contentValues.put(ORDERS_TRAIN_TYPE, order.getTrainType());
@@ -253,13 +260,19 @@ public class AssistantDatabaseService {
 		String sql = selectSqlSentence(flag, dossierAftersalesLifetime);
 		// Log.d(tag, "sql is : " + sql);
 		// Log.d(tag, "Select all data.");
+
+		// Log.d(tag, "order cursor count is:" + cursor.getCount());
+		List<Order> listOrders = new ArrayList<Order>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return listOrders;
+		}
 		sqLiteDatabase.beginTransaction();
 		Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
 		// Log.d(tag, "order cursor is:");
 		int cursorNum = cursor.getCount();
-		// Log.d(tag, "order cursor count is:" + cursor.getCount());
-		List<Order> listOrders = new ArrayList<Order>();
-
 		for (int i = 0; i < cursorNum; i++) {
 
 			cursor.moveToPosition(i);
@@ -342,6 +355,12 @@ public class AssistantDatabaseService {
 	public boolean updateOrdersRelationStationboard(String travelSegmentID, String stationboardId) {
 
 		ContentValues contentValues = new ContentValues();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		sqLiteDatabase.beginTransaction();
 		try {
 
@@ -425,7 +444,12 @@ public class AssistantDatabaseService {
 				+ "' and Orders.DepartureDate >= '" + nowTimeStr + "'";
 		// Log.d(tag, "sql is : " + sql);
 		// Log.d(tag, "Select all data.");
-
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
 		// Log.d(tag, "order cursor is:");
 		int cursorNum = cursor.getCount();
@@ -462,6 +486,12 @@ public class AssistantDatabaseService {
 	 */
 	public boolean deleteOrder(String orderId) {
 		int isDelete = 0;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (orderId != null) {
 			isDelete = sqLiteDatabase.delete(DB_TABLE_ORDERS, ORDERS_DNR + "='"
 					+ orderId + "'", null);
@@ -476,6 +506,12 @@ public class AssistantDatabaseService {
 	}
 
 	public boolean isExistPDFs(String pdfId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_PDFS, new String[] {
 				PDFS_ID, PDFS_CONTENT, }, PDFS_ID + " = '" + pdfId + "'", null,
 				null, null, null);
@@ -489,11 +525,23 @@ public class AssistantDatabaseService {
 	}
 
 	public void deletePDFs(String pdfId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return;
+		}
 		sqLiteDatabase
 				.delete(DB_TABLE_PDFS, PDFS_ID + "='" + pdfId + "'", null);
 	}
 
 	public boolean isExistBarCodes(String barCodesId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_BARCODES, new String[] {
 				BARCODES_ID, BARCODES_CONTENT, }, BARCODES_ID + " = '"
 				+ barCodesId + "'", null, null, null, null);
@@ -507,6 +555,12 @@ public class AssistantDatabaseService {
 	}
 
 	public void deleteBarcodes(String barCodesId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return;
+		}
 		sqLiteDatabase.delete(DB_TABLE_BARCODES, BARCODES_ID + "='"
 				+ barCodesId + "'", null);
 	}

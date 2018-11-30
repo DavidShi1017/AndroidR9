@@ -3,6 +3,7 @@ package com.nmbs.dataaccess.database;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.model.DeliveryMethod;
 import com.nmbs.model.DeliveryOption;
 import com.nmbs.model.StationsForPickup;
@@ -39,18 +40,24 @@ public class DeliveryMethodDatabaseService {
     private DatabaseHelper dbHelper;  
     
 
-    public DeliveryMethodDatabaseService(Context context) {   
-    	dbHelper = DatabaseHelper.getInstance(context);  
+    public DeliveryMethodDatabaseService(Context context) {
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
     	sqLiteDatabase = dbHelper.getWritableDatabase();  
     }  
     
     
     /**
      * Insert data to table.
-     * @param DeliveryMethod deliveryMethod
+     * @param  deliveryMethod
    	 * @return true means everything is OK, otherwise means failure
      */
     private boolean insertAllowedStationsForPickupCollection(DeliveryMethod deliveryMethod) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
     	List<StationsForPickup> allowedStationsForPickups = null;
     	if(deliveryMethod != null){
     		
@@ -87,7 +94,7 @@ public class DeliveryMethodDatabaseService {
     
     /**
      * Insert data to table.
-     * @param DeliveryMethod deliveryMethod
+     * @param  deliveryMethod
    	 * @return true means everything is OK, otherwise means failure
      */
     private boolean insertAllowedCountriesForMailCollection(DeliveryMethod deliveryMethod) {
@@ -125,10 +132,16 @@ public class DeliveryMethodDatabaseService {
     
     /**
      * Insert data to table.
-     * @param List<DeliveryMethod> deliveryMethod
+     * @param  deliveryMethods
    	 * @return true means everything is OK, otherwise means failure
      */
     public boolean insertDeliveryMethodCollection(List<DeliveryMethod> deliveryMethods) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (deliveryMethods != null ) {
 			ContentValues contentValues = new ContentValues();	
 			sqLiteDatabase.beginTransaction();
@@ -159,14 +172,20 @@ public class DeliveryMethodDatabaseService {
      * @return CurrencyResponse
      * @throws SQLException
      */
-	public List<DeliveryMethod> selectDeliveryMethodCollection() throws SQLException {	
-		
+	public List<DeliveryMethod> selectDeliveryMethodCollection() throws SQLException {
+		List<DeliveryMethod> deliveryMethods = new ArrayList<DeliveryMethod>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return deliveryMethods;
+		}
 		sqLiteDatabase.beginTransaction();
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_DELIVERY_METHODS
 				, new String[] { DELIVERY_METHODS_ID, DELIVERY_METHODS_METHOD, DELIVERY_METHODS_NAME , DELIVERY_METHODS_DISPLAYMETHOD}
 				, null, null, null, null, null);	
 		int cursorNum = cursor.getCount();
-		List<DeliveryMethod> deliveryMethods = new ArrayList<DeliveryMethod>();
+
 		DeliveryMethod deliveryMethod = null;
 		for (int i = 0; i < cursorNum; i++) {			
 			cursor.moveToPosition(i);		
@@ -194,7 +213,12 @@ public class DeliveryMethodDatabaseService {
 		//sqLiteDatabase.beginTransaction();
 		
 		List<DeliveryMethod> deliveryMethods = new ArrayList<DeliveryMethod>();
-		
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return deliveryMethods;
+		}
 		DeliveryMethod deliveryMethod = null;
 		int deliveryOptionsCount = 0;
 		if(deliveryOptions != null ){
@@ -234,7 +258,12 @@ public class DeliveryMethodDatabaseService {
 		//sqLiteDatabase.beginTransaction();
 		
 		List<DeliveryMethod> deliveryMethods = new ArrayList<DeliveryMethod>();
-		
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return deliveryMethods;
+		}
 		DeliveryMethod deliveryMethod = null;
 		
 		
@@ -269,12 +298,19 @@ public class DeliveryMethodDatabaseService {
      * @throws SQLException
      */
 	
-	public List<StationsForPickup> selectAllowedStationsForPickupByDeliveryMethod(String deliveryMethod) throws SQLException {	
+	public List<StationsForPickup> selectAllowedStationsForPickupByDeliveryMethod(String deliveryMethod) throws SQLException {
+		List<StationsForPickup> allowedStationsForPickups = new ArrayList<StationsForPickup>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return allowedStationsForPickups;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_ALLOWEDSTATIONSFORPICKUP
 				, new String[] { ALLOWEDSTATIONSFORPICKUP_ID  , ALLOWEDSTATIONSFORPICKUP_DELIVERYMETHOD  , ALLOWEDSTATIONSFORPICKUP_STATIONCODE, ALLOWEDSTATIONSFORPICKUP_STATIONNAME}
 				,ALLOWEDSTATIONSFORPICKUP_DELIVERYMETHOD+"='"+deliveryMethod+"'" , null, null, null, null);	
 		int cursorNum = cursor.getCount();
-		List<StationsForPickup> allowedStationsForPickups = new ArrayList<StationsForPickup>();
+
 		StationsForPickup stationsForPickup = null;
 		for (int i = 0; i < cursorNum; i++) {			
 			cursor.moveToPosition(i);		
@@ -295,12 +331,19 @@ public class DeliveryMethodDatabaseService {
      * @throws SQLException
      */
 	
-	public List<String> selectAllowedCountriesForMailByDeliveryMethod(String deliveryMethod) throws SQLException {	
+	public List<String> selectAllowedCountriesForMailByDeliveryMethod(String deliveryMethod) throws SQLException {
+		List<String> allowedCountriesForMails = new ArrayList<String>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return allowedCountriesForMails;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_ALLOWEDCOUNTRIESFORMAIL
 				, new String[] { ALLOWEDCOUNTRIESFORMAIL_ID  , ALLOWEDCOUNTRIESFORMAIL_DELIVERYMETHOD  , ALLOWEDCOUNTRIESFORMAIL_COUNTRYCODE}
 				,ALLOWEDCOUNTRIESFORMAIL_DELIVERYMETHOD+"='"+deliveryMethod+"'" , null, null, null, null);	
 		int cursorNum = cursor.getCount();
-		List<String> allowedCountriesForMails = new ArrayList<String>();
+
 		
 		for (int i = 0; i < cursorNum; i++) {			
 			cursor.moveToPosition(i);		
@@ -320,6 +363,12 @@ public class DeliveryMethodDatabaseService {
 	 * @return true means everything is OK, otherwise means failure
 	 */
 	public boolean deleteMasterData(String tableName) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		int isDelete;
 		isDelete = sqLiteDatabase.delete(tableName, null, null) ;
 		//Log.d(TAG, "Delete all data in " + tableName);

@@ -9,7 +9,7 @@ import android.database.SQLException;
 import net.sqlcipher.database.SQLiteDatabase;
 
 
-
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.model.GeneralSetting;
 
 
@@ -53,8 +53,8 @@ public class GeneralSettingDatabaseService {
     private SQLiteDatabase sqLiteDatabase;  
     private DatabaseHelper dbHelper;  
   
-    public GeneralSettingDatabaseService(Context context) { 
-        dbHelper = DatabaseHelper.getInstance(context);  
+    public GeneralSettingDatabaseService(Context context) {
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }    
     
@@ -65,7 +65,13 @@ public class GeneralSettingDatabaseService {
      */
     public boolean insertStationCollection(GeneralSetting generalSetting) {
 		if (generalSetting != null ) {
-			ContentValues contentValues = new ContentValues();	
+			ContentValues contentValues = new ContentValues();
+			if(sqLiteDatabase == null){
+				sqLiteDatabase = dbHelper.getWritableDatabase();
+			}
+			if(sqLiteDatabase == null){
+				return false;
+			}
 			sqLiteDatabase.beginTransaction();
 			try{
 
@@ -111,12 +117,18 @@ public class GeneralSettingDatabaseService {
      */
 
 	public GeneralSetting selectGeneralSetting() throws SQLException {
-
+		GeneralSetting generalSetting = null;
 		//Log.d(TAG, "Select GeneralSetting.");
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return generalSetting;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_GENERAL_SETTINGS, null, null, null, null,
 				null, null);
 
-		GeneralSetting generalSetting = null;
+
 		int cursorNum = cursor.getCount();
 		
 		for (int i = 0; i < cursorNum; i++) {	
@@ -162,6 +174,12 @@ public class GeneralSettingDatabaseService {
 	 */
 	public boolean deleteMasterData(String tableName) {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		isDelete = sqLiteDatabase.delete(tableName, null, null) ;
 		//Log.d(TAG, "Delete all data in " + tableName);
 		if(isDelete > 0){

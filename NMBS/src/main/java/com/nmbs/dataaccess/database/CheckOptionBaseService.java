@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.CheckOption;
 import com.nmbs.model.LogonInfo;
@@ -22,7 +23,7 @@ public class CheckOptionBaseService {
     public static final String CHECK_OPTION_EXPIRATION = "Expiration";
 
     public CheckOptionBaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);
+        dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }
     public boolean insertCheckOption(CheckOption checkOption) {
@@ -58,6 +59,12 @@ public class CheckOptionBaseService {
     public CheckOption getCheckOption() {
 
         CheckOption checkOption = null;
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return checkOption;
+        }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_CHECKOPTION, null, null, null, null, null, null);
         int cursorNum = cursor.getCount();
         if(cursorNum > 0){
@@ -75,6 +82,12 @@ public class CheckOptionBaseService {
 
     public boolean deleteCheckOption() {
         int isDelete;
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         isDelete = sqLiteDatabase.delete(DB_TABLE_CHECKOPTION, null, null);
         if (isDelete > 0) {
             LogUtils.d("CheckOptionBaseService", "deleteCheckOption....");

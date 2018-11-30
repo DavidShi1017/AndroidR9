@@ -75,6 +75,9 @@ public class LoginDataBaseService {
         LogUtils.d("LoginDataBaseService", "getLogonInfo....");
         LogonInfo logonInfo = null;
         if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
             return logonInfo;
         }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_LOGIN, null, null, null, null, null, null);
@@ -101,6 +104,9 @@ public class LoginDataBaseService {
     }
 
     public boolean deleteLogonInfo() {
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
         if(sqLiteDatabase == null){
             return false;
         }

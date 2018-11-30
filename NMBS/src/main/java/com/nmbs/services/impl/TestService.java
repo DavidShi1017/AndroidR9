@@ -10,7 +10,7 @@ import android.content.SharedPreferences;
 public class TestService {
     private Context context;
     private final static String TAG = TestService.class.getSimpleName();
-    public static boolean isTestMode = false;
+    public static boolean isTestMode = true;
 
     private static final String PROPERTY_EMPTY_USER = "EmptyUser";
     private static final String PROPERTY_CHECK_APP_VERSION = "CheckAppVersion";

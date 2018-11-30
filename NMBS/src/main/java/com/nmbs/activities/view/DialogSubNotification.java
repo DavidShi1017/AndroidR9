@@ -195,18 +195,20 @@ public class DialogSubNotification extends Dialog {
     }
 
     private void setViewStateBasedOnValue(){
-        dossierSummary = dossierDetailsService.getDossier(dossier.getDossierId());
-        if (dossierSummary != null && dossier != null){
-            isEnable = dossierSummary.isDossierPushEnabled();
-            LogUtils.d(TAG, "dossierSummary.isDossierPushEnabled().........." + dossierSummary.isDossierPushEnabled());
+        if(dossier != null){
+            dossierSummary = dossierDetailsService.getDossier(dossier.getDossierId());
+            if (dossierSummary != null && dossier != null){
+                isEnable = dossierSummary.isDossierPushEnabled();
+                LogUtils.d(TAG, "dossierSummary.isDossierPushEnabled().........." + dossierSummary.isDossierPushEnabled());
 
-            if(dossierSummary.isDossierPushEnabled()){
-                tvEnable.setText(activity.getResources().getString(R.string.general_disable_notifications));
-                tvSubscriptionDescribe.setText(activity.getResources().getString(R.string.general_unsubscribe_intro));
+                if(dossierSummary.isDossierPushEnabled()){
+                    tvEnable.setText(activity.getResources().getString(R.string.general_disable_notifications));
+                    tvSubscriptionDescribe.setText(activity.getResources().getString(R.string.general_unsubscribe_intro));
 
-            }else{
-                tvEnable.setText(activity.getResources().getString(R.string.general_enable_notifications));
-                tvSubscriptionDescribe.setText(activity.getResources().getString(R.string.general_subscribe_intro));
+                }else{
+                    tvEnable.setText(activity.getResources().getString(R.string.general_enable_notifications));
+                    tvSubscriptionDescribe.setText(activity.getResources().getString(R.string.general_subscribe_intro));
+                }
             }
         }
     }

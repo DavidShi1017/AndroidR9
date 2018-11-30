@@ -1539,6 +1539,10 @@ public class MainActivity extends BaseActivity implements RatingListener {
 	}
 
 	private void showLogin(){
+		if(rlMyOption == null || tvTitle == null || tvMenuLogin == null || llMask == null || rlMenuMyOption == null
+				|| ivLogout == null || ivLogin == null || tvMenuLogon == null || pbOption == null){
+			return;
+		}
 		if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting() != null
 				&& NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getCommercialTtlListUrl() != null
 				&& !NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getCommercialTtlListUrl().isEmpty()){

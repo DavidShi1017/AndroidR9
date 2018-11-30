@@ -3,6 +3,7 @@ package com.nmbs.dataaccess.database;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.model.ClickToCallScenario;
 
 import com.nmbs.model.ProviderSetting;
@@ -35,18 +36,23 @@ public class ClickToCallScenarioDatabaseService {
 	public static final String PROVIDER_SETTING_PHONENUMBER = "PhoneNumber";
 	
 	public ClickToCallScenarioDatabaseService(Context context) {
-		dbHelper = DatabaseHelper.getInstance(context);
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
 		sqLiteDatabase = dbHelper.getWritableDatabase();
 	}
 	
 	/**
 	 * Insert data to table.
 	 * 
-	 * @param List<ClickToCallScenario> clickToCallScenarios
+	 * @param clickToCallScenarios
 	 * @return true means everything is OK, otherwise means failure
 	 */
 	public boolean insertClickToCallScenarios(List<ClickToCallScenario> clickToCallScenarios) {
-		
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (clickToCallScenarios != null ) {
 			
 			ContentValues contentValuesClickToCallScenario = new ContentValues();	
@@ -85,6 +91,12 @@ public class ClickToCallScenarioDatabaseService {
      */
 	public ClickToCallScenario loadClickToCallScenarioById(int id) throws SQLException {	
 		ClickToCallScenario clickToCallScenario = null;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return clickToCallScenario;
+		}
 		Cursor cursorClickToCallScenario = sqLiteDatabase.query(DB_TABLE_CLICK_TO_CALL_SCENARIO
 				, new String[] { CLICK_TO_CALL_SCENARIO_ID, CLICK_TO_CALL_SCENARIO_DEFAULE_PHONENUMBER}
 				, CLICK_TO_CALL_SCENARIO_ID + " = '" + id + "'", null, null, null, null);
@@ -125,12 +137,19 @@ public class ClickToCallScenarioDatabaseService {
      */
 	public List<ClickToCallScenario> loadClickToCallScenarios() throws SQLException {	
 		ClickToCallScenario clickToCallScenario = null;
+		List<ClickToCallScenario> clickToCallScenarios = new ArrayList<ClickToCallScenario>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return clickToCallScenarios;
+		}
 		Cursor cursorClickToCallScenario = sqLiteDatabase.query(DB_TABLE_CLICK_TO_CALL_SCENARIO
 				, new String[] { CLICK_TO_CALL_SCENARIO_ID, CLICK_TO_CALL_SCENARIO_DEFAULE_PHONENUMBER}
 				, null, null, null, null, null);
 		ProviderSetting providerSetting = null;
 		List<ProviderSetting> providerSettings = new ArrayList<ProviderSetting>();
-		List<ClickToCallScenario> clickToCallScenarios = new ArrayList<ClickToCallScenario>();
+
 		int cursorNum = cursorClickToCallScenario.getCount();
 		int cursorProviderSettingNum = 0;
 		//Log.d(TAG, "cursorClickToCallScenario  is." + cursorNum);		
@@ -167,6 +186,12 @@ public class ClickToCallScenarioDatabaseService {
 	 */
 	public boolean deleteMasterData(String tableName) {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		isDelete = sqLiteDatabase.delete(tableName, null, null) ;
 		//Log.d(TAG, "Delete all data in " + tableName);
 		if(isDelete > 0){

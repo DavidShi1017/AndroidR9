@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.HafasUser;
 
@@ -24,7 +25,7 @@ public class HafasUserDataBaseService {
     public static final String HAFAS_REGISTER_ID = "register_id";
 
     public HafasUserDataBaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);
+        dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }
 
@@ -36,6 +37,12 @@ public class HafasUserDataBaseService {
      */
     public boolean insertHafasUser(HafasUser hafasUser) {
         LogUtils.e("insertHafasUser", " insertHafasUser...." + hafasUser);
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         sqLiteDatabase.beginTransaction();
         ContentValues contentValues = new ContentValues();
         contentValues.put(HAFAS_USER_ID, hafasUser.getUserId());
@@ -59,6 +66,12 @@ public class HafasUserDataBaseService {
     }
 
     public boolean deleteHafasUser(String userId) {
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         sqLiteDatabase.beginTransaction();
         try {
             sqLiteDatabase.delete(DB_TABLE_HAFAS_USER, HAFAS_USER_ID+"=?", new String[]{userId});
@@ -85,6 +98,12 @@ public class HafasUserDataBaseService {
 
     public HafasUser readHafasUser() {
         HafasUser hafasUser = null;
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return hafasUser;
+        }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_HAFAS_USER, null, null, null, null, null, null);
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {

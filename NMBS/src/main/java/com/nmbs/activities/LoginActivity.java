@@ -221,7 +221,10 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 
 	private void initView(){
 		etEmail = (EditText) findViewById(R.id.et_email);
-		etEmail.setText(emailString);
+		if(etEmail != null){
+			etEmail.setText(emailString);
+		}
+
 		etPwd = (EditText) findViewById(R.id.et_pwd);
 		rlEmail = (RelativeLayout) findViewById(R.id.rl_email);
 		rlPwd = (RelativeLayout) findViewById(R.id.rl_pwd);

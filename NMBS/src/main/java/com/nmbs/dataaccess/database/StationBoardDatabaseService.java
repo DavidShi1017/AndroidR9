@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.StationBoard;
 import com.nmbs.model.StationBoardBulk;
@@ -47,14 +48,14 @@ public class StationBoardDatabaseService {
     private SQLiteDatabase sqLiteDatabase;  
     private DatabaseHelper dbHelper;  
   
-    public StationBoardDatabaseService(Context context) { 
-        dbHelper = DatabaseHelper.getInstance(context);  
+    public StationBoardDatabaseService(Context context) {
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     } 
     
     /**
      * Insert data to table.
-     * @param StationBoard stationBoard
+     * @param  stationBoard
    	 * @return true means everything is OK, otherwise means failure
      */
     public boolean insertStationBoard(StationBoard stationBoard) {
@@ -97,6 +98,12 @@ public class StationBoardDatabaseService {
     public Map<String, List<StationBoard>> insertStationBoards(List<StationBoard> stationBoards) {
     	List<StationBoard> sameStationBoards = null;
     	Map<String, List<StationBoard>> sameStationBoardsMap = null;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return sameStationBoardsMap;
+		}
 		if (stationBoards != null ) {
 			ContentValues contentValues = new ContentValues();	
 			sqLiteDatabase.beginTransaction();
@@ -143,16 +150,22 @@ public class StationBoardDatabaseService {
     
     
     public List<StationBoard> selectStationBoardsCollection(boolean isTypeA, String dnrId) throws SQLException {
+		List<StationBoard> stationBoards = new ArrayList<StationBoard>();
 
-		String sql = selectSqlSentence(isTypeA, dnrId);
 		// Log.d(tag, "sql is : " + sql);
 		// Log.d(tag, "Select all data.");
-
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return stationBoards;
+		}
+		String sql = selectSqlSentence(isTypeA, dnrId);
 		Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
 		// Log.d(tag, "order cursor is:");
 		int cursorNum = cursor.getCount();
 		// Log.d(tag, "order cursor count is:" + cursor.getCount());
-		List<StationBoard> stationBoards = new ArrayList<StationBoard>();
+
 
 		for (int i = 0; i < cursorNum; i++) {
 
@@ -198,7 +211,14 @@ public class StationBoardDatabaseService {
 	}
     
     public List<StationBoard> selectRealTimeOfChildTravelSegmentsByParentIdWithTypeA(String parentId, String dnr, boolean isAll) throws SQLException {
-    	
+		List<StationBoard> stationBoards = new ArrayList<StationBoard>();
+
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return stationBoards;
+		}
     	Date nowTime = new Date();
 		String nowTimeStr = DateUtils.dateToString(nowTime);
 		Date fewLaterDayOfToday = DateUtils.getFewLaterDay(nowTime, 3);
@@ -232,7 +252,7 @@ public class StationBoardDatabaseService {
 //		Log.d(TAG, "fewLaterDayOfTodayStr:::" + fewLaterDayOfTodayStr);
 		int cursorNum = cursor.getCount();
 		// Log.d(tag, "order cursor count is:" + cursor.getCount());
-		List<StationBoard> stationBoards = new ArrayList<StationBoard>();
+
 
 		for (int i = 0; i < cursorNum; i++) {
 
@@ -278,7 +298,13 @@ public class StationBoardDatabaseService {
 	}
     
     public List<StationBoard> selectRealTimeOfChildTravelSegmentsByParentIdWithNotTypeA(String parentId, String dnr, boolean isAll) throws SQLException {
-    	
+		List<StationBoard> stationBoards = new ArrayList<StationBoard>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return stationBoards;
+		}
     	Date nowTime = new Date();
 		String nowTimeStr = DateUtils.dateToString(nowTime);
 		Date fewLaterDayOfToday = DateUtils.getFewLaterDay(nowTime, 3);
@@ -314,7 +340,7 @@ public class StationBoardDatabaseService {
 //		Log.d(TAG, "fewLaterDayOfTodayStr:::" + fewLaterDayOfTodayStr);
 		int cursorNum = cursor.getCount();
 		// Log.d(tag, "order cursor count is:" + cursor.getCount());
-		List<StationBoard> stationBoards = new ArrayList<StationBoard>();
+
 
 		for (int i = 0; i < cursorNum; i++) {
 
@@ -362,6 +388,12 @@ public class StationBoardDatabaseService {
     public StationBoard selectRealTimeOfSelfTravelSegmentsById(String id) throws SQLException {
     	
     	StationBoard stationBoard = null;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return stationBoard;
+		}
     	Date nowTime = new Date();
 		String nowTimeStr = DateUtils.dateToString(nowTime);
 		Date fewLaterDayOfToday = DateUtils.getFewLaterDay(nowTime, 3);
@@ -425,7 +457,12 @@ public class StationBoardDatabaseService {
     private StationBoard selectSameStationBoard(StationBoard stationBoard) throws SQLException {
     	
     	StationBoard sameStationBoard = null;
-
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return sameStationBoard;
+		}
     	Cursor cursor = sqLiteDatabase.query(DB_TABLE_STATIONBOARD, new String[] {
     			STATIONBOARD_ID, STATIONBOARD_CODE, STATIONBOARD_DATETIME, STATIONBOARD_TIMEPREFERENCE, STATIONBOARD_TRAINCATEGORY
     			, STATIONBOARD_TRAINNUMBER, STATIONBOARD_TYPE, STATIONBOARD_SORTDATE, STATIONBOARD_DNR
@@ -484,8 +521,13 @@ public class StationBoardDatabaseService {
     public StationBoard selectRealTimeTravelSegmentsById(String id) throws SQLException {
     	
     	StationBoard stationBoard = null;
-    	
 
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return stationBoard;
+		}
     	Cursor cursor = sqLiteDatabase.query(DB_TABLE_STATIONBOARD, new String[] {
     			STATIONBOARD_ID, STATIONBOARD_CODE, STATIONBOARD_DATETIME, STATIONBOARD_TIMEPREFERENCE, STATIONBOARD_TRAINCATEGORY
     			, STATIONBOARD_TRAINNUMBER, STATIONBOARD_TYPE, STATIONBOARD_SORTDATE, STATIONBOARD_DNR
@@ -541,9 +583,14 @@ public class StationBoardDatabaseService {
 	}
     
     public List<StationBoard> selectDuplicatedStationBoardById(String id) throws SQLException {
-    	
-    	
-    	
+
+		List<StationBoard> stationBoards = new ArrayList<StationBoard>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return stationBoards;
+		}
 
     	Cursor cursor = sqLiteDatabase.query(DB_TABLE_STATIONBOARD, new String[] {
     			STATIONBOARD_ID, STATIONBOARD_CODE, STATIONBOARD_DATETIME, STATIONBOARD_TIMEPREFERENCE, STATIONBOARD_TRAINCATEGORY
@@ -555,7 +602,7 @@ public class StationBoardDatabaseService {
 		// Log.d(tag, "order cursor is:");
     	int cursorNum = cursor.getCount();
 		// Log.d(tag, "order cursor count is:" + cursor.getCount());
-		List<StationBoard> stationBoards = new ArrayList<StationBoard>();
+
 
 		for (int i = 0; i < cursorNum; i++) {
 
@@ -601,6 +648,12 @@ public class StationBoardDatabaseService {
 	}
     
     public boolean updateStationboardRealtime(StationBoardBulkResponse stationBoardBulkResponse){
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
     	if (stationBoardBulkResponse != null ) {
 			ContentValues contentValues = new ContentValues();	
 			sqLiteDatabase.beginTransaction();
@@ -669,6 +722,12 @@ public class StationBoardDatabaseService {
 
 	}
 	public void deleteStationBoardBulkById(String dnr) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return ;
+		}
 		sqLiteDatabase.delete(DB_TABLE_STATIONBOARD, STATIONBOARD_DNR + "='"
 				+ dnr + "'", null);
 	}

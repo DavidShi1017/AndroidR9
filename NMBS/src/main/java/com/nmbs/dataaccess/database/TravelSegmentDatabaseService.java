@@ -72,6 +72,9 @@ public class TravelSegmentDatabaseService {
 		LocalNotification localNotification = null;
 		List<LocalNotification> localNotifications = new ArrayList<LocalNotification>();
 		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
 			return localNotifications;
 		}
 		Cursor cursor = sqLiteDatabase.query(DB_Dossier_TravelSegment, null, null, null, null, null, null);
@@ -117,6 +120,9 @@ public class TravelSegmentDatabaseService {
 
 	public LocalNotification queryTravelSegmentByDate(Context context, String date){
 		LocalNotification localNotification = null;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
 		if(sqLiteDatabase == null){
 			return localNotification;
 		}

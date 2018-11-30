@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.Subscription;
 
@@ -34,7 +35,7 @@ public class SubscriptionDataBaseService {
     public static final String SUBSCRIPTION_Connection_id = "subscription_Connection_id";
 
     public SubscriptionDataBaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);
+        dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }
 
@@ -45,6 +46,12 @@ public class SubscriptionDataBaseService {
      * @return true means everything is OK, otherwise means failure
      */
     public boolean insertSubscription(Subscription subscription) {
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         sqLiteDatabase.beginTransaction();
         ContentValues contentValues = new ContentValues();
         contentValues.put(SUBSCRIPTION_ID, subscription.getSubscriptionId());
@@ -76,6 +83,12 @@ public class SubscriptionDataBaseService {
 
     public boolean deleteSubscription(String subscriptionId) {
         LogUtils.e("deleteSubscription", "deleteSubscription....");
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         sqLiteDatabase.beginTransaction();
         try {
             sqLiteDatabase.delete(DB_TABLE_SUBSCRIPTION, SUBSCRIPTION_ID + "=?", new String[]{subscriptionId});
@@ -102,6 +115,12 @@ public class SubscriptionDataBaseService {
 
     public List<Subscription> readSubscriptions() {
         List<Subscription> subscriptions = new ArrayList<Subscription>();
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return subscriptions;
+        }
         Subscription subscription = null;
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, null, null, null, null, SUBSCRIPTION_DEPARTURE + " asc");
         int cursorNum = cursor.getCount();
@@ -129,6 +148,12 @@ public class SubscriptionDataBaseService {
     public boolean readSubscriptionByReconctx(String reconctx) {
         List<Subscription> subscriptions = new ArrayList<Subscription>();
         Subscription subscription = null;
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_RECONCTX_HASH_CODE+"='"+reconctx+"'", null, null, null, null);
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {
@@ -157,6 +182,12 @@ public class SubscriptionDataBaseService {
     public boolean isDossierPushEnabled(String dossierId) {
         List<Subscription> subscriptions = new ArrayList<Subscription>();
         Subscription subscription = null;
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_dnr+"='"+dossierId+"'", null, null, null, null);
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {
@@ -185,6 +216,12 @@ public class SubscriptionDataBaseService {
 
     public List<Subscription> readSubscriptionByDnr(String dossierId) {
         List<Subscription> subscriptions = new ArrayList<Subscription>();
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return subscriptions;
+        }
         Subscription subscription = null;
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_dnr+"='"+dossierId+"'", null, null, null, null);
         int cursorNum = cursor.getCount();
@@ -209,6 +246,12 @@ public class SubscriptionDataBaseService {
 
     public boolean readSubscriptionByReconctxAndDate(String reconctx, String date) {
         List<Subscription> subscriptions = new ArrayList<Subscription>();
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         Subscription subscription = null;
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_RECONCTX_HASH_CODE + "='" + reconctx +"' and " + SUBSCRIPTION_DEPARTURE + "='" + date + "'",
@@ -239,6 +282,12 @@ public class SubscriptionDataBaseService {
 
     public boolean readSubscriptionByCodeAndDate(String originStationRcode, String destinationStationRcode, String date) {
         List<Subscription> subscriptions = new ArrayList<Subscription>();
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         Subscription subscription = null;
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_ORIGINSTATIONRCODE + "='" + originStationRcode +"' and " + SUBSCRIPTION_DESTINATIONSTATIONRCODE + "='"+ destinationStationRcode +"' and "+ SUBSCRIPTION_DEPARTURE + "='" + date + "'",
@@ -271,6 +320,12 @@ public class SubscriptionDataBaseService {
         LogUtils.d("cursorNum", "reconctx..." + reconctx);
         LogUtils.d("cursorNum", "date..." + date);
         Subscription subscription = null;
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return subscription;
+        }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_RECONCTX_HASH_CODE + "='" + reconctx +"' and " + SUBSCRIPTION_DEPARTURE + "='" + date + "'",
                 null, null, null, null);
@@ -297,6 +352,12 @@ public class SubscriptionDataBaseService {
         LogUtils.d("cursorNum", "connectionId..." + conId);
 
         Subscription subscription = null;
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return subscription;
+        }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_Connection_id + "='" + conId + "'",
                 null, null, null, null);
@@ -320,7 +381,12 @@ public class SubscriptionDataBaseService {
     }
 
     public boolean isLinkedWithDnr(String dnr) {
-
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_dnr + "='" + dnr + "'",
                 null, null, null, null);
@@ -332,6 +398,12 @@ public class SubscriptionDataBaseService {
     }
 
     public boolean clearSubscriptionDnrById(String subscriptionId) {
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         sqLiteDatabase.beginTransaction();
         ContentValues contentValues = new ContentValues();
         contentValues.put(SUBSCRIPTION_dnr, "");
@@ -350,6 +422,12 @@ public class SubscriptionDataBaseService {
     }
     public boolean deleteSubscriptionByDnr(String dnr) {
         LogUtils.e("deleteSubscription", "deleteSubscription....");
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         sqLiteDatabase.beginTransaction();
         try {
             sqLiteDatabase.delete(DB_TABLE_SUBSCRIPTION, SUBSCRIPTION_dnr + "=?", new String[]{dnr});
@@ -366,6 +444,12 @@ public class SubscriptionDataBaseService {
     }
     public Subscription readSubscriptionById(String subscriptionId) {
         Subscription subscription = null;
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return subscription;
+        }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_ID+"='"+subscriptionId+"'", null, null, null, null);
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {
@@ -392,6 +476,12 @@ public class SubscriptionDataBaseService {
             return null;
         }
         Subscription subscription = null;
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return subscription;
+        }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_DEPARTURE + "='" + sub.getDeparture() + "' " +
                         "and " + SUBSCRIPTION_ID + "='" + sub.getSubscriptionId() + "' and " + SUBSCRIPTION_ORIGINSTATIONRCODE + "='" + sub.getOriginStationRcode() + "' " +

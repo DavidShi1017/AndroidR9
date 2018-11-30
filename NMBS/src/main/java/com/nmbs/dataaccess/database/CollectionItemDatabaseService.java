@@ -14,6 +14,7 @@ import android.util.Log;
 import net.sqlcipher.database.SQLiteDatabase;
 
 import com.nmbs.R;
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.CollectionItem;
 import com.nmbs.model.PaymentOption;
@@ -43,19 +44,25 @@ public class CollectionItemDatabaseService {
     private Context context;
     public CollectionItemDatabaseService(Context context) { 
     	this.context = context;
-        dbHelper = DatabaseHelper.getInstance(context);  
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }  
   	
 	/**
 	 * Insert data to DB_TABLE_LANGUAGE, DB_TABLE_TITLE, DB_TABLE_COUNTRY
-	 * @param collectionResponse
+	 * @param
 	 * @param tableName must be DB_TABLE_LANGUAGE or DB_TABLE_TITLE or DB_TABLE_COUNTRY
 	 * @return true means everything is OK, otherwise means failure
 	 */
 	public boolean insertCollectionResponse(List<CollectionItem> languageCollectionItem, String tableName) {
 		if (languageCollectionItem != null ) {
-			ContentValues contentValues = new ContentValues();	
+			ContentValues contentValues = new ContentValues();
+			if(sqLiteDatabase == null){
+				sqLiteDatabase = dbHelper.getWritableDatabase();
+			}
+			if(sqLiteDatabase == null){
+				return false;
+			}
 			sqLiteDatabase.beginTransaction();
 			   try {
 				   for (CollectionItem collectionItem : languageCollectionItem) {
@@ -85,13 +92,21 @@ public class CollectionItemDatabaseService {
 	 * @return CollectionResponse
 	 * @throws SQLException
 	 */
-	public List<CollectionItem> selectCollectionResponse(String tableName) throws SQLException {	
+	public List<CollectionItem> selectCollectionResponse(String tableName) throws SQLException {
+		List<CollectionItem> items = new ArrayList<CollectionItem>();
 		Cursor cursor = getCollectionItemsCursor(tableName);
-		
+		if(cursor == null){
+			return items;
+		}
 		int cursorNum = cursor.getCount();
 		
-		List<CollectionItem> items = new ArrayList<CollectionItem>();
-		
+
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return items;
+		}
 		CollectionItem collectionItem = null;
 		if (StringUtils.equalsIgnoreCase(tableName, DB_TABLE_REDUCTION_CARD)) {
 			collectionItem = new CollectionItem("", context.getString(R.string.reduction_card_view_none));
@@ -120,7 +135,12 @@ public class CollectionItemDatabaseService {
 	public List<CollectionItem> selectCollectionResponseByKey(String tableName, List<String> keyList) throws SQLException {
 		List<CollectionItem> items = new ArrayList<CollectionItem>();
 		CollectionItem collectionItem = null;
-		
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return items;
+		}
 		if(keyList != null){
 			for(int j = 0; j < keyList.size(); j++){
 				String key = keyList.get(j);
@@ -155,6 +175,12 @@ public class CollectionItemDatabaseService {
 		int paymentOptionCount = 0;
 		List<CollectionItem> items = new ArrayList<CollectionItem>();
 		CollectionItem collectionItem = null;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return items;
+		}
 		if(paymentOptions != null){
 			paymentOptionCount = paymentOptions.size();
 		}
@@ -186,7 +212,13 @@ public class CollectionItemDatabaseService {
 	 * @return Cursor
 	 * @throws SQLException
 	 */
-	public Cursor getCollectionItemsCursor(String tableName) throws SQLException {		
+	public Cursor getCollectionItemsCursor(String tableName) throws SQLException {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return null;
+		}
 		Cursor cursor = sqLiteDatabase.query(tableName
 				, new String[] { COLLECTION_ID, COLLECTION_KEY, COLLECTION_LABEL  }
 				, null, null, null, null, COLLECTION_LABEL);		
@@ -200,6 +232,12 @@ public class CollectionItemDatabaseService {
 	 */
 	public boolean deleteMasterData(String tableName) {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		isDelete = sqLiteDatabase.delete(tableName, null, null) ;
 		//Log.d(tag, "Delete all data in " + tableName);
 		if(isDelete > 0){

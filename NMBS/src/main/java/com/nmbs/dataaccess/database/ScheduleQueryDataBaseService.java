@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.ExtensionScheduleQuery;
 import com.nmbs.model.TravelRequest;
@@ -37,12 +38,18 @@ public class ScheduleQueryDataBaseService {
 
 
 	public ScheduleQueryDataBaseService(Context context) {
-		dbHelper = DatabaseHelper.getInstance(context);
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
 		sqLiteDatabase = dbHelper.getWritableDatabase();
 	}
 
 	public boolean insertScheduleQuery(String scheduleQueryID, String originCode, String desCode,
 									   String viaCode, String dateTime, String timePreference, String trainNr,String originName,  String desName, String viaName) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (!scheduleQueryID.equals("")) {
 			if(isExistScheduleQuery(scheduleQueryID))
 				deleteLastScheduleById(scheduleQueryID);
@@ -77,6 +84,12 @@ public class ScheduleQueryDataBaseService {
 	public ExtensionScheduleQuery readScheduleQuery(String scheduleQueryId) {
 
 		ExtensionScheduleQuery extensionScheduleQuery = null;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return extensionScheduleQuery;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_SCHEDULE_LAST_QUERY, new String[] {
 				LAST_QUERY_ID, LAST_QUERY_ORIGIN_CODE, LAST_QUERY_DESTINATION_CODE,LAST_QUERY_VIA_CODE,LAST_QUERY_DATE_TIME,
 				LAST_QUERY_TIME_PREFERENCE,LAST_QUERY_TRAIN_NR,LAST_QUERY_DES_NAME,LAST_QUERY_ORIGIN_NAME,LAST_QUERY_VIA_NAME}, LAST_QUERY_ID + " = '"
@@ -113,6 +126,12 @@ public class ScheduleQueryDataBaseService {
 	
 	
 	public boolean isExistScheduleQuery(String OfferQueryId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_SCHEDULE_LAST_QUERY, new String[] {
 				LAST_QUERY_ID, LAST_QUERY_ORIGIN_CODE, LAST_QUERY_DESTINATION_CODE,LAST_QUERY_VIA_CODE,LAST_QUERY_DATE_TIME,
 				LAST_QUERY_TIME_PREFERENCE,LAST_QUERY_TRAIN_NR,LAST_QUERY_DES_NAME,LAST_QUERY_ORIGIN_NAME,LAST_QUERY_VIA_NAME}, LAST_QUERY_ID + " = '"
@@ -127,6 +146,12 @@ public class ScheduleQueryDataBaseService {
 	}
 
 	public void deleteLastScheduleById(String OfferQueryId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return;
+		}
 		sqLiteDatabase.delete(DB_TABLE_SCHEDULE_LAST_QUERY, LAST_QUERY_ID + "='"
 				+ OfferQueryId + "'", null);
 	}

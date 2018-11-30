@@ -55,18 +55,23 @@ public class BaseActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		isForeground = false;
-		if (!isActive) {
-			isForeground = true;
-			isActive = true;
-			getMessageData();
-			refreshDossier();
+		try {
+			isForeground = false;
+			if (!isActive) {
+				isForeground = true;
+				isActive = true;
+				getMessageData();
+				refreshDossier();
 
-			if(NMBSApplication.getInstance().getLoginService().isLogon() && !CheckOptionAsyncTask.isChecking){
-				CheckOptionAsyncTask asyncTask = new CheckOptionAsyncTask(getApplicationContext());
-				asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+				if(NMBSApplication.getInstance().getLoginService().isLogon() && !CheckOptionAsyncTask.isChecking){
+					CheckOptionAsyncTask asyncTask = new CheckOptionAsyncTask(getApplicationContext());
+					asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+				}
 			}
+		}catch (Exception e){
+
 		}
+
 	}
 	
 	

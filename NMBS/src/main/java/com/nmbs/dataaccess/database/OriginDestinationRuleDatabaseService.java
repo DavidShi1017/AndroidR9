@@ -3,6 +3,7 @@ package com.nmbs.dataaccess.database;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.model.Destination;
 import com.nmbs.model.Origin;
 import com.nmbs.model.OriginDestinationRule;
@@ -28,18 +29,23 @@ public class OriginDestinationRuleDatabaseService {
 	private DatabaseHelper dbHelper;
 
 	public OriginDestinationRuleDatabaseService(Context context) {
-		dbHelper = DatabaseHelper.getInstance(context);
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
 		sqLiteDatabase = dbHelper.getWritableDatabase();
 	}
 
 	/**
 	 * Insert data to table.
 	 * 
-	 * @param List
-	 *            <OriginDestinationRule> originDestinationRules
+	 * @param originDestinationRules
 	 * @return true means everything is OK, otherwise means failure
 	 */
 	public boolean insertStationMatrix(List<OriginDestinationRule> originDestinationRules) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (originDestinationRules != null) {
 			
 			sqLiteDatabase.beginTransaction();
@@ -69,7 +75,12 @@ public class OriginDestinationRuleDatabaseService {
 	}
 	public void insertStationMatrixApplicableForReverseTrue(List<Origin> origins, List<Destination> destinations){
 		ContentValues contentValues = new ContentValues();
-		
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return;
+		}
 		for (Destination destination : destinations) {
 			contentValues
 			.put(STATIONMATRIX_STATION_FROM_CODE, destination.getCode());
@@ -99,12 +110,19 @@ public class OriginDestinationRuleDatabaseService {
      * @return CurrencyResponse
      * @throws SQLException
      */
-	public List<String> selectFromStationCodes() throws SQLException {	
+	public List<String> selectFromStationCodes() throws SQLException {
+		List<String> fromStationCodes = new ArrayList<String>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return fromStationCodes;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_STATIONMATRIX
 				, new String[] { STATIONMATRIX_ID, STATIONMATRIX_STATION_FROM_CODE, STATIONMATRIX_STATION_TO_CODE}
 				, null, null, null, null, null);	
 		int cursorNum = cursor.getCount();
-		List<String> fromStationCodes = new ArrayList<String>();
+
 		String fromStationCode = null;
 		for (int i = 0; i < cursorNum; i++) {			
 			cursor.moveToPosition(i);		
@@ -127,6 +145,12 @@ public class OriginDestinationRuleDatabaseService {
 	 */
 	public boolean deleteMasterData(String tableName) {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		isDelete = sqLiteDatabase.delete(tableName, null, null) ;
 		//Log.d(tag, "Delete all data in " + tableName);
 		if(isDelete > 0){

@@ -157,8 +157,12 @@ public class WebViewCreateActivity extends AppCompatActivity {
                         String scheme = Utils.getUrlScheme(url);
                         LogUtils.d(TAG, "scheme...." + scheme);
                         if (scheme.equalsIgnoreCase("bepgenapp")) {
-                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                            startActivity(intent);
+                            try {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                                startActivity(intent);
+                            }catch (Exception e){
+
+                            }
                             return true;
                         } else if (scheme.equalsIgnoreCase("tel")) {
                     /*String telNumber = url.substring(url.indexOf(":") + 1);

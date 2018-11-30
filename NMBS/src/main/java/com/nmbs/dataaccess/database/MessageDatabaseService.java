@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.util.Log;
 
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.MobileMessage;
 import com.nmbs.util.HTTPRestServiceCaller;
@@ -41,7 +42,7 @@ public class MessageDatabaseService {
 	
 	private static final String TAG = MessageDatabaseService.class.getSimpleName();
 	public MessageDatabaseService(Context context) {
-		dbHelper = DatabaseHelper.getInstance(context);
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
 		sqLiteDatabase = dbHelper.getWritableDatabase();
 	}
 	
@@ -53,6 +54,12 @@ public class MessageDatabaseService {
 	 * @return true means everything is OK, otherwise means failure
 	 */
 	public boolean insertOrder(MobileMessage mobileMessage) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (mobileMessage != null) {
 			ContentValues contentValues = new ContentValues();
 			try {
@@ -89,6 +96,12 @@ public class MessageDatabaseService {
 	}
 	
 	public boolean insertMessageList(List<MobileMessage> messageList){
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		sqLiteDatabase.beginTransaction();
 		boolean flag = false;
 		try {
@@ -123,6 +136,12 @@ public class MessageDatabaseService {
 	
 	public List<MobileMessage> readMessageList() {
 		List<MobileMessage> messageList = new ArrayList<MobileMessage>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return messageList;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_MESSAGESV5, null, null, null, null, null, null);
 		//Log.d(tag, "Select all data.");
 		int cursorNum = cursor.getCount();
@@ -167,11 +186,23 @@ public class MessageDatabaseService {
 	}
 
 	public void deleteMessate(String messageId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return ;
+		}
 		sqLiteDatabase.delete(DB_TABLE_MESSAGESV5, MESSAGE_ID + "='"
 				+ messageId + "'", null);
 	}
 
 	public boolean updateMessageNextDisplay(String messageId, String messageNextDisplay) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 
 		ContentValues contentValues = new ContentValues();
 		sqLiteDatabase.beginTransaction();
@@ -192,6 +223,12 @@ public class MessageDatabaseService {
 
 	public boolean deleteMessages() {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		// sqLiteDatabase.execSQL("delete from Orders where DNR = '+"
 		// EXYFDTY'");
 		isDelete = sqLiteDatabase.delete(DB_TABLE_MESSAGESV5, null, null);

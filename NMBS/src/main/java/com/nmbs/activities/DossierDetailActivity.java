@@ -798,7 +798,10 @@ public class DossierDetailActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        dossierDetailsService.deleteUndecryptPdfFile(dossier.getDossierId(), pdfId);
+        if(dossier != null){
+            dossierDetailsService.deleteUndecryptPdfFile(dossier.getDossierId(), pdfId);
+        }
+
         if(serviceRealTimeReceiver != null){
             unregisterReceiver(serviceRealTimeReceiver);
         }

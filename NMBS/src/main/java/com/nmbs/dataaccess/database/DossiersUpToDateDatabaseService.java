@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.util.Log;
 
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierSummary;
 import com.nmbs.model.DossierTravelSegment;
@@ -36,7 +37,7 @@ public class DossiersUpToDateDatabaseService {
     private DatabaseHelper dbHelper;
 
     public DossiersUpToDateDatabaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);  
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }
 

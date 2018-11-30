@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.model.City;
 import com.nmbs.model.Favorite;
 import android.content.ContentValues;
@@ -42,8 +41,8 @@ public class FavoriteDatabaseService {
     private SQLiteDatabase sqLiteDatabase;  
     private DatabaseHelper dbHelper;  
   
-    public FavoriteDatabaseService(Context context) {   
-    	dbHelper = DatabaseHelper.getInstance(context);  
+    public FavoriteDatabaseService(Context context) {
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
     	sqLiteDatabase = dbHelper.getWritableDatabase();  
     }  
   
@@ -54,8 +53,13 @@ public class FavoriteDatabaseService {
 	 */
 	public boolean insertOneFavorite(City city) {
 		if (city != null) {
-		
-				
+
+			if(sqLiteDatabase == null){
+				sqLiteDatabase = dbHelper.getWritableDatabase();
+			}
+			if(sqLiteDatabase == null){
+				return false;
+			}
 			
 				ContentValues contentValues = new ContentValues();
 				// contentValues.put(FAVORITE_ID, id);
@@ -83,12 +87,23 @@ public class FavoriteDatabaseService {
 	
 	public void deleteOneFavorite(City favorite) {
 		//Log.d(TAG, "delete Favorite, id= "+favorite.getName());
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return;
+		}
 		sqLiteDatabase.delete(DB_TABLE_FAVORITE, FAVORITE_NAME + "='" + favorite.getName() + "'", null) ;
 	}
 
 	public List<City> queryAllFavorite() throws SQLException {
 		List<City> favorites = new ArrayList<City>();
-
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return favorites;
+		}
 		City favorite = null;	
 		//Log.d(TAG, "queryAllFavorite ");
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_FAVORITE, new String[] { FAVORITE_ID, FAVORITE_CITYID, FAVORITE_NAME, 
@@ -123,11 +138,17 @@ public class FavoriteDatabaseService {
 	}
 	   /**
      * Insert data to table.
-     * @param List<City> cities
+     * @param  cities
    	 * @return true means everything is OK, otherwise means failure
      */
 	public boolean insertStationCollection(List<City> cities,
 			List<City> favoritesOfCity) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (cities != null) {
 			ContentValues contentValues = new ContentValues();
 			sqLiteDatabase.beginTransaction();
@@ -178,7 +199,7 @@ public class FavoriteDatabaseService {
 
 	/**
 	 * Create all Favorites from the cursor, convert Cursor to the model
-	 * @param cursor
+	 * @param
 	 */
 	public List<Favorite> selectFavoriteCollection() {
 		List<Favorite> favorites = new ArrayList<Favorite>();
@@ -205,7 +226,13 @@ public class FavoriteDatabaseService {
 		return favorites;
 	}
 	public City selectCityByMainStationCode(String stationCode) throws SQLException {
-		
+		City city = null;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return city;
+		}
 		//Log.d(TAG, "Select City by MainStationCode.");
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_FAVORITE,
 				new String[] {FAVORITE_ID, FAVORITE_CITYID, FAVORITE_NAME, FAVORITE_MAIN_IMAGE_HIGH_RESOLUTION, FAVORITE_MAIN_IMAGE_LOW_RESOLUTION, FAVORITE_ICON_HIGH_RESOLUTION, FAVORITE_ICON_LOW_RESOLUTION,
@@ -214,7 +241,7 @@ public class FavoriteDatabaseService {
 
 		int cursorNum = cursor.getCount();
 		//Log.d(TAG, "cursorNum...." + cursorNum);
-		City city = null;
+
 		for (int i = 0; i < cursorNum; i++) {
 			cursor.moveToPosition(i);
 			String cityId = cursor.getString(cursor
@@ -245,6 +272,12 @@ public class FavoriteDatabaseService {
 	 * @return true means everything is OK, otherwise means failure
 	 */
 	public boolean deleteMasterData(String tableName) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		int isDelete;
 		isDelete = sqLiteDatabase.delete(tableName, null, null) ;
 		//Log.d(TAG, "Delete all data in " + tableName);

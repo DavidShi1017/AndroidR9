@@ -97,6 +97,9 @@ public class DossierDatabaseService {
 	public DossierSummary selectDossier(String id) throws SQLException {
 		DossierSummary dossierSummary = null;
 		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
 			return dossierSummary;
 		}
 
@@ -128,6 +131,9 @@ public class DossierDatabaseService {
 
 	public boolean isPushEnable(String id) throws SQLException {
 		//Log.d(TAG, "Select GeneralSetting.");
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
 		if(sqLiteDatabase == null){
 			return false;
 		}
@@ -165,6 +171,9 @@ public class DossierDatabaseService {
 		Cursor cursor = null;
 		Date nowTime = new Date();
 		String nowTimeStr = DateUtils.dateToString(nowTime);
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
 		if(sqLiteDatabase == null){
 			return dossiersSummary;
 		}
@@ -214,6 +223,9 @@ public class DossierDatabaseService {
 		List<DossierSummary> dossiersSummary = new ArrayList<>();
 		//Log.d(TAG, "Select GeneralSetting.");
 		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
 			return dossiersSummary;
 		}
 		Cursor cursor = sqLiteDatabase.query(DB_Dossier, new String[]{
@@ -250,6 +262,9 @@ public class DossierDatabaseService {
 	public List<DossierSummary> selectPasetDossier(int dossierAftersalesLifetime) throws SQLException {
 		List<DossierSummary> dossiersSummary = new ArrayList<>();
 		//Log.d(TAG, "Select GeneralSetting.");
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
 		if(sqLiteDatabase == null){
 			return dossiersSummary;
 		}
