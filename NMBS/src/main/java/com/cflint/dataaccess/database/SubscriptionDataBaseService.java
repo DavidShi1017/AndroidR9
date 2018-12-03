@@ -102,7 +102,7 @@ public class SubscriptionDataBaseService {
     public List<Subscription> readSubscriptions() {
         List<Subscription> subscriptions = new ArrayList<Subscription>();
         Subscription subscription = null;
-        Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, null, null, null, null, SUBSCRIPTION_DEPARTURE + " asc");
+        Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, null, null, SUBSCRIPTION_RECONCTX, null, SUBSCRIPTION_DEPARTURE + " asc");
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {
             cursor.moveToPosition(i);
@@ -128,7 +128,7 @@ public class SubscriptionDataBaseService {
     public boolean readSubscriptionByReconctx(String reconctx) {
         List<Subscription> subscriptions = new ArrayList<Subscription>();
         Subscription subscription = null;
-        Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_RECONCTX_HASH_CODE+"='"+reconctx+"'", null, null, null, null);
+        Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_RECONCTX_HASH_CODE+"='"+reconctx+"'", null, SUBSCRIPTION_RECONCTX, null, null);
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {
             cursor.moveToPosition(i);
@@ -156,7 +156,7 @@ public class SubscriptionDataBaseService {
     public boolean isDossierPushEnabled(String dossierId) {
         List<Subscription> subscriptions = new ArrayList<Subscription>();
         Subscription subscription = null;
-        Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_dnr+"='"+dossierId+"'", null, null, null, null);
+        Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_dnr+"='"+dossierId+"'", null, SUBSCRIPTION_RECONCTX, null, null);
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {
             cursor.moveToPosition(i);
@@ -185,7 +185,7 @@ public class SubscriptionDataBaseService {
     public List<Subscription> readSubscriptionByDnr(String dossierId) {
         List<Subscription> subscriptions = new ArrayList<Subscription>();
         Subscription subscription = null;
-        Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_dnr+"='"+dossierId+"'", null, null, null, null);
+        Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_dnr+"='"+dossierId+"'", null, SUBSCRIPTION_RECONCTX, null, null);
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {
             cursor.moveToPosition(i);
@@ -211,7 +211,7 @@ public class SubscriptionDataBaseService {
         Subscription subscription = null;
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_RECONCTX_HASH_CODE + "='" + reconctx +"' and " + SUBSCRIPTION_DEPARTURE + "='" + date + "'",
-                null, null, null, null);
+                null, SUBSCRIPTION_RECONCTX, null, null);
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {
             cursor.moveToPosition(i);
@@ -241,7 +241,7 @@ public class SubscriptionDataBaseService {
         Subscription subscription = null;
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_ORIGINSTATIONRCODE + "='" + originStationRcode +"' and " + SUBSCRIPTION_DESTINATIONSTATIONRCODE + "='"+ destinationStationRcode +"' and "+ SUBSCRIPTION_DEPARTURE + "='" + date + "'",
-                null, null, null, null);
+                null, SUBSCRIPTION_RECONCTX, null, null);
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {
             cursor.moveToPosition(i);
@@ -272,7 +272,7 @@ public class SubscriptionDataBaseService {
         Subscription subscription = null;
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_RECONCTX_HASH_CODE + "='" + reconctx +"' and " + SUBSCRIPTION_DEPARTURE + "='" + date + "'",
-                null, null, null, null);
+                null, SUBSCRIPTION_RECONCTX, null, null);
         int cursorNum = cursor.getCount();
         Log.d("cursorNum", "cursorNum..." + cursorNum);
         if(cursorNum > 0){
@@ -298,7 +298,7 @@ public class SubscriptionDataBaseService {
         Subscription subscription = null;
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null,
                 SUBSCRIPTION_Connection_id + "='" + conId + "'",
-                null, null, null, null);
+                null, SUBSCRIPTION_RECONCTX, null, null);
         int cursorNum = cursor.getCount();
         Log.d("cursorNum", "cursorNum..." + cursorNum);
         if(cursorNum > 0){
@@ -365,7 +365,7 @@ public class SubscriptionDataBaseService {
     }
     public Subscription readSubscriptionById(String subscriptionId) {
         Subscription subscription = null;
-        Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_ID+"='"+subscriptionId+"'", null, null, null, null);
+        Cursor cursor = sqLiteDatabase.query(DB_TABLE_SUBSCRIPTION, null, SUBSCRIPTION_ID+"='"+subscriptionId+"'", null, SUBSCRIPTION_RECONCTX, null, null);
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {
             cursor.moveToPosition(i);
@@ -396,7 +396,7 @@ public class SubscriptionDataBaseService {
                         "and " + SUBSCRIPTION_ID + "='" + sub.getSubscriptionId() + "' and " + SUBSCRIPTION_ORIGINSTATIONRCODE + "='" + sub.getOriginStationRcode() + "' " +
                         "and " + SUBSCRIPTION_DESTINATIONSTATIONRCODE + "='" + sub.getDestinationStationRcode() + "' " +
                         "and " + SUBSCRIPTION_dnr + "='" + sub.getDnr() + "'",
-                null, null, null, null);
+                null, SUBSCRIPTION_RECONCTX, null, null);
         int cursorNum = cursor.getCount();
         Log.d("cursorNum", "cursorNum..." + cursorNum);
         if(cursorNum > 0){
