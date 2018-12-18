@@ -306,7 +306,7 @@ public class NMBSApplication extends MultiDexApplication {
 		Date updateTime = dossiersUpToDateService.getUpdateTime(getApplicationContext());
 		if(updateTime != null){
 			Calendar cal = Calendar.getInstance();
-			cal.setTime(new Date());
+			cal.setTime(updateTime);
 
 			Calendar calUpDte = Calendar.getInstance();
 			calUpDte.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY));
