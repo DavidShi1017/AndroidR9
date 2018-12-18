@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.cflint.application.NMBSApplication;
 import com.cflint.model.FavoriteStation;
 
 import net.sqlcipher.database.SQLiteDatabase;
@@ -14,17 +15,17 @@ import java.util.List;
 public class FavoriteStationsDatabaseService {
 	private SQLiteDatabase sqLiteDatabase;
 	private DatabaseHelper dbHelper;
-	
+
 	// Database fields
 	public static final String DB_TABLE_STATION_FAVORITE = "StationFavorite";
 	public static final String Column_Id = "_id";
 	public static final String STATION_CODE = "station_code";
-	
+
 	public FavoriteStationsDatabaseService(Context context) {
-		dbHelper = DatabaseHelper.getInstance(context);
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
 		sqLiteDatabase = dbHelper.getWritableDatabase();
 	}
-	
+
 	/**
 	 * Insert data to table.
 	 *
@@ -32,6 +33,12 @@ public class FavoriteStationsDatabaseService {
 	 * @return true means everything is OK, otherwise means failure
 	 */
 	public boolean insertStationCode(String code) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		sqLiteDatabase.beginTransaction();
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(STATION_CODE, code);
@@ -43,13 +50,19 @@ public class FavoriteStationsDatabaseService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
-			
+
 		}finally{
 			sqLiteDatabase.endTransaction();
 		}
 	}
-	
+
 	public boolean deleteStationCode(String stationCode) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		sqLiteDatabase.beginTransaction();
 		try {
 			sqLiteDatabase.delete(DB_TABLE_STATION_FAVORITE, STATION_CODE +"=?", new String[]{stationCode});
@@ -58,24 +71,36 @@ public class FavoriteStationsDatabaseService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
-			
+
 		}finally{
 			sqLiteDatabase.endTransaction();
 		}
 
 	}
-	
+
 	public void startTransacstion(){
 		sqLiteDatabase.beginTransaction();
 	}
-	
+
 	public void endTransaction(){
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return;
+		}
 		sqLiteDatabase.setTransactionSuccessful();
 		sqLiteDatabase.endTransaction();
 	}
-	
+
 	public boolean isExistStationFavorite(String code) {
 
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_STATION_FAVORITE, null, STATION_CODE + "='" + code + "'", null, null, null, null);
 		int cursorNum = cursor.getCount();
 		if(cursorNum > 0){
@@ -87,6 +112,12 @@ public class FavoriteStationsDatabaseService {
 
 	public List<String> readStationCodeList() {
 		List<String> favoriteStations = new ArrayList<String>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return favoriteStations;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_STATION_FAVORITE, null, null, null, null, null, null);
 		int cursorNum = cursor.getCount();
 		try{
@@ -104,5 +135,5 @@ public class FavoriteStationsDatabaseService {
 
 		return favoriteStations;
 	}
-	
+
 }

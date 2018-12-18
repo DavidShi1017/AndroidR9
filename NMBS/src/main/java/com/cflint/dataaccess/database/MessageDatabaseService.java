@@ -11,13 +11,15 @@ import android.database.Cursor;
 import android.util.Log;
 
 
+import com.cflint.application.NMBSApplication;
+import com.cflint.log.LogUtils;
 import com.cflint.model.MobileMessage;
 import com.cflint.util.HTTPRestServiceCaller;
 
 public class MessageDatabaseService {
 	private SQLiteDatabase sqLiteDatabase;
 	private DatabaseHelper dbHelper;
-	
+
 	// Database fields
 	public static final String DB_TABLE_MESSAGESV5 = "MessagesV5";
 	public static final String ID = "_ID";
@@ -37,13 +39,13 @@ public class MessageDatabaseService {
 	public static final String MESSAGE_REPEATDISPLAY = "RepeatDisplayInOverlay";
 	public static final String MESSAGE_NEXTDISPLAY = "NextDisplayInOverlay";
 	public static final String MESSAGE_NAVIGATION = "NavigationInNormalWebView";
-	
+
 	private static final String TAG = MessageDatabaseService.class.getSimpleName();
 	public MessageDatabaseService(Context context) {
-		dbHelper = DatabaseHelper.getInstance(context);
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
 		sqLiteDatabase = dbHelper.getWritableDatabase();
 	}
-	
+
 	/**
 	 * Insert data to table.
 	 *
@@ -52,10 +54,16 @@ public class MessageDatabaseService {
 	 * @return true means everything is OK, otherwise means failure
 	 */
 	public boolean insertOrder(MobileMessage mobileMessage) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (mobileMessage != null) {
 			ContentValues contentValues = new ContentValues();
 			try {
-				Log.e(TAG, "insert message..." + mobileMessage.isNavigationInNormalWebView());
+				LogUtils.e(TAG, "insert message..." + mobileMessage.isNavigationInNormalWebView());
 				contentValues.put(MESSAGE_ID, mobileMessage.getId());
 				contentValues.put(MESSAGE_TITLE, mobileMessage.getTitle());
 				contentValues.put(MESSAGE_DESCRIPTION, mobileMessage.getDescription());
@@ -71,8 +79,8 @@ public class MessageDatabaseService {
 				contentValues.put(MESSAGE_DISPLAYINOVERLAY, String.valueOf(mobileMessage.isDisplayInOverlay()));
 				contentValues.put(MESSAGE_REPEATDISPLAY, mobileMessage.getRepeatDisplayInOverlay());
 				contentValues.put(MESSAGE_NEXTDISPLAY, mobileMessage.getNextDisplay());
-                contentValues.put(MESSAGE_REPEATDISPLAY, mobileMessage.getRepeatDisplayInOverlay());
-                contentValues.put(MESSAGE_NAVIGATION, String.valueOf(mobileMessage.isNavigationInNormalWebView()));
+				contentValues.put(MESSAGE_REPEATDISPLAY, mobileMessage.getRepeatDisplayInOverlay());
+				contentValues.put(MESSAGE_NAVIGATION, String.valueOf(mobileMessage.isNavigationInNormalWebView()));
 				//Log.d(TAG, "MESSAGE_POPUP_DESC...." + mobileMessage.getPopupDescription());
 				sqLiteDatabase.insert(DB_TABLE_MESSAGESV5, ID, contentValues);
 
@@ -86,8 +94,14 @@ public class MessageDatabaseService {
 			return false;
 		}
 	}
-	
+
 	public boolean insertMessageList(List<MobileMessage> messageList){
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		sqLiteDatabase.beginTransaction();
 		boolean flag = false;
 		try {
@@ -95,7 +109,7 @@ public class MessageDatabaseService {
 			for(MobileMessage message : messageList){
 
 				flag = insertOrder(message);
-				Log.e(TAG, "insert is succeed????" + flag);
+				LogUtils.e(TAG, "insert is succeed????" + flag);
 				if(!flag){
 					return flag;
 				}
@@ -110,18 +124,24 @@ public class MessageDatabaseService {
 		}
 		return flag;
 	}
-	
+
 	public void startTransacstion(){
 		sqLiteDatabase.beginTransaction();
 	}
-	
+
 	public void endTransaction(){
 		sqLiteDatabase.setTransactionSuccessful();
 		sqLiteDatabase.endTransaction();
 	}
-	
+
 	public List<MobileMessage> readMessageList() {
 		List<MobileMessage> messageList = new ArrayList<MobileMessage>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return messageList;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_MESSAGESV5, null, null, null, null, null, null);
 		//Log.d(tag, "Select all data.");
 		int cursorNum = cursor.getCount();
@@ -143,7 +163,7 @@ public class MessageDatabaseService {
 			boolean displayInOverlay = Boolean.valueOf(cursor.getString(cursor.getColumnIndexOrThrow(MESSAGE_DISPLAYINOVERLAY)));
 			int repeatDisplay = cursor.getInt(cursor.getColumnIndexOrThrow(MESSAGE_REPEATDISPLAY));
 
-            boolean navigation = Boolean.valueOf(cursor.getString(cursor.getColumnIndexOrThrow(MESSAGE_NAVIGATION)));
+			boolean navigation = Boolean.valueOf(cursor.getString(cursor.getColumnIndexOrThrow(MESSAGE_NAVIGATION)));
 			String messageNextDisplay = cursor.getString(cursor.getColumnIndexOrThrow(MESSAGE_NEXTDISPLAY));
 			MobileMessage mobileMessage = new MobileMessage(id, title, description, validity, lowResIcon, highResIcon,
 					lowResImage, highResImage, messageType, includeActionButton, actionButtonText, hyperLink, displayInOverlay, repeatDisplay, navigation);
@@ -157,7 +177,7 @@ public class MessageDatabaseService {
 		return messageList;
 	}
 
-	
+
 	public Date getDate(Cursor cursor, int columnIndex){
 		Long date = null;
 		if (cursor.getString(columnIndex) != null)
@@ -166,11 +186,23 @@ public class MessageDatabaseService {
 	}
 
 	public void deleteMessate(String messageId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return ;
+		}
 		sqLiteDatabase.delete(DB_TABLE_MESSAGESV5, MESSAGE_ID + "='"
 				+ messageId + "'", null);
 	}
 
 	public boolean updateMessageNextDisplay(String messageId, String messageNextDisplay) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 
 		ContentValues contentValues = new ContentValues();
 		sqLiteDatabase.beginTransaction();
@@ -191,6 +223,12 @@ public class MessageDatabaseService {
 
 	public boolean deleteMessages() {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		// sqLiteDatabase.execSQL("delete from Orders where DNR = '+"
 		// EXYFDTY'");
 		isDelete = sqLiteDatabase.delete(DB_TABLE_MESSAGESV5, null, null);

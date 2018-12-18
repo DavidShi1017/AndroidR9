@@ -63,7 +63,11 @@ public class DateTimeActivity extends BaseActivity {
         departureTextView = (TextView) findViewById(R.id.tv_date_time_departures);
         arriveTextView = (TextView) findViewById(R.id.tv_date_time_arrivals);
         date = (Date) getIntent().getSerializableExtra(PRMA_DATE);
-        dpDate.setMinDate(System.currentTimeMillis() - 1000);
+        try {
+            dpDate.setMinDate(System.currentTimeMillis() - 10000);
+        }catch (Exception e){
+
+        }
         calendar = Calendar.getInstance();
         if(date != null){
             calendar.setTime(date);

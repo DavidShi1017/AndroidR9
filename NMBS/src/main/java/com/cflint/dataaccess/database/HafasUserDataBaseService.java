@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.cflint.application.NMBSApplication;
+import com.cflint.log.LogUtils;
 import com.cflint.model.HafasUser;
 
 import net.sqlcipher.database.SQLiteDatabase;
@@ -23,7 +25,7 @@ public class HafasUserDataBaseService {
     public static final String HAFAS_REGISTER_ID = "register_id";
 
     public HafasUserDataBaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);
+        dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
     }
 
@@ -34,7 +36,13 @@ public class HafasUserDataBaseService {
      * @return true means everything is OK, otherwise means failure
      */
     public boolean insertHafasUser(HafasUser hafasUser) {
-        Log.e("insertHafasUser", " insertHafasUser...." + hafasUser);
+        LogUtils.e("insertHafasUser", " insertHafasUser...." + hafasUser);
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         sqLiteDatabase.beginTransaction();
         ContentValues contentValues = new ContentValues();
         contentValues.put(HAFAS_USER_ID, hafasUser.getUserId());
@@ -45,7 +53,7 @@ public class HafasUserDataBaseService {
             sqLiteDatabase.insert(DB_TABLE_HAFAS_USER, hafasUser.getUserId(),
                     contentValues);
             sqLiteDatabase.setTransactionSuccessful();
-            Log.e("insertHafasUser", " insertHafasUser....Successful");
+            LogUtils.e("insertHafasUser", " insertHafasUser....Successful");
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,6 +66,12 @@ public class HafasUserDataBaseService {
     }
 
     public boolean deleteHafasUser(String userId) {
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return false;
+        }
         sqLiteDatabase.beginTransaction();
         try {
             sqLiteDatabase.delete(DB_TABLE_HAFAS_USER, HAFAS_USER_ID+"=?", new String[]{userId});
@@ -84,6 +98,12 @@ public class HafasUserDataBaseService {
 
     public HafasUser readHafasUser() {
         HafasUser hafasUser = null;
+        if(sqLiteDatabase == null){
+            sqLiteDatabase = dbHelper.getWritableDatabase();
+        }
+        if(sqLiteDatabase == null){
+            return hafasUser;
+        }
         Cursor cursor = sqLiteDatabase.query(DB_TABLE_HAFAS_USER, null, null, null, null, null, null);
         int cursorNum = cursor.getCount();
         for (int i = 0; i < cursorNum; i++) {

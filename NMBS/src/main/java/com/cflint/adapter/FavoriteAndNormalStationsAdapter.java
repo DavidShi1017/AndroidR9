@@ -108,6 +108,9 @@ public class FavoriteAndNormalStationsAdapter extends BaseExpandableListAdapter 
 		
 		RelativeLayout relativeLayout = (RelativeLayout) convertView.findViewById(R.id.station_board_item_view);
 		TextView noFavoriteView = (TextView) convertView.findViewById(R.id.station_adapter_view_favorite_noticket_TextView);
+		if(allStations == null || allStations.size() == 0){
+			return convertView;
+		}
 		if (groupPosition == 0 && allStations.get(groupPosition).size() == 0) {
 			noFavoriteView.setVisibility(View.VISIBLE);
 			relativeLayout.setVisibility(View.GONE);

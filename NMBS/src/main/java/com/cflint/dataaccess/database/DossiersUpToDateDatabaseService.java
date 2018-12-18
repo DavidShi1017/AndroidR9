@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.util.Log;
 
+import com.cflint.application.NMBSApplication;
+import com.cflint.log.LogUtils;
 import com.cflint.model.DossierSummary;
 import com.cflint.model.DossierTravelSegment;
 import com.cflint.model.LocalNotification;
@@ -31,16 +33,16 @@ public class DossiersUpToDateDatabaseService {
 	public static final String Column_Dnr = "dnr";
 	public static final String Column_LastUpdated = "LastUpdated";
 
-    private SQLiteDatabase sqLiteDatabase;
-    private DatabaseHelper dbHelper;
+	private SQLiteDatabase sqLiteDatabase;
+	private DatabaseHelper dbHelper;
 
-    public DossiersUpToDateDatabaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);  
-        sqLiteDatabase = dbHelper.getWritableDatabase();
-    }
+	public DossiersUpToDateDatabaseService(Context context) {
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
+		sqLiteDatabase = dbHelper.getWritableDatabase();
+	}
 
 	public boolean insertTravelSegment(String dnr, String lastUpdated) {
-		Log.d(TAG, "Insert a dnr....." + dnr);
+		LogUtils.d(TAG, "Insert a dnr....." + dnr);
 		ContentValues contentValues = new ContentValues();
 		sqLiteDatabase.beginTransaction();
 		try{
@@ -55,7 +57,7 @@ public class DossiersUpToDateDatabaseService {
 	}
 
 	public String selectLastUpdatedByDnr(String id) throws SQLException {
-		Log.d(TAG, "Select LastUpdated. Id is..." + id);
+		LogUtils.d(TAG, "Select LastUpdated. Id is..." + id);
 		Cursor cursor = sqLiteDatabase.query(DB_DossiersUpToDate, new String[] {Column_Dnr, Column_LastUpdated},
 				Column_Dnr + " = '" + id +  "'", null, null, null, null);
 		String lastUpdated = null;
@@ -65,7 +67,7 @@ public class DossiersUpToDateDatabaseService {
 
 		}
 		cursor.close();
-		Log.d(TAG, "Select LastUpdated is..." + lastUpdated);
+		LogUtils.d(TAG, "Select LastUpdated is..." + lastUpdated);
 		return lastUpdated;
 	}
 

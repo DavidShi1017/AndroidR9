@@ -8,6 +8,7 @@ import android.database.SQLException;
 import android.util.Log;
 
 import com.cflint.application.NMBSApplication;
+import com.cflint.log.LogUtils;
 import com.cflint.model.City;
 import com.cflint.model.Dossier;
 import com.cflint.model.DossierSummary;
@@ -96,6 +97,9 @@ public class DossierDatabaseService {
 	public DossierSummary selectDossier(String id) throws SQLException {
 		DossierSummary dossierSummary = null;
 		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
 			return dossierSummary;
 		}
 
@@ -105,7 +109,7 @@ public class DossierDatabaseService {
 						Column_TravelSegment_Available, Column_Display_Overlay, Column_LatestTravelDate, Column_EarliestTravelDate},
 				Column_Dossier_Id + " = '"+id+ "'", null, null, null, null);
 
-		//LogUtils.d("DossierSummary", "cursor------->" + cursor.getCount());
+		LogUtils.d("DossierSummary", "cursor------->" + cursor.getCount());
 		if(cursor.getCount() > 0){
 			cursor.moveToPosition(0);
 			String dossierId = cursor.getString(cursor.getColumnIndexOrThrow(Column_Dossier_Id));
@@ -127,6 +131,9 @@ public class DossierDatabaseService {
 
 	public boolean isPushEnable(String id) throws SQLException {
 		//Log.d(TAG, "Select GeneralSetting.");
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
 		if(sqLiteDatabase == null){
 			return false;
 		}
@@ -164,6 +171,9 @@ public class DossierDatabaseService {
 		Cursor cursor = null;
 		Date nowTime = new Date();
 		String nowTimeStr = DateUtils.dateToString(nowTime);
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
 		if(sqLiteDatabase == null){
 			return dossiersSummary;
 		}
@@ -213,6 +223,9 @@ public class DossierDatabaseService {
 		List<DossierSummary> dossiersSummary = new ArrayList<>();
 		//Log.d(TAG, "Select GeneralSetting.");
 		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
 			return dossiersSummary;
 		}
 		Cursor cursor = sqLiteDatabase.query(DB_Dossier, new String[]{
@@ -222,7 +235,7 @@ public class DossierDatabaseService {
 				null, null, null, null, "");
 		DossierSummary dossierSummary = null;
 		int cursorNum = cursor.getCount();
-//		LogUtils.d("DossierDatabaseService", "selectDossierAll......");
+		LogUtils.d("DossierDatabaseService", "selectDossierAll......");
 		for (int i = 0; i < cursorNum; i++) {
 			cursor.moveToPosition(i);
 			String dossierId = cursor.getString(cursor.getColumnIndexOrThrow(Column_Dossier_Id));
@@ -249,6 +262,9 @@ public class DossierDatabaseService {
 	public List<DossierSummary> selectPasetDossier(int dossierAftersalesLifetime) throws SQLException {
 		List<DossierSummary> dossiersSummary = new ArrayList<>();
 		//Log.d(TAG, "Select GeneralSetting.");
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
 		if(sqLiteDatabase == null){
 			return dossiersSummary;
 		}

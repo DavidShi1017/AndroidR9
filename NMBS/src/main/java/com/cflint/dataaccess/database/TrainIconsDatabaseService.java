@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 
+import com.cflint.application.NMBSApplication;
 import com.cflint.model.GeneralSetting;
 import com.cflint.model.Station;
 import com.cflint.model.Train;
@@ -35,15 +36,21 @@ public class TrainIconsDatabaseService {
 	public static final String Column_HighResImage = "HighResImage";
 	public static final String Column_LowResImage = "LowResImage";
 
-    private SQLiteDatabase sqLiteDatabase;
-    private DatabaseHelper dbHelper;
+	private SQLiteDatabase sqLiteDatabase;
+	private DatabaseHelper dbHelper;
 
-    public TrainIconsDatabaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);  
-        sqLiteDatabase = dbHelper.getWritableDatabase();
-    }
+	public TrainIconsDatabaseService(Context context) {
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
+		sqLiteDatabase = dbHelper.getWritableDatabase();
+	}
 
 	public boolean insertTrainIcons(List<TrainIcon> trainIcons) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (trainIcons != null ) {
 			ContentValues contentValues = new ContentValues();
 			sqLiteDatabase.beginTransaction();
@@ -68,28 +75,34 @@ public class TrainIconsDatabaseService {
 		}
 	}
 
-	  /**
-     * Select all data from SQLite
-     * @return StationResponse
-     * @throws SQLException
-     */
+	/**
+	 * Select all data from SQLite
+	 * @return StationResponse
+	 * @throws SQLException
+	 */
 
 	public List<TrainIcon> selectTrainIcons() throws SQLException {
 
-		List<TrainIcon> trainIcons = null;
+		List<TrainIcon> trainIcons = new ArrayList<>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return trainIcons;
+		}
 		//Log.d(TAG, "Select GeneralSetting.");
 		Cursor cursor = sqLiteDatabase.query(DB_TRAIN_ICONS, new String[] {
-						Column_BrandName,
-						Column_LinkedHafasCodes, Column_LinkedTariffGroups,
-						Column_LinkedTrainBrands, Column_HighResImage, Column_LowResImage,
-						}, null, null, null, null, null);
+				Column_BrandName,
+				Column_LinkedHafasCodes, Column_LinkedTariffGroups,
+				Column_LinkedTrainBrands, Column_HighResImage, Column_LowResImage,
+		}, null, null, null, null, null);
 
 		TrainIcon trainIcon = null;
 		int cursorNum = cursor.getCount();
 		if(cursorNum > 0){
 			trainIcons = new ArrayList<>();
 		}
-		for (int i = 0; i < cursorNum; i++) {	
+		for (int i = 0; i < cursorNum; i++) {
 			cursor.moveToPosition(i);
 			String brandName = cursor.getString(cursor.getColumnIndexOrThrow(Column_BrandName));
 			String linkedHafasCodes = cursor.getString(cursor.getColumnIndexOrThrow(Column_LinkedHafasCodes));
@@ -109,7 +122,7 @@ public class TrainIconsDatabaseService {
 
 		return trainIcons;
 	}
-	
+
 
 	/**
 	 * Delete all data by different table name
@@ -118,6 +131,12 @@ public class TrainIconsDatabaseService {
 	 */
 	public boolean deleteData(String tableName) {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		isDelete = sqLiteDatabase.delete(tableName, null, null) ;
 		//Log.d(TAG, "Delete all data in " + tableName);
 		if(isDelete > 0){
@@ -125,5 +144,5 @@ public class TrainIconsDatabaseService {
 		}else{
 			return false;
 		}
-	}  
+	}
 }

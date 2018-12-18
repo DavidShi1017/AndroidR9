@@ -9,7 +9,7 @@ import android.database.SQLException;
 import net.sqlcipher.database.SQLiteDatabase;
 
 
-
+import com.cflint.application.NMBSApplication;
 import com.cflint.model.GeneralSetting;
 
 
@@ -19,7 +19,7 @@ import com.cflint.model.GeneralSetting;
  * It is used to manage City.
  */
 public class GeneralSettingDatabaseService {
-	
+
 	//private static final String TAG = GeneralSettingDatabaseService.class.getSimpleName();
 	// Database fields   
 	public static final String DB_GENERAL_SETTINGS = "GeneralSettings";
@@ -49,23 +49,29 @@ public class GeneralSettingDatabaseService {
 	public static final String Column_InsuranceConditionsPdf = "InsuranceConditionsPdf";
 
 
-	
-    private SQLiteDatabase sqLiteDatabase;  
-    private DatabaseHelper dbHelper;  
-  
-    public GeneralSettingDatabaseService(Context context) { 
-        dbHelper = DatabaseHelper.getInstance(context);  
-        sqLiteDatabase = dbHelper.getWritableDatabase();
-    }    
-    
-	   /**
-     * Insert data to table.
-     * @param generalSetting generalSetting
-   	 * @return true means everything is OK, otherwise means failure
-     */
-    public boolean insertStationCollection(GeneralSetting generalSetting) {
+
+	private SQLiteDatabase sqLiteDatabase;
+	private DatabaseHelper dbHelper;
+
+	public GeneralSettingDatabaseService(Context context) {
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
+		sqLiteDatabase = dbHelper.getWritableDatabase();
+	}
+
+	/**
+	 * Insert data to table.
+	 * @param generalSetting generalSetting
+	 * @return true means everything is OK, otherwise means failure
+	 */
+	public boolean insertStationCollection(GeneralSetting generalSetting) {
 		if (generalSetting != null ) {
-			ContentValues contentValues = new ContentValues();	
+			ContentValues contentValues = new ContentValues();
+			if(sqLiteDatabase == null){
+				sqLiteDatabase = dbHelper.getWritableDatabase();
+			}
+			if(sqLiteDatabase == null){
+				return false;
+			}
 			sqLiteDatabase.beginTransaction();
 			try{
 
@@ -78,8 +84,8 @@ public class GeneralSettingDatabaseService {
 				contentValues.put(Column_CommercialTtlListUrl, generalSetting.getCommercialTtlListUrl());
 				contentValues.put(Column_PrivacyPolicyUrl, generalSetting.getPrivacyPolicyUrl());
 				contentValues.put(Column_Domain, generalSetting.getDomain());
-				contentValues.put(Column_CheckLastUpdateTimestampPassword, String.valueOf(generalSetting.isCheckLastUpdateTimestampPassword()));
-									
+				contentValues.put(Column_CheckLastUpdateTimestampPassword, String.valueOf(generalSetting.getDomain()));
+
 				contentValues.put(Column_MaxRealTimeInfoHorizon, Integer.valueOf(generalSetting.getMaxRealTimeInfoHorizon()));
 				contentValues.put(Column_DossierAftersalesLifetime, Integer.valueOf(generalSetting.getDossierAftersalesLifetime()));
 				contentValues.put(Column_BookingUrl, generalSetting.getBookingUrl());
@@ -90,9 +96,9 @@ public class GeneralSettingDatabaseService {
 				contentValues.put(Column_InsuranceConditionsPdf, generalSetting.getInsuranceConditionsPdf());
 
 				sqLiteDatabase.insert(DB_GENERAL_SETTINGS , GENERAL_SETTING_ID, contentValues);
-						
-				//Log.d(TAG, "Insert data to TABLE= "+DB_GENERAL_SETTING);		
-				sqLiteDatabase.setTransactionSuccessful();				
+
+				//Log.d(TAG, "Insert data to TABLE= "+DB_GENERAL_SETTING);
+				sqLiteDatabase.setTransactionSuccessful();
 			}finally{
 				sqLiteDatabase.endTransaction();
 			}
@@ -101,25 +107,31 @@ public class GeneralSettingDatabaseService {
 			//Log.d(TAG, "There is no data was inserted.");
 			return false;
 		}
-	}	
-   
-		
-	  /**
-     * Select all data from SQLite
-     * @return StationResponse
-     * @throws SQLException
-     */
+	}
+
+
+	/**
+	 * Select all data from SQLite
+	 * @return StationResponse
+	 * @throws SQLException
+	 */
 
 	public GeneralSetting selectGeneralSetting() throws SQLException {
-
+		GeneralSetting generalSetting = null;
 		//Log.d(TAG, "Select GeneralSetting.");
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return generalSetting;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_GENERAL_SETTINGS, null, null, null, null,
 				null, null);
 
-		GeneralSetting generalSetting = null;
+
 		int cursorNum = cursor.getCount();
-		
-		for (int i = 0; i < cursorNum; i++) {	
+
+		for (int i = 0; i < cursorNum; i++) {
 			cursor.moveToPosition(i);
 
 			String restSalt = cursor.getString(cursor.getColumnIndexOrThrow(Column_RestSalt));
@@ -153,7 +165,7 @@ public class GeneralSettingDatabaseService {
 
 		return generalSetting;
 	}
-	
+
 
 	/**
 	 * Delete all data by different table name
@@ -162,6 +174,12 @@ public class GeneralSettingDatabaseService {
 	 */
 	public boolean deleteMasterData(String tableName) {
 		int isDelete;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		isDelete = sqLiteDatabase.delete(tableName, null, null) ;
 		//Log.d(TAG, "Delete all data in " + tableName);
 		if(isDelete > 0){
@@ -169,5 +187,5 @@ public class GeneralSettingDatabaseService {
 		}else{
 			return false;
 		}
-	}  
+	}
 }

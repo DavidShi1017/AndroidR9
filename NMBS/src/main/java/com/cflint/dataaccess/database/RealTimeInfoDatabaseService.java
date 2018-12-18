@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.cflint.application.NMBSApplication;
 import com.cflint.model.RealTimeInfoResponse;
 import com.cflint.services.impl.DossierDetailsService;
 
@@ -30,25 +31,25 @@ public class RealTimeInfoDatabaseService {
 
 
 
-    private SQLiteDatabase sqLiteDatabase;
-    private DatabaseHelper dbHelper;
+	private SQLiteDatabase sqLiteDatabase;
+	private DatabaseHelper dbHelper;
 
-    public RealTimeInfoDatabaseService(Context context) {
-        dbHelper = DatabaseHelper.getInstance(context);  
-        sqLiteDatabase = dbHelper.getWritableDatabase();
-    }    
+	public RealTimeInfoDatabaseService(Context context) {
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
+		sqLiteDatabase = dbHelper.getWritableDatabase();
+	}
 
-    /**
+	/**
 	 * Insert data to table.
 	 *
 	 *            order
 	 * @return true means everything is OK, otherwise means failure
 	 */
-	
+
 	public void startTransacstion(){
 		sqLiteDatabase.beginTransaction();
 	}
-	
+
 	public void endTransaction(){
 		sqLiteDatabase.setTransactionSuccessful();
 		sqLiteDatabase.endTransaction();
@@ -56,6 +57,12 @@ public class RealTimeInfoDatabaseService {
 
 
 	public boolean insertRealTime(RealTimeInfoResponse realTimeInfoResponse) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		sqLiteDatabase.beginTransaction();
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(REAL_TIME_INFO_ID, realTimeInfoResponse.getId());
@@ -79,6 +86,12 @@ public class RealTimeInfoDatabaseService {
 
 	public List<RealTimeInfoResponse> readAllRealTimeInfo() {
 		List<RealTimeInfoResponse> realTimeInfoResponses = new ArrayList<RealTimeInfoResponse>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return realTimeInfoResponses;
+		}
 		RealTimeInfoResponse realTimeInfoResponse = null;
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_REAL_TIME_INFO, null, null, null, null, null, null);
 		int cursorNum = cursor.getCount();
@@ -101,6 +114,12 @@ public class RealTimeInfoDatabaseService {
 
 	public RealTimeInfoResponse readRealTimeInfoById(String id) {
 		RealTimeInfoResponse realTimeInfoResponse = null;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return realTimeInfoResponse;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_REAL_TIME_INFO, null, REAL_TIME_INFO_ID+"='"+id+"'", null, null, null, null);
 		int cursorNum = cursor.getCount();
 		for (int i = 0; i < cursorNum; i++) {
@@ -120,6 +139,12 @@ public class RealTimeInfoDatabaseService {
 	}
 
 	public boolean deleteRealTime(String id) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		sqLiteDatabase.beginTransaction();
 		try {
 			sqLiteDatabase.delete(DB_TABLE_REAL_TIME_INFO, REAL_TIME_INFO_ID+"=?", new String[]{id});
@@ -134,3 +159,4 @@ public class RealTimeInfoDatabaseService {
 		}
 	}
 }
+

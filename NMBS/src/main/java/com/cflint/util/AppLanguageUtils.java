@@ -14,6 +14,10 @@ import android.util.Log;
 
 import com.cflint.R;
 import com.cflint.application.NMBSApplication;
+import com.cflint.log.LogUtils;
+import com.cflint.preferences.SettingsPref;
+
+import org.apache.commons.lang.StringUtils;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -38,7 +42,7 @@ public class AppLanguageUtils {
     public static void changeAppLanguage(Context context, String newLanguage) {
         Resources resources = context.getResources();
         Configuration configuration = resources.getConfiguration();
-        Log.d("changeAppLanguage", "The currentLanguage------->" + newLanguage);
+        LogUtils.d("changeAppLanguage", "The currentLanguage------->" + newLanguage);
         // app locale
         if(newLanguage != null && newLanguage.length() > 0) {
             if(newLanguage.contains("_")){
@@ -47,16 +51,19 @@ public class AppLanguageUtils {
 
         }else{
             String defaultLanguage = Locale.getDefault().getLanguage();
-            if("FR".equalsIgnoreCase(defaultLanguage)){
+            if(StringUtils.equalsIgnoreCase("NL", defaultLanguage)){
+                newLanguage = "NL_BE";
+            }else if(StringUtils.equalsIgnoreCase("FR", defaultLanguage)){
                 newLanguage = "FR_BE";
-            }else if("FR".equalsIgnoreCase(defaultLanguage)){
+            }else if(StringUtils.equalsIgnoreCase("DE", defaultLanguage)){
                 newLanguage = "DE_BE";
             }else{
                 newLanguage = "EN_GB";
             }
-            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+           /* SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
             editor.putString(context.getString(R.string.app_language_pref_key), newLanguage);
-            editor.commit();
+            editor.commit();*/
+            SettingsPref.saveCurrentLanguagesKey(context, newLanguage);
             if(newLanguage != null && newLanguage.length() > 0) {
                 if(newLanguage.contains("_")){
                     newLanguage = newLanguage.substring(0, 2).toLowerCase();
@@ -65,7 +72,7 @@ public class AppLanguageUtils {
         }
         //Log.d("changeAppLanguage", "locale------->" + newLanguage);
         Locale locale = getLocaleByLanguage(newLanguage);
-        Log.d("changeAppLanguage", "locale------->" + locale.getLanguage());
+        LogUtils.d("changeAppLanguage", "locale------->" + locale.getLanguage());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             configuration.setLocale(locale);
         } else {
@@ -114,8 +121,9 @@ public class AppLanguageUtils {
     public static Context attachBaseContext(Context context, String language) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            language = PreferenceManager.getDefaultSharedPreferences(context)
-                    .getString(context.getString(R.string.app_language_pref_key), "");
+           /* language = PreferenceManager.getDefaultSharedPreferences(context)
+                    .getString(context.getString(R.string.app_language_pref_key), "");*/
+            language = SettingsPref.getCurrentLanguagesKey(context);
             //Log.d("attachBaseContext", "The language------->" + language);
             if(language != null && language.length() > 0) {
                 if(language.contains("_")){
@@ -142,9 +150,10 @@ public class AppLanguageUtils {
         configuration.setLocale(locale);
         configuration.setLocales(new LocaleList(locale));
 
-        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+        /*SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
         editor.putString(context.getString(R.string.app_language_pref_key), locale.getLanguage());
-        editor.commit();
+        editor.commit();*/
+        SettingsPref.saveCurrentLanguagesKey(context, locale.getLanguage());
         return context.createConfigurationContext(configuration);
     }
 }

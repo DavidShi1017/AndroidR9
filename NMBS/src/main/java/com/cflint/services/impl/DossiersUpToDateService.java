@@ -11,6 +11,7 @@ import com.cflint.application.NMBSApplication;
 import com.cflint.dataaccess.database.DossiersUpToDateDatabaseService;
 import com.cflint.dataaccess.restservice.DossiersUpToDateDateService;
 import com.cflint.dataaccess.restservice.impl.DossierDetailDataService;
+import com.cflint.log.LogUtils;
 import com.cflint.model.DossierDetailsResponse;
 import com.cflint.model.DossierSummary;
 import com.cflint.model.DossiersUpToDate;
@@ -47,6 +48,10 @@ public class DossiersUpToDateService {
         DossierDetailsService dossierDetailsService = NMBSApplication.getInstance().getDossierDetailsService();
         String language = NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey();
         //Log.d("UpToDate", "Language is..." + language);
+        if(language == null || language.isEmpty()){
+            LogUtils.d("UpToDate", "language is empty...");
+            language = "en";
+        }
         List<DossierSummary> dossiers = dossierDetailsService.getDossiers();
         if (dossiers != null){
             //DossiersUpToDateDatabaseService dossiersUpToDateDatabaseService = new DossiersUpToDateDatabaseService(context);

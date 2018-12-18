@@ -6,6 +6,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.cflint.application.NMBSApplication;
+import com.cflint.log.LogUtils;
 import com.cflint.model.ExtensionScheduleQuery;
 import com.cflint.model.TravelRequest;
 import com.cflint.util.DateUtils;
@@ -36,17 +38,23 @@ public class ScheduleQueryDataBaseService {
 
 
 	public ScheduleQueryDataBaseService(Context context) {
-		dbHelper = DatabaseHelper.getInstance(context);
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
 		sqLiteDatabase = dbHelper.getWritableDatabase();
 	}
 
 	public boolean insertScheduleQuery(String scheduleQueryID, String originCode, String desCode,
 									   String viaCode, String dateTime, String timePreference, String trainNr,String originName,  String desName, String viaName) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (!scheduleQueryID.equals("")) {
 			if(isExistScheduleQuery(scheduleQueryID))
 				deleteLastScheduleById(scheduleQueryID);
 			ContentValues contentValues = new ContentValues();
-			Log.e("ScheduleQuery", "insertScheduleQuery...dateTime..." + dateTime);
+			LogUtils.e("ScheduleQuery", "insertScheduleQuery...dateTime..." + dateTime);
 			sqLiteDatabase.beginTransaction();
 			try {
 				contentValues.put(LAST_QUERY_ID, scheduleQueryID);
@@ -76,14 +84,20 @@ public class ScheduleQueryDataBaseService {
 	public ExtensionScheduleQuery readScheduleQuery(String scheduleQueryId) {
 
 		ExtensionScheduleQuery extensionScheduleQuery = null;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return extensionScheduleQuery;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_SCHEDULE_LAST_QUERY, new String[] {
 				LAST_QUERY_ID, LAST_QUERY_ORIGIN_CODE, LAST_QUERY_DESTINATION_CODE,LAST_QUERY_VIA_CODE,LAST_QUERY_DATE_TIME,
 				LAST_QUERY_TIME_PREFERENCE,LAST_QUERY_TRAIN_NR,LAST_QUERY_DES_NAME,LAST_QUERY_ORIGIN_NAME,LAST_QUERY_VIA_NAME}, LAST_QUERY_ID + " = '"
 				+ scheduleQueryId + "'", null, null, null, null);
 		if (cursor.getCount() == 0) {
 			cursor.close();
-		}else {			
-			cursor.moveToFirst();	
+		}else {
+			cursor.moveToFirst();
 			String originCode = cursor.getString(cursor.getColumnIndexOrThrow(LAST_QUERY_ORIGIN_CODE));
 			String desCode = cursor.getString(cursor.getColumnIndexOrThrow(LAST_QUERY_DESTINATION_CODE));
 			String viaCode = cursor.getString(cursor.getColumnIndexOrThrow(LAST_QUERY_VIA_CODE));
@@ -93,25 +107,31 @@ public class ScheduleQueryDataBaseService {
 			String originName = cursor.getString(cursor.getColumnIndexOrThrow(LAST_QUERY_ORIGIN_NAME));
 			String desName = cursor.getString(cursor.getColumnIndexOrThrow(LAST_QUERY_DES_NAME));
 			String viaName = cursor.getString(cursor.getColumnIndexOrThrow(LAST_QUERY_VIA_NAME));
-			Log.e("ScheduleQuery", "dateTime..." + dateTime);
+			LogUtils.e("ScheduleQuery", "dateTime..." + dateTime);
 			Date tempDate = null;
 			if(!"".equals(dateTime)){
 				tempDate = DateUtils.stringToDateTime(dateTime, "dd MMM yyyy - HH:mm");
 			}else{
 				tempDate = new Date();
 			}
-			Log.e("ScheduleQuery", "tempDate..." + tempDate);
+			LogUtils.e("ScheduleQuery", "tempDate..." + tempDate);
 
 			extensionScheduleQuery = new ExtensionScheduleQuery(originCode,desCode,viaCode,trainNr,tempDate,Enum.valueOf(TravelRequest.TimePreference.class, preference),originName,desName,viaName);
 
 			cursor.close();
 		}
-		
+
 		return extensionScheduleQuery;
 	}
-	
-	
+
+
 	public boolean isExistScheduleQuery(String OfferQueryId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_SCHEDULE_LAST_QUERY, new String[] {
 				LAST_QUERY_ID, LAST_QUERY_ORIGIN_CODE, LAST_QUERY_DESTINATION_CODE,LAST_QUERY_VIA_CODE,LAST_QUERY_DATE_TIME,
 				LAST_QUERY_TIME_PREFERENCE,LAST_QUERY_TRAIN_NR,LAST_QUERY_DES_NAME,LAST_QUERY_ORIGIN_NAME,LAST_QUERY_VIA_NAME}, LAST_QUERY_ID + " = '"
@@ -126,6 +146,12 @@ public class ScheduleQueryDataBaseService {
 	}
 
 	public void deleteLastScheduleById(String OfferQueryId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return;
+		}
 		sqLiteDatabase.delete(DB_TABLE_SCHEDULE_LAST_QUERY, LAST_QUERY_ID + "='"
 				+ OfferQueryId + "'", null);
 	}

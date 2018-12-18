@@ -16,6 +16,8 @@ import android.database.SQLException;
 
 import android.util.Log;
 
+import com.cflint.application.NMBSApplication;
+import com.cflint.log.LogUtils;
 import com.cflint.model.OfferQuery.ComforClass;
 import com.cflint.model.Order;
 import com.cflint.model.StationBoardBulk;
@@ -61,7 +63,7 @@ public class AssistantDatabaseService {
 	public static final String ORDERS_RULFILLMENTFAILED = "RulfillmentFailed";
 	public static final String ORDERS_HAS_DUPLICATED_STATIONBOARD = "HasDuplicatedStationboard";
 	public static final String ORDERS_DUPLICATED_STATIONBOARD_ID = "DuplicatedStationboardId";
-	
+
 
 	public static final String DB_TABLE_PDFS = "PDFs";
 	public static final String PDFS_ID = "_PDFsID";
@@ -72,13 +74,13 @@ public class AssistantDatabaseService {
 	public static final String BARCODES_CONTENT = "BarCodesContent";
 
 	public AssistantDatabaseService(Context context) {
-		dbHelper = DatabaseHelper.getInstance(context);
+		dbHelper = DatabaseHelper.getInstance(NMBSApplication.getInstance().getApplicationContext());
 		sqLiteDatabase = dbHelper.getWritableDatabase();
 	}
 
 	/**
 	 * Insert data to table.
-	 * 
+	 *
 	 * @param
 	 *            order
 	 * @return true means everything is OK, otherwise means failure
@@ -86,6 +88,12 @@ public class AssistantDatabaseService {
 	public boolean insertOrder(Order order) {
 		if (order != null) {
 			ContentValues contentValues = new ContentValues();
+			if(sqLiteDatabase == null){
+				sqLiteDatabase = dbHelper.getWritableDatabase();
+			}
+			if(sqLiteDatabase == null){
+				return false;
+			}
 			sqLiteDatabase.beginTransaction();
 			try {
 				contentValues.put(ORDERS_TRAIN_TYPE, order.getTrainType());
@@ -133,7 +141,7 @@ public class AssistantDatabaseService {
 
 	/**
 	 * Insert data to table.
-	 * 
+	 *
 	 * @param barCodesId
 	 *            pdfID
 	 * @param barCodesContent
@@ -166,7 +174,7 @@ public class AssistantDatabaseService {
 
 	/**
 	 * Insert data to table.
-	 * 
+	 *
 	 * @param pdfId
 	 *            pdfID
 	 * @param pdfContent
@@ -184,7 +192,7 @@ public class AssistantDatabaseService {
 			try {
 				contentValues.put(PDFS_ID, pdfId);
 				contentValues.put(PDFS_CONTENT, pdfContent);
-				Log.d("TAG", "insertOrder...." + pdfId);
+				LogUtils.d("TAG", "insertOrder...." + pdfId);
 				sqLiteDatabase.insert(DB_TABLE_PDFS, PDFS_ID, contentValues);
 
 				// Log.d(tag, "insertOrder....");
@@ -194,7 +202,7 @@ public class AssistantDatabaseService {
 				sqLiteDatabase.endTransaction();
 			}
 		} else {
-			return false;  
+			return false;
 		}
 		return true;
 	}
@@ -202,9 +210,9 @@ public class AssistantDatabaseService {
 	public byte[] readPDFs(String pdfId) {
 		byte[] pdfContent = null;
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_PDFS, new String[] {
-				PDFS_ID, PDFS_CONTENT, }, PDFS_ID + " = '" + pdfId + "'", null,
+						PDFS_ID, PDFS_CONTENT, }, PDFS_ID + " = '" + pdfId + "'", null,
 				null, null, null);
-		
+
 		int cursorNum = cursor.getCount();
 		if (cursorNum > 0)
 			cursor.moveToFirst();
@@ -213,14 +221,14 @@ public class AssistantDatabaseService {
 		pdfContent = cursor.getBlob(cursor.getColumnIndexOrThrow(PDFS_CONTENT));
 		//ZipInputStream sbs = new ByteArrayInputStream(pdfContent);
 		//BufferedInputStream b = new BufferedInputStream(
-          //            zipInputStream);
+		//            zipInputStream);
 
 
 		return pdfContent;
 	}
-	
+
 	public byte[] readBarCodes(String barCodesId) {
-		
+
 		byte[] barCodesContent = null;
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_BARCODES, new String[] {
 				BARCODES_ID, BARCODES_CONTENT, }, BARCODES_ID + " = '"
@@ -239,7 +247,7 @@ public class AssistantDatabaseService {
 
 	/**
 	 * Select all data from SQLite, add them to List.
-	 * 
+	 *
 	 * @param flag
 	 *            0 means: future order, 1 means: history order, 2 means:
 	 *            upcoming order
@@ -247,18 +255,24 @@ public class AssistantDatabaseService {
 	 * @throws SQLException
 	 */
 	public List<Order> selectOrdersCollection(int flag,
-			String dossierAftersalesLifetime) throws SQLException {
+											  String dossierAftersalesLifetime) throws SQLException {
 
 		String sql = selectSqlSentence(flag, dossierAftersalesLifetime);
 		// Log.d(tag, "sql is : " + sql);
 		// Log.d(tag, "Select all data.");
+
+		// Log.d(tag, "order cursor count is:" + cursor.getCount());
+		List<Order> listOrders = new ArrayList<Order>();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return listOrders;
+		}
 		sqLiteDatabase.beginTransaction();
 		Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
 		// Log.d(tag, "order cursor is:");
 		int cursorNum = cursor.getCount();
-		// Log.d(tag, "order cursor count is:" + cursor.getCount());
-		List<Order> listOrders = new ArrayList<Order>();
-
 		for (int i = 0; i < cursorNum; i++) {
 
 			cursor.moveToPosition(i);
@@ -296,30 +310,30 @@ public class AssistantDatabaseService {
 			int ordinal = cursor.getInt(cursor.getColumnIndexOrThrow(ORDERS_DIRECTION));
 			Direction direction = null;
 			switch (ordinal) {
-			case 0:
-				direction = Direction.Outward;
-				break;
-			case 1:
-				direction = Direction.Return;
-				break;
-			case 2:
-				direction = Direction.Roundtrip;
-				break;
-			case 3:
-				direction = Direction.Single;
-				break;
-			case 4:
-				direction = Direction.unknown;
-				break;
-			default:
-				break;
+				case 0:
+					direction = Direction.Outward;
+					break;
+				case 1:
+					direction = Direction.Return;
+					break;
+				case 2:
+					direction = Direction.Roundtrip;
+					break;
+				case 3:
+					direction = Direction.Single;
+					break;
+				case 4:
+					direction = Direction.unknown;
+					break;
+				default:
+					break;
 			}
 			String email = cursor.getString(cursor.getColumnIndexOrThrow(ORDERS_EMAIL));
-			
+
 			String refundable = cursor.getString(cursor.getColumnIndexOrThrow(ORDERS_REFUNDABLE));
 			String exchangeable = cursor.getString(cursor.getColumnIndexOrThrow(ORDERS_EXCHANGEABLE));
 			String rulfillmentFailed = cursor.getString(cursor.getColumnIndexOrThrow(ORDERS_RULFILLMENTFAILED));
-			
+
 			boolean hasDuplicatedStationboard = Boolean.valueOf(cursor.getString(cursor.getColumnIndexOrThrow(ORDERS_HAS_DUPLICATED_STATIONBOARD)));
 			String duplicatedStationboardId = cursor.getString(cursor.getColumnIndexOrThrow(ORDERS_DUPLICATED_STATIONBOARD_ID));
 
@@ -327,7 +341,7 @@ public class AssistantDatabaseService {
 					.getColumnIndexOrThrow(ORDERS_HAS_DEPARTURE_TIME)));
 			Order order = new Order(trainType, personNumber, trainNr,orderState, DNR, origin, originCode, destination, destinationCode, pnr,
 					DateUtils.stringToDateTime(departureDate), dossierGUID,travelSegmentID, includesEBS, travelclass, direction,
-					hasDepartureTime,DateUtils.stringToDateTime(sortDepartureDate), DateUtils.stringToDateTime(sortFirstChildDepartureDate), 
+					hasDepartureTime,DateUtils.stringToDateTime(sortDepartureDate), DateUtils.stringToDateTime(sortFirstChildDepartureDate),
 					isCorrupted, email, refundable, exchangeable, rulfillmentFailed, hasDuplicatedStationboard, duplicatedStationboardId);
 			listOrders.add(order);
 		}
@@ -336,11 +350,17 @@ public class AssistantDatabaseService {
 
 		return listOrders;
 	}
-	
-	
+
+
 	public boolean updateOrdersRelationStationboard(String travelSegmentID, String stationboardId) {
 
 		ContentValues contentValues = new ContentValues();
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		sqLiteDatabase.beginTransaction();
 		try {
 
@@ -349,11 +369,11 @@ public class AssistantDatabaseService {
 			contentValues.put(ORDERS_HAS_DUPLICATED_STATIONBOARD,String.valueOf(true));
 			contentValues.put(ORDERS_DUPLICATED_STATIONBOARD_ID, stationboardId);
 
-			Log.d(tag, "updateOrdersRelationStationboard for...." + travelSegmentID + "====Stationboard id is...." + stationboardId);
+			LogUtils.d(tag, "updateOrdersRelationStationboard for...." + travelSegmentID + "====Stationboard id is...." + stationboardId);
 			// Log.e(TAG, "CallSuccessFul=======" +
 			// stationBoardBulk.isIsCancelled());
 			sqLiteDatabase.update(DB_TABLE_ORDERS, contentValues, ORDERS_TRAVEL_SEGMENT_ID + " = '" + travelSegmentID + "'", null);
-			
+
 
 			// Log.d(tag, "Insert data to TABLE= "+DB_TABLE_STATION);
 			sqLiteDatabase.setTransactionSuccessful();
@@ -376,38 +396,38 @@ public class AssistantDatabaseService {
 
 		// Log.d(tag, "nowTime is : " + nowTimeStr);
 		switch (flag) {
-		case 0:
-			sql = "select * from Orders where Orders.DepartureDate >= '"
-					+ nowTimeStr
-					+ "' and Orders.OrderState!=0 order by Orders.SortDepartureDate asc, Orders.SortFirstChildDepartureDate asc, Orders.DNR";
-			break;
-		case 1:
-			String theDayBeforeYesterday = DateUtils.dateToString(DateUtils
-					.getTheDayBeforeYesterday(Integer.valueOf(dossierAftersalesLifetime)));
-			sql = "select * from Orders where Orders.DepartureDate >= '"
-					+ theDayBeforeYesterday
-					+ "' and Orders.DepartureDate < '"
-					+ nowTimeStr
-					+ "' and Orders.OrderState!=0 order by Orders.SortDepartureDate desc, Orders.SortFirstChildDepartureDate desc, Orders.DNR";
+			case 0:
+				sql = "select * from Orders where Orders.DepartureDate >= '"
+						+ nowTimeStr
+						+ "' and Orders.OrderState!=0 order by Orders.SortDepartureDate asc, Orders.SortFirstChildDepartureDate asc, Orders.DNR";
+				break;
+			case 1:
+				String theDayBeforeYesterday = DateUtils.dateToString(DateUtils
+						.getTheDayBeforeYesterday(Integer.valueOf(dossierAftersalesLifetime)));
+				sql = "select * from Orders where Orders.DepartureDate >= '"
+						+ theDayBeforeYesterday
+						+ "' and Orders.DepartureDate < '"
+						+ nowTimeStr
+						+ "' and Orders.OrderState!=0 order by Orders.SortDepartureDate desc, Orders.SortFirstChildDepartureDate desc, Orders.DNR";
 
-			break;
-		case 2:
+				break;
+			case 2:
 
-			sql = "select * from Orders where substr(Orders.DepartureDate,0,11) = (select substr(Orders.DepartureDate,0,11) from Orders where Orders.DepartureDate >= '"
-					+ nowTimeStr
-					+ "' and Orders.OrderState!= 0 order by Orders.SortDepartureDate asc limit 1) order by Orders.SortDepartureDate asc, Orders.SortFirstChildDepartureDate asc, Orders.DNR";
-			break;
+				sql = "select * from Orders where substr(Orders.DepartureDate,0,11) = (select substr(Orders.DepartureDate,0,11) from Orders where Orders.DepartureDate >= '"
+						+ nowTimeStr
+						+ "' and Orders.OrderState!= 0 order by Orders.SortDepartureDate asc limit 1) order by Orders.SortDepartureDate asc, Orders.SortFirstChildDepartureDate asc, Orders.DNR";
+				break;
 
-		case 3:
-			sql = "select * from Orders where Orders.OrderState==0 order by Orders.SortDepartureDate, Orders.SortFirstChildDepartureDate, Orders.DNR";
-			break;
-		case 4:
-			String pastTime = DateUtils.dateToString(DateUtils
-					.getTheDayBeforeYesterday(Integer.valueOf(dossierAftersalesLifetime)));
-			sql = "select * from Orders where Orders.DepartureDate < '"
-					+ pastTime + "' group by DNR";
+			case 3:
+				sql = "select * from Orders where Orders.OrderState==0 order by Orders.SortDepartureDate, Orders.SortFirstChildDepartureDate, Orders.DNR";
+				break;
+			case 4:
+				String pastTime = DateUtils.dateToString(DateUtils
+						.getTheDayBeforeYesterday(Integer.valueOf(dossierAftersalesLifetime)));
+				sql = "select * from Orders where Orders.DepartureDate < '"
+						+ pastTime + "' group by DNR";
 
-			break;
+				break;
 		}
 		return sql;
 	}
@@ -424,7 +444,12 @@ public class AssistantDatabaseService {
 				+ "' and Orders.DepartureDate >= '" + nowTimeStr + "'";
 		// Log.d(tag, "sql is : " + sql);
 		// Log.d(tag, "Select all data.");
-
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
 		// Log.d(tag, "order cursor is:");
 		int cursorNum = cursor.getCount();
@@ -438,7 +463,7 @@ public class AssistantDatabaseService {
 
 	/**
 	 * Delete all data by table name
-	 * 
+	 *
 	 * @return true means everything is OK, otherwise means failure
 	 */
 	public boolean deleteAllOrders() {
@@ -456,11 +481,17 @@ public class AssistantDatabaseService {
 
 	/**
 	 * Delete all data by table name
-	 * 
+	 *
 	 * @return true means everything is OK, otherwise means failure
 	 */
 	public boolean deleteOrder(String orderId) {
 		int isDelete = 0;
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		if (orderId != null) {
 			isDelete = sqLiteDatabase.delete(DB_TABLE_ORDERS, ORDERS_DNR + "='"
 					+ orderId + "'", null);
@@ -475,8 +506,14 @@ public class AssistantDatabaseService {
 	}
 
 	public boolean isExistPDFs(String pdfId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_PDFS, new String[] {
-				PDFS_ID, PDFS_CONTENT, }, PDFS_ID + " = '" + pdfId + "'", null,
+						PDFS_ID, PDFS_CONTENT, }, PDFS_ID + " = '" + pdfId + "'", null,
 				null, null, null);
 
 		int cursorNum = cursor.getCount();
@@ -488,11 +525,23 @@ public class AssistantDatabaseService {
 	}
 
 	public void deletePDFs(String pdfId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return;
+		}
 		sqLiteDatabase
 				.delete(DB_TABLE_PDFS, PDFS_ID + "='" + pdfId + "'", null);
 	}
 
 	public boolean isExistBarCodes(String barCodesId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return false;
+		}
 		Cursor cursor = sqLiteDatabase.query(DB_TABLE_BARCODES, new String[] {
 				BARCODES_ID, BARCODES_CONTENT, }, BARCODES_ID + " = '"
 				+ barCodesId + "'", null, null, null, null);
@@ -506,6 +555,12 @@ public class AssistantDatabaseService {
 	}
 
 	public void deleteBarcodes(String barCodesId) {
+		if(sqLiteDatabase == null){
+			sqLiteDatabase = dbHelper.getWritableDatabase();
+		}
+		if(sqLiteDatabase == null){
+			return;
+		}
 		sqLiteDatabase.delete(DB_TABLE_BARCODES, BARCODES_ID + "='"
 				+ barCodesId + "'", null);
 	}
