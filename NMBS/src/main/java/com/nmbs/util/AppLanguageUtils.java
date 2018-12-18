@@ -15,6 +15,7 @@ import android.util.Log;
 import com.nmbs.R;
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
+import com.nmbs.preferences.SettingsPref;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -59,9 +60,10 @@ public class AppLanguageUtils {
             }else{
                 newLanguage = "EN_GB";
             }
-            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+           /* SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
             editor.putString(context.getString(R.string.app_language_pref_key), newLanguage);
-            editor.commit();
+            editor.commit();*/
+            SettingsPref.saveCurrentLanguagesKey(context, newLanguage);
             if(newLanguage != null && newLanguage.length() > 0) {
                 if(newLanguage.contains("_")){
                     newLanguage = newLanguage.substring(0, 2).toLowerCase();
@@ -119,8 +121,9 @@ public class AppLanguageUtils {
     public static Context attachBaseContext(Context context, String language) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            language = PreferenceManager.getDefaultSharedPreferences(context)
-                    .getString(context.getString(R.string.app_language_pref_key), "");
+           /* language = PreferenceManager.getDefaultSharedPreferences(context)
+                    .getString(context.getString(R.string.app_language_pref_key), "");*/
+           language = SettingsPref.getCurrentLanguagesKey(context);
             //Log.d("attachBaseContext", "The language------->" + language);
             if(language != null && language.length() > 0) {
                 if(language.contains("_")){
@@ -147,9 +150,10 @@ public class AppLanguageUtils {
         configuration.setLocale(locale);
         configuration.setLocales(new LocaleList(locale));
 
-        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+        /*SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
         editor.putString(context.getString(R.string.app_language_pref_key), locale.getLanguage());
-        editor.commit();
+        editor.commit();*/
+        SettingsPref.saveCurrentLanguagesKey(context, locale.getLanguage());
         return context.createConfigurationContext(configuration);
     }
 }

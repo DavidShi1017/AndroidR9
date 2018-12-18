@@ -11,14 +11,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PowerManager;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Tracker;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.nmbs.R;
 import com.nmbs.activity.SettingsActivity;
@@ -116,7 +115,7 @@ public class NMBSApplication extends MultiDexApplication {
 	private TrainIconsService trainIconsService;
 	private LoginService loginService;
 	private StationService stationService;
-	private static Tracker mTracker;
+	//private static Tracker mTracker;
 	public static int tabSpec;
 
 	public final static int PAGE_SCHEDULE = 0;
@@ -191,18 +190,6 @@ public class NMBSApplication extends MultiDexApplication {
 			//TrackerService.getTracker().createPageViewTracker();
 			//initializeGa();
 
-
-
-			if(!alarmsetCheckOptionNotification){
-				//setAlarmCheckOptionsNotification();
-			}
-
-			if(!alarmsetCheckOption){
-				//setAlarmCheckOptions();
-			}
-			if (!alarmsetRefresh) {
-				//setAlarmRefreshDossier();
-			}
 		setAlarmCheckOptions();
 		registerNotification();
 		setAlarmRefreshDossier();
@@ -249,7 +236,13 @@ public class NMBSApplication extends MultiDexApplication {
 		//intent.setAction("BROADCAST_ACTION");
 		PendingIntent pendingIntent =
 				PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-		am.setInexactRepeating(AlarmManager.RTC, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			am.setInexactRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+		} else {
+			// 使用AlarmManger的setRepeating方法设置定期执行的时间间隔（seconds秒）和需要执行的Service
+			am.setInexactRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+		}
 	}
 
 	public void setAlarmCheckOptions() {
@@ -273,8 +266,14 @@ public class NMBSApplication extends MultiDexApplication {
 		PendingIntent sender = PendingIntent.getBroadcast(NMBSApplication.getInstance(), RequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		AlarmManager am = (AlarmManager) NMBSApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
-		am.cancel(sender);
-		am.setRepeating(AlarmManager.RTC, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, sender);
+		//am.cancel(sender);
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			am.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, sender);
+		} else {
+			// 使用AlarmManger的setRepeating方法设置定期执行的时间间隔（seconds秒）和需要执行的Service
+			am.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, sender);
+		}
 	}
 
 	public void setAlarmRefreshDossier() {
@@ -292,54 +291,13 @@ public class NMBSApplication extends MultiDexApplication {
 		LogUtils.d("setAlarmRefreshDossier", sdf.format(cal.getTime()));
 		AlarmManager am = (AlarmManager) NMBSApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
 		//am.cancel(sender);
-		am.setRepeating(AlarmManager.RTC, cal.getTimeInMillis(),4 * 60 * 60 * 1000, sender);
 
-	}
-
-	public void setAlarmCheckOptionsNotification() {
-		// setup of Alarm for sync Material
-		Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR_OF_DAY, 13);
-        cal.set(Calendar.MINUTE, 41);
-        cal.set(Calendar.SECOND, 00);
-        cal.set(Calendar.MILLISECOND, 00);
-        AlarmManager am = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        //Intent intent = new Intent(this, CheckOptionNotificationReceiver.class);
-		Intent intent = new Intent();
-		//对应BroadcastReceiver中intentFilter的action
-		intent.setAction("BROADCAST_ACTION");
-        PendingIntent pendingIntent =
-                PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
-		alarmsetCheckOptionNotification = true;
-	}
-
-	public void setAlarm() {
-		// setup of Alarm for sync Material
-		Calendar cal = Calendar.getInstance();
-
-		cal.set(Calendar.HOUR_OF_DAY, 1);
-		cal.set(Calendar.MINUTE, 00);
-		cal.set(Calendar.SECOND, 00);
-		cal.set(Calendar.MILLISECOND, 00);
-
-		// cal.add(Calendar.SECOND, 5);
-
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
-		LogUtils.d("ScantecApplication", sdf.format(cal.getTime()));
-
-		Intent intent = new Intent(NMBSApplication.getInstance(), AlarmsBroadcastReceiver.class);
-		int RequestCode = NMBSApplication.REQUESTCODE_MATERIAL_SYNC;
-		intent.putExtra("RequestCode", RequestCode);
-		PendingIntent sender = PendingIntent.getBroadcast(NMBSApplication.getInstance(), RequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-		AlarmManager am = (AlarmManager) NMBSApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
-		am.cancel(sender);
-
-		am.setRepeating(AlarmManager.RTC, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, sender);
-
-		alarmset = true;
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			am.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),4 * 60 * 60 * 1000, sender);
+		} else {
+			// 使用AlarmManger的setRepeating方法设置定期执行的时间间隔（seconds秒）和需要执行的Service
+			am.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),4 * 60 * 60 * 1000, sender);
+		}
 	}
 
 	public void setAlarmUpdate() {
@@ -348,7 +306,7 @@ public class NMBSApplication extends MultiDexApplication {
 		Date updateTime = dossiersUpToDateService.getUpdateTime(getApplicationContext());
 		if(updateTime != null){
 			Calendar cal = Calendar.getInstance();
-			cal.setTime(updateTime);
+			cal.setTime(new Date());
 
 			Calendar calUpDte = Calendar.getInstance();
 			calUpDte.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY));
@@ -365,9 +323,20 @@ public class NMBSApplication extends MultiDexApplication {
 			AlarmManager am = (AlarmManager) NMBSApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
 			//am.cancel(sender);
 
-			am.setRepeating(AlarmManager.RTC, calUpDte.getTimeInMillis(), AlarmManager.INTERVAL_DAY, sender);
+			//am.setRepeating(AlarmManager.RTC, calUpDte.getTimeInMillis(), 1 * 30 * 1000, sender);
+			// 这里要注意，如果API>=19，就不能再使用setRepeating，应该改为setWindow
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+				am.setWindow(AlarmManager.RTC_WAKEUP, calUpDte.getTimeInMillis(), AlarmManager.INTERVAL_DAY, sender);
+			} else {
+				// 使用AlarmManger的setRepeating方法设置定期执行的时间间隔（seconds秒）和需要执行的Service
+				am.setRepeating(AlarmManager.RTC_WAKEUP, calUpDte.getTimeInMillis(), AlarmManager.INTERVAL_DAY, sender);
+			}
+
 			//android.util.Log.e("UpToDate", "getNextAlarmClock::::" + am.getNextAlarmClock());
 			alarmsetUptudate = true;
+
+			//acquireWakeLock();
+
 		}
 		// cal.add(Calendar.SECOND, 5);
 	}
@@ -581,7 +550,8 @@ public class NMBSApplication extends MultiDexApplication {
 	}
 
 	private String getAppLanguage(Context context) {
-		return PreferenceManager.getDefaultSharedPreferences(context)
-				.getString(context.getString(R.string.app_language_pref_key), ConstantLanguages.ENGLISH);
+		/*return PreferenceManager.getDefaultSharedPreferences(context)
+				.getString(context.getString(R.string.app_language_pref_key), ConstantLanguages.ENGLISH);*/
+		return SettingsPref.getCurrentLanguagesKey(context);
 	}
 }

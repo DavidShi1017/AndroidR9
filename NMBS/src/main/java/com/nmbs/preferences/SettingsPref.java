@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.nmbs.R;
+import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
 import com.nmbs.util.ConstantLanguages;
 import com.nmbs.util.DeviceUtil;
@@ -176,19 +177,20 @@ public class SettingsPref {
 	}
 
 	public static void saveCurrentLanguagesKey(Context context, String languagesKey){
-		/*SharedPreferences.Editor editor = getSettingsPreferences(context).edit();
+		SharedPreferences.Editor editor = getSettingsPreferences(context).edit();
 		editor.putString(PROPERTY_APP_LANGUAGES, languagesKey);
-		editor.commit();*/
-		LogUtils.e("languagesKey", "saveCurrentLanguagesKey----->" + languagesKey);
-		SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
-		editor.putString(context.getString(R.string.app_language_pref_key), languagesKey);
 		editor.commit();
+		LogUtils.e("languagesKey", "saveCurrentLanguagesKey----->" + languagesKey);
+		/*SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+		editor.putString(context.getString(R.string.app_language_pref_key), languagesKey);
+		editor.commit();*/
 	}
 
 	public static String getCurrentLanguagesKey(Context context) {
-		String password = PreferenceManager.getDefaultSharedPreferences(context)
-				.getString(context.getString(R.string.app_language_pref_key), "");//getSettingsPreferences(context).getString(PROPERTY_APP_LANGUAGES, "");
-		//Log.e("languagesKey", "getCurrentLanguagesKey----->" + password);
-		return password;
+		/*String password = PreferenceManager.getDefaultSharedPreferences(NMBSApplication.getInstance().getApplicationContext())
+				.getString(context.getString(R.string.app_language_pref_key), "");*/
+        String language = getSettingsPreferences(context).getString(PROPERTY_APP_LANGUAGES, "");
+		Log.e("languagesKey", "getCurrentLanguagesKey----->" + language);
+		return language;
 	}
 }

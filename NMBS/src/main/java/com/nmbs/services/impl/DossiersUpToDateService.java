@@ -11,6 +11,7 @@ import com.nmbs.application.NMBSApplication;
 import com.nmbs.dataaccess.database.DossiersUpToDateDatabaseService;
 import com.nmbs.dataaccess.restservice.DossiersUpToDateDateService;
 import com.nmbs.dataaccess.restservice.impl.DossierDetailDataService;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.DossierDetailsResponse;
 import com.nmbs.model.DossierSummary;
 import com.nmbs.model.DossiersUpToDate;
@@ -46,7 +47,12 @@ public class DossiersUpToDateService {
     public void getDossiersUpToDateResponse(){
         DossierDetailsService dossierDetailsService = NMBSApplication.getInstance().getDossierDetailsService();
         String language = NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey();
-        //Log.d("UpToDate", "Language is..." + language);
+        LogUtils.d("UpToDate", "Language is..." + language);
+        //language = "";
+        if(language == null || language.isEmpty()){
+            LogUtils.d("UpToDate", "language is empty...");
+            language = "en";
+        }
         List<DossierSummary> dossiers = dossierDetailsService.getDossiers();
         if (dossiers != null){
             //DossiersUpToDateDatabaseService dossiersUpToDateDatabaseService = new DossiersUpToDateDatabaseService(context);

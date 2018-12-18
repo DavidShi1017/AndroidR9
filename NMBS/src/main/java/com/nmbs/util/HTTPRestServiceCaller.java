@@ -62,6 +62,7 @@ import com.nmbs.exceptions.ConnectionError;
 import com.nmbs.exceptions.RequestFail;
 
 import com.nmbs.log.LogUtils;
+import com.nmbs.preferences.SettingsPref;
 import com.nmbs.push.C2DMessaging;
 
 /**
@@ -457,6 +458,12 @@ public class HTTPRestServiceCaller {
 		if(acceptLanguage == null || acceptLanguage.isEmpty()){
 			acceptLanguage = NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey();
 		}
+
+		String osType = "Android";
+		String appVersion = SettingsPref.getSettingsVersion(NMBSApplication.getInstance().getApplicationContext());
+		String osVersion = android.os.Build.VERSION.RELEASE;
+		String deviceType = android.os.Build.BRAND + " " + android.os.Build.MODEL;
+		String userAgent = deviceType + " " + osType + osVersion + " AppVersion: " + appVersion;
 		//Log.e("acceptLanguage" ,"acceptLanguage: "+ acceptLanguage);
 		if (requestHttpMethod == HTTP_POST_METHOD) {// POST_TYPE
 			HttpPost httpPost = new HttpPost(url);
@@ -466,6 +473,9 @@ public class HTTPRestServiceCaller {
 			httpPost.setHeader(ACCEPT_LANGUAGE, acceptLanguage);
 			httpPost.setHeader(ACCEPT_ENCODING, ACCEPT_ENCODING_VALUE);
 			httpPost.setHeader(API_CHANNEL, API_CHANNEL_VALUE);
+			httpPost.setHeader("User-Agent", userAgent);
+
+
 			if (isMastdataWorking && !StringUtils.isEmpty(lastModified)) {
 				httpPost.setHeader(IF_MODIFIED_SINCE, lastModified);
 			}
@@ -487,6 +497,7 @@ public class HTTPRestServiceCaller {
 			httpGet.setHeader(ACCEPT_LANGUAGE, acceptLanguage);
 			httpGet.setHeader(ACCEPT_ENCODING, ACCEPT_ENCODING_VALUE);
 			httpGet.setHeader(API_CHANNEL, API_CHANNEL_VALUE);
+			httpGet.setHeader("User-Agent", userAgent);
 			if (isMastdataWorking && !StringUtils.isEmpty(lastModified)) {
 				// Log.d(TAG ,"Last-Modified: "+ lastModified);
 				httpGet.setHeader(IF_MODIFIED_SINCE, lastModified);
@@ -501,6 +512,7 @@ public class HTTPRestServiceCaller {
 			httpDelete.setHeader(API_KEY, API_KEY_VALUE);
 			httpDelete.setHeader(ACCEPT_LANGUAGE, acceptLanguage);
 			httpDelete.setHeader(ACCEPT_ENCODING, ACCEPT_ENCODING_VALUE);
+			httpDelete.setHeader("User-Agent", userAgent);
 			return httpDelete;
 		}
 	}
