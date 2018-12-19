@@ -34,6 +34,10 @@ public class AlertDeleteDnrTitleAdapter {
         this.dnrs = dnrs;
     }
 
+    public void setDnr(List<String> dnrs){
+        this.dnrs = dnrs;
+    }
+
     public void getAlertDeleteTitleView(int i, LinearLayout linearLayout) {
         View convertView = null;
         if (convertView == null)

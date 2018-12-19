@@ -19,6 +19,7 @@ import com.cflint.adapter.AlertDeleteDnrTitleAdapter;
 import com.cflint.application.NMBSApplication;
 import com.cflint.async.DeleteAllSubScriptionAsyncTask;
 import com.cflint.async.DeleteSubScriptionAsyncTask;
+import com.cflint.log.LogUtils;
 import com.cflint.model.DossierSummary;
 import com.cflint.model.HafasUser;
 import com.cflint.model.Subscription;
@@ -134,11 +135,12 @@ public class AlertDeleteDnrActivity extends BaseActivity {
 		}
 		List<String> dnrs = new ArrayList<>() ;
 
-		//Log.e(TAG, "subscriptionList...." + subscriptionList.size());
+		LogUtils.e(TAG, "subscriptionList...." + subscriptionList.size());
 		alertConnectionAdapter = new AlertDeleteDnrTitleAdapter(AlertDeleteDnrActivity.this, dnrs);
 		for(int i=0;i<this.subscriptionList.size();i++){
 			if(!dnrs.contains(subscriptionList.get(i).getDnr())){
 				dnrs.add(subscriptionList.get(i).getDnr());
+				//alertConnectionAdapter.setDnr(dnrs);
 				alertConnectionAdapter.getAlertDeleteTitleView(i, this.dnrReferenceLayout);
 			}
 		}
