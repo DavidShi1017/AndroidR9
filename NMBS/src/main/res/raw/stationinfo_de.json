@@ -2,29 +2,29 @@
     "Stations": [
         {
             "Code": "LULUX",
-            "Name": "Luxembourg",
+            "Name": "Luxemburg",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/LULUX/Map_Gare-de-Luxembourg.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/LULUX/Map_Gare-de-Luxembourg.ashx",
             "MoreDetailsURL": "",
             "Longitude": "6.133923",
             "Latitude": "49.600024",
-            "Street": "Place de la Gare",
-            "Number": "11",
+            "Street": "Place de la Gare,",
+            "Number": "11,",
             "PostalCode": "1616",
-            "City": "Luxembourg",
-            "Country": "Luxembourg",
+            "City": "Luxemburg,",
+            "Country": "Luxemburg",
             "StationInfos": [
                 {
-                    "Title": "Infopoints am Bahnhof",
-                    "Content": "Luxemburg Hauptbahnhof ist der ideale Startpunkt für Ihre Reise nach Deutschland, Belgien, Frankreich oder zu anderen europäischen Destinationen. Direktanschlüsse mit dem TGV nach Paris, Straßburg, Montpellier und Marseille.\r\n",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Luxembourg.ashx"
+                    "Title": "Bahnhof Luxemburg",
+                    "Content": "Luxemburg Hauptbahnhof ist der ideale Startpunkt für Ihre Reise nach Deutschland, Belgien, Frankreich oder zu anderen europäischen Destinationen. Direktanschlüsse mit dem TGV nach Paris, Straßburg und Montpellier.\r\n",
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Luxembourg.ashx"
                 }
             ],
             "Parkings": [
                 {
                     "Title": "Parking",
                     "Content": "Parkhaus in Bahnhofnähe. Geöffnet 24/7.",
-                    "Address": "Place de la gare, L-1616 Luxembourg",
+                    "Address": "Place de la gare, L-1616 Luxemburg",
                     "Latitude": "49.5991488",
                     "Longitude": "6.131214"
                 }
@@ -69,25 +69,20 @@
             "Code": "BEBMI",
             "Name": "Brüssel-Midi",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_DE_Optimized.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_DE_Optimized.ashx",
             "MoreDetailsURL": "",
             "Longitude": "4.333527",
             "Latitude": "50.8357532",
-            "Street": "Rue de France",
+            "Street": "Rue de France,",
             "Number": "",
             "PostalCode": "1060",
-            "City": "Brussel",
+            "City": "Brussel,",
             "Country": "Belgien",
             "StationInfos": [
                 {
                     "Title": "Bahnhof Bruxelles-Midi / Brussel-Zuid (Brüssel)",
-                    "Content": "Der Bahnhof Brüssel-Süd, der von Thalys, Eurostar, TGV® und ICE angefahren wird, ist Europas wichtigster Eisenbahnverkehrsknotenpunkt und der ideale Ausgangsbahnhof für Zugreisen nach Deutschland, Frankreich, Großbritannien, in die Niederlande und nach Luxemburg. Darüber hinaus erreichen Sie auch ganz leicht alle anderen belgischen Bahnhöfe.",
-                    "Image": ""
-                },
-                {
-                    "Title": "Infopoints am Bahnhof",
-                    "Content": "Es gibt verschiedene Informationsstellen am Bahnhof, wie Infoschalter für den Inlandsverkehr und für den internationalen Verkehr. Am Bahnhof Bruxelles-Midi/Brussel-Zuid (Brüssel) befinden sich auch 1 Thalys-Infoschalter und 1 Touristeninformation der Stadt Brüssel.",
-                    "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
+                    "Content": "Der Bahnhof Brüssel-Süd, der von Thalys, Eurostar, TGV® und ICE angefahren wird, ist Europas wichtigster Eisenbahnverkehrsknotenpunkt und der ideale Ausgangsbahnhof für Zugreisen nach Deutschland, Frankreich, Großbritannien, in die Niederlande und nach Luxemburg. Darüber hinaus erreichen Sie auch ganz leicht alle anderen belgischen Bahnhöfe.\r\n\r\nEs gibt verschiedene Informationsstellen am Bahnhof, wie Infoschalter für den Inlandsverkehr und für den internationalen Verkehr. Am Bahnhof Bruxelles-Midi/Brussel-Zuid (Brüssel) befinden sich auch 1 Thalys-Infoschalter und 1 Touristeninformation der Stadt Brüssel.",
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Bruxelles.ashx"
                 }
             ],
             "Parkings": [
@@ -133,36 +128,105 @@
             ]
         },
         {
+            "Code": "BELGG",
+            "Name": "Liège-Guillemins",
+            "OpeningHours": "",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BELGG/station_Liege_resized.ashx",
+            "MoreDetailsURL": "",
+            "Longitude": "5.567125",
+            "Latitude": "50.624776",
+            "Street": "Place des Guillemins",
+            "Number": "2",
+            "PostalCode": "4000",
+            "City": "Lüttich",
+            "Country": "Belgien",
+            "StationInfos": [
+                {
+                    "Title": "Bahnhof Liège Guillemins (Lüttich)",
+                    "Content": "Architektonisches Glanzstück aus Metall und Glas, entworfen von dem katalanischen Stararchitekten Santiago Calatrava… Der Bahnhof Liège-Guillemins ist die Reise wert! Er zählt aber auch zu den verkehrsreichsten Bahnhöfen Walloniens und ist ein wichtiger Knotenpunkt im Hochgeschwindigkeitsnetz. Dank der Thalys, ICE- und InterCity-Züge sind Deutschland, Frankreich, die Niederlande und Luxemburg von Lüttich aus schnell zu erreichen.",
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Liege.ashx"
+                }
+            ],
+            "Parkings": [
+                {
+                    "Title": "Parkhaus \"P1\"",
+                    "Content": "Gebührenpflichtige Tiefgaragenstellplätze im Bahnhof selbst. Erreichbar über die Avenue de l'Observatoire. 850 Parkplätze mit Kameraüberwachung rund um die Uhr. Täglich durchgehend geöffnet\r\n",
+                    "Address": "Avenue de l'Observatoire, 4000 Liège",
+                    "Latitude": "50.625017",
+                    "Longitude": "5.5627999"
+                },
+                {
+                    "Title": "Parkhaus \"P2\"",
+                    "Content": "Gebührenpflichtiger Parkplatz (nicht überdacht) in Bahnhofsnähe. An der Ecke Rue de Bovy und Rue Sclessin. 110 Parkplätze mit Kameraüberwachung rund um die Uhr. Täglich durchgehend geöffnet.",
+                    "Address": "Rue de Sclessin, 4000 Liège",
+                    "Latitude": "50.6248471",
+                    "Longitude": "5.5699576"
+                }
+            ],
+            "StationFacilities": [
+                {
+                    "Title": "W-LAN"
+                },
+                {
+                    "Title": "Wartesäle"
+                },
+                {
+                    "Title": "Geschäfte"
+                },
+                {
+                    "Title": "Einrichtungen für Personen mit eingeschränkter Mobilität"
+                },
+                {
+                    "Title": "Cafés"
+                },
+                {
+                    "Title": "Taxi"
+                },
+                {
+                    "Title": "Öffentlicher Personennahverkehr"
+                },
+                {
+                    "Title": "Toiletten"
+                },
+                {
+                    "Title": "Gepäckaufbewahrung"
+                },
+                {
+                    "Title": "Touristeninformation der Stadt Lüttich"
+                }
+            ]
+        },
+        {
             "Code": "DEDUH",
             "Name": "Düsseldorf Hbf",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEDUH/MAP_Duesseldorf.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEDUH/MAP_Duesseldorf.ashx",
             "MoreDetailsURL": "",
             "Longitude": "6.7929443",
             "Latitude": "51.2202453",
-            "Street": "",
-            "Number": "",
-            "PostalCode": "",
-            "City": "",
-            "Country": "",
+            "Street": "Konrad-Adenauer-Platz,",
+            "Number": "14,",
+            "PostalCode": "40210",
+            "City": "Düsseldorf,",
+            "Country": "Deutschland",
             "StationInfos": [
                 {
-                    "Title": "Infopoints am Bahnhof",
+                    "Title": "Düsseldorf Hauptbahnhof",
                     "Content": "Der Hauptbahnhof liegt an Deutschlands verkehrsreichster Zugstrecke. Mehr als 300 Regional-und Fernzüge halten hier.",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Duesseldorf.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Duesseldorf.ashx"
                 }
             ],
             "Parkings": [
                 {
                     "Title": "Vorplatz Düsseldorf Hbf ",
-                    "Content": "Täglich durchgehen geöffnet.",
+                    "Content": "Täglich durchgehend geöffnet.",
                     "Address": "Konrad-Adenauer-Platz 13-14, 40227 Düsseldorf",
                     "Latitude": "51.2196071",
                     "Longitude": "6.7890726"
                 },
                 {
                     "Title": "Parkhaus am Hauptbahnhof",
-                    "Content": "Täglich durchgehen geöffnet.",
+                    "Content": "Täglich durchgehend geöffnet.",
                     "Address": "Charlottenstr. 62, 40210 Düsseldorf",
                     "Latitude": "51.2216162",
                     "Longitude": "6.7861244"
@@ -205,20 +269,20 @@
             "Code": "FRPST",
             "Name": "Paris Est",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPST/MAP_Paris-est.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPST/MAP_Paris-Est.ashx",
             "MoreDetailsURL": "",
             "Longitude": "2.3562452",
             "Latitude": "48.876389",
-            "Street": "",
+            "Street": "Place du 11 November 1918,",
             "Number": "",
-            "PostalCode": "",
-            "City": "",
-            "Country": "",
+            "PostalCode": "75010",
+            "City": "Paris,",
+            "Country": "Frankreich",
             "StationInfos": [
                 {
-                    "Title": "Infopoints am Bahnhof",
+                    "Title": "Bahnhof Paris-Est",
                     "Content": "Der Bahnhof Paris-Est ist einer der sechs großen Kopfbahnhöfe der französischen Hauptstadt. Er befindet sich in der Nähe der Gare du Nord.",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/PARIS.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/PARIS.ashx"
                 }
             ],
             "Parkings": [
@@ -277,20 +341,20 @@
             "Code": "FRAEG",
             "Name": "Strasbourg",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRAEG/MAP_Strasbourg.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRAEG/MAP_Strasbourg_En.ashx",
             "MoreDetailsURL": "",
             "Longitude": "7.7325305",
             "Latitude": "48.5864966",
-            "Street": "",
+            "Street": "Place de la Gare,",
             "Number": "",
-            "PostalCode": "",
-            "City": "",
-            "Country": "",
+            "PostalCode": "67000",
+            "City": "Strasbourg,",
+            "Country": "Frankreich",
             "StationInfos": [
                 {
-                    "Title": "Infopoints am Bahnhof",
+                    "Title": "Bahnhof Straßburg",
                     "Content": "Der Straßburger Hauptbahnhof bietet den Reisenden zahlreiche Anbindungen zu anderen französischen Regionen.",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Strasbourg.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Strasbourg.ashx"
                 }
             ],
             "Parkings": [
@@ -350,16 +414,16 @@
             "MoreDetailsURL": "",
             "Longitude": "3.8942964",
             "Latitude": "43.599435",
-            "Street": "",
-            "Number": "",
-            "PostalCode": "",
-            "City": "",
-            "Country": "",
+            "Street": "Place Auguste Gibert,",
+            "Number": "1,",
+            "PostalCode": "34000",
+            "City": "Montpellier,",
+            "Country": "Frankreich",
             "StationInfos": [
                 {
-                    "Title": "Infopoints am Bahnhof",
+                    "Title": "Bahnhof Montpellier",
                     "Content": "Der Bahnhof Montpellier-Saint-Roch ist einer der wichtigsten Bahnhöfe Südfrankreichs und Endbahnhof von mehreren TGV-Linien. Er wird täglich durch eine direkte TGV-Verbindung ab Luxemburg angefahren.",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Montpellier.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Montpellier.ashx"
                 }
             ],
             "Parkings": [
@@ -417,25 +481,20 @@
             "Code": "GBSPX",
             "Name": "London St Pancras International",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_DE.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_DE.ashx",
             "MoreDetailsURL": "",
             "Longitude": "-0.125468",
             "Latitude": "51.53022",
-            "Street": "Euston Road",
+            "Street": "Euston Road,",
             "Number": "",
             "PostalCode": "N1C 4QP",
-            "City": "London",
+            "City": "London,",
             "Country": "Großbritannien",
             "StationInfos": [
                 {
                     "Title": "Bahnhof London St Pancras International",
-                    "Content": "Der Bahnhof London St Pancras International ist einer der Hauptknotenpunkte für den nationalen Eisenbahnverkehr sowie Ausgangsbahnhof für internationale Bahnfahrten zum europäischen Festland.",
-                    "Image": ""
-                },
-                {
-                    "Title": "Infopoints am Bahnhof",
-                    "Content": "Verschiedene Informationsstellen befinden sich am Bahnhof London St Pancras International. Es gibt u.a. verschiedene Infoschalter für den Inlandsverkehr und für den internationalen Verkehr.",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Londres.ashx"
+                    "Content": "Der Bahnhof London St Pancras International ist einer der Hauptknotenpunkte für den nationalen Eisenbahnverkehr sowie Ausgangsbahnhof für internationale Bahnfahrten zum europäischen Festland.\r\n\r\nVerschiedene Informationsstellen befinden sich am Bahnhof London St Pancras International. Es gibt u.a. verschiedene Infoschalter für den Inlandsverkehr und für den internationalen Verkehr.",
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Londres.ashx"
                 }
             ],
             "Parkings": [
@@ -481,6 +540,10 @@
             ]
         }
     ],
-    "Messages": [],
-    "DebugMessages": []
+    "Messages": [
+
+    ],
+    "DebugMessages": [
+
+    ]
 }

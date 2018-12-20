@@ -4,20 +4,20 @@
             "Code": "LULUX",
             "Name": "Luxembourg",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/LULUX/Map_Gare-de-Luxembourg.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/LULUX/Map_Gare-de-Luxembourg.ashx",
             "MoreDetailsURL": "",
             "Longitude": "6.133923",
             "Latitude": "49.600024",
-            "Street": "Place de la Gare",
-            "Number": "11",
+            "Street": "Place de la Gare,",
+            "Number": "11,",
             "PostalCode": "1616",
-            "City": "Luxembourg",
+            "City": "Luxembourg,",
             "Country": "Luxembourg",
             "StationInfos": [
                 {
-                    "Title": "Travel and tourist information services",
-                    "Content": "Luxembourg central station is the ideal station to start your journey to Germany, Belgium and France and other European destinations. Connected by direct TGV to Paris, Strasbourg, Montpellier and Marseille.",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Luxembourg.ashx"
+                    "Title": "Luxemburg train station",
+                    "Content": "Luxembourg central station is the ideal station to start your journey to Germany, Belgium, France and other European destinations. Connected by direct TGV to Paris, Strasbourg and Montpellier.",
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Luxembourg.ashx"
                 }
             ],
             "Parkings": [
@@ -69,25 +69,20 @@
             "Code": "BEBMI",
             "Name": "Bruxelles-Midi/Brussel-Zuid",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_EN_Optimized.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BEBMI/MAP_Brussels-Midi_EN_Optimized.ashx",
             "MoreDetailsURL": "",
             "Longitude": "4.333527",
             "Latitude": "50.8357532",
-            "Street": "Rue de France",
+            "Street": "Rue de France,",
             "Number": "",
             "PostalCode": "1060",
-            "City": "Brussels",
+            "City": "Brussels,",
             "Country": "Belgium",
             "StationInfos": [
                 {
                     "Title": "Bruxelles-Midi/Brussel-Zuid (Brussels) train station",
-                    "Content": "Bruxelles-Midi/Brussel-Zuid train station, served by Thalys, Eurostar, TGV®, and ICE trains, is the ideal starting point for your journeys to Germany, France, The Netherlands, Luxembourg and the United Kingdom and connects travellers to the entire Belgian domestic railway network.",
-                    "Image": ""
-                },
-                {
-                    "Title": "Travel and tourist information services",
-                    "Content": "At Bruxelles-Midi/Brussel-Zuid train station, you'll find several information desks for domestic and international travel, as well as an international Thalys info desk and a a Brussels Tourist Office desk.",
-                    "Image": "https://static.accept.b-europe.com/-/media/ImagesNew/Mobile/Brussel_Zuid_Mob.ashx"
+                    "Content": "Bruxelles-Midi/Brussel-Zuid train station, served by Thalys, Eurostar, TGV®, and ICE trains, is the ideal starting point for your journeys to Germany, France, The Netherlands, Luxembourg and the United Kingdom and connects travellers to the entire Belgian domestic railway network.\r\n\r\nAt Bruxelles-Midi/Brussel-Zuid train station, you'll find several information desks for domestic and international travel, as well as an international Thalys info desk and a a Brussels Tourist Office desk.",
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Bruxelles.ashx"
                 }
             ],
             "Parkings": [
@@ -133,23 +128,92 @@
             ]
         },
         {
+            "Code": "BELGG",
+            "Name": "Liège-Guillemins",
+            "OpeningHours": "",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/BELGG/station_Liege_resized.ashx",
+            "MoreDetailsURL": "",
+            "Longitude": "5.567125",
+            "Latitude": "50.624776",
+            "Street": "Place des Guillemins",
+            "Number": "2",
+            "PostalCode": "4000",
+            "City": "Liège",
+            "Country": "Belgique",
+            "StationInfos": [
+                {
+                    "Title": "Liège Guillemins train station",
+                    "Content": "This astonishing piece of architecture designed by the famous Catalan architect Santiago Calatrava is well worth a visit. Not only is Liège-Guillemins one of the busiest train stations in the Wallonia Region, it’s also an important railway hub for high-speed trains. Thalys, ICE and InterCity trains easily connect the city of Liège with Germany, France, the Netherlands and Luxembourg.",
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Liege.ashx"
+                }
+            ],
+            "Parkings": [
+                {
+                    "Title": "Parking \"P1\"",
+                    "Content": "Underground car park in the station itself (payment required). Entrance via Avenue de l'Observatoire. 850 spaces with 24-hour CCTV. Open 24/7",
+                    "Address": "Avenue de l'Observatoire, 4000 Liège",
+                    "Latitude": "50.625017",
+                    "Longitude": "5.5627999"
+                },
+                {
+                    "Title": "Parking \"P2\"",
+                    "Content": "Outdoor car park (payment required) next to the station. On the corner of Rue de Bovy and Rue Sclessin. 110 spaces with 24-hr CCTV. Open 24/7.\r\n",
+                    "Address": "Rue de Sclessin, 4000 Liège",
+                    "Latitude": "50.6248471",
+                    "Longitude": "5.5699576"
+                }
+            ],
+            "StationFacilities": [
+                {
+                    "Title": "Wi-Fi"
+                },
+                {
+                    "Title": "Waiting rooms"
+                },
+                {
+                    "Title": "Shops"
+                },
+                {
+                    "Title": "Facilities for mobility-impaired passengers"
+                },
+                {
+                    "Title": "Bars"
+                },
+                {
+                    "Title": "Taxi"
+                },
+                {
+                    "Title": "Public transport"
+                },
+                {
+                    "Title": "Restrooms"
+                },
+                {
+                    "Title": "Luggage storage"
+                },
+                {
+                    "Title": "Tourist Office"
+                }
+            ]
+        },
+        {
             "Code": "DEDUH",
             "Name": "Düsseldorf Hbf",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/DEDUH/MAP_Duesseldorf.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/eurostar/-/media/MediaRepository/Files/Station_Plans/DEDUH/MAP_Duesseldorf.ashx",
             "MoreDetailsURL": "",
             "Longitude": "6.7929443",
             "Latitude": "51.2202453",
-            "Street": "",
-            "Number": "",
-            "PostalCode": "",
-            "City": "",
-            "Country": "",
+            "Street": "Konrad-Adenauer-Platz,",
+            "Number": "14,",
+            "PostalCode": "40210",
+            "City": "Düsseldorf,",
+            "Country": "Germany",
             "StationInfos": [
                 {
-                    "Title": "Travel and tourist information services",
+                    "Title": "Düsseldorf train station",
                     "Content": "The city’s main train station is situated on Germany’s busiest rail line . More than 300 regional and InterCity trains stops here.",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Duesseldorf.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Duesseldorf.ashx"
                 }
             ],
             "Parkings": [
@@ -205,20 +269,20 @@
             "Code": "FRPST",
             "Name": "Paris Est",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPST/MAP_Paris-est.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRPST/MAP_Paris-Est.ashx",
             "MoreDetailsURL": "",
             "Longitude": "2.3562452",
             "Latitude": "48.876389",
-            "Street": "",
+            "Street": "Place du 11 November 1918,",
             "Number": "",
-            "PostalCode": "",
-            "City": "",
-            "Country": "",
+            "PostalCode": "75010",
+            "City": "Paris,",
+            "Country": "France",
             "StationInfos": [
                 {
-                    "Title": "Travel and tourist information services",
+                    "Title": "Paris-Est train station",
                     "Content": "The Gare de l'Est, is one of the six large SNCF terminal stations in the Capital of France. It is not far from the Gare du Nord.",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/PARIS.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/PARIS.ashx"
                 }
             ],
             "Parkings": [
@@ -277,20 +341,20 @@
             "Code": "FRAEG",
             "Name": "Strasbourg",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRAEG/MAP_Strasbourg.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRAEG/MAP_Strasbourg_En.ashx",
             "MoreDetailsURL": "",
             "Longitude": "7.7325305",
             "Latitude": "48.5864966",
-            "Street": "",
+            "Street": "Place de la Gare,",
             "Number": "",
-            "PostalCode": "",
-            "City": "",
-            "Country": "",
+            "PostalCode": "67000",
+            "City": "Strasbourg,",
+            "Country": "France",
             "StationInfos": [
                 {
-                    "Title": "Travel and tourist information services",
+                    "Title": "Strasbourg train station",
                     "Content": "Strasbourg train station offers travelers a wide range of connections to other regions in France.",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Strasbourg.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Strasbourg.ashx"
                 }
             ],
             "Parkings": [
@@ -302,9 +366,9 @@
                     "Longitude": "7.7321784"
                 },
                 {
-                    "Title": "Short Time parking",
+                    "Title": "Parking Ste Aurélie Gare",
                     "Content": "Open 24/7",
-                    "Address": "20, place de la gare, 67000 Strasbourg",
+                    "Address": "1, Bd de Metz, 67000 Strasbourg",
                     "Latitude": "48.5828334",
                     "Longitude": "7.7305166"
                 }
@@ -350,16 +414,16 @@
             "MoreDetailsURL": "",
             "Longitude": "3.8942964",
             "Latitude": "43.599435",
-            "Street": "",
-            "Number": "",
-            "PostalCode": "",
-            "City": "",
-            "Country": "",
+            "Street": "Place Auguste Gibert,",
+            "Number": "1,",
+            "PostalCode": "34000",
+            "City": "Montpellier,",
+            "Country": "France",
             "StationInfos": [
                 {
-                    "Title": "Travel and tourist information services",
+                    "Title": "Montpellier train station",
                     "Content": "The station of Montpellier Saint Roch is one of the most important stations in the South of France. Arrival point for several TGV services. Daily direct service from Luxembourg.",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Montpellier.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Montpellier.ashx"
                 }
             ],
             "Parkings": [
@@ -417,25 +481,20 @@
             "Code": "GBSPX",
             "Name": "London St Pancras International",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.accept.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_EN.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/GBSPX/MAP_London_Optimized_EN.ashx",
             "MoreDetailsURL": "",
             "Longitude": "-0.125468",
             "Latitude": "51.53022",
-            "Street": "Euston Road",
+            "Street": "Euston Road,",
             "Number": "",
             "PostalCode": "N1C 4QP",
-            "City": "London",
+            "City": "London,",
             "Country": "United Kingdom",
             "StationInfos": [
                 {
                     "Title": "London St Pancras International train station",
-                    "Content": "London's St Pancras International Station is where major domestic railway lines terminate and Eurostar starts. Making this railway station the gateway to Continental Europe.",
-                    "Image": ""
-                },
-                {
-                    "Title": "Travel and tourist information services",
-                    "Content": "London St Pancras International train station features several information desks, among which you'll find information desks for national and international travel.",
-                    "Image": "https://static.accept.b-europe.com/-/media/CFL/StationInfo/Londres.ashx"
+                    "Content": "London's St Pancras International Station is where major domestic railway lines terminate and Eurostar starts. Making this railway station the gateway to Continental Europe.\r\n\r\nLondon St Pancras International train station features several information desks, among which you'll find information desks for national and international travel.",
+                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Londres.ashx"
                 }
             ],
             "Parkings": [
@@ -481,6 +540,10 @@
             ]
         }
     ],
-    "Messages": [],
-    "DebugMessages": []
+    "Messages": [
+
+    ],
+    "DebugMessages": [
+
+    ]
 }

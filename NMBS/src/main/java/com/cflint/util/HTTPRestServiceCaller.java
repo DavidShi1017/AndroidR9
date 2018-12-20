@@ -234,9 +234,9 @@ public class HTTPRestServiceCaller {
 		if (httpClient == null) {
 			httpClient = this.getHttpClient(timeOut, serverUrl, context);
 		}
-		
-		
-		
+
+
+		serviceApiVersion = API_VERSION_VALUE_7;
 		
 		HttpResponse response = null;
 
