@@ -572,8 +572,8 @@ public class HTTPRestServiceCaller {
 			HttpConnectionParams.setConnectionTimeout(params, timeOut);
 			HttpConnectionParams.setSoTimeout(params, timeOut);
 			ConnManagerParams.setMaxTotalConnections(params, 5);
-			ConnPerRouteBean connPerRoute = new ConnPerRouteBean(5);  
-		    ConnManagerParams.setMaxConnectionsPerRoute(params,connPerRoute);  
+			ConnPerRouteBean connPerRoute = new ConnPerRouteBean(5);
+		    ConnManagerParams.setMaxConnectionsPerRoute(params,connPerRoute);
 			//PoolingClientConnectionManager  ccm = new PoolingClientConnectionManager(registry);
 			ThreadSafeClientConnManager ccm = new ThreadSafeClientConnManager(params, registry);
 			//ccm.setMaxTotal(20);

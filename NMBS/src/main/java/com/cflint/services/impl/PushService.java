@@ -761,7 +761,7 @@ public class PushService implements IPushService {
                     String DateStr = DateUtils.dateTimeToString(dossierTravelSegments.get(i).getDepartureDateTime());
                     Log.e("LocalNotification", "DateStr..." + DateStr);
                     LocalNotification localNotification = travelSegmentDatabaseService.queryTravelSegmentByDate(applicationContext, DateStr);
-                    Date currentDate=new Date();//取时间
+                    Date currentDate=new Date();//取时间1
 
                     Calendar calendar = new GregorianCalendar();
                     calendar.setTime(currentDate);
