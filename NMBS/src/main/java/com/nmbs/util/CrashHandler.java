@@ -16,8 +16,7 @@ import android.util.Log;
 
 import com.nmbs.application.NMBSApplication;
 import com.nmbs.log.LogUtils;
-import com.nmbs.receivers.AlarmsBroadcastReceiver;
-import com.nmbs.receivers.EmailBroadcastReceiver;
+
 
 
 

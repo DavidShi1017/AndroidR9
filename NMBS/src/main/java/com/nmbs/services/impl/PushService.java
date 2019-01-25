@@ -731,7 +731,7 @@ public class PushService implements IPushService {
         }
     }
 
-    private void cancelLocalNotification(int id){
+/*    private void cancelLocalNotification(int id){
         LogUtils.e("cancel", "id..." + id);
         Intent intent = new Intent(this.applicationContext, AlarmReceiver.class);
         //intent.setData(Uri.parse("content://calendar/calendar_alerts/1"));
@@ -740,7 +740,7 @@ public class PushService implements IPushService {
         // And cancel the alarm.
         AlarmManager am = (AlarmManager) this.applicationContext.getSystemService(ALARM_SERVICE);
         am.cancel(sender);
-    }
+    }*/
 
     public void addAllLocalNotification(List<DossierTravelSegment> dossierTravelSegments){
         LogUtils.e("LocalNotification", "addAllLocalNotification...");

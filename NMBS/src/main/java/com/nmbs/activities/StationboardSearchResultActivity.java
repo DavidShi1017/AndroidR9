@@ -420,7 +420,9 @@ public class StationboardSearchResultActivity extends BaseListActivity {
 					hideProgressDialog(progressDialog);
 					DialogAlertError dialogError = new DialogAlertError(StationboardSearchResultActivity.this, getResources().getString(R.string.general_information),
 							getResources().getString(R.string.general_server_unavailable));
-					dialogError.show();
+					if(!isFinishing()){
+						dialogError.show();
+					}
 				}else{
 					hasError = true;
 					hideProgressDialog(progressDialog);

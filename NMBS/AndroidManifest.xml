@@ -867,9 +867,9 @@
             android:process=":push"
             />
 
-        <receiver android:name=".util.AlarmReceiver"
+       <!-- <receiver android:name=".util.AlarmReceiver"
             android:process=":remote">
-        </receiver>
+        </receiver>-->
 
         <service
             android:name=".services.impl.LocalNotificationService"

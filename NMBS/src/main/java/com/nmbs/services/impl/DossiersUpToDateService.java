@@ -18,7 +18,7 @@ import com.nmbs.model.DossiersUpToDate;
 import com.nmbs.model.DossiersUpToDateParmeter;
 import com.nmbs.model.DossiersUpToDateParmeters;
 import com.nmbs.model.DossiersUpToDateResponse;
-import com.nmbs.receivers.AlarmsBroadcastReceiver;
+
 import com.nmbs.util.DateUtils;
 import com.nmbs.util.Utils;
 

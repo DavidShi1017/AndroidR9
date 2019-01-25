@@ -26,7 +26,7 @@ import com.nmbs.async.MobileMessageAsyncTask;
 import com.nmbs.exceptions.NetworkError;
 import com.nmbs.log.LogUtils;
 import com.nmbs.preferences.SettingsPref;
-import com.nmbs.receivers.AlarmsBroadcastReceiver;
+
 import com.nmbs.receivers.AlarmsRefreshDossierBroadcastReceiver;
 import com.nmbs.receivers.CheckOptionNotificationReceiver;
 import com.nmbs.receivers.CheckOptionReceiver;

@@ -40,7 +40,7 @@ public class LocalNotificationService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         // TODO Auto-generated method stub
         //Intent broadcastIntent = new Intent(this.getApplicationContext(), LocalNotificationReceiver.class);
-        String name = AppUtil.getRunningActivity(getApplicationContext());
+       /* String name = AppUtil.getRunningActivity(getApplicationContext());
         PendingIntent pendingIntent = PendingIntent.
                 getActivities(this.getApplicationContext(), 0, makeIntentStack(getApplicationContext()), PendingIntent.FLAG_UPDATE_CURRENT);
         if(name.contains("com.nmbs")){
@@ -56,7 +56,7 @@ public class LocalNotificationService extends Service {
         if(now.getHours() == 16 && now.getMinutes() < 1){
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this.getApplicationContext())
                     .setSmallIcon(R.drawable.ic_notification)
-                    /*.setLargeIcon(bitmap)*/
+                    *//*.setLargeIcon(bitmap)*//*
                     .setContentTitle(this.getApplicationContext().getResources().getString(R.string.push_notification_new_message))
                     .setContentText(this.getApplicationContext().getResources().getString(R.string.local_notification_text))
                     .setSound(defaultSoundUri)
@@ -65,7 +65,7 @@ public class LocalNotificationService extends Service {
             NotificationManager notificationManager =
                     (NotificationManager) this.getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.notify(0, notificationBuilder.build());
-        }
+        }*/
         return START_NOT_STICKY;
     }
 

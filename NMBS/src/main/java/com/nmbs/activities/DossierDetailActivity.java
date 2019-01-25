@@ -323,7 +323,7 @@ public class DossierDetailActivity extends BaseActivity {
         }else {
             tvDossierMissingPDF.setVisibility(View.GONE);
         }
-        if(!dossierSummary.isBarcodeSuccessfully() || !dossierSummary.isPDFSuccessfully()){
+        if(dossierSummary != null && !dossierSummary.isBarcodeSuccessfully() || !dossierSummary.isPDFSuccessfully()){
             tvDossierMissingPDFOrBarcode.setVisibility(View.VISIBLE);
         }else {
             tvDossierMissingPDFOrBarcode.setVisibility(View.GONE);
