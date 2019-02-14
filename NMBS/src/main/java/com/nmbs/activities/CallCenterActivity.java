@@ -435,12 +435,12 @@ public class CallCenterActivity extends BaseActivity {
 							.show();
 				} else {
 					Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + callNumber));
-					if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+					if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
 						if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
 							int res = checkSelfPermission(Manifest.permission.CALL_PHONE);
 							if (res != PackageManager.PERMISSION_GRANTED) {
-								requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE},
+								requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.CALL_PHONE},
 										REQUEST_CODE_ASK_PERMISSIONS);
 							}
 
@@ -456,13 +456,14 @@ public class CallCenterActivity extends BaseActivity {
 	}
 	private void call() {
 		Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + callNumber));
+		LogUtils.e("Call", "call.................");
 		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
 
 			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
 				int res = checkSelfPermission(Manifest.permission.CALL_PHONE);
 				if (res != PackageManager.PERMISSION_GRANTED) {
-					requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE},
+					requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.CALL_PHONE},
 							REQUEST_CODE_ASK_PERMISSIONS);
 				}
 
@@ -579,9 +580,9 @@ public class CallCenterActivity extends BaseActivity {
 					switch (error) {
 						case TIMEOUT:
 							hideWaitDialog();
-							Toast.makeText(CallCenterActivity.this,
+							/*Toast.makeText(CallCenterActivity.this,
 									getString(R.string.general_server_unavailable),
-									Toast.LENGTH_LONG).show();
+									Toast.LENGTH_LONG).show();*/
 							//finish();
 							if(!isFinishing()){
 								dialogError = new DialogAlertError(CallCenterActivity.this, getResources().getString(R.string.general_information),

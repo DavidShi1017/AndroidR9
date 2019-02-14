@@ -692,78 +692,78 @@ won\'t take more than a minute. Thanks for your support.</string>
     <!-- https://accept-shared.bene-system.com/hp/mobilebarcodeservice?bcguid= -->
     <!--https://rt1901.accept.b-europe.com-->
 
-    <string name="server_url_logon">https://api.b-europe.com/logon</string>
-    <string name="server_url_logon_social">https://api.b-europe.com/social-logon</string>
+    <string name="server_url_logon">https://api.accept.b-europe.com/logon</string>
+    <string name="server_url_logon_social">https://api.accept.b-europe.com/social-logon</string>
 
-    <string name="server_url_resend">https://api.b-europe.com/resend-activation-email</string>
-    <string name="server_url_forgot_pwd">https://api.b-europe.com/forgot-password</string>
-    <string name="server_url_dossier_list">https://api.b-europe.com/dossiers-list</string>
-    <string name="server_url_profile_info">https://api.b-europe.com/profile-info</string>
-    <string name="server_url_check_option">https://api.b-europe.com/check-options</string>
-    <string name="server_url_check_pwd">https://api.b-europe.com/checklastupdatetimestamppassword</string>
+    <string name="server_url_resend">https://api.accept.b-europe.com/resend-activation-email</string>
+    <string name="server_url_forgot_pwd">https://api.accept.b-europe.com/forgot-password</string>
+    <string name="server_url_dossier_list">https://api.accept.b-europe.com/dossiers-list</string>
+    <string name="server_url_profile_info">https://api.accept.b-europe.com/profile-info</string>
+    <string name="server_url_check_option">https://api.accept.b-europe.com/check-options</string>
+    <string name="server_url_check_pwd">https://api.accept.b-europe.com/checklastupdatetimestamppassword</string>
 
-    <string name="server_url_check_app_version">https://api.b-europe.com/check-app-version</string>
-    <string name="server_url_get_messages">https://api.b-europe.com/messagesV5</string>
-    <string name="server_url_create_account"> https://api.b-europe.com/accounts</string>
-    <string name="server_url_get_countries"> https://api.b-europe.com/collections/countries</string>
-    <string name="server_url_get_languages"> https://api.b-europe.com/collections/languages</string>
-    <string name="server_url_get_titles"> https://api.b-europe.com/collections/titles</string>
-    <string name="server_url_get_deliverymethods"> https://api.b-europe.com/collections/deliverymethods
+    <string name="server_url_check_app_version">https://api.accept.b-europe.com/check-app-version</string>
+    <string name="server_url_get_messages">https://api.accept.b-europe.com/messagesV5</string>
+    <string name="server_url_create_account"> https://api.accept.b-europe.com/accounts</string>
+    <string name="server_url_get_countries"> https://api.accept.b-europe.com/collections/countries</string>
+    <string name="server_url_get_languages"> https://api.accept.b-europe.com/collections/languages</string>
+    <string name="server_url_get_titles"> https://api.accept.b-europe.com/collections/titles</string>
+    <string name="server_url_get_deliverymethods"> https://api.accept.b-europe.com/collections/deliverymethods
 </string>
-    <string name="server_url_get_paymentmethods"> https://api.b-europe.com/collections/paymentmethods
+    <string name="server_url_get_paymentmethods"> https://api.accept.b-europe.com/collections/paymentmethods
 </string>
 
-    <string name="server_url_get_stations"> https://api.b-europe.com/stations</string>
+    <string name="server_url_get_stations"> https://api.accept.b-europe.com/stations</string>
 
-    <string name="server_url_dossier_request"> https://api.b-europe.com/dossiersV3</string>
-    <string name="server_url_host"> https://api.b-europe.com </string>
-    <string name="server_url_get_assistant_faq"> https://api.b-europe.com/assistant/faq</string>
-    <string name="server_url_get_dossier_aftersales"> https://api.b-europe.com/dossier-aftersales</string>
-    <string name="server_url_get_dossier_aftersales_v3"> https://api.b-europe.com/dossier-aftersalesV3</string>
-    <string name="server_url_get_dossier_aftersales_v4"> https://api.b-europe.com/dossier-aftersalesV4</string>
-    <string name="server_url_get_dossier_detail"> https://api.b-europe.com/dossier-details</string>
-    <!-- <string name="server_url_get_origin_destination_rules"> https://api.b-europe.com /origin-destination-rules?multiSegment=true</string> -->
-    <string name="server_url_get_origin_destination_rules"> https://api.b-europe.com/origin-destination-rulesV4?multiSegment=true</string>
-    <string name="server_url_get_currency"> https://api.b-europe.com/collections/currencies</string>
-    <string name="server_url_get_cities"> https://api.b-europe.com/cities?multiSegment=true</string>
-    <!-- <string name="server_url_offer_queries"> https://api.b-europe.com:444/offer-queries/</string> -->
-    <!-- <string name="server_url_get_masterdata"> https://api.b-europe.com/config-retrieval?multiSegment=true</string> -->
-    <string name="server_url_get_masterdata"> https://api.b-europe.com/config-retrieval?odScope=MultiSegmentExtended</string>
-    <string name="server_url_get_general"> https://api.b-europe.com/generalsettingsV7</string>
+    <string name="server_url_dossier_request"> https://api.accept.b-europe.com/dossiersV3</string>
+    <string name="server_url_host"> https://api.accept.b-europe.com </string>
+    <string name="server_url_get_assistant_faq"> https://api.accept.b-europe.com/assistant/faq</string>
+    <string name="server_url_get_dossier_aftersales"> https://api.accept.b-europe.com/dossier-aftersales</string>
+    <string name="server_url_get_dossier_aftersales_v3"> https://api.accept.b-europe.com/dossier-aftersalesV3</string>
+    <string name="server_url_get_dossier_aftersales_v4"> https://api.accept.b-europe.com/dossier-aftersalesV4</string>
+    <string name="server_url_get_dossier_detail"> https://api.accept.b-europe.com/dossier-details</string>
+    <!-- <string name="server_url_get_origin_destination_rules"> https://api.accept.b-europe.com /origin-destination-rules?multiSegment=true</string> -->
+    <string name="server_url_get_origin_destination_rules"> https://api.accept.b-europe.com/origin-destination-rulesV4?multiSegment=true</string>
+    <string name="server_url_get_currency"> https://api.accept.b-europe.com/collections/currencies</string>
+    <string name="server_url_get_cities"> https://api.accept.b-europe.com/cities?multiSegment=true</string>
+    <!-- <string name="server_url_offer_queries"> https://api.accept.b-europe.com:444/offer-queries/</string> -->
+    <!-- <string name="server_url_get_masterdata"> https://api.accept.b-europe.com/config-retrieval?multiSegment=true</string> -->
+    <string name="server_url_get_masterdata"> https://api.accept.b-europe.com/config-retrieval?odScope=MultiSegmentExtended</string>
+    <string name="server_url_get_general"> https://api.accept.b-europe.com/generalsettingsV7</string>
 
-    <!-- <string name="server_url_offer_queries"> https://api.b-europe.com/offer-queries-with-guidedsalesrules</string> -->
-    <string name="server_url_offer_queries"> https://api.b-europe.com/offer-queriesV4</string>
+    <!-- <string name="server_url_offer_queries"> https://api.accept.b-europe.com/offer-queries-with-guidedsalesrules</string> -->
+    <string name="server_url_offer_queries"> https://api.accept.b-europe.com/offer-queriesV4</string>
     <string name="server_url_registration">http://219.147.160.214:1007/registration.aspx
 </string>
 
-    <string name="server_url_lookup_greenpoints"> https://api.b-europe.com/greenpoints-lookup/</string>
-    <string name="server_url_get_reductioncards"> https://api.b-europe.com/collections/reductioncards</string>
-    <string name="server_url_get_click_to_call_scenarios"> https://api.b-europe.com/collections/click-to-call-scenarios</string>
-    <string name="server_url_get_click_to_call_context"> https://api.b-europe.com/click-to-call-context</string>
-    <string name="server_url_get_aftersales"> https://api.b-europe.com/aftersales</string>
-    <string name="server_url_get_wizard"> https://api.b-europe.com/introduction-wizard/Android/</string>
-    <string name="server_url_get_homebanner"> https://api.b-europe.com/homebanner</string>
-    <string name="server_url_get_trainIcons"> https://api.b-europe.com/TrainIcons</string>
-    <string name="server_url_get_stationboard_queries"> https://api.b-europe.com/stationboard/query</string>
-    <string name="server_url_get_stationboard_bulk_queries"> https://api.b-europe.com/stationboard/bulk-query</string>
-    <!--<string name="server_url_get_stationinfo">https://api.b-europe.com/station-info</string>-->
+    <string name="server_url_lookup_greenpoints"> https://api.accept.b-europe.com/greenpoints-lookup/</string>
+    <string name="server_url_get_reductioncards"> https://api.accept.b-europe.com/collections/reductioncards</string>
+    <string name="server_url_get_click_to_call_scenarios"> https://api.accept.b-europe.com/collections/click-to-call-scenarios</string>
+    <string name="server_url_get_click_to_call_context"> https://api.accept.b-europe.com/click-to-call-context</string>
+    <string name="server_url_get_aftersales"> https://api.accept.b-europe.com/aftersales</string>
+    <string name="server_url_get_wizard"> https://api.accept.b-europe.com/introduction-wizard/Android/</string>
+    <string name="server_url_get_homebanner"> https://api.accept.b-europe.com/homebanner</string>
+    <string name="server_url_get_trainIcons"> https://api.accept.b-europe.com/TrainIcons</string>
+    <string name="server_url_get_stationboard_queries"> https://api.accept.b-europe.com/stationboard/query</string>
+    <string name="server_url_get_stationboard_bulk_queries"> https://api.accept.b-europe.com/stationboard/bulk-query</string>
+    <!--<string name="server_url_get_stationinfo">https://api.accept.b-europe.com/station-info</string>-->
     <string name="server_url_get_stationinfo">http://api.accept.b-europe.com/station-infoV7</string>
 
-    <string name="server_url_schedule_query">https://api.b-europe.com/schedule-queries</string>
-    <string name="server_url_refresh_schedule_detail">https://api.b-europe.com/schedule-details</string>
-    <string name="server_url">https://api.b-europe.com</string>
+    <string name="server_url_schedule_query">https://api.accept.b-europe.com/schedule-queries</string>
+    <string name="server_url_refresh_schedule_detail">https://api.accept.b-europe.com/schedule-details</string>
+    <string name="server_url">https://api.accept.b-europe.com</string>
     <string name="push_subscription_url">http://demo.hafas.de/bene/hcssproxy/subscription</string>
     <!--<string name="push_subscription_url">https://realtime-push.bene-system.com/hcssproxy/subscription</string>-->
     <!--<string name="push_subscription_url"> https://accept-realtime-push.bene-system.com/hcssproxy/subscription</string>-->
 
-    <string name="server_url_realtimeinfo">https://api.b-europe.com/realtimeinfo</string>
-    <string name="server_url_dossier_updodate">https://api.b-europe.com/dossiers-uptodate-check</string>
+    <string name="server_url_realtimeinfo">https://api.accept.b-europe.com/realtimeinfo</string>
+    <string name="server_url_dossier_updodate">https://api.accept.b-europe.com/dossiers-uptodate-check</string>
 
     <!-- <string name="barcode_url_prefix">https://accept-shared.bene-system.com/hp/mobilebarcodeservice?bcguid=</string> -->
 
     <!-- <string name="barcode_url_prefix">http://be-internet.bene-system.com/hp/mobilebarcodeservice?bcguid=</string> -->
-    <!--<string name="barcode_url_prefix">https://accept-shared.bene-system.com</string>-->
-    <string name="barcode_url_prefix">https://www.bene-system.com</string>
+    <string name="barcode_url_prefix">https://accept-shared.bene-system.com</string>
+   <!-- <string name="barcode_url_prefix">https://www.bene-system.com</string>-->
     <!--<string name="barcode_url_prefix">http://www.bene-system.com/hp/mobilebarcodeservice?bcguid=</string>-->
 
     <!-- outside url for settting-->
