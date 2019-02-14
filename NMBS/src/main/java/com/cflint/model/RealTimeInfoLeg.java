@@ -106,14 +106,23 @@ public class RealTimeInfoLeg implements Serializable{
 
 	public String getDeparturePlatform() {
 		if(departurePlatform != null && departurePlatform.length() == 8){
-			departurePlatform = departurePlatform.substring(0, departurePlatform.lastIndexOf(":"));
+			try{
+				departurePlatform = departurePlatform.substring(0, departurePlatform.lastIndexOf(":"));
+			}catch (Exception e){
+				return "";
+			}
 		}
 		return departurePlatform;
 	}
 
 	public String getArrivalPlatform() {
 		if(arrivalPlatform != null && arrivalPlatform.length() == 8){
-			arrivalPlatform = arrivalPlatform.substring(0, arrivalPlatform.lastIndexOf(":"));
+			try{
+				arrivalPlatform = arrivalPlatform.substring(0, arrivalPlatform.lastIndexOf(":"));
+			}catch (Exception e){
+				return "";
+			}
+
 		}
 		return arrivalPlatform;
 	}

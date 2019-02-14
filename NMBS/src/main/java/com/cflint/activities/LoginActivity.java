@@ -225,12 +225,16 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 		tvEmailError = (TextView) findViewById(R.id.tv_email_error);
 		if(showPwd){
 			//如果选中，显示密码
-			etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+			if(etPwd != null){
+				etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+			}
 			//showPwd = false;
 			//etPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
 		}else{
 			//否则隐藏密码
-			etPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+			if(etPwd != null){
+				etPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+			}
 			//showPwd = true;
 			//etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 		}
@@ -263,12 +267,17 @@ public class LoginActivity extends BaseActivity implements DialogErrorLogin.Butt
 						//如果选中，显示密码
 						//etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 						showPwd = false;
-						etPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+						if(etPwd != null){
+							etPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+						}
+
 					}else{
 						//否则隐藏密码
 						//etPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
 						showPwd = true;
-						etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+						if(etPwd != null){
+							etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+						}
 					}
 				}
 				return false;

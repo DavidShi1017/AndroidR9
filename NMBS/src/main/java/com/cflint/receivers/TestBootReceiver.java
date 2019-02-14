@@ -19,7 +19,7 @@ public class TestBootReceiver extends BroadcastReceiver {
                 //only enabling one type of notifications for demo purposes
                 Log.e("Notification", "Notification android.intent.action.BOOT_COMPLETED-------");
                 // NotificationHelper.scheduleRepeatingElapsedNotification(context);
-                //NotificationHelper.enableBootReceiver(context);
+                NotificationHelper.enableBootReceiver(context);
 
             }
         }

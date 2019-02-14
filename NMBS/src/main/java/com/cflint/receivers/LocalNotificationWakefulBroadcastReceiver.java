@@ -15,11 +15,15 @@ import com.cflint.R;
 import com.cflint.activities.MainActivity;
 import com.cflint.activities.MyTicketsActivity;
 import com.cflint.application.NMBSApplication;
+import com.cflint.dataaccess.database.TravelSegmentDatabaseService;
 import com.cflint.log.LogUtils;
+import com.cflint.model.LocalNotification;
 import com.cflint.services.impl.LocalNotificationService;
 import com.cflint.util.AppUtil;
+import com.cflint.util.DateUtils;
 
 import java.util.Date;
+import java.util.List;
 
 
 public class LocalNotificationWakefulBroadcastReceiver extends WakefulBroadcastReceiver {
@@ -42,6 +46,28 @@ public class LocalNotificationWakefulBroadcastReceiver extends WakefulBroadcastR
     public void buildLocalNotification(Context context) {
         // TODO Auto-generated method stub
         //Intent broadcastIntent = new Intent(this.getApplicationContext(), LocalNotificationReceiver.class);
+        Date now = new Date();
+        String nowStr = DateUtils.dateToString(DateUtils.getFewLaterDay(now, 1));
+        TravelSegmentDatabaseService travelSegmentDatabaseService = new TravelSegmentDatabaseService(context);
+        List<LocalNotification> notifications =  travelSegmentDatabaseService.getAllTravelSegment();
+        boolean isBuild = false;
+        if(notifications != null){
+            for(LocalNotification localNotification : notifications){
+                if(localNotification != null){
+                    Date date = localNotification.getDepartureDate();
+                    String dateStr =  DateUtils.dateToString(date);
+                    LogUtils.e("LocalNotification", "nowStr------->" + nowStr);
+                    LogUtils.e("LocalNotification", "dateStr------->" + dateStr);
+                    if(nowStr != null && nowStr.equalsIgnoreCase(dateStr)){
+                        isBuild = true;
+                    }
+                }
+            }
+        }
+
+        if(!isBuild){
+            return;
+        }
         String name = AppUtil.getRunningActivity(context);
         PendingIntent pendingIntent = PendingIntent.
                 getActivities(context, 0, makeIntentStack(context), PendingIntent.FLAG_UPDATE_CURRENT);

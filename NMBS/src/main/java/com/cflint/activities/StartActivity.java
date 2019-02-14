@@ -481,24 +481,6 @@ public class StartActivity extends BaseActivity {
 
 	}*/
 
-	@Override
-	protected void onResume() {
-		// showWaitDialog();
-		//getPermissions();
-		/*try {
-			DatabaseHelper dbHelper = DatabaseHelper.getInstance(getApplicationContext());
-			SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabaseTest();
-			if(sqLiteDatabase != null){
-				execute();
-			}else {
-				getPermissions();
-			}
-		}catch (Exception e){
-			LogUtils.e("LogUtils", " catch getWritableDatabase Exception...." + e.getMessage());
-			getPermissions();
-		}*/
-		super.onResume();
-	}
 
 	@Override
 	protected void onDestroy() {

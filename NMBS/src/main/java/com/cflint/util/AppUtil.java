@@ -77,7 +77,14 @@ public class AppUtil {
 
 	public static String getRunningActivity(Context context){
 		ActivityManager activityManager=(ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-		String runningActivity = activityManager.getRunningTasks(1).get(0).topActivity.getClassName();
-		return runningActivity;
+		try{
+			if(activityManager.getRunningTasks(1).size() > 0){
+				String runningActivity=activityManager.getRunningTasks(1).get(0).topActivity.getClassName();
+				return runningActivity;
+			}
+		}catch (Exception e){
+			return "";
+		}
+		return "";
 	}
 }

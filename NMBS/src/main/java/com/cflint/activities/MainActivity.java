@@ -824,12 +824,22 @@ public class MainActivity extends BaseActivity implements RatingListener {
 			}
 			LogUtils.e("CheckOption", "CheckOptionAsyncTask-------isChecking------>" + CheckOptionAsyncTask.isChecking);
 			if(CheckOptionAsyncTask.isChecking){
-				pbOption.setVisibility(View.VISIBLE);
-				tvOptionCount.setVisibility(View.GONE);
+				if(pbOption != null){
+					pbOption.setVisibility(View.VISIBLE);
+				}
+				if(tvOptionCount != null){
+					tvOptionCount.setVisibility(View.GONE);
+				}
+
 			}else {
-				pbOption.setVisibility(View.GONE);
-				tvOptionCount.setVisibility(View.VISIBLE);
-				tvOptionCount.setText(optionCount + "");
+				if(pbOption != null){
+					pbOption.setVisibility(View.GONE);
+				}
+				if(tvOptionCount != null){
+					tvOptionCount.setVisibility(View.VISIBLE);
+					tvOptionCount.setText(optionCount + "");
+				}
+
 			}
 		}
 	}
