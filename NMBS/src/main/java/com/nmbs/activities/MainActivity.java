@@ -593,18 +593,32 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting() != null
 				&& NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getBookingUrl() != null
 				&& !NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getBookingUrl().isEmpty()){
-			rlBook.setVisibility(View.VISIBLE);
+			if(rlBook != null){
+				rlBook.setVisibility(View.VISIBLE);
+			}
 		}else {
-			rlBook.setVisibility(View.GONE);
-			rlMyOption.setVisibility(View.INVISIBLE);
+			if(rlBook != null){
+				rlBook.setVisibility(View.GONE);
+			}
+			if(rlMyOption != null){
+				rlMyOption.setVisibility(View.INVISIBLE);
+			}
 		}
 		if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting() != null
 				&& NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getLffUrl() != null
 				&& !NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getLffUrl().isEmpty()){
-			rlLowestFares.setVisibility(View.VISIBLE);
+			if(rlLowestFares != null){
+				rlLowestFares.setVisibility(View.VISIBLE);
+			}
+
 		}else {
-			rlLowestFares.setVisibility(View.GONE);
+			if(rlLowestFares != null){
+				rlLowestFares.setVisibility(View.GONE);
+			}
 			//rlLowestFares.setVisibility(View.INVISIBLE);
+		}
+		if(rlDossier == null){
+			return;
 		}
 		rlDossier.measure(0, 0);
 		//换成方法measureView (headView)也可以
@@ -625,16 +639,27 @@ public class MainActivity extends BaseActivity implements RatingListener {
 			headViewWidth = 320;
 		}
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(headViewWidth, (int)getResources().getDimension(R.dimen.home_menu_height));
-
+		if(rlBook == null){
+			return;
+		}
 		rlBook.setLayoutParams(new LinearLayout.LayoutParams(headViewWidth, (int)getResources().getDimension(R.dimen.home_menu_height)));
 		rlDossier.measure(0, 0);
 		int rlBookWidth = rlBook.getMeasuredWidth();
 		LogUtils.i(TAG, "rlBookWidth-->" + rlBookWidth);
 		params.setMargins(10, 0, 0, 0);
-		rlLowestFares.setLayoutParams(params);
-		rlMyTickets.setLayoutParams(params);
-		rlUploadTickets.setLayoutParams(params);
-		rlMyOption.setLayoutParams(params);
+		if(rlLowestFares != null){
+			rlLowestFares.setLayoutParams(params);
+		}
+		if(rlMyTickets != null){
+			rlMyTickets.setLayoutParams(params);
+		}
+		if(rlUploadTickets != null){
+			rlUploadTickets.setLayoutParams(params);
+		}
+		if(rlMyOption != null){
+			rlMyOption.setLayoutParams(params);
+		}
+
 	}
 	/*public void clickMenu(View view){
 		mDrawerLayout.openDrawer(GravityCompat.END);
@@ -1002,6 +1027,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 
 									if(NetworkUtils.isOnline(MainActivity.this)) {
 										GoogleAnalyticsUtil.getInstance().sendScreen(MainActivity.this, TrackerConstant.BOOKING);
+										LogUtils.e("bookTicktes", "bookTicktes URL is------>" + generalSetting.getBookingUrl());
 										startActivity(WebViewActivity.createIntent(MainActivity.this,
 												Utils.getUrl(generalSetting.getBookingUrl()), WebViewActivity.BOOKING_FLOW, ""));
 										/*startActivity(WebViewOverlayActivity.createIntent(MainActivity.this,

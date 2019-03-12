@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.os.Message;
@@ -130,11 +131,7 @@ public class StartActivity extends BaseActivity {
 		}*/
 
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
-		ActivityCompat.requestPermissions(
-				this,
-				new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
-				PERMISSION_CODE
-		);
+		setContentView(R.layout.start_view);
 		assistantService = ((NMBSApplication) getApplication()).getAssistantService();
 		masterService = ((NMBSApplication) getApplication()).getMasterService();
 		settingService = ((NMBSApplication) getApplication()).getSettingService();
@@ -144,12 +141,24 @@ public class StartActivity extends BaseActivity {
 		checkUpdateService =((NMBSApplication) getApplication()).getCheckUpdateService();
 		pushService = ((NMBSApplication) getApplication()).getPushService();
 		dossiersUpToDateService = ((NMBSApplication) getApplication()).getDossiersUpToDateService();
+		if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			ActivityCompat.requestPermissions(
+					this,
+					new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+					PERMISSION_CODE
+			);
+		}else{
+			execute();
+		}
+
+
+
 		//settingService.initLanguageSettings();															// SharedPreferences
 		//LocaleChangedUtils.initLanguageSettings(getApplicationContext());// Setting
 		// application
 		// language
 		//Log.d(TAG, "onCreate....");
-		setContentView(R.layout.start_view);
+
 		//showWaitDialog();
 
 	}

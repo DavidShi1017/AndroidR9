@@ -291,7 +291,7 @@ public class ScheduleResultActivity extends BaseActivity {
 		//listView = (ExpandableListView) findViewById(android.R.id.list);
 		//footerView = getLayoutInflater().inflate(R.layout.planner_list_footer_view, null);
 		llLaterTrain = (LinearLayout) findViewById(R.id.ll_later_train);
-		llLaterTrain.setVisibility(View.GONE);
+		//llLaterTrain.setVisibility(View.GONE);
 		headerView = (LinearLayout) findViewById(R.id.ll_planner_list_header_LinearLayout);
 		headerView.setVisibility(View.GONE);
 		messageLayout = (LinearLayout) findViewById(R.id.ll_schedule_message_layout);

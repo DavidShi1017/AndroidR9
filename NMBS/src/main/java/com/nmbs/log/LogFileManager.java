@@ -1,5 +1,7 @@
 package com.nmbs.log;
 
+import android.os.Environment;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.text.SimpleDateFormat;
@@ -20,10 +22,11 @@ public class LogFileManager {
     private String mLogFileDir;
 
     LogFileManager(String logFileDir) {
-        mLogFileDir = logFileDir;
+        mLogFileDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
     }
 
     public void writeLogToFile(String logMessage) {
+        LogUtils.e("writeLogToFile", "writeLogToFile.....");
         if (mCurrentLogFile == null || mCurrentLogFile.length() >= LOG_FILE_MAX_SIZE) {
             mCurrentLogFile = getNewLogFile();
         }
@@ -31,6 +34,7 @@ public class LogFileManager {
     }
 
     private File getNewLogFile() {
+        LogUtils.e("getNewLogFile", "getNewLogFile.....");
         File dir = new File(mLogFileDir);
         File[] files = dir.listFiles(fileFilter);
         if (files == null || files.length == 0) {
@@ -53,7 +57,7 @@ public class LogFileManager {
     }
 
     private File createNewLogFile() {
-        return FileUtils.createFile(mLogFileDir + "/Log" + LOG_FILE_DATE_FORMAT.format(new Date()) + ".txt");
+        return FileUtils.createFile(mLogFileDir + "/NMBS_Log_" + LOG_FILE_DATE_FORMAT.format(new Date()) + ".txt");
     }
 
     private List<File> sortFiles(File[] files) {

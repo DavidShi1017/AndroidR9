@@ -58,6 +58,8 @@
     <application
         android:name=".application.NMBSApplication"
         android:configChanges="orientation|keyboardHidden|locale"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
         android:hardwareAccelerated="false"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_nmbs"

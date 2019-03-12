@@ -232,8 +232,8 @@ public class HTTPRestServiceCaller {
 		}
 
 		HttpResponse response = null;
-
-		LogUtils.d(TAG, "httpMethodFlag is: " + httpMethodFlag);
+		LogUtils.d(TAG, "serverUrl is: " + serverUrl + "--------> lastModifiedInPreferences is: " + lastModifiedInPreferences);
+		//LogUtils.d(TAG, "httpMethodFlag is: " + httpMethodFlag);
 		//Log.d(TAG, "postJson is: " + postJson);
 		// Log.d(TAG ,"isMastdataWorking: " + isMastdataWorking );
 		 //Log.d(acceptLanguage ,"acceptLanguage: "+ acceptLanguage);

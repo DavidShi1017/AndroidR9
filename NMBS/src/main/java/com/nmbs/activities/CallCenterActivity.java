@@ -435,7 +435,7 @@ public class CallCenterActivity extends BaseActivity {
 							.show();
 				} else {
 					Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + callNumber));
-					if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+					if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
 						if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
 							int res = checkSelfPermission(Manifest.permission.CALL_PHONE);

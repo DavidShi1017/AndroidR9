@@ -747,7 +747,7 @@ won\'t take more than a minute. Thanks for your support.</string>
     <string name="server_url_get_stationboard_queries"> https://api.accept.b-europe.com/stationboard/query</string>
     <string name="server_url_get_stationboard_bulk_queries"> https://api.accept.b-europe.com/stationboard/bulk-query</string>
     <!--<string name="server_url_get_stationinfo">https://api.accept.b-europe.com/station-info</string>-->
-    <string name="server_url_get_stationinfo">http://api.accept.b-europe.com/station-infoV7</string>
+    <string name="server_url_get_stationinfo">https://api.accept.b-europe.com/station-infoV7</string>
 
     <string name="server_url_schedule_query">https://api.accept.b-europe.com/schedule-queries</string>
     <string name="server_url_refresh_schedule_detail">https://api.accept.b-europe.com/schedule-details</string>
@@ -763,7 +763,7 @@ won\'t take more than a minute. Thanks for your support.</string>
 
     <!-- <string name="barcode_url_prefix">http://be-internet.bene-system.com/hp/mobilebarcodeservice?bcguid=</string> -->
     <string name="barcode_url_prefix">https://accept-shared.bene-system.com</string>
-   <!-- <string name="barcode_url_prefix">https://www.bene-system.com</string>-->
+    <!--<string name="barcode_url_prefix">https://www.bene-system.com</string>-->
     <!--<string name="barcode_url_prefix">http://www.bene-system.com/hp/mobilebarcodeservice?bcguid=</string>-->
 
     <!-- outside url for settting-->

@@ -2,6 +2,8 @@ package com.nmbs.log;
 
 import android.util.Log;
 
+import com.nmbs.services.impl.TestService;
+
 import java.io.File;
 import java.security.InvalidParameterException;
 import java.text.SimpleDateFormat;
@@ -41,7 +43,7 @@ public final class LogUtils {
     private static final String PREFIX = "(YOUR PREFIX):";
 
 
-    private static boolean sLogEnable = true;
+    private static boolean sLogEnable = TestService.isTestMode;
 
 
     private static LogLevel sLogLevel = LogLevel.DEBUG;
@@ -101,7 +103,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = PREFIX + message;
             Log.d(tag, msg);
-            //writeToFileIfNeeded(tag, msg, LogLevel.DEBUG);
+            writeToFileIfNeeded(tag, msg, LogLevel.DEBUG);
         }
     }
 
@@ -117,7 +119,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = PREFIX + message;
             Log.d(tag, msg, throwable);
-            //writeToFileIfNeeded(tag, msg + "\n" + Log.getStackTraceString(throwable), LogLevel.DEBUG);
+            writeToFileIfNeeded(tag, msg + "\n" + Log.getStackTraceString(throwable), LogLevel.DEBUG);
         }
     }
 
@@ -133,7 +135,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = String.format(PREFIX + format, params);
             Log.d(tag, msg);
-            //writeToFileIfNeeded(tag, msg, LogLevel.DEBUG);
+            writeToFileIfNeeded(tag, msg, LogLevel.DEBUG);
         }
     }
 
@@ -148,7 +150,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = PREFIX + message;
             Log.w(tag, msg);
-            //writeToFileIfNeeded(tag, msg, LogLevel.WARN);
+            writeToFileIfNeeded(tag, msg, LogLevel.WARN);
         }
     }
 
@@ -162,7 +164,7 @@ public final class LogUtils {
     public static void w(String tag, Throwable throwable) {
         if (sLogEnable) {
             Log.w(tag, throwable);
-            //writeToFileIfNeeded(tag, Log.getStackTraceString(throwable), LogLevel.WARN);
+            writeToFileIfNeeded(tag, Log.getStackTraceString(throwable), LogLevel.WARN);
         }
     }
 
@@ -178,7 +180,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = PREFIX + message;
             Log.w(tag, msg, throwable);
-            //writeToFileIfNeeded(tag, msg + "\n" + Log.getStackTraceString(throwable), LogLevel.WARN);
+            writeToFileIfNeeded(tag, msg + "\n" + Log.getStackTraceString(throwable), LogLevel.WARN);
         }
     }
 
@@ -194,7 +196,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = String.format(PREFIX + format, params);
             Log.w(tag, msg);
-            //writeToFileIfNeeded(tag, msg, LogLevel.WARN);
+            writeToFileIfNeeded(tag, msg, LogLevel.WARN);
         }
     }
 
@@ -209,7 +211,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = PREFIX + message;
             Log.e(tag, msg);
-            //writeToFileIfNeeded(tag, msg, LogLevel.ERROR);
+            writeToFileIfNeeded(tag, msg, LogLevel.ERROR);
         }
     }
 
@@ -225,7 +227,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = PREFIX + message;
             Log.e(tag, msg, throwable);
-            //writeToFileIfNeeded(tag, msg + "\n" + Log.getStackTraceString(throwable), LogLevel.ERROR);
+            writeToFileIfNeeded(tag, msg + "\n" + Log.getStackTraceString(throwable), LogLevel.ERROR);
         }
     }
 
@@ -241,7 +243,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = String.format(PREFIX + format, params);
             Log.e(tag, msg);
-            //writeToFileIfNeeded(tag, msg, LogLevel.ERROR);
+            writeToFileIfNeeded(tag, msg, LogLevel.ERROR);
         }
     }
 
@@ -256,7 +258,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = PREFIX + message;
             Log.i(tag, msg);
-            //writeToFileIfNeeded(tag, msg, LogLevel.INFO);
+            writeToFileIfNeeded(tag, msg, LogLevel.INFO);
         }
     }
 
@@ -272,7 +274,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = message;
             Log.i(tag, PREFIX + msg, throwable);
-            //writeToFileIfNeeded(tag, msg + "\n" + Log.getStackTraceString(throwable), LogLevel.INFO);
+            writeToFileIfNeeded(tag, msg + "\n" + Log.getStackTraceString(throwable), LogLevel.INFO);
         }
     }
 
@@ -288,7 +290,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = String.format(PREFIX + format, params);
             Log.i(tag, msg);
-            //writeToFileIfNeeded(tag, msg, LogLevel.INFO);
+            writeToFileIfNeeded(tag, msg, LogLevel.INFO);
         }
     }
 
@@ -303,7 +305,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = PREFIX + message;
             Log.v(tag, msg);
-            //writeToFileIfNeeded(tag, msg, LogLevel.VERBOSE);
+            writeToFileIfNeeded(tag, msg, LogLevel.VERBOSE);
         }
     }
 
@@ -319,7 +321,7 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = PREFIX + message;
             Log.v(tag, msg, throwable);
-            //writeToFileIfNeeded(tag, msg + "\n" + Log.getStackTraceString(throwable), LogLevel.VERBOSE);
+            writeToFileIfNeeded(tag, msg + "\n" + Log.getStackTraceString(throwable), LogLevel.VERBOSE);
         }
     }
 
@@ -335,12 +337,14 @@ public final class LogUtils {
         if (sLogEnable) {
             String msg = String.format(PREFIX + format, params);
             Log.v(tag, msg);
-            //writeToFileIfNeeded(tag, msg, LogLevel.VERBOSE);
+            writeToFileIfNeeded(tag, msg, LogLevel.VERBOSE);
         }
     }
 
     private static void writeToFileIfNeeded(final String tag, final String msg, LogLevel logLevel) {
+        //LogUtils.e("writeToFileIfNeeded", "writeToFileIfNeeded.....");
         if (logLevel.getValue() < sLogLevel.getValue() || sLogFileManager == null) {
+            //LogUtils.e("writeToFileIfNeeded", "writeToFileIfNeeded.....");
             return;
         }
         sLogExecutor.execute(new Runnable() {
@@ -361,6 +365,7 @@ public final class LogUtils {
     }
 
     private static void flushLogToFile() {
+        //LogUtils.e("flushLogToFile", "flushLogToFile.....");
         StringBuilder stringBuilder = new StringBuilder();
         for (String message : sMsgQueue) {
             stringBuilder.append(message);

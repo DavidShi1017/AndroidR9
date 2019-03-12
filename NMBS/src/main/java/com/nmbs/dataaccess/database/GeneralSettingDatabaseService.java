@@ -10,6 +10,7 @@ import net.sqlcipher.database.SQLiteDatabase;
 
 
 import com.nmbs.application.NMBSApplication;
+import com.nmbs.log.LogUtils;
 import com.nmbs.model.GeneralSetting;
 
 
@@ -64,6 +65,7 @@ public class GeneralSettingDatabaseService {
    	 * @return true means everything is OK, otherwise means failure
      */
     public boolean insertStationCollection(GeneralSetting generalSetting) {
+
 		if (generalSetting != null ) {
 			ContentValues contentValues = new ContentValues();
 			if(sqLiteDatabase == null){
@@ -74,7 +76,7 @@ public class GeneralSettingDatabaseService {
 			}
 			sqLiteDatabase.beginTransaction();
 			try{
-
+				LogUtils.e("insert GeneralSetting", "insert bookTicktes URL is------>" + generalSetting.getBookingUrl());
 				contentValues.put(Column_RestSalt, generalSetting.getRestSalt());
 				contentValues.put(Column_AutoLogonSalt, generalSetting.getAutoLogonSalt());
 				contentValues.put(Column_FacebookAppId, generalSetting.getFacebookAppId());

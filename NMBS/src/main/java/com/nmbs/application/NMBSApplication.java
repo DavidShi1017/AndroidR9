@@ -9,6 +9,7 @@ import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
@@ -157,7 +158,7 @@ public class NMBSApplication extends MultiDexApplication {
 		//Log.e(TAG, "onCreate");
 		LogUtils.e("NMBSApplication", "NMBSApplication--------->");
 		String processName = Utils.getProcessName();
-
+		//LogUtils.setLogDir(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
 		//if (processName != null && !processName.isEmpty() && processName.equals(this.getPackageName())) {//判断进程名，保证只有主进程运行
 			LogUtils.e("NMBSApplication", "onCreate--------->");
 			SQLiteDatabase.loadLibs(this);
