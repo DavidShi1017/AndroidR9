@@ -616,7 +616,7 @@ public class Utils {
 			data.setData(Uri.parse("mailto:hometicketing@cfl.lu"));
 		}
 
-		data.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.feedback_email_subject));
+				data.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.feedback_email_subject));
 		String appVersion = SettingsPref.getSettingsVersion(context) + "\n";
 		String osType = "Android" + "\n";
 		String osVersion = android.os.Build.VERSION.RELEASE + "\n";
@@ -770,5 +770,16 @@ public class Utils {
 		return String.valueOf(phoneNumber);
 	}
 
-
+	public static String getCrtName(String url){
+		String str = "";
+		LogUtils.e("crt", "crt------->" + url);
+		if(url.contains("bene-system")){
+			str = "barcode-der.crt";
+		}else if (url.contains("accept.b-europe.com")){
+			str = "load-der.crt";
+		}else {
+			str = "load-der_prod.crt";
+		}
+		return str;
+	}
 }

@@ -17,7 +17,7 @@
                 {
                     "Title": "Bahnhof Luxemburg",
                     "Content": "Luxemburg Hauptbahnhof ist der ideale Startpunkt für Ihre Reise nach Deutschland, Belgien, Frankreich oder zu anderen europäischen Destinationen. Direktanschlüsse mit dem TGV nach Paris, Straßburg und Montpellier.\r\n",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Luxembourg.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Luxembourg.ashx"
                 }
             ],
             "Parkings": [
@@ -82,7 +82,7 @@
                 {
                     "Title": "Bahnhof Bruxelles-Midi / Brussel-Zuid (Brüssel)",
                     "Content": "Der Bahnhof Brüssel-Süd, der von Thalys, Eurostar, TGV® und ICE angefahren wird, ist Europas wichtigster Eisenbahnverkehrsknotenpunkt und der ideale Ausgangsbahnhof für Zugreisen nach Deutschland, Frankreich, Großbritannien, in die Niederlande und nach Luxemburg. Darüber hinaus erreichen Sie auch ganz leicht alle anderen belgischen Bahnhöfe.\r\n\r\nEs gibt verschiedene Informationsstellen am Bahnhof, wie Infoschalter für den Inlandsverkehr und für den internationalen Verkehr. Am Bahnhof Bruxelles-Midi/Brussel-Zuid (Brüssel) befinden sich auch 1 Thalys-Infoschalter und 1 Touristeninformation der Stadt Brüssel.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Bruxelles.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Bruxelles.ashx"
                 }
             ],
             "Parkings": [
@@ -144,7 +144,7 @@
                 {
                     "Title": "Bahnhof Liège Guillemins (Lüttich)",
                     "Content": "Architektonisches Glanzstück aus Metall und Glas, entworfen von dem katalanischen Stararchitekten Santiago Calatrava… Der Bahnhof Liège-Guillemins ist die Reise wert! Er zählt aber auch zu den verkehrsreichsten Bahnhöfen Walloniens und ist ein wichtiger Knotenpunkt im Hochgeschwindigkeitsnetz. Dank der Thalys, ICE- und InterCity-Züge sind Deutschland, Frankreich, die Niederlande und Luxemburg von Lüttich aus schnell zu erreichen.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Liege.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Liege.ashx"
                 }
             ],
             "Parkings": [
@@ -213,7 +213,7 @@
                 {
                     "Title": "Düsseldorf Hauptbahnhof",
                     "Content": "Der Hauptbahnhof liegt an Deutschlands verkehrsreichster Zugstrecke. Mehr als 300 Regional-und Fernzüge halten hier.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Duesseldorf.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Duesseldorf.ashx"
                 }
             ],
             "Parkings": [
@@ -282,7 +282,7 @@
                 {
                     "Title": "Bahnhof Paris-Est",
                     "Content": "Der Bahnhof Paris-Est ist einer der sechs großen Kopfbahnhöfe der französischen Hauptstadt. Er befindet sich in der Nähe der Gare du Nord.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/PARIS.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/PARIS.ashx"
                 }
             ],
             "Parkings": [
@@ -341,7 +341,7 @@
             "Code": "FRAEG",
             "Name": "Strasbourg",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.b-europe.com/-/media/MediaRepository/Files/Station_Plans/FRAEG/MAP_Strasbourg_En.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/go-euro/-/media/MediaRepository/Files/Station_Plans/FRAEG/MAP_Strasbourg_En.ashx",
             "MoreDetailsURL": "",
             "Longitude": "7.7325305",
             "Latitude": "48.5864966",
@@ -354,7 +354,7 @@
                 {
                     "Title": "Bahnhof Straßburg",
                     "Content": "Der Straßburger Hauptbahnhof bietet den Reisenden zahlreiche Anbindungen zu anderen französischen Regionen.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Strasbourg.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Strasbourg.ashx"
                 }
             ],
             "Parkings": [
@@ -423,7 +423,7 @@
                 {
                     "Title": "Bahnhof Montpellier",
                     "Content": "Der Bahnhof Montpellier-Saint-Roch ist einer der wichtigsten Bahnhöfe Südfrankreichs und Endbahnhof von mehreren TGV-Linien. Er wird täglich durch eine direkte TGV-Verbindung ab Luxemburg angefahren.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Montpellier.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Montpellier.ashx"
                 }
             ],
             "Parkings": [
@@ -494,7 +494,7 @@
                 {
                     "Title": "Bahnhof London St Pancras International",
                     "Content": "Der Bahnhof London St Pancras International ist einer der Hauptknotenpunkte für den nationalen Eisenbahnverkehr sowie Ausgangsbahnhof für internationale Bahnfahrten zum europäischen Festland.\r\n\r\nVerschiedene Informationsstellen befinden sich am Bahnhof London St Pancras International. Es gibt u.a. verschiedene Infoschalter für den Inlandsverkehr und für den internationalen Verkehr.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Londres.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Londres.ashx"
                 }
             ],
             "Parkings": [
@@ -540,10 +540,6 @@
             ]
         }
     ],
-    "Messages": [
-
-    ],
-    "DebugMessages": [
-
-    ]
+    "Messages": [],
+    "DebugMessages": []
 }

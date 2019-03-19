@@ -901,7 +901,7 @@ ALLER SUR L\'APP</string>
   <string name="settings_personaldetail_description">Supprimez vos données personnelles</string>
   <string name="settings_personaldetail_removed">Il n\'y a pas de données personnelles sauvegardées dans cette application.</string>
   <string name="settings_personaldetail_title">Données personnelles</string>
-  <string name="settings_read_privacy_policy">Lire la politique sur la vie privée des CFL </string>
+  <string name="settings_read_privacy_policy">Lire la politique sur la vie privée des CFL  </string>
   <string name="settings_travelreminders_description">Si vous désirez recevoir un rappel pour votre prochain voyage, activez l’option ici.  </string>
   <string name="settings_travelreminders_description_forlogout">Si vous désirez recevoir un rappel pour votre prochain voyage, activez l’option ici.  </string>
   <string name="settings_travelreminders_title">Rappels de voyage</string>

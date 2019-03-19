@@ -125,7 +125,7 @@ public class StationInfoDataService implements IStationInfoDataService {
         boolean isFinished = false;
         InputStream inputStream = null;
         try {
-            inputStream = HttpRetriever.getInstance().retrieveStream(url);
+            inputStream = HttpRetriever.getInstance().retrieveStream(url, context);
             //InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dossierId, inputStream));
             //InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dossierId, inputStream));
             /*httpDownloader.downloadNetworkFile(urlString, FileManager.getInstance().getFilePath("/pdfpath/"),fileName + ".pdf");  */

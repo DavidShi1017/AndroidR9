@@ -36,14 +36,17 @@ dependencies {
     implementation 'com.google.firebase:firebase-config:16.1.0'
     implementation 'com.google.firebase:firebase-crash:16.2.1'
 
-    implementation 'com.google.android.gms:play-services-ads:15.0.0'
+
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation 'com.google.android.gms:play-services-analytics:16.0.4'
+
+
     implementation 'com.google.code.gson:gson:2.6.2'
     //implementation 'com.facebook.android:facebook-login:4.34.0'
     api 'com.facebook.android:facebook-android-sdk:4.34.0'
     implementation 'com.android.support:appcompat-v7:27.0.2'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
-    implementation 'com.google.android.gms:play-services:12.0.1'
+
     /*implementation('com.mcxiaoke.viewpagerindicator:library:2.4.1') {
         exclude module: 'support-v4';
     }*/
@@ -77,8 +80,8 @@ android {
         multiDexEnabled true
         applicationId "com.cflint"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        versionCode 1
-        flavorDimensions "1"
+        versionCode 16
+        flavorDimensions "16"
     }
 
     // map for the version code

@@ -1021,6 +1021,8 @@ public class AssistantService implements IAssistantService {
 			return stationCode;
 		}else if ("GBSPX".equalsIgnoreCase(stationCode)) {
 			return stationCode;
+		}else if ("BELGG".equalsIgnoreCase(stationCode)) {
+			return stationCode;
 		}
     	return null;
     }

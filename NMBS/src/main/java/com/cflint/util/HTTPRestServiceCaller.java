@@ -6,6 +6,8 @@ import java.io.InputStream;
 
 
 import java.security.KeyStore;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +34,7 @@ import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 
+import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.conn.params.ConnManagerParams;
 import org.apache.http.conn.params.ConnPerRouteBean;
@@ -64,6 +67,9 @@ import com.cflint.exceptions.RequestFail;
 import com.cflint.log.LogUtils;
 import com.cflint.preferences.SettingsPref;
 import com.cflint.push.C2DMessaging;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
 
 /**
  * Call web service asynchronously.
@@ -441,7 +447,7 @@ public class HTTPRestServiceCaller {
 	public HttpClient getHttpClient(int timeOut, String serverUrl, Context context) {
 
 		//HttpClient httpClient = getNewHttpClient(timeOut, context);
-		HttpClient httpClient = getNewHttpClient(timeOut);
+		HttpClient httpClient = getNewHttpClient(timeOut, context, serverUrl);
 		return httpClient;
 	}
 
@@ -521,54 +527,21 @@ public class HTTPRestServiceCaller {
 		}
 	}
 
-	public static HttpClient getNewHttpClient(int timeOut, Context context) {
+	private static HttpClient getNewHttpClient(int timeOut, Context context, String url) {
 		try {
-			/*KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
-			trustStore.load(null, null);
-
-			SSLSocketFactory sf = new SSLSocketFactoryEx(trustStore);
-
-			sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);*/
 
 			HttpParams params = new BasicHttpParams();
 			HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
 			HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
 			HttpProtocolParams.setUseExpectContinue(params, true);
+
 			SchemeRegistry registry = new SchemeRegistry();
-			registry.register(new Scheme("http", PlainSocketFactory
-					.getSocketFactory(), 80));
-			registry.register(new Scheme("https", newSslSocketFactory(context), 443));
-			HttpConnectionParams.setConnectionTimeout(params, timeOut);
-			HttpConnectionParams.setSoTimeout(params, timeOut);
-			ConnManagerParams.setMaxTotalConnections(params, 5);
-			ConnPerRouteBean connPerRoute = new ConnPerRouteBean(5);  
-		    ConnManagerParams.setMaxConnectionsPerRoute(params,connPerRoute);  
-			//PoolingClientConnectionManager  ccm = new PoolingClientConnectionManager(registry);
-			ThreadSafeClientConnManager ccm = new ThreadSafeClientConnManager(params, registry);
-			//ccm.setMaxTotal(20);
-			//ccm.setDefaultMaxPerRoute(20);
-			return new DefaultHttpClient(ccm, params);
-		} catch (Exception e) {
-			return new DefaultHttpClient();
-		}
-	}
-	private static HttpClient getNewHttpClient(int timeOut) {
-		try {
-			KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
-			trustStore.load(null, null);
+			registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+			registry.register(new Scheme("https", TrustCertainHostNameFactory.getDefault(context, url), 443));
 
-			SSLSocketFactory sf = new SSLSocketFactoryEx(trustStore);
+			//ClientConnectionManager manager = new ThreadSafeClientConnManager(params, registry);
+			//DefaultHttpClient client = new DefaultHttpClient(manager, params);
 
-			sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-
-			HttpParams params = new BasicHttpParams();
-			HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
-			HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
-			HttpProtocolParams.setUseExpectContinue(params, true);
-			SchemeRegistry registry = new SchemeRegistry();
-			registry.register(new Scheme("http", PlainSocketFactory
-					.getSocketFactory(), 80));
-			registry.register(new Scheme("https", sf, 443));
 			HttpConnectionParams.setConnectionTimeout(params, timeOut);
 			HttpConnectionParams.setSoTimeout(params, timeOut);
 			ConnManagerParams.setMaxTotalConnections(params, 5);
@@ -584,34 +557,7 @@ public class HTTPRestServiceCaller {
 			return new DefaultHttpClient();
 		}
 	}
-	private static SSLSocketFactory newSslSocketFactory(Context context) {
-        try {
-            // Get an instance of the Bouncy Castle KeyStore format
-            KeyStore trusted = KeyStore.getInstance("BKS");
-            // Get the raw resource, which contains the keystore with
-            // your trusted certificates (root and any intermediate certs)
-            //InputStream in = context.getAssets().open("nmbs.bks"); //name of your keystore file here
-            /*InputStream in = context.getResources().openRawResource(R.raw.uat2);
-            try {
-                // Initialize the keystore with the provided trusted certificates
-                // Provide the password of the keystore
-                trusted.load(in, "Delaware2014".toCharArray());
-            } finally {
-                in.close();
-            }*/
-            // Pass the keystore to the SSLSocketFactory. The factory is responsible
-            // for the verification of the server certificate.
-            SSLSocketFactory sf = new SSLSocketFactory(trusted);
-            // Hostname verification from certificate
-            // http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html#d4e506
-            sf.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER); // This can be changed to less stricter verifiers, according to need
-            //rtint.railtourdev.be
 
-        	return sf;
-        } catch (Exception e) {
-            throw new AssertionError(e);
-        }
-    }
 	public Map<String, String> getLastModified() {
 		return lastModified;
 	}

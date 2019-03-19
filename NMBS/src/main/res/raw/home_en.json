@@ -13,18 +13,6 @@
       ]
     },
     {
-      "Title": "New: real-time travel info",
-      "Description": "From now on, you’ll also receive real-time info about your up-coming trips, so you’ll always have the latest travel info. Among other things, our app will inform you about potential delays or cancellations of thousands of trains throughout Europe, about specific travel info based on a train station or booking reference, or info relevant to your journey. You can easily manage your notifications via “Real-time alerts”, where you’ll be able to decide which push notifications you’d like to receive.",
-      "HighResImage": "wizardRealTime",
-      "LowResImage": "wizardRealTime",
-      "AreaTitle": "",
-      "AreaIcon": "icon-ico-beurope-reduction",
-      "NewInRelease": true,
-      "Context": [
-        "HOME"
-      ]
-    },
-    {
       "Title": "Real-time help",
       "Description": "To add your booking to the app, you’ll need your booking reference. This booking reference (DNR) is a 7-letter code which you can find on the confirmation page or in your confirmation email. Add a ticket by entering the booking reference (DNR) and the email address used to make the booking. You’ll find all ticket info for each booking reference number (DNR) via “My tickets”.",
       "HighResImage": "wizardHelp",

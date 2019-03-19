@@ -13,18 +13,6 @@
       ]
     },
     {
-      "Title": "Nouveau: infos en temps réel",
-      "Description": "Recevez, dès à présent, des infos en temps réel concernant vos prochains voyages. Notre appli vous enverra des infos relatives aux éventuels retards ou suppressions de trains dans toute l’Europe, aux départs, arrivées et correspondances dans de milliers de trains européens et aux voyages que vous avez réservés. Vous pouvez facilement gérer vos notifications via l’onglet « Alertes trains », et décider vous-même les notifications que vous souhaitez recevoir.",
-      "HighResImage": "wizardRealTime",
-      "LowResImage": "wizardRealTime",
-      "AreaTitle": "",
-      "AreaIcon": "icon-ico-beurope-reduction",
-      "NewInRelease": true,
-      "Context": [
-        "HOME"
-      ]
-    },
-    {
       "Title": "Aide en temps réel",
       "Description": "Vous avez besoin de votre référence de réservation pour intégrer votre réservation dans l’appli. Votre référence de réservation (DNR) est composée de 7 caractères. Elle se trouve sur la page de confirmation ou dans votre e-mail de confirmation. Ajoutez un billet en indiquant la référence de réservation (DNR) et l’adresse e-mail liée à cette réservation. Dans l’onglet « Mes billets », retrouvez également toutes les informations liées à votre référence de réservation (DNR).\r\n",
       "HighResImage": "wizardHelp",

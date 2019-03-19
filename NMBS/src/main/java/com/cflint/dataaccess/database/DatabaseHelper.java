@@ -567,15 +567,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return SQLiteDatabase;
 	}
 	public String getDatabasePassword(){
-		String deviceId = "dhanmbs";
+		String deviceId = "CFLINT";
 		try {
-			deviceId = DeviceUtil.getDeviceId(context);
+			//deviceId = DeviceUtil.getDeviceId(context);
 		} catch (Exception e) {
-			deviceId = "dhanmbs";
+			//deviceId = "dhanmbs";
 			e.printStackTrace();
 		}
 		if(deviceId == null){
-			deviceId = "dhanmbs";
+			//deviceId = "dhanmbs";
 		}
 		LogUtils.e("LogUtils", " DatabasePassword------>" + deviceId);
 		//Log.e("DatabasePassword", "DatabasePassword..." + deviceId);

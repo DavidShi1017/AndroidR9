@@ -108,7 +108,7 @@ public class AsyncImageLoader {
 					mBitmap = BitmapFactory.decodeFile(FileManager.getInstance().getExternalStoragePrivateFilePath(context, folder, name), options);
 				} else {
 					//Log.e("HOMEBANNER", "fullImageUrl......." + fullImageUrl);
-					InputStream inputStream = HttpRetriever.getInstance().retrieveStream(fullImageUrl);
+					InputStream inputStream = HttpRetriever.getInstance().retrieveStream(fullImageUrl, context);
 
 					FileManager.getInstance().createExternalStoragePrivateFile(context, inputStream, folder, name);
 					mBitmap = BitmapFactory.decodeFile(FileManager.getInstance().getExternalStoragePrivateFilePath(context, folder, name), options);

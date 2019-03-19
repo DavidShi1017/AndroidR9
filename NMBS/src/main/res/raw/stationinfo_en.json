@@ -17,7 +17,7 @@
                 {
                     "Title": "Luxemburg train station",
                     "Content": "Luxembourg central station is the ideal station to start your journey to Germany, Belgium, France and other European destinations. Connected by direct TGV to Paris, Strasbourg and Montpellier.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Luxembourg.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Luxembourg.ashx"
                 }
             ],
             "Parkings": [
@@ -82,7 +82,7 @@
                 {
                     "Title": "Bruxelles-Midi/Brussel-Zuid (Brussels) train station",
                     "Content": "Bruxelles-Midi/Brussel-Zuid train station, served by Thalys, Eurostar, TGV®, and ICE trains, is the ideal starting point for your journeys to Germany, France, The Netherlands, Luxembourg and the United Kingdom and connects travellers to the entire Belgian domestic railway network.\r\n\r\nAt Bruxelles-Midi/Brussel-Zuid train station, you'll find several information desks for domestic and international travel, as well as an international Thalys info desk and a a Brussels Tourist Office desk.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Bruxelles.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Bruxelles.ashx"
                 }
             ],
             "Parkings": [
@@ -144,7 +144,7 @@
                 {
                     "Title": "Liège Guillemins train station",
                     "Content": "This astonishing piece of architecture designed by the famous Catalan architect Santiago Calatrava is well worth a visit. Not only is Liège-Guillemins one of the busiest train stations in the Wallonia Region, it’s also an important railway hub for high-speed trains. Thalys, ICE and InterCity trains easily connect the city of Liège with Germany, France, the Netherlands and Luxembourg.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Liege.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Liege.ashx"
                 }
             ],
             "Parkings": [
@@ -200,7 +200,7 @@
             "Code": "DEDUH",
             "Name": "Düsseldorf Hbf",
             "OpeningHours": "",
-            "FloorPlanDownloadURL": "https://static.b-europe.com/eurostar/-/media/MediaRepository/Files/Station_Plans/DEDUH/MAP_Duesseldorf.ashx",
+            "FloorPlanDownloadURL": "https://static.b-europe.com/thalys-be/-/media/MediaRepository/Files/Station_Plans/DEDUH/MAP_Duesseldorf.ashx",
             "MoreDetailsURL": "",
             "Longitude": "6.7929443",
             "Latitude": "51.2202453",
@@ -213,7 +213,7 @@
                 {
                     "Title": "Düsseldorf train station",
                     "Content": "The city’s main train station is situated on Germany’s busiest rail line . More than 300 regional and InterCity trains stops here.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Duesseldorf.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Duesseldorf.ashx"
                 }
             ],
             "Parkings": [
@@ -282,7 +282,7 @@
                 {
                     "Title": "Paris-Est train station",
                     "Content": "The Gare de l'Est, is one of the six large SNCF terminal stations in the Capital of France. It is not far from the Gare du Nord.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/PARIS.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/PARIS.ashx"
                 }
             ],
             "Parkings": [
@@ -354,7 +354,7 @@
                 {
                     "Title": "Strasbourg train station",
                     "Content": "Strasbourg train station offers travelers a wide range of connections to other regions in France.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Strasbourg.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Strasbourg.ashx"
                 }
             ],
             "Parkings": [
@@ -423,7 +423,7 @@
                 {
                     "Title": "Montpellier train station",
                     "Content": "The station of Montpellier Saint Roch is one of the most important stations in the South of France. Arrival point for several TGV services. Daily direct service from Luxembourg.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Montpellier.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Montpellier.ashx"
                 }
             ],
             "Parkings": [
@@ -494,7 +494,7 @@
                 {
                     "Title": "London St Pancras International train station",
                     "Content": "London's St Pancras International Station is where major domestic railway lines terminate and Eurostar starts. Making this railway station the gateway to Continental Europe.\r\n\r\nLondon St Pancras International train station features several information desks, among which you'll find information desks for national and international travel.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Londres.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Londres.ashx"
                 }
             ],
             "Parkings": [
@@ -540,10 +540,6 @@
             ]
         }
     ],
-    "Messages": [
-
-    ],
-    "DebugMessages": [
-
-    ]
+    "Messages": [],
+    "DebugMessages": []
 }

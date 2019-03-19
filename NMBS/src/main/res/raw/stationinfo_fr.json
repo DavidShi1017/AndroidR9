@@ -17,13 +17,13 @@
                 {
                     "Title": "La gare de Luxembourg",
                     "Content": "La gare centrale de Luxembourg est le point de départ idéal pour vos voyages vers l’Allemagne, la Belgique, la France ou vers d’autres destinations en Europe. Embarquez à bord du TGV vers Paris, Strasbourg ou Montpellier.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Luxembourg.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Luxembourg.ashx"
                 }
             ],
             "Parkings": [
                 {
                     "Title": "Parking",
-                    "Content": "Parking couvert. Overt 24/7.",
+                    "Content": "Parking couvert. Ouvert 24/7.",
                     "Address": "Place de la gare, L-1616 Luxembourg",
                     "Latitude": "49.5991488",
                     "Longitude": "6.131214"
@@ -82,7 +82,7 @@
                 {
                     "Title": "La gare de Bruxelles-Midi",
                     "Content": "La gare de Bruxelles-Midi, desservie par Thalys, Eurostar, TGV®, ICE et InterCity, est le point de départ idéal vers l'Allemagne, la France, les Pays-Bas, le Luxembourg et la Grande-Bretagne, mais elle est également reliée à l'ensemble du réseau belge.\r\n\r\nIl existe différents points d'information dans l'enceinte de la gare. Vous y trouverez plusieurs stands d'information pour le trafic national et international. A la gare de Bruxelles-Midi, il y a aussi un stand d'information Thalys spécifique et un bureau de l'Office du Tourisme bruxellois.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Bruxelles.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Bruxelles.ashx"
                 }
             ],
             "Parkings": [
@@ -144,7 +144,7 @@
                 {
                     "Title": "La gare de Liège-Guillemins",
                     "Content": "Véritable prouesse architecturale, conçue par le célèbre architecte catalan Santiago Calatrava, la gare de Liège-Guillemins vaut le détour! Mais c’est aussi l'une des gares les plus fréquentées de Wallonie et un carrefour important de lignes à grande vitesse. Les trains Thalys, ICE et InterCity relient très facilement la ville de Liège à l'Allemagne, la France, les Pays-Bas et le Luxembourg.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Liege.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Liege.ashx"
                 }
             ],
             "Parkings": [
@@ -213,7 +213,7 @@
                 {
                     "Title": "La gare de Düsseldorf",
                     "Content": "La gare de Düsseldorf est située le long de la ligne ferroviaire la plus fréquentée de l’Allemagne.\r\nPlus de 300 trains régionaux et intercités s’y arrêtent au cours de la journée.\r\n",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Duesseldorf.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Duesseldorf.ashx"
                 }
             ],
             "Parkings": [
@@ -282,7 +282,7 @@
                 {
                     "Title": "La gare de Paris-Est",
                     "Content": "La gare de Paris-Est est l'une des six grandes gares terminus de la capitale française. Elle se trouve à proximité de la gare du Nord.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/PARIS.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/PARIS.ashx"
                 }
             ],
             "Parkings": [
@@ -354,7 +354,7 @@
                 {
                     "Title": "La gare de Strasbourg",
                     "Content": "La gare de Strasbourg offre aux voyageurs un grand nombre de relations à destination d’autres régions en France.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Strasbourg.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Strasbourg.ashx"
                 }
             ],
             "Parkings": [
@@ -423,7 +423,7 @@
                 {
                     "Title": "La gare de Montpellier",
                     "Content": "La gare de Montpellier Saint-Roch constitue une des gares les plus importantes dans le sud de la France. Elle est gare terminus de plusieurs lignes TGV. La gare est desservie par TGV journalier direct au départ de Luxembourg.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Montpellier.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Montpellier.ashx"
                 }
             ],
             "Parkings": [
@@ -494,7 +494,7 @@
                 {
                     "Title": "La gare de London St Pancras International",
                     "Content": "La gare de London St Pancras International est la gare principale ferroviaire du Royaume-Uni où se terminent les lignes ferroviaires nationales et où débutent les liaisons internationales Eurostar vers le continent.\r\n\r\nA la gare de London St Pancras International (Londres), il existe différents point d'information, comme des stands d'information pour le trafic national et international.",
-                    "Image": "https://static.b-europe.com/-/media/CFL/StationInfo/Londres.ashx"
+                    "Image": "https://static.b-europe.com/-/media/CFL/MobileStationInfo/Londres.ashx"
                 }
             ],
             "Parkings": [
@@ -540,10 +540,6 @@
             ]
         }
     ],
-    "Messages": [
-
-    ],
-    "DebugMessages": [
-
-    ]
+    "Messages": [],
+    "DebugMessages": []
 }

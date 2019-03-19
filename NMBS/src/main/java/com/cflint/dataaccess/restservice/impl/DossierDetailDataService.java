@@ -223,7 +223,7 @@ public class DossierDetailDataService extends CustomErrorMessager {
         boolean hasError = false;
         InputStream inputStream = null;
         try {
-            inputStream = HttpRetriever.getInstance().retrieveStream(url);
+            inputStream = HttpRetriever.getInstance().retrieveStream(url, context);
             /*if(inputStream != null){
                 if(inputStream.available() < 1){
                     return true;

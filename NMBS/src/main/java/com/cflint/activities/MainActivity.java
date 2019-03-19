@@ -38,7 +38,7 @@ import android.widget.ViewFlipper;
 import com.cflint.exceptions.CrashHandler;
 import com.crashlytics.android.Crashlytics;
 import com.facebook.appevents.AppEventsLogger;
-import com.google.ads.conversiontracking.AdWordsAutomatedUsageReporter;
+
 import com.cflint.R;
 import com.cflint.activities.view.DialogCheckUpdateNotification;
 import com.cflint.activities.view.DialogLogout;
@@ -1516,18 +1516,18 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		}
 
 		if(FunctionConfig.kFunAdWords){
-			adWords();
+			//adWords();
 		}
 	}
 
-	private void adWords(){
+/*	private void adWords(){
 		AdWordsAutomatedUsageReporter.enableAutomatedUsageReporting(getApplicationContext(), "1025893038");
 		AdWordsAutomatedUsageReporter.enableAutomatedUsageReporting(getApplicationContext(), "1024321798");
 		AdWordsAutomatedUsageReporter.enableAutomatedUsageReporting(getApplicationContext(), "990257741");
 		AdWordsAutomatedUsageReporter.enableAutomatedUsageReporting(getApplicationContext(), "955368664");
 		AdWordsAutomatedUsageReporter.enableAutomatedUsageReporting(getApplicationContext(), "939594800");
 		AdWordsAutomatedUsageReporter.enableAutomatedUsageReporting(getApplicationContext(), "1018955333");
-	}
+	}*/
 
 	private void dossier(){
 		DossierDatabaseService dossierDatabaseService = new DossierDatabaseService(getApplicationContext());

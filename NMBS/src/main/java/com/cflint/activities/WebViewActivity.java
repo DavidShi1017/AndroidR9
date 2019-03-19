@@ -204,7 +204,7 @@ public class WebViewActivity extends AppCompatActivity {
 
                                     int res = checkSelfPermission(Manifest.permission.CALL_PHONE);
                                     if (res != PackageManager.PERMISSION_GRANTED) {
-                                        requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE},
+                                        requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.CALL_PHONE},
                                                 REQUEST_CODE_ASK_PERMISSIONS);
                                     }
                                 }
