@@ -29,7 +29,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAGRgdqffnsTl8ZzBaw3Bqv1hSTyUgGfVA"
+          "current_key": "AIzaSyD05vRHWX3eBXOPFmWovPPzUBkVnqlbZVs"
         }
       ],
       "services": {
@@ -52,6 +52,9 @@
               }
             }
           ]
+        },
+        "ads_service": {
+          "status": 2
         }
       }
     }
