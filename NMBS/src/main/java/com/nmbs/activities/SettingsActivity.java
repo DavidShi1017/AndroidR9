@@ -57,6 +57,7 @@ import com.nmbs.services.IPushService;
 import com.nmbs.services.impl.ServiceConstant;
 import com.nmbs.services.impl.SettingService;
 import com.nmbs.util.AppLanguageUtils;
+import com.nmbs.util.FunctionConfig;
 import com.nmbs.util.GoogleAnalyticsUtil;
 import com.nmbs.util.NetworkUtils;
 import com.nmbs.util.TrackerConstant;
@@ -81,7 +82,7 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
     private boolean isSucceededCallService;
     private DialogCheckUpdateNotification dialogCheckUpdateNotification;
     private static final String TAG = SettingsActivity.class.getSimpleName();
-    private LinearLayout llEmail, llPhone;
+    private LinearLayout llEmail, llPhone, llNotification;
     private DrawerLayout mDrawerLayout;
     private LinearLayout mDrawerList;
     private TextView tvMenuTicketCount, tvMenuRealtimeCount, tvMenuMessageCount;
@@ -166,6 +167,10 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
         tvPersonaldetailDescription = (TextView) findViewById(R.id.tv_personaldetail_description);
         btnDeletePersonal = (Button) findViewById(R.id.btn_delete_personal);
         tvSettingsTravelremindersDescriptio = (TextView) findViewById(R.id.tv_settings_travelreminders_descriptio);
+        llNotification = findViewById(R.id.ll_notification);
+        if(!FunctionConfig.kFunManagePush){
+            llNotification.setVisibility(View.GONE);
+        }
     }
     @Override
     protected void onResume() {

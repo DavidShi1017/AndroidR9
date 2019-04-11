@@ -22,6 +22,7 @@ import com.nmbs.model.RealTimeConnection;
 import com.nmbs.model.RealTimeInfoResponse;
 import com.nmbs.services.impl.DossierDetailsService;
 import com.nmbs.util.DateUtils;
+import com.nmbs.util.FunctionConfig;
 
 /**
  * Created by David on 2/26/16.
@@ -173,7 +174,7 @@ public class DossierDetailConnectionAdapter {
             int status = dossierDetailsService.checkSubscriptionStatusForConnection(connection);
             //Log.d("Connection", "status..." + status);
             //Log.d("Connection", "status..isPushEnabled..." + dossierDetailsService.isPushEnabled(dossier));
-            if(dossierDetailsService.isPushEnabled(dossier)){
+            if(dossierDetailsService.isPushEnabled(dossier) && FunctionConfig.kFunManagePush){
                 if(DossierDetailsService.Dossier_Nothing == status){
                     llConnectionMonitor.setVisibility(View.GONE);
                 }else{

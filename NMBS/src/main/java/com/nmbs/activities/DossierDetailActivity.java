@@ -60,6 +60,7 @@ import com.nmbs.services.impl.DossierDetailsService;
 import com.nmbs.services.impl.ServiceConstant;
 import com.nmbs.services.impl.SettingService;
 import com.nmbs.util.FileManager;
+import com.nmbs.util.FunctionConfig;
 import com.nmbs.util.GoogleAnalyticsUtil;
 import com.nmbs.util.RatingUtil;
 import com.nmbs.util.TrackerConstant;
@@ -167,6 +168,9 @@ public class DossierDetailActivity extends BaseActivity {
             llDossierFooter.setVisibility(View.GONE);
         }else{
 
+        }
+        if(!FunctionConfig.kFunManagePush){
+            btnSetAlert.setVisibility(View.GONE);
         }
     }
     private void initData(){
@@ -374,6 +378,7 @@ public class DossierDetailActivity extends BaseActivity {
         //mExpandView = (ExpandView) findViewById(R.id.expandView);
 
         btnSetAlert = (Button)findViewById(R.id.btn_set_alert);
+
         btnRealTime = (Button)findViewById(R.id.btn_realtime);
         llDossierFooter = (LinearLayout)findViewById(R.id.ll_dossier_footer);
 

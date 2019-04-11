@@ -91,6 +91,7 @@ import com.nmbs.util.AppUtil;
 import com.nmbs.util.DateUtils;
 import com.nmbs.util.DeviceUtil;
 import com.nmbs.util.FileManager;
+import com.nmbs.util.FunctionConfig;
 import com.nmbs.util.GoogleAnalyticsUtil;
 import com.nmbs.util.ImageUtil;
 import com.nmbs.util.NetworkUtils;
@@ -535,8 +536,12 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		pbOption = (ProgressBar) findViewById(R.id.pb_option);
 		rlManage = findViewById(R.id.rl_manage);
 
+        rlAlerts = (RelativeLayout) findViewById(R.id.rl_alerts);
+        if(!FunctionConfig.kFunManagePush){
+            rlAlerts.setVisibility(View.GONE);
+        }
 	}
-
+    private RelativeLayout rlAlerts;
 	private void bindAllViewElements() {
 		initView();
         Drawable drawable = new BitmapDrawable(getResources(), ImageUtil.compressImage(getApplicationContext(), R.drawable.ic_home_background));
@@ -659,7 +664,9 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		if(rlMyOption != null){
 			rlMyOption.setLayoutParams(params);
 		}
-
+        if(!FunctionConfig.kFunManagePush){
+            rlDossier.setVisibility(View.GONE);
+        }
 	}
 	/*public void clickMenu(View view){
 		mDrawerLayout.openDrawer(GravityCompat.END);

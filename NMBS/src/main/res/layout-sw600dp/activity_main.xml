@@ -720,9 +720,10 @@
                             android:id="@+id/rl_alerts"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/home_menu_height"
+
                             android:layout_weight="1"
                             android:onClick="realtimeAlerts"
-                            android:layout_marginRight="30dp"
+                            android:layout_marginRight="40dp"
                             android:background="@drawable/home_menu_rounded_group"
                              >
 
@@ -782,7 +783,6 @@
                         <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_height="@dimen/home_menu_height"
-                            android:layout_marginLeft="10dp"
                             android:layout_weight="1"
                             android:onClick="stationBoard"
                             android:layout_marginRight="30dp"

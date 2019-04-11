@@ -56,6 +56,7 @@ import com.nmbs.util.ComparatorDossierDate;
 import com.nmbs.util.ComparatorTravelSegmentDate;
 import com.nmbs.util.DateUtils;
 import com.nmbs.util.FileManager;
+import com.nmbs.util.FunctionConfig;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -648,9 +649,12 @@ public class DossierDetailsService {
             }
         }
         if(createSubscriptionByConnections != null && createSubscriptionByConnections.size() > 0){
-            CreateAllSubScriptionAsyncTask asyncTask = new CreateAllSubScriptionAsyncTask(handler, dossier,
-                    createSubscriptionByConnections, pushService, context,language);
-            asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            if(FunctionConfig.kFunManagePush){
+                CreateAllSubScriptionAsyncTask asyncTask = new CreateAllSubScriptionAsyncTask(handler, dossier,
+                        createSubscriptionByConnections, pushService, context,language);
+                asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            }
+
         }else{
             if(handler != null){
                 Message message = new Message();
@@ -757,9 +761,11 @@ public class DossierDetailsService {
             }
             if(createSubscriptionByConnections != null && createSubscriptionByConnections.size() > 0){
                 LogUtils.d(TAG, "createSubscriptionByConnections......" + createSubscriptionByConnections.size());
-                CreateAllSubScriptionAsyncTask asyncTask = new CreateAllSubScriptionAsyncTask(handler, dossier,
-                        createSubscriptionByConnections, pushService, context,language);
-                asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                if(FunctionConfig.kFunManagePush){
+                    CreateAllSubScriptionAsyncTask asyncTask = new CreateAllSubScriptionAsyncTask(handler, dossier,
+                            createSubscriptionByConnections, pushService, context,language);
+                    asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                }
             }else{
                 if(handler != null){
                     LogUtils.d(TAG, "handler......");

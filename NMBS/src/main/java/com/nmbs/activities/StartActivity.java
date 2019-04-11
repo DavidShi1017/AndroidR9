@@ -63,6 +63,7 @@ import com.nmbs.services.impl.PushNotificationRegistrationIntentService;
 import com.nmbs.services.impl.ServiceConstant;
 import com.nmbs.services.impl.SettingService;
 import com.nmbs.util.ActivityConstant;
+import com.nmbs.util.FunctionConfig;
 import com.nmbs.util.RatingUtil;
 
 import net.sqlcipher.database.SQLiteDatabase;
@@ -278,8 +279,9 @@ public class StartActivity extends BaseActivity {
 		encryptDatabaseAsyncTask.execute((Void)null);
 
 
-
-		initPushService();
+		if(FunctionConfig.kFunManagePush){
+			initPushService();
+		}
 	}
 
 	private android.os.Handler handler = new android.os.Handler() {

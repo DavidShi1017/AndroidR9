@@ -28,6 +28,7 @@ import com.nmbs.log.LogUtils;
 import com.nmbs.model.HafasUser;
 import com.nmbs.services.IPushService;
 import com.nmbs.services.ISettingService;
+import com.nmbs.util.FunctionConfig;
 
 public class MyInstanceIDListenerService extends FirebaseInstanceIdService {
 
@@ -54,7 +55,10 @@ public class MyInstanceIDListenerService extends FirebaseInstanceIdService {
         this.pushService = ((NMBSApplication) getApplication()).getPushService();
         this.pushService.saveRegistrationId(refreshedToken);
         // TODO: Implement this method to send any registration to your app's servers.
-        sendRegistrationToServer(refreshedToken);
+        if(FunctionConfig.kFunManagePush){
+            sendRegistrationToServer(refreshedToken);
+        }
+
     }
 
     /**

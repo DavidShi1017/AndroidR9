@@ -38,6 +38,7 @@ import com.nmbs.services.impl.ServiceConstant;
 import com.nmbs.services.impl.SettingService;
 import com.nmbs.util.ActivityConstant;
 import com.nmbs.util.DateUtils;
+import com.nmbs.util.FunctionConfig;
 import com.nmbs.util.GoogleAnalyticsUtil;
 import com.nmbs.util.TrackerConstant;
 import com.nmbs.util.Utils;
@@ -177,6 +178,9 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 
 		this.setAlertSuccessLayout = (LinearLayout) findViewById(R.id.ll_set_train_alert_success);
 		this.setTrainAlertButton = (Button) findViewById(R.id.btn_set_train_alert);
+		if(!FunctionConfig.kFunManagePush){
+			setTrainAlertButton.setVisibility(View.GONE);
+		}
 		this.menuView = (ImageView) findViewById(R.id.iv_schedule_detail_menu);
 		this.bottomActionView = (LinearLayout) findViewById(R.id.ll_schedule_result_detail_bottom);
 		this.tvTitle = (TextView) findViewById(R.id.tv_title);
@@ -389,8 +393,10 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 		}else{
 			GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.SCHEDULE_CATEGORY,TrackerConstant.SCHEDULE_SET_TRAIN_ALERT,"");
 			this.showWaitDialog();
-			CreateSubScriptionAsyncTask asyncTask = new CreateSubScriptionAsyncTask(pushService,this.currentRealTimeConnection,settingService.getCurrentLanguagesKey(),getApplicationContext());
-			asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+			if(FunctionConfig.kFunManagePush){
+				CreateSubScriptionAsyncTask asyncTask = new CreateSubScriptionAsyncTask(pushService,this.currentRealTimeConnection,settingService.getCurrentLanguagesKey(),getApplicationContext());
+				asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+			}
 		}
 	}
 }
