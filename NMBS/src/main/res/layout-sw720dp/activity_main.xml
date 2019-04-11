@@ -718,6 +718,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:weightSum="4"
                             android:orientation="horizontal" >
 
                             <RelativeLayout
@@ -786,7 +787,6 @@
                                 android:id="@+id/rl_main_menu_stationboard"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/home_menu_height"
-                                android:layout_marginLeft="10dp"
                                 android:layout_weight="1"
                                 android:onClick="stationBoard"
                                 android:background="@drawable/home_menu_rounded_group">
@@ -855,6 +855,40 @@
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/home_menu_height"
                                 android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:onClick="stations"
+                                android:background="@drawable/home_menu_rounded_group">
+
+                                <ImageView
+                                    android:id="@+id/iv_stations"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:src="@drawable/ic_navigation_home_stations" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/iv_stations"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginLeft="@dimen/margin_small"
+                                    android:layout_marginRight="@dimen/margin_small"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginTop="@dimen/margin_medium"
+                                    android:layout_marginBottom="@dimen/margin_small"
+                                    android:gravity="center_horizontal"
+                                    android:text="@string/home_tile_trainsstations"
+                                    android:textColor="@color/textcolor_primaryaction"
+                                    android:textSize="@dimen/textsize_least" />
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:id="@+id/rl_main_menu_empty"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/home_menu_height"
+                                android:layout_marginLeft="10dp"
+                                android:visibility="invisible"
                                 android:layout_weight="1"
                                 android:onClick="stations"
                                 android:background="@drawable/home_menu_rounded_group">

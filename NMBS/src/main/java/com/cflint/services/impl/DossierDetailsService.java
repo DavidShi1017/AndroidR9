@@ -70,6 +70,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import com.cflint.activities.PDFViewActivity;
+import com.cflint.util.FunctionConfig;
+
 /**
  * Created by shig on 2016/4/12.
  */
@@ -647,9 +649,12 @@ public class DossierDetailsService {
             }
         }
         if(createSubscriptionByConnections != null && createSubscriptionByConnections.size() > 0){
-            CreateAllSubScriptionAsyncTask asyncTask = new CreateAllSubScriptionAsyncTask(handler, dossier,
-                    createSubscriptionByConnections, pushService, context,language);
-            asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            if(FunctionConfig.kFunManagePush){
+                CreateAllSubScriptionAsyncTask asyncTask = new CreateAllSubScriptionAsyncTask(handler, dossier,
+                        createSubscriptionByConnections, pushService, context,language);
+                asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            }
+
         }else{
             if(handler != null){
                 Message message = new Message();
@@ -756,9 +761,11 @@ public class DossierDetailsService {
             }
             if(createSubscriptionByConnections != null && createSubscriptionByConnections.size() > 0){
                 Log.d(TAG, "createSubscriptionByConnections......" + createSubscriptionByConnections.size());
-                CreateAllSubScriptionAsyncTask asyncTask = new CreateAllSubScriptionAsyncTask(handler, dossier,
-                        createSubscriptionByConnections, pushService, context,language);
-                asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                if(FunctionConfig.kFunManagePush){
+                    CreateAllSubScriptionAsyncTask asyncTask = new CreateAllSubScriptionAsyncTask(handler, dossier,
+                            createSubscriptionByConnections, pushService, context,language);
+                    asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                }
             }else{
                 if(handler != null){
                     Log.d(TAG, "handler......");

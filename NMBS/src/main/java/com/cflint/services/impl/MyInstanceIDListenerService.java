@@ -20,6 +20,7 @@ package com.cflint.services.impl;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.cflint.util.FunctionConfig;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
 import com.cflint.application.NMBSApplication;
@@ -53,7 +54,9 @@ public class MyInstanceIDListenerService extends FirebaseInstanceIdService {
         this.pushService = ((NMBSApplication) getApplication()).getPushService();
         this.pushService.saveRegistrationId(refreshedToken);
         // TODO: Implement this method to send any registration to your app's servers.
-        sendRegistrationToServer(refreshedToken);
+        if(FunctionConfig.kFunManagePush){
+            sendRegistrationToServer(refreshedToken);
+        }
     }
 
     /**

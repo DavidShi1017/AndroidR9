@@ -534,7 +534,9 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		rlMainMenuLogin = (RelativeLayout) findViewById(R.id.rl_main_menu_login);
 
 		rlAlerts = (RelativeLayout) findViewById(R.id.rl_alerts);
-
+		if(!FunctionConfig.kFunManagePush){
+			rlAlerts.setVisibility(View.GONE);
+		}
 		tvOptionCount = (TextView) findViewById(R.id.tv_option_count);
 		pbOption = (ProgressBar) findViewById(R.id.pb_option);
 

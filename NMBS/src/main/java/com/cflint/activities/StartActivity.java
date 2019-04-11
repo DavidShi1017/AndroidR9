@@ -23,6 +23,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.cflint.services.impl.DaemonService;
+import com.cflint.util.FunctionConfig;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.cflint.R;
@@ -257,8 +258,10 @@ public class StartActivity extends BaseActivity {
 		encryptDatabaseAsyncTask.execute((Void)null);
 
 
-
-		initPushService();
+		if(FunctionConfig.kFunManagePush){
+			initPushService();
+		}
+		//initPushService();
 	}
 
 	private android.os.Handler handler = new android.os.Handler() {

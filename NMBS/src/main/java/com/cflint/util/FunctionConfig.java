@@ -16,7 +16,7 @@ public class FunctionConfig {
     public static final boolean kFunStationboard = true;
 
     public static final boolean kFunSchedule = true;
-    public static final boolean kFunManagePush = true;
+    public static final boolean kFunManagePush = false;
     public static final boolean kFunUploadDNR = true;
     public static final boolean kFunMyProfile = false;
 

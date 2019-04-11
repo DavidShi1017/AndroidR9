@@ -81,7 +81,7 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
     private boolean isSucceededCallService;
     private DialogCheckUpdateNotification dialogCheckUpdateNotification;
     private static final String TAG = SettingsActivity.class.getSimpleName();
-    private LinearLayout llEmail, llPhone, llSettingsBottom;
+    private LinearLayout llEmail, llPhone, llSettingsBottom, llNotification;
     private DrawerLayout mDrawerLayout;
     private LinearLayout mDrawerList;
     private TextView tvMenuTicketCount, tvMenuRealtimeCount, tvMenuMessageCount;
@@ -205,6 +205,11 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
             llSettingsBottom.setVisibility(View.VISIBLE);
         }else {
             llSettingsBottom.setVisibility(View.GONE);
+        }
+
+        llNotification = findViewById(R.id.ll_notification);
+        if(!FunctionConfig.kFunManagePush){
+            llNotification.setVisibility(View.GONE);
         }
 
 

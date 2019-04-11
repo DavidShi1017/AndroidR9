@@ -168,6 +168,9 @@ public class DossierDetailActivity extends BaseActivity {
         }else{
 
         }
+        if(!FunctionConfig.kFunManagePush){
+            btnSetAlert.setVisibility(View.GONE);
+        }
     }
     private void initData(){
         initBtns();

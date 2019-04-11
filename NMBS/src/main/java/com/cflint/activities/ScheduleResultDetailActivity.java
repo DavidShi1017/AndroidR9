@@ -39,6 +39,7 @@ import com.cflint.services.impl.ServiceConstant;
 import com.cflint.services.impl.SettingService;
 import com.cflint.util.ActivityConstant;
 import com.cflint.util.DateUtils;
+import com.cflint.util.FunctionConfig;
 import com.cflint.util.GoogleAnalyticsUtil;
 import com.cflint.util.TrackerConstant;
 import com.cflint.util.Utils;
@@ -178,6 +179,9 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 
 		this.setAlertSuccessLayout = (LinearLayout) findViewById(R.id.ll_set_train_alert_success);
 		this.setTrainAlertButton = (Button) findViewById(R.id.btn_set_train_alert);
+		if(!FunctionConfig.kFunManagePush){
+			setTrainAlertButton.setVisibility(View.GONE);
+		}
 		this.menuView = (ImageView) findViewById(R.id.iv_schedule_detail_menu);
 		this.bottomActionView = (LinearLayout) findViewById(R.id.ll_schedule_result_detail_bottom);
 		this.tvTitle = (TextView) findViewById(R.id.tv_title);
@@ -391,8 +395,10 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 			GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.SCHEDULE_CATEGORY,TrackerConstant.SCHEDULE_SET_TRAIN_ALERT,"");
 			this.showWaitDialog();
 			Log.e(TAG, "createSubscription ....");
-			CreateSubScriptionAsyncTask asyncTask = new CreateSubScriptionAsyncTask(pushService,this.currentRealTimeConnection,settingService.getCurrentLanguagesKey(),getApplicationContext());
-			asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+			if(FunctionConfig.kFunManagePush){
+				CreateSubScriptionAsyncTask asyncTask = new CreateSubScriptionAsyncTask(pushService,this.currentRealTimeConnection,settingService.getCurrentLanguagesKey(),getApplicationContext());
+				asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+			}
 		}
 	}
 }
