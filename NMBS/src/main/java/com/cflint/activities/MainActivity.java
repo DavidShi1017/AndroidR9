@@ -1317,6 +1317,12 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		tvMenuRealtimeCount.setText("(" + realtimeCount + ")");
 		tvMenuMessageCount.setText("(" + messateCount + ")");
 		tvMenuOptionCount.setText("(" + optionCount + ")");
+		RelativeLayout rlMenuAlerts = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_realtimealerts);
+		if(FunctionConfig.kFunManagePush){
+			rlMenuAlerts.setVisibility(View.VISIBLE);
+		}else {
+			rlMenuAlerts.setVisibility(View.GONE);
+		}
 		if(!NMBSApplication.getInstance().getLoginService().isLogon()){
 			rlMenuMyOption.setAlpha(0.3f);
 			tvMenuOptionCount.setText("");

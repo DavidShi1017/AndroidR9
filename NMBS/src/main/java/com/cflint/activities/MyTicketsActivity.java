@@ -868,7 +868,12 @@ public class MyTicketsActivity extends BaseActivity implements MyTicketsDnrRefer
         tvMenuTicketCount.setText("(" + MainActivity.ticketCount + ")");
         tvMenuRealtimeCount.setText("(" + MainActivity.realtimeCount + ")");
         tvMenuMessageCount.setText("(" + MainActivity.messateCount + ")");
-
+        RelativeLayout rlMenuAlerts = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_realtimealerts);
+        if(FunctionConfig.kFunManagePush){
+            rlMenuAlerts.setVisibility(View.VISIBLE);
+        }else {
+            rlMenuAlerts.setVisibility(View.GONE);
+        }
         rlMenuMyOption = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_myoptions);
         tvMenuOptionCount = (TextView) findViewById(R.id.tv_menu_option_count);
         tvMenuOptionCount.setText("(" + MainActivity.optionCount + ")");
