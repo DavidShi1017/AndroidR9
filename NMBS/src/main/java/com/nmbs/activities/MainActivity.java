@@ -1233,6 +1233,12 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		tvMenuRealtimeCount = (TextView) findViewById(R.id.tv_menu_realtime_count);
 		tvMenuMessageCount = (TextView) findViewById(R.id.tv_menu_message_count);
 		tvMenuOptionCount = (TextView) findViewById(R.id.tv_menu_option_count);
+		RelativeLayout rlMenuAlerts = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_realtimealerts);
+		if(FunctionConfig.kFunManagePush){
+			rlMenuAlerts.setVisibility(View.VISIBLE);
+		}else {
+			rlMenuAlerts.setVisibility(View.GONE);
+		}
 		tvMenuTicketCount.setText("(" + ticketCount + ")");
 		tvMenuRealtimeCount.setText("(" + realtimeCount + ")");
 		tvMenuMessageCount.setText("(" + messateCount + ")");

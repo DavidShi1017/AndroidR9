@@ -35,6 +35,7 @@ import com.nmbs.services.IStationInfoService;
 import com.nmbs.services.impl.ServiceConstant;
 import com.nmbs.services.impl.SettingService;
 import com.nmbs.util.ActivityConstant;
+import com.nmbs.util.FunctionConfig;
 import com.nmbs.util.GoogleAnalyticsUtil;
 import com.nmbs.util.NetworkUtils;
 import com.nmbs.util.TrackerConstant;
@@ -553,7 +554,12 @@ public class StationInfoActivity extends BaseActivity{
 		tvMenuTicketCount.setText("(" + MainActivity.ticketCount + ")");
 		tvMenuRealtimeCount.setText("(" + MainActivity.realtimeCount + ")");
 		tvMenuMessageCount.setText("(" + MainActivity.messateCount + ")");
-
+		RelativeLayout rlMenuAlerts = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_realtimealerts);
+		if(FunctionConfig.kFunManagePush){
+			rlMenuAlerts.setVisibility(View.VISIBLE);
+		}else {
+			rlMenuAlerts.setVisibility(View.GONE);
+		}
 		rlMenuMyOption = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_myoptions);
 		tvMenuOptionCount = (TextView) findViewById(R.id.tv_menu_option_count);
 		tvMenuOptionCount.setText("(" + MainActivity.optionCount + ")");
