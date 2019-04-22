@@ -31,6 +31,7 @@ import com.nmbs.model.Order;
 import com.nmbs.services.impl.DossierDetailsService;
 import com.nmbs.services.impl.PushService;
 import com.nmbs.services.impl.ServiceConstant;
+import com.nmbs.util.FunctionConfig;
 import com.nmbs.util.GoogleAnalyticsUtil;
 import com.nmbs.util.TrackerConstant;
 
@@ -166,7 +167,10 @@ public class UploadDossierAsyncTask extends AsyncTask<Void, Void, Void> {
                         dossierDetailsService.updateDossier(dossierSummary);
                         dossierDetailsService.setCurrentDossierSummary(dossierSummary);
                     }
-                    GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
+                    if(FunctionConfig.kFunManagePush){
+                        GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
+
+                    }
                     LogUtils.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
                     break;
                 case 1:
@@ -177,7 +181,10 @@ public class UploadDossierAsyncTask extends AsyncTask<Void, Void, Void> {
                         //Log.d("Connection", "status..isPushEnabled..." + dossierDetailsService.isPushEnabled(dossier));
                     }
                     //finish();
-                    GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
+                    if(FunctionConfig.kFunManagePush){
+                        GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
+
+                    }
                     LogUtils.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
                     break;
                 case 2:
@@ -192,7 +199,10 @@ public class UploadDossierAsyncTask extends AsyncTask<Void, Void, Void> {
                     break;
                 case PushService.USER_ERROR:
                     //createSubscriptionErrorView.setText(activity.getResources().getString(R.string.alert_subscription_missingID));
-                    GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
+                    if(FunctionConfig.kFunManagePush){
+                        GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.AUTO_UPLOAD_TICKET_CATEGORY, TrackerConstant.AUTO_UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION, "");
+
+                    }
                     LogUtils.e(TAG, "UPLOAD_TICKET_ERROR_ENABLE_NOTIFICATION...");
                     break;
             }
