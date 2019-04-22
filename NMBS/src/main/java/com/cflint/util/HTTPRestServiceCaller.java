@@ -6,8 +6,6 @@ import java.io.InputStream;
 
 
 import java.security.KeyStore;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +32,6 @@ import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 
-import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.conn.params.ConnManagerParams;
 import org.apache.http.conn.params.ConnPerRouteBean;
@@ -68,9 +65,6 @@ import com.cflint.log.LogUtils;
 import com.cflint.preferences.SettingsPref;
 import com.cflint.push.C2DMessaging;
 
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManagerFactory;
-
 /**
  * Call web service asynchronously.
  */
@@ -78,7 +72,7 @@ import javax.net.ssl.TrustManagerFactory;
 public class HTTPRestServiceCaller {
 
 	private static final String TAG = HTTPRestServiceCaller.class.getSimpleName();
-	
+
 	public static final int HTTP_DELETE_METHOD = 0;
 	public static final int HTTP_POST_METHOD = 1; // requestHttpMethod
 	public static final int HTTP_GET_METHOD = 2; // requestHttpMethod
@@ -153,7 +147,7 @@ public class HTTPRestServiceCaller {
 	/**
 	 * Connect to the third part server, send the registration id to the third.
 	 * also send others.
-	 * 
+	 *
 	 * @param context
 	 * @param deviceType
 	 *            0 means Android
@@ -162,7 +156,7 @@ public class HTTPRestServiceCaller {
 	 * @throws RequestFail
 	 */
 	public String executeHTTPRequest(Context context, int deviceType,
-			int actionType) throws RequestFail {
+									 int actionType) throws RequestFail {
 		// Log.d(TAG, "Connecting the third part server starting..... ");
 		String serverUrl;
 		String httpResponseEntityStr = "false";
@@ -219,7 +213,7 @@ public class HTTPRestServiceCaller {
 	/**
 	 * Connect to the server for getting the response. StatusCode = 201, means
 	 * creating account or creating offer GUID successfully .
-	 * 
+	 *
 	 * @param context
 	 * @param
 	 * @param acceptLanguage
@@ -233,9 +227,9 @@ public class HTTPRestServiceCaller {
 	 */
 
 	public String executeHTTPRequest(Context context, String postJson,
-			String serverUrl, String acceptLanguage, int httpMethodFlag,
-			int timeOut, boolean isMastdataWorking,
-			String lastModifiedInPreferences, String serviceApiVersion) throws RequestFail,
+									 String serverUrl, String acceptLanguage, int httpMethodFlag,
+									 int timeOut, boolean isMastdataWorking,
+									 String lastModifiedInPreferences, String serviceApiVersion) throws RequestFail,
 			ConnectionError, BookingTimeOutError, ConnectTimeoutException {
 		if (httpClient == null) {
 			httpClient = this.getHttpClient(timeOut, serverUrl, context);
@@ -243,13 +237,13 @@ public class HTTPRestServiceCaller {
 
 
 		serviceApiVersion = API_VERSION_VALUE_7;
-		
+
 		HttpResponse response = null;
 
 		//Log.d(TAG, "serverUrl is: " + serverUrl + "------postJson is: " + postJson);
 		//Log.d(TAG, "postJson is: " + postJson);
 		// Log.d(TAG ,"isMastdataWorking: " + isMastdataWorking );
-		 //Log.d(acceptLanguage ,"acceptLanguage: "+ acceptLanguage);
+		//Log.d(acceptLanguage ,"acceptLanguage: "+ acceptLanguage);
 
 		try {
 			if (httpMethodFlag == HTTP_POST_METHOD) {
@@ -281,14 +275,14 @@ public class HTTPRestServiceCaller {
 			e.getStackTrace();
 			httpClientShutdown(isMastdataWorking);
 			throw new ConnectTimeoutException();
-			
+
 		} catch (IOException e) {
-			
+
 			e.printStackTrace();
 			httpClientShutdown(isMastdataWorking);
 			throw new RequestFail();
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			httpClientShutdown(isMastdataWorking);
 			throw new RequestFail();
@@ -304,7 +298,7 @@ public class HTTPRestServiceCaller {
 
 	/**
 	 * Get the http HttpResponse
-	 * 
+	 *
 	 * @param response
 	 * @return
 	 * @throws RequestFail
@@ -313,10 +307,10 @@ public class HTTPRestServiceCaller {
 	 */
 	private String getHttpResponse(HttpResponse response, String url, boolean isMastdataWorking) throws RequestFail,
 			ConnectionError, BookingTimeOutError {
-		
+
 		String responseString = null;
 		if (response != null) {
-			
+
 			// Log.d(TAG ,"ResponseStatusCode: "+ response.getStatusLine().getStatusCode());
 			// Log.d(TAG ,"Content-Encoding: "+ response.getFirstHeader("Content-Encoding"));
 			try {
@@ -326,7 +320,7 @@ public class HTTPRestServiceCaller {
 					if (response.getEntity() != null) {
 						responseString = EntityUtils.toString(response.getEntity());
 					}
-					
+
 				}
 
 			} catch (Exception e) {
@@ -336,15 +330,15 @@ public class HTTPRestServiceCaller {
 				throw new RequestFail();
 			}
 			statusCode = response.getStatusLine().getStatusCode();
-			if (response.getStatusLine().getStatusCode() == 200 || response.getStatusLine().getStatusCode() == 201 
+			if (response.getStatusLine().getStatusCode() == 200 || response.getStatusLine().getStatusCode() == 201
 					|| response.getStatusLine().getStatusCode() == 304) {
-							
-			}else {	
+
+			}else {
 				if (404 == response.getStatusLine().getStatusCode()) {
 					throw new ConnectionError();
 				}
 				//Log.d(TAG, "Shutdown:::url::: " + url);
-				httpClientShutdown(isMastdataWorking);					
+				httpClientShutdown(isMastdataWorking);
 			}
 
 			if (404 == response.getStatusLine().getStatusCode()) {
@@ -359,13 +353,13 @@ public class HTTPRestServiceCaller {
 			 * ,"Response: "+ responseString); if
 			 * (!StringUtils.contains(responseString, "DBooking_343")) { throw
 			 * new RequestFail(); }
-			 * 
+			 *
 			 * }
 			 */else if (304 != response.getStatusLine().getStatusCode()) {
 
 			}
 		}
-		
+
 		if (304 == response.getStatusLine().getStatusCode()) {
 			responseString = "304";
 		}
@@ -373,18 +367,18 @@ public class HTTPRestServiceCaller {
 
 		return responseString;
 	}
-	
-	
+
+
 	private void httpClientShutdown(boolean isMastdataWorking){
 		if (httpClient != null && httpClient.getConnectionManager() != null && isMastdataWorking) {
 			//Log.d(TAG, "shutdown:::: ");
 			//httpClient.getConnectionManager().shutdown();
-		}		
+		}
 	}
 
 	/**
 	 * Get the receive location in header.
-	 * 
+	 *
 	 * @param response
 	 */
 	private void getLastHeaderLocation(HttpResponse response) {
@@ -396,7 +390,7 @@ public class HTTPRestServiceCaller {
 
 	/**
 	 * Get the Last-Modified in header.
-	 * 
+	 *
 	 * @param isMastdataWorking
 	 * @param response
 	 */
@@ -405,8 +399,8 @@ public class HTTPRestServiceCaller {
 
 			if (response.getStatusLine().getStatusCode() == HttpStatusCodes.SC_OK
 					|| response.getStatusLine().getStatusCode() == HttpStatusCodes.SC_CREATED) {
-				
-					
+
+
 				//Log.d(TAG, "url:::: " + url + "::::lastModified::::" + response.getLastHeader("Last-Modified").toString());
 				String lastModified = response.getLastHeader("Last-Modified").toString();
 				this.lastModified.put(url, lastModified);
@@ -414,7 +408,7 @@ public class HTTPRestServiceCaller {
 			}
 		}
 	}
-	
+
 /*	private void getLastHeaderLastModified(GetMethod get) {
 
 		if (get.getResponseHeader("Last-Modified") != null) {
@@ -441,20 +435,20 @@ public class HTTPRestServiceCaller {
 
 	/**
 	 * Get the HttpClient, Set Timeout is 30000
-	 * 
+	 *
 	 * @return HttpClient
 	 */
 	public HttpClient getHttpClient(int timeOut, String serverUrl, Context context) {
 
 		//HttpClient httpClient = getNewHttpClient(timeOut, context);
-		HttpClient httpClient = getNewHttpClient(timeOut, context, serverUrl);
+		HttpClient httpClient = getNewHttpClient(timeOut);
 		return httpClient;
 	}
 
 	/**
 	 * Get HttpUriRequest, it will be HttpPost or HttpGet by different
 	 * requestHttpMethod.
-	 * 
+	 *
 	 * @param requestHttpMethod
 	 *            POST_TYPE or GET_TYPE
 	 * @param url
@@ -462,8 +456,8 @@ public class HTTPRestServiceCaller {
 	 * @return HttpPost or HttpGet
 	 */
 	public Object getHttpUriRequest(int requestHttpMethod, String url,
-			String acceptLanguage, String lastModified,
-			boolean isMastdataWorking, String serviceApiVersion, String postJson) {
+									String acceptLanguage, String lastModified,
+									boolean isMastdataWorking, String serviceApiVersion, String postJson) {
 		if (url != null) {
 			url = url.replaceAll(" ", "%20");
 		}
@@ -492,10 +486,10 @@ public class HTTPRestServiceCaller {
 			if(serviceApiVersion.equalsIgnoreCase(API_VERSION_VALUE_7)){
 				if(postJson != null)
 					//CONTENT_LENGTH_VALUE = String.valueOf(postJson.length());
-				//httpPost.setHeader(CONTENT_LENGTH, CONTENT_LENGTH_VALUE);
-				httpPost.setHeader(CONTENT_EXPECT, CONTENT_EXPECT_VALUE);
+					//httpPost.setHeader(CONTENT_LENGTH, CONTENT_LENGTH_VALUE);
+					httpPost.setHeader(CONTENT_EXPECT, CONTENT_EXPECT_VALUE);
 			}
-			
+
 			return httpPost;
 		} else if (requestHttpMethod == HTTP_GET_METHOD) {// GET_TYPE
 
@@ -527,26 +521,59 @@ public class HTTPRestServiceCaller {
 		}
 	}
 
-	private static HttpClient getNewHttpClient(int timeOut, Context context, String url) {
+	public static HttpClient getNewHttpClient(int timeOut, Context context) {
 		try {
+			/*KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+			trustStore.load(null, null);
+
+			SSLSocketFactory sf = new SSLSocketFactoryEx(trustStore);
+
+			sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);*/
 
 			HttpParams params = new BasicHttpParams();
 			HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
 			HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
 			HttpProtocolParams.setUseExpectContinue(params, true);
-
 			SchemeRegistry registry = new SchemeRegistry();
-			registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
-			registry.register(new Scheme("https", TrustCertainHostNameFactory.getDefault(context, url), 443));
-
-			//ClientConnectionManager manager = new ThreadSafeClientConnManager(params, registry);
-			//DefaultHttpClient client = new DefaultHttpClient(manager, params);
-
+			registry.register(new Scheme("http", PlainSocketFactory
+					.getSocketFactory(), 80));
+			registry.register(new Scheme("https", newSslSocketFactory(context), 443));
 			HttpConnectionParams.setConnectionTimeout(params, timeOut);
 			HttpConnectionParams.setSoTimeout(params, timeOut);
 			ConnManagerParams.setMaxTotalConnections(params, 5);
 			ConnPerRouteBean connPerRoute = new ConnPerRouteBean(5);
-		    ConnManagerParams.setMaxConnectionsPerRoute(params,connPerRoute);
+			ConnManagerParams.setMaxConnectionsPerRoute(params,connPerRoute);
+			//PoolingClientConnectionManager  ccm = new PoolingClientConnectionManager(registry);
+			ThreadSafeClientConnManager ccm = new ThreadSafeClientConnManager(params, registry);
+			//ccm.setMaxTotal(20);
+			//ccm.setDefaultMaxPerRoute(20);
+			return new DefaultHttpClient(ccm, params);
+		} catch (Exception e) {
+			return new DefaultHttpClient();
+		}
+	}
+	private static HttpClient getNewHttpClient(int timeOut) {
+		try {
+			KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+			trustStore.load(null, null);
+
+			SSLSocketFactory sf = new SSLSocketFactoryEx(trustStore);
+
+			sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+
+			HttpParams params = new BasicHttpParams();
+			HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+			HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
+			HttpProtocolParams.setUseExpectContinue(params, true);
+			SchemeRegistry registry = new SchemeRegistry();
+			registry.register(new Scheme("http", PlainSocketFactory
+					.getSocketFactory(), 80));
+			registry.register(new Scheme("https", sf, 443));
+			HttpConnectionParams.setConnectionTimeout(params, timeOut);
+			HttpConnectionParams.setSoTimeout(params, timeOut);
+			ConnManagerParams.setMaxTotalConnections(params, 5);
+			ConnPerRouteBean connPerRoute = new ConnPerRouteBean(5);
+			ConnManagerParams.setMaxConnectionsPerRoute(params,connPerRoute);
 			//PoolingClientConnectionManager  ccm = new PoolingClientConnectionManager(registry);
 			ThreadSafeClientConnManager ccm = new ThreadSafeClientConnManager(params, registry);
 			//ccm.setMaxTotal(20);
@@ -557,7 +584,34 @@ public class HTTPRestServiceCaller {
 			return new DefaultHttpClient();
 		}
 	}
+	private static SSLSocketFactory newSslSocketFactory(Context context) {
+		try {
+			// Get an instance of the Bouncy Castle KeyStore format
+			KeyStore trusted = KeyStore.getInstance("BKS");
+			// Get the raw resource, which contains the keystore with
+			// your trusted certificates (root and any intermediate certs)
+			//InputStream in = context.getAssets().open("nmbs.bks"); //name of your keystore file here
+            /*InputStream in = context.getResources().openRawResource(R.raw.uat2);
+            try {
+                // Initialize the keystore with the provided trusted certificates
+                // Provide the password of the keystore
+                trusted.load(in, "Delaware2014".toCharArray());
+            } finally {
+                in.close();
+            }*/
+			// Pass the keystore to the SSLSocketFactory. The factory is responsible
+			// for the verification of the server certificate.
+			SSLSocketFactory sf = new SSLSocketFactory(trusted);
+			// Hostname verification from certificate
+			// http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html#d4e506
+			sf.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER); // This can be changed to less stricter verifiers, according to need
+			//rtint.railtourdev.be
 
+			return sf;
+		} catch (Exception e) {
+			throw new AssertionError(e);
+		}
+	}
 	public Map<String, String> getLastModified() {
 		return lastModified;
 	}
@@ -565,5 +619,5 @@ public class HTTPRestServiceCaller {
 	public int getStatusCode(){
 		return this.statusCode;
 	}
-	
+
 }

@@ -439,7 +439,7 @@ public class MasterDataService implements IMasterDataService{
 		boolean hasError = false;
 		InputStream inputStream = null;
 		try {
-			inputStream = HttpRetriever.getInstance().retrieveStream(url, context);
+			inputStream = HttpRetriever.getInstance().retrieveStream(url);
 			//Log.d(TAG, "download InsuranceConditionsPdf......");
 			//InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dossierId, inputStream));
 			//InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dossierId, inputStream));

@@ -190,7 +190,7 @@ public class AssistantDataService extends CustomErrorMessager implements IAssist
 							/*if (i == 1) {
 								urlString += urlString + "1111111";
 							}*/
-							InputStream inputStream = HttpRetriever.getInstance().retrieveStream(urlString, context);
+							InputStream inputStream = HttpRetriever.getInstance().retrieveStream(urlString);
 							InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dossierAftersalesResponse.getDnrId(),inputStream)); 
 							/*httpDownloader.downloadNetworkFile(urlString, FileManager.getInstance().getFilePath("/pdfpath/"),fileName + ".pdf");  */
 							FileManager.getInstance().createExternalStoragePrivateFile(context, afterDecryptInputStream, dossierAftersalesResponse.getDnrId(), fileName);
@@ -245,7 +245,7 @@ public class AssistantDataService extends CustomErrorMessager implements IAssist
 				if (!has) {
 					try {
 						
-						InputStream inputStream = HttpRetriever.getInstance().retrieveStream(urlString, context);
+						InputStream inputStream = HttpRetriever.getInstance().retrieveStream(urlString);
 						InputStream afterDecryptInputStream = new ByteArrayInputStream(AESUtils.encryptPdfOrBarcode(dnrId, inputStream));
 						FileManager.getInstance().createExternalStoragePrivateFile(context,  afterDecryptInputStream, dnrId, fileName);
 						 

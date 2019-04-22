@@ -4,23 +4,40 @@ package com.cflint.util;
 import android.content.Context;
 import android.util.Log;
 
-import com.cflint.application.NMBSApplication;
-import com.cflint.log.LogUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.conn.params.ConnManagerParams;
+import org.apache.http.conn.params.ConnPerRouteBean;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.protocol.HTTP;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+
 import java.security.KeyStore;
 import java.security.SecureRandom;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateFactory;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 
 
 /**
@@ -31,7 +48,6 @@ import javax.net.ssl.TrustManagerFactory;
 public class HttpRetriever {
 
     private static HttpRetriever instance;
-
     //private final static String TAG = HttpRetriever.class.getSimpleName();
     public static HttpRetriever getInstance() {
         if (instance == null) {
@@ -45,11 +61,10 @@ public class HttpRetriever {
 
     }
 
-    public InputStream retrieveStream(String stringURL, Context context) throws Exception {
+    public InputStream retrieveStream(String stringURL) throws Exception {
         if (stringURL == null || "".equals(stringURL)) {
             return null;
         }
-        LogUtils.e("crt", "stringURL------->" + stringURL);
         InputStream inputStream = null;
 
         URL url = new URL(stringURL);
@@ -59,7 +74,7 @@ public class HttpRetriever {
             inputStream = GetHttps(stringURL);
             //inputStream = urlConnection.getInputStream();
             Log.e("HOMEBANNER", "inputStream..." + inputStream);
-        } else {
+        }else{
             URLConnection urlConnection = url.openConnection();
             urlConnection.setConnectTimeout(20000);
             inputStream = urlConnection.getInputStream();
@@ -85,29 +100,10 @@ public class HttpRetriever {
 
     private InputStream GetHttps(String https) throws Exception {
 
-		/*SSLContext sc = SSLContext.getInstance("TLS");
-		sc.init(null, new TrustManager[] { new EasyX509TrustManager(null) }, new SecureRandom());*/
-        LogUtils.e("crt", "https------->" + https);
-        CertificateFactory cf = CertificateFactory.getInstance("X.509");
-        String str = Utils.getCrtName(https);
-
-        InputStream in = NMBSApplication.getInstance().getApplicationContext().getAssets().open(str);
-        Certificate ca = cf.generateCertificate(in);
-
-        KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
-        keystore.load(null, null);
-        keystore.setCertificateEntry("ca", ca);
-
-        String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
-        TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
-        tmf.init(keystore);
-
-        // Create an SSLContext that uses our TrustManager
-        SSLContext context = SSLContext.getInstance("TLS");
-        context.init(null, tmf.getTrustManagers(), null);
-
-        HttpsURLConnection.setDefaultSSLSocketFactory(context.getSocketFactory());
-        //HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
+        SSLContext sc = SSLContext.getInstance("TLS");
+        sc.init(null, new TrustManager[] { new MyTrustManager() }, new SecureRandom());
+        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+        HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
         HttpsURLConnection conn = (HttpsURLConnection) new URL(https).openConnection();
         conn.setRequestMethod("GET");
         //conn.setRequestProperty("Accept-Encoding", "UTF-8");
@@ -140,11 +136,11 @@ public class HttpRetriever {
         //Log.e("HOMEBANNER", https +"conn..." + conn.getResponseCode());
         //conn.setRequestProperty("Accept-Charset", "UTF-8");
         //conn.get
-        //Log.e("conn", "getContentType--------->" + conn.getContentType());
-        if (conn.getContentType().contains("text/html")) {
+        Log.e("conn", "getContentType--------->" + conn.getContentType());
+        if(conn.getContentType().contains("text/html")){
             throw new Exception();
         }
-        if (conn.getResponseCode() != 200) {
+        if(conn.getResponseCode() != 200){
             throw new Exception();
         }
         InputStream inputStream = conn.getInputStream();
@@ -153,9 +149,69 @@ public class HttpRetriever {
         //conn.connect();
         return inputStream;
     }
-	/*private class MyHostnameVerifier implements HostnameVerifier {
-		public boolean verify(String hostname, SSLSession session) {
-			return true;
-		}
-	}*/
+
+    public HttpClient getHttpClient(int timeOut) {
+        HttpClient httpClient = getNewHttpClient(timeOut);
+        return httpClient;
+    }
+
+    private static HttpClient getNewHttpClient(int timeOut) {
+        try {
+            KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            trustStore.load(null, null);
+
+            SSLSocketFactory sf = new SSLSocketFactoryEx(trustStore);
+
+            sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+
+            HttpParams params = new BasicHttpParams();
+            HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+            HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
+            HttpProtocolParams.setUseExpectContinue(params, true);
+            SchemeRegistry registry = new SchemeRegistry();
+            registry.register(new Scheme("http", PlainSocketFactory
+                    .getSocketFactory(), 80));
+            registry.register(new Scheme("https", sf, 443));
+            HttpConnectionParams.setConnectionTimeout(params, timeOut);
+            HttpConnectionParams.setSoTimeout(params, timeOut);
+            ConnManagerParams.setMaxTotalConnections(params, 5);
+            ConnPerRouteBean connPerRoute = new ConnPerRouteBean(5);
+            ConnManagerParams.setMaxConnectionsPerRoute(params,connPerRoute);
+            //PoolingClientConnectionManager  ccm = new PoolingClientConnectionManager(registry);
+            ThreadSafeClientConnManager ccm = new ThreadSafeClientConnManager(params, registry);
+            //ccm.setMaxTotal(20);
+            //ccm.setDefaultMaxPerRoute(20);
+
+            return new DefaultHttpClient(ccm, params);
+        } catch (Exception e) {
+            return new DefaultHttpClient();
+        }
+    }
+
+    private class MyHostnameVerifier implements HostnameVerifier {
+        public boolean verify(String hostname, SSLSession session) {
+            return true;
+        }
+    }
+
+    private class MyTrustManager implements X509TrustManager {
+
+        public void checkClientTrusted(X509Certificate[] chain, String authType)
+                throws CertificateException {
+        }
+
+        public void checkServerTrusted(X509Certificate[] chain, String authType)
+                throws CertificateException {
+            try {
+                chain[0].checkValidity();
+            } catch (Exception e) {
+                throw new java.security.cert.CertificateException("Certificate not valid or trusted.");
+            }
+        }
+
+        public X509Certificate[] getAcceptedIssuers() {
+
+            return null;
+        }
+    }
 }
