@@ -60,7 +60,7 @@ public class SettingService implements ISettingService {
 		this.applicationContext = context;
 	}
 
-	public static final String LANGUAGE_NL = "NL_BE";
+	public static final String LANGUAGE_NL = "EN_GB";
 	public static final String LANGUAGE_FR = "FR_BE";
 	public static final String LANGUAGE_EN = "EN_GB";
 	public static final String LANGUAGE_DE = "DE_BE";
@@ -252,7 +252,7 @@ public class SettingService implements ISettingService {
 			if(defaultLanguage != null && defaultLanguage.length() > 0){
 				defaultLanguage = defaultLanguage.substring(0,2);
 				if(StringUtils.equalsIgnoreCase("NL", defaultLanguage)){
-					appCurrentLanguage = "NL_BE";
+					appCurrentLanguage = "EN_GB";
 				}else if(StringUtils.equalsIgnoreCase("FR", defaultLanguage)){
 					appCurrentLanguage = "FR_BE";
 				}else if(StringUtils.equalsIgnoreCase("DE", defaultLanguage)){

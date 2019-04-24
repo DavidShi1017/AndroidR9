@@ -97,7 +97,7 @@ public class StationInfoDataService implements IStationInfoDataService {
         }else if(SettingService.LANGUAGE_FR.contains(language)){
             resourcesId = R.raw.stationinfo_fr;
         }else if(SettingService.LANGUAGE_NL.contains(language)){
-            resourcesId = R.raw.stationinfo_nl;
+            resourcesId = R.raw.stationinfo_en;
         }else if(SettingService.LANGUAGE_DE.contains(language)){
             resourcesId = R.raw.stationinfo_de;
         }else {

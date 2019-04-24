@@ -735,7 +735,7 @@ public class MasterService implements IMasterService {
 		}else if(LocaleChangedUtils.LANGUAGE_FR.contains(language.toUpperCase())){
 			resourcesId = R.raw.home_fr;
 		}else if(LocaleChangedUtils.LANGUAGE_NL.contains(language.toUpperCase())){
-			resourcesId = R.raw.home_nl;
+			resourcesId = R.raw.home_en;
 		}else if(LocaleChangedUtils.LANGUAGE_DE.contains(language.toUpperCase())){
 			resourcesId = R.raw.home_de;
 		}else {
@@ -751,7 +751,7 @@ public class MasterService implements IMasterService {
 		}else if(LocaleChangedUtils.LANGUAGE_FR.contains(language.toUpperCase())){
 			resourcesId = R.raw.my_tickets_fr;
 		}else if(LocaleChangedUtils.LANGUAGE_NL.contains(language.toUpperCase())){
-			resourcesId = R.raw.my_tickets_nl;
+			resourcesId = R.raw.my_tickets_en;
 		}else if(LocaleChangedUtils.LANGUAGE_DE.contains(language.toUpperCase())){
 			resourcesId = R.raw.my_tickets_de;
 		}else {

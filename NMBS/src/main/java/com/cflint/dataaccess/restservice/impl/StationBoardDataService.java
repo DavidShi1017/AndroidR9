@@ -836,7 +836,7 @@ public class StationBoardDataService extends CustomErrorMessager implements ISta
 			}else if(StringUtils.equalsIgnoreCase(language, "FR_BE")){
 				resourcesId = R.raw.station_fr;
 			}else if(StringUtils.equalsIgnoreCase(language, "NL_BE")){
-				resourcesId = R.raw.station_nl;
+				resourcesId = R.raw.station_en;
 			}else {resourcesId = R.raw.station_de;
 			}
 			

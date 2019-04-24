@@ -692,7 +692,7 @@ public class DateUtils {
 		}else if(SettingService.LANGUAGE_FR.contains(language)){
 			format = formatDateNl;
 		}else if(SettingService.LANGUAGE_NL.contains(language)){
-			format = formatDateNl;
+			format = formatDateEn;
 		}else {
 			format = formatDateEn;
 		}

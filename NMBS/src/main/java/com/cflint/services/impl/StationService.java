@@ -52,7 +52,7 @@ public class StationService{
             }else if(StringUtils.equalsIgnoreCase(language, "FR_BE")){
                 resourcesId = R.raw.station_fr;
             }else if(StringUtils.equalsIgnoreCase(language, "NL_BE")){
-                resourcesId = R.raw.station_nl;
+                resourcesId = R.raw.station_en;
             }else {resourcesId = R.raw.station_de;
             }
 
@@ -81,7 +81,7 @@ public class StationService{
             }else if(StringUtils.equalsIgnoreCase(language, "FR_BE")){
                 resourcesId = R.raw.station_null_fr;
             }else if(StringUtils.equalsIgnoreCase(language, "NL_BE")){
-                resourcesId = R.raw.station_null_nl;
+                resourcesId = R.raw.station_null_en;
             }else {resourcesId = R.raw.station_null_de;
             }
 

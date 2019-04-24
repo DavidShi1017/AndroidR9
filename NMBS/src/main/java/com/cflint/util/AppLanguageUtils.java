@@ -52,7 +52,7 @@ public class AppLanguageUtils {
         }else{
             String defaultLanguage = Locale.getDefault().getLanguage();
             if(StringUtils.equalsIgnoreCase("NL", defaultLanguage)){
-                newLanguage = "NL_BE";
+                newLanguage = "EN_GB";
             }else if(StringUtils.equalsIgnoreCase("FR", defaultLanguage)){
                 newLanguage = "FR_BE";
             }else if(StringUtils.equalsIgnoreCase("DE", defaultLanguage)){

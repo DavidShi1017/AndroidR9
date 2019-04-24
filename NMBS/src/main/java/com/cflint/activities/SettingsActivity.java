@@ -584,7 +584,7 @@ public class SettingsActivity extends BaseActivity implements SettingsListener, 
 
         }else {
             if("NL_BE".equals(currentLanguage.toUpperCase())){
-                actionUrl = getString(R.string.url_privacy_policy_nl);
+                actionUrl = getString(R.string.url_privacy_policy_en);
             }else if("DE_BE".equals(currentLanguage.toUpperCase())){
                 actionUrl = getString(R.string.url_privacy_policy_de);
             }else if("FR_BE".equals(currentLanguage.toUpperCase())){

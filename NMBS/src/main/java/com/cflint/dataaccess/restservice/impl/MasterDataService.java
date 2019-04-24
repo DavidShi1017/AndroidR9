@@ -388,7 +388,7 @@ public class MasterDataService implements IMasterDataService{
 			resourcesId = R.raw.general_settings_fr;
 			//pdfIs = context.getResources().getAssets().open("touring_conditions_fr.pdf");
 		}else if(SettingService.LANGUAGE_NL.contains(language.toUpperCase())){
-			resourcesId = R.raw.general_settings_nl;
+			resourcesId = R.raw.general_settings_en;
 			//pdfIs = context.getResources().getAssets().open("touring_conditions_nl.pdf");
 		}else if(SettingService.LANGUAGE_DE.contains(language.toUpperCase())){
 			resourcesId = R.raw.general_settings_de;
@@ -899,7 +899,7 @@ public class MasterDataService implements IMasterDataService{
 		}else if(LocaleChangedUtils.LANGUAGE_FR.contains(language)){
 			resourcesId = R.raw.clicktocall_fr;
 		}else if(LocaleChangedUtils.LANGUAGE_NL.contains(language)){
-			resourcesId = R.raw.clicktocall_nl;
+			resourcesId = R.raw.clicktocall_en;
 		}else if(LocaleChangedUtils.LANGUAGE_DE.contains(language)){
 			resourcesId = R.raw.clicktocall_de;
 		}else {

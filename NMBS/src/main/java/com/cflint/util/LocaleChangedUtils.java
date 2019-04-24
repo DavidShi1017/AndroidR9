@@ -19,7 +19,7 @@ import android.content.res.Configuration;
  */
 public class LocaleChangedUtils {
 	
-	public static final String LANGUAGE_NL = "NL_BE";
+	public static final String LANGUAGE_NL = "EN_GB";
 	public static final String LANGUAGE_FR = "FR_BE";
 	public static final String LANGUAGE_EN = "EN_GB";
 	public static final String LANGUAGE_DE = "DE_BE";
@@ -43,7 +43,7 @@ public class LocaleChangedUtils {
 			if(defaultLanguage != null && defaultLanguage.length() > 0){
 				defaultLanguage = defaultLanguage.substring(0,2);
 				if(StringUtils.equalsIgnoreCase("NL", defaultLanguage)){
-					sharedLocale = "NL_BE";
+					sharedLocale = "EN_GB";
 				}else if(StringUtils.equalsIgnoreCase("FR", defaultLanguage)){
 					sharedLocale = "FR_BE";
 				}else if(StringUtils.equalsIgnoreCase("DE", defaultLanguage)){
