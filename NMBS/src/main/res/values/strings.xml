@@ -843,7 +843,7 @@ won\'t take more than a minute. Thanks for your support.</string>
     <!--Test.-->
     <string name="trackerId">UA-78721258-2</string>
 
-    <string name="app_version">1.0.1</string>
+    <string name="app_version">1.1</string>
 
 
     <string name="alert_delete_failure_title">Delete failure</string>
@@ -965,7 +965,7 @@ won\'t take more than a minute. Thanks for your support.</string>
 <string name="general_refreshing_realtime_failed">Couldn\'t retrieve real-time info</string>
 <string name="general_required_fields">Required fields</string>
 <string name="general_senior_60">Senior (60+)</string>
-<string name="general_server_unavailable">Cannot connect to server. Please try again later later.</string>
+<string name="general_server_unavailable">Cannot connect to server. Please try again later.</string>
 <string name="general_station">Station</string>
 <string name="general_subscribe_intro">Subscribe to push notifications about this booking here.</string>
 <string name="general_ticket">Ticket</string>
