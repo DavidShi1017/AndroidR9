@@ -761,7 +761,7 @@ won\'t take more than a minute. Thanks for your support.</string>
 
     <!-- <string name="barcode_url_prefix">http://be-internet.bene-system.com/hp/mobilebarcodeservice?bcguid=</string> -->
     <string name="barcode_url_prefix">https://accept-shared.bene-system.com</string>
-<!--    <string name="barcode_url_prefix">https://www.bene-system.com</string>-->
+    <!--<string name="barcode_url_prefix">https://www.bene-system.com</string>-->
     <!--<string name="barcode_url_prefix">http://www.bene-system.com/hp/mobilebarcodeservice?bcguid=</string>-->
 
     <!-- outside url for settting-->

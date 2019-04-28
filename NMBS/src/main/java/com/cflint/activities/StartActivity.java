@@ -22,6 +22,7 @@ import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.cflint.dataaccess.database.GeneralSettingDatabaseService;
 import com.cflint.services.impl.DaemonService;
 import com.cflint.util.FunctionConfig;
 import com.google.android.gms.common.ConnectionResult;
@@ -156,7 +157,8 @@ public class StartActivity extends BaseActivity {
 		if(!isFinishing()){
 			showWaitDialog();
 		}
-
+		//GeneralSettingDatabaseService generalSettingDatabaseService = new GeneralSettingDatabaseService(this);
+		//generalSettingDatabaseService.deleteMasterData(GeneralSettingDatabaseService.DB_GENERAL_SETTINGS);
 		if(NMBSApplication.getInstance().getLoginService().isLogon()){
 			LogonInfo logonInfo = NMBSApplication.getInstance().getLoginService().getLogonInfo();
 			LogUtils.e("syncCheckPwd", " LoginService  isLogon...." );
