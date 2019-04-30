@@ -288,7 +288,8 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 				}else{
 					isRefresh = false;
 					if(!isFinishing()){
-						dialogError = new DialogAlertError(ScheduleResultDetailActivity.this, getResources().getString(R.string.general_information), getResources().getString(R.string.schedule_set_train_alert_failure_info));
+						dialogError = new DialogAlertError(ScheduleResultDetailActivity.this, getResources().getString(R.string.general_information),
+								getResources().getString(R.string.general_server_unavailable));
 						dialogError.show();
 					}
 				}
@@ -369,7 +370,8 @@ public class ScheduleResultDetailActivity extends BaseActivity {
 				}
 			}else{
 				if(!isFinishing()){
-					dialogError = new DialogAlertError(ScheduleResultDetailActivity.this, getResources().getString(R.string.schedule_set_train_alert_failure_title), getResources().getString(R.string.alert_subscription_missingID));
+					dialogError = new DialogAlertError(ScheduleResultDetailActivity.this, getResources().getString(R.string.schedule_set_train_alert_failure_title),
+							getResources().getString(R.string.alert_subscription_missingID));
 					dialogError.show();
 				}
 			}

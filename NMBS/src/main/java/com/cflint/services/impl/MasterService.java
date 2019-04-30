@@ -69,7 +69,7 @@ public class MasterService implements IMasterService {
 	private ClickToCallScenarioDatabaseService clickToCallScenarioDatabaseService;
 	private OriginDestinationRuleDatabaseService originDestinationRuleDatabaseService;
 	private static List<Station> beStations = null;
-	
+
 	public final static String HOME_WIZARD = "Home";
 
 	public enum RequiredMasterDataMissingType {
@@ -642,8 +642,13 @@ public class MasterService implements IMasterService {
 	public GeneralSetting loadGeneralSetting() {
 		GeneralSettingDatabaseService generalSettingDatabaseService = new GeneralSettingDatabaseService(applicationContext);
 		GeneralSetting generalSetting = generalSettingDatabaseService.selectGeneralSetting();
+		IMasterDataService iMasterDataService = new MasterDataService();
+		if(iMasterDataService.isTestBooking(applicationContext)){
+			generalSetting = null;
+			//iMasterDataService.storeGeneralSettings(applicationContext, "EN_GB");
+		}
 		if(generalSetting == null || generalSetting.getBookingUrl() == null || generalSetting.getBookingUrl().isEmpty()){
-			IMasterDataService iMasterDataService = new MasterDataService();
+
             LogUtils.e("loadGeneralSetting", "loadGeneralSetting form package");
 			try {
 				GeneralSettingResponse generalSettingResponse = iMasterDataService.getGeneralSettingFromPackage(applicationContext, NMBSApplication.getInstance().getSettingService().getCurrentLanguagesKey());

@@ -341,13 +341,16 @@ public class MasterDataService implements IMasterDataService{
 		//Log.d(TAG, "Connect to CityDetailResponse service....");
 		String urlString = context.getString(R.string.server_url_get_general);
 		String lastModifiedInPreferences = readLastModifiedTime(context, gengeralSettingLastModified);
-
+		if(isTestBooking(context)){
+			lastModifiedInPreferences = "";
+		}
 		try {
 			stringHttpResponse = httpRestServiceCaller
                     .executeHTTPRequest(
 							context, null, urlString, languageBeforSetting, HTTPRestServiceCaller.HTTP_GET_METHOD, 4000,
 							true, lastModifiedInPreferences, HTTPRestServiceCaller.API_VERSION_VALUE_7);
 			LogUtils.d("GeneralSetting", "stringHttpResponse-------->" + stringHttpResponse);
+
 			if (!"304".equalsIgnoreCase(stringHttpResponse)) {
 				Map<String, String> lastModified = httpRestServiceCaller.getLastModified();
 
@@ -1028,6 +1031,17 @@ public class MasterDataService implements IMasterDataService{
 			return masterDataResponse;
 		}
 		return null;
+	}
+
+	public boolean  isTestBooking(Context context){
+		GeneralSettingDatabaseService generalSettingDatabaseService = new GeneralSettingDatabaseService(context);
+		GeneralSetting generalSettingInDataBase = generalSettingDatabaseService.selectGeneralSetting();
+		if(generalSettingInDataBase != null && generalSettingInDataBase.getBookingUrl() != null){
+			if(generalSettingInDataBase.getBookingUrl().contains("accept")){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private void insertGeneralSetting(GeneralSetting generalSetting, Context context) {

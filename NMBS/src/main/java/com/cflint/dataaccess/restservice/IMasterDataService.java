@@ -108,5 +108,5 @@ public interface IMasterDataService {
 	public void cleanLastModifiedHomeBanner(Context context);
 	public TrainIconResponse storeTrainIcon(Context context) throws InvalidJsonError, JSONException;
 	public GeneralSettingResponse getGeneralSettingFromPackage(Context context, String language)throws Exception;
-
+	public boolean  isTestBooking(Context context);
 }
