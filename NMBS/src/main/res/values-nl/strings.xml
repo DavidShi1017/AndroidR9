@@ -596,7 +596,7 @@
   <string name="departuredetail_view_traininfo_wifi">Gratis Wi-Fi aan boord</string>
   <string name="departuredetail_view_traininfo_restaurant">Restaurant aan boord</string>
   <string name="departuredetail_view_traininfo_bar">Barrijtuig aan boord</string>
-  <string name="departuredetail_view_traininfo_minibar">At-seat trolley service</string>
+  <string name="departuredetail_view_traininfo_minibar">Mini-barrijtuig aan boord</string>
   <string name="departuredetail_view_traininfo_bike">Fietsen toegestaan aan boord</string>
   <string name="departuredetail_view_offerinfo_promo">Promotarief</string>
   <string name="departuredetail_view_offerinfo_corporate">Volgende bedrijfscontracten werden in rekening gebracht</string>
