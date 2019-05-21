@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -1383,11 +1384,12 @@ public class MainActivity extends BaseActivity implements RatingListener {
 	}
 	public void openNationalApp(View view){
 		GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.HOME, TrackerConstant.HOME_SELECT_DownloadApp,"");
-		Intent intent = new Intent();
-
+		/*Intent intent = new Intent();
+		intent.setAction(Intent.ACTION_VIEW);
+		intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=de.hafas.android.cfl"));*/
 		//File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "17a62351-2ecf-45c5-bcad-f1ce09981828(1).pkpass");
 		//System.out.println("file========" + file.exists());
-		intent.setAction(Intent.ACTION_VIEW);
+
 		//intent.setData(Uri.parse("https://www.pass2u.net/d/DvQoznSPzdUj"));
 		//Uri path = Uri.fromFile(file);
 		//Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -1395,9 +1397,21 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		//intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.passesalliance.wallet&referrer=https://www.pass2u.net/d/DvQoznSPzdUj"));
 
 		//intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=de.hafas.android.sncbnmbs"));
-		intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=de.hafas.android.cfl"));
 
-		startActivity(intent);
+		/*String url = "cflmobile://";
+		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));*/
+
+		PackageManager packageManager = getPackageManager();
+		Intent intent= new Intent();
+		intent = packageManager.getLaunchIntentForPackage("de.hafas.android.cfl");
+		if(intent == null){
+			Intent i = new Intent();
+			i.setAction(Intent.ACTION_VIEW);
+			i.setData(Uri.parse("https://play.google.com/store/apps/details?id=de.hafas.android.cfl"));
+			startActivity(i);
+		}else {
+			startActivity(intent);
+		}
 	}
 
 	private void bindNationalApp(){
