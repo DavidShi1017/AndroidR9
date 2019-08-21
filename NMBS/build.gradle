@@ -80,7 +80,7 @@ android {
         multiDexEnabled true
         applicationId "com.cflint"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        versionCode 21
+        versionCode 22
         flavorDimensions "21"
     }
 
