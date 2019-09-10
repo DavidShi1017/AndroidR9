@@ -55,7 +55,7 @@
   <string name="alert_register_error_title_empty">Bitte wählen Sie eine Anrede</string>
   <string name="alert_time_select_wrong">Bitte wählen Sie ein Datum in der Zukunft</string>
   <string name="alert_station_data_wrong">Ihre Angaben sind inkorrekt. Bitte versuchen Sie es noch einmal.</string>
-  <string name="app_name">International</string>
+  <string name="app_name">SNCB International</string>
   <string name="tab_home">Home</string>
   <string name="tab_planner">Buchen</string>
   <string name="tab_cities">Reiseziele</string>

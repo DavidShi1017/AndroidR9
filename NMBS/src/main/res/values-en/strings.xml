@@ -55,7 +55,7 @@
   <string name="alert_register_error_title_empty">Please select a title</string>
   <string name="alert_time_select_wrong">Please select a date in the future.</string>
   <string name="alert_station_data_wrong">The entered data seems to be incorrect. Please try again.</string>
-  <string name="app_name">International</string>
+  <string name="app_name">SNCB International</string>
   <string name="tab_home">Home</string>
   <string name="tab_planner">Book</string>
   <string name="tab_cities">Cities</string>

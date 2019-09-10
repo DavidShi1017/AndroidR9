@@ -56,7 +56,7 @@
   <string name="alert_register_error_title_empty">Sélectionnez votre titre</string>
   <string name="alert_time_select_wrong">Vous ne pouvez pas sélectionner de dates dans le passé.</string>
   <string name="alert_station_data_wrong">Vos données semblent erronées. Veuillez réessayer.</string>
-  <string name="app_name">International</string>
+  <string name="app_name">SNCB International</string>
   <string name="tab_home">Accueil</string>
   <string name="tab_planner">Réserver</string>
   <string name="tab_cities">Destinations</string>
