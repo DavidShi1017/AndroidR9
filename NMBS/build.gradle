@@ -57,7 +57,7 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     buildToolsVersion '27.0.3'
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
@@ -76,12 +76,12 @@ android {
     }
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 28
         multiDexEnabled true
         applicationId "com.cflint"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        versionCode 22
-        flavorDimensions "21"
+        versionCode 23
+        flavorDimensions "23"
     }
 
     // map for the version code

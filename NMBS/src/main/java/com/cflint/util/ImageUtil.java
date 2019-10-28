@@ -114,7 +114,7 @@ public class ImageUtil {
 
 		cv.drawBitmap(watermark, w - ww - 2, 2, null);// 在src的右上角画入水印
 
-		cv.save(Canvas.ALL_SAVE_FLAG);// 保存
+		//cv.save(Canvas.ALL_SAVE_FLAG);// 保存
 
 		cv.restore();// 存储
 		return newb;
@@ -146,7 +146,7 @@ public class ImageUtil {
 			cv.drawText(text, ww / 2 - 3, wh / 2 + 4, paint);
 		}
 
-		cv.save(Canvas.ALL_SAVE_FLAG);
+		//cv.save(Canvas.ALL_SAVE_FLAG);
 
 		cv.restore();
 
