@@ -54,7 +54,7 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     buildToolsVersion '27.0.3'
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
@@ -73,12 +73,12 @@ android {
     }
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 28
         multiDexEnabled true
         applicationId "com.nmbs"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        versionCode 57
-        flavorDimensions "57"
+        versionCode 58
+        flavorDimensions "58"
     }
  
     // map for the version code
