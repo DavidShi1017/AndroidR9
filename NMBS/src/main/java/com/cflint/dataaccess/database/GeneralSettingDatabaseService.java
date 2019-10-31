@@ -122,6 +122,7 @@ public class GeneralSettingDatabaseService {
 		if(sqLiteDatabase == null){
 			sqLiteDatabase = dbHelper.getWritableDatabase();
 		}
+		//System.out.print("sqLiteDatabase====================" + sqLiteDatabase);
 		if(sqLiteDatabase == null){
 			return generalSetting;
 		}

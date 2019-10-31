@@ -640,13 +640,16 @@ public class MasterService implements IMasterService {
 		return asyncCityDetailResponse;		
 	}
 	public GeneralSetting loadGeneralSetting() {
+		//LogUtils.e("loadGeneralSetting", "loadGeneralSetting--@@@@@@@@@---> ");
 		GeneralSettingDatabaseService generalSettingDatabaseService = new GeneralSettingDatabaseService(applicationContext);
 		GeneralSetting generalSetting = generalSettingDatabaseService.selectGeneralSetting();
 		IMasterDataService iMasterDataService = new MasterDataService();
-		if(iMasterDataService.isTestBooking(applicationContext)){
+
+		//LogUtils.e("loadGeneralSetting", "generalSetting-----> " + generalSetting.getBookingUrl());
+		/*if(iMasterDataService.isTestBooking(applicationContext)){
 			generalSetting = null;
 			//iMasterDataService.storeGeneralSettings(applicationContext, "EN_GB");
-		}
+		}*/
 		if(generalSetting == null || generalSetting.getBookingUrl() == null || generalSetting.getBookingUrl().isEmpty()){
 
             LogUtils.e("loadGeneralSetting", "loadGeneralSetting form package");

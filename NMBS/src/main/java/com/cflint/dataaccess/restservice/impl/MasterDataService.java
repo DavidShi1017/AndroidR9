@@ -20,9 +20,7 @@ import org.json.JSONException;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
-
-
+import android.util.Log;
 
 
 import com.cflint.R;
@@ -377,6 +375,7 @@ public class MasterDataService implements IMasterDataService{
 				storeGeneralSettings(context, languageBeforSetting);
 			}
 		} catch (Exception e) {
+			System.out.print("catch=================");
 			storeGeneralSettings(context, languageBeforSetting);
 		}
 		return null;
@@ -1055,11 +1054,11 @@ public class MasterDataService implements IMasterDataService{
 			//Log.d(TAG, "isDeleted...." + isDeleted);
 			if (isDeleted) {
 				//Log.d(TAG, "Delete GeneralSetting succeed....");
-				//Log.d(TAG, "Start insert data to GeneralSetting table....");
+				Log.d(TAG, "Start insert data to GeneralSetting table....");
 				generalSettingDatabaseService.insertStationCollection(generalSetting);
 			}
 		} else {
-			//Log.d(TAG, "Start insert data to GeneralSetting table....");
+			Log.d(TAG, "Start insert data to GeneralSetting table....");
 			generalSettingDatabaseService.insertStationCollection(generalSetting);
 		}
 

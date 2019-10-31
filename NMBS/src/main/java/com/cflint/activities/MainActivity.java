@@ -1109,6 +1109,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
 						public void onDrawerClosed(View drawerView) {
 							super.onDrawerClosed(drawerView);
 							if(isGoto){
+
 								if(generalSetting != null && generalSetting.getBookingUrl() != null && !generalSetting.getBookingUrl().isEmpty()){
 									//Utils.openProwser(MainActivity.this, generalSetting.getBookingUrl(), clickToCallService);
 									//String url = "https://www.accept.b-europe.com/EN/Booking/Mobile?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app&blockSmartAppBanner=true&app=Android&webview=true";
