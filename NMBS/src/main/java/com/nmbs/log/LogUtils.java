@@ -43,7 +43,7 @@ public final class LogUtils {
     private static final String PREFIX = "(YOUR PREFIX):";
 
 
-    private static boolean sLogEnable = TestService.isTestMode;
+    private static boolean sLogEnable = true;
 
 
     private static LogLevel sLogLevel = LogLevel.DEBUG;
