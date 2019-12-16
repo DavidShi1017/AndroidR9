@@ -100,10 +100,25 @@ public class WebViewActivity extends AppCompatActivity {
 
             }
             @Override
-            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
                 LogUtils.e(TAG, "onReceivedSslError....error...." + error);
-                handler.proceed();
-                super.onReceivedSslError(view, handler, error);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(WebViewActivity.this);
+                builder.setMessage("ssssssssss");
+                builder.setPositiveButton("continue", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        handler.proceed();
+                    }
+                });
+                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        handler.cancel();
+                    }
+                });
+                final AlertDialog dialog = builder.create();
+                dialog.show();
+                //super.onReceivedSslError(view, handler, error);
             }
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 // TODO Auto-generated method stub

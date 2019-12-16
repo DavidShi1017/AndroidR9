@@ -23,7 +23,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.cflint.dataaccess.database.GeneralSettingDatabaseService;
-import com.cflint.services.impl.DaemonService;
+
 import com.cflint.util.FunctionConfig;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -106,7 +106,7 @@ public class StartActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		startService(new Intent(this, DaemonService.class));
+		//startService(new Intent(this, DaemonService.class));
 		if(getIntent().getBundleExtra(ActivityConstant.RECEIVE_PUSH_SUBSCRIPTION_ID) != null){
 			subscriptionId = getIntent().getStringExtra(ActivityConstant.RECEIVE_PUSH_SUBSCRIPTION_ID);
 		}
