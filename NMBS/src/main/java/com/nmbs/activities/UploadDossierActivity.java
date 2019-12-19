@@ -390,12 +390,12 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 			DossierDatabaseService dossierDatabaseService = new DossierDatabaseService(getApplicationContext());
 			DossierSummary dossierSummary = dossierDatabaseService.selectDossier(dossierResponse.getDossier().getDossierId());
 			if(dossierSummary != null){
-				AdWordsConversionReporter.reportWithConversionId(this.getApplicationContext(),"1025893038","nPcPCKimmmQQrsWX6QM","0.00",true);
+				/*AdWordsConversionReporter.reportWithConversionId(this.getApplicationContext(),"1025893038","nPcPCKimmmQQrsWX6QM","0.00",true);
 				AdWordsConversionReporter.reportWithConversionId(this.getApplicationContext(),"1024321798","eYz4COPUiGQQhtK36AM","0.00",true);
 				AdWordsConversionReporter.reportWithConversionId(this.getApplicationContext(),"990257741","FcC6COaTk2QQzcSY2AM","0.00",true);
 				AdWordsConversionReporter.reportWithConversionId(this.getApplicationContext(),"955368664","tJl3CLyommQQ2InHxwM","0.00",true);
 				AdWordsConversionReporter.reportWithConversionId(this.getApplicationContext(),"939594800","z6JjCNeommQQsKiEwAM","0.00",true);
-				AdWordsConversionReporter.reportWithConversionId(this.getApplicationContext(),"1018955333","mPCJCNnvhmQQxYzw5QM","0.00",true);
+				AdWordsConversionReporter.reportWithConversionId(this.getApplicationContext(),"1018955333","mPCJCNnvhmQQxYzw5QM","0.00",true);*/
 				//Log.e(TAG, "dossierSummary is not null....");
 				//Log.e(TAG, "dossier details is===...." + dossierSummary.getDossierDetails());
 				//if(!dossierSummary.isDossierPushEnabled()){
