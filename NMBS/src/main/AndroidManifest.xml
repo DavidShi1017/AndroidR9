@@ -415,13 +415,13 @@
             android:name=".services.impl.PushNotificationRegistrationIntentService"
             android:exported="false"></service>
 
-        <receiver
+        <!--<receiver
             android:name="com.google.ads.conversiontracking.InstallReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
-        </receiver>
+        </receiver>-->
         <receiver
             android:name=".util.PushNotificationReceiver"
             android:process=":push" />
@@ -477,7 +477,7 @@
             android:name="firebase_crashlytics_collection_enabled"
             android:value="false" />
 
-        <receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+        <!--<receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -486,7 +486,7 @@
         </receiver>
         <service android:name="com.google.android.gms.analytics.CampaignTrackingService"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="false" />-->
 
         <receiver
             android:name=".receivers.LocalNotificationWakefulBroadcastReceiver"

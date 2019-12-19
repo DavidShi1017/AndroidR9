@@ -79,10 +79,23 @@ public class WebViewOverlayActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-                LogUtils.e(TAG, "onReceivedSslError....error...." + error);
-                handler.proceed();
-                super.onReceivedSslError(view, handler, error);
+            public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(WebViewOverlayActivity.this);
+                builder.setMessage(R.string.notification_error_ssl_cert_invalid);
+                builder.setPositiveButton(getString(R.string.alert_continue), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        handler.proceed();
+                    }
+                });
+                builder.setNegativeButton(getString(R.string.general_cancel), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        handler.cancel();
+                    }
+                });
+                final AlertDialog dialog = builder.create();
+                dialog.show();
             }
 
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -233,10 +246,23 @@ public class WebViewOverlayActivity extends AppCompatActivity {
                     newWebView.setWebViewClient(new WebViewClient() {
 
                         @Override
-                        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-                            LogUtils.e(TAG, "onReceivedSslError....error...." + error);
-                            handler.proceed();
-                            super.onReceivedSslError(view, handler, error);
+                        public void onReceivedSslError(WebView view, final SslErrorHandler handler, SslError error) {
+                            final AlertDialog.Builder builder = new AlertDialog.Builder(WebViewOverlayActivity.this);
+                            builder.setMessage(R.string.notification_error_ssl_cert_invalid);
+                            builder.setPositiveButton(getString(R.string.alert_continue), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    handler.proceed();
+                                }
+                            });
+                            builder.setNegativeButton(getString(R.string.general_cancel), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    handler.cancel();
+                                }
+                            });
+                            final AlertDialog dialog = builder.create();
+                            dialog.show();
                         }
 
                         @Override

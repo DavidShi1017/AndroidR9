@@ -853,15 +853,7 @@
             android:exported="false">
         </service>
 
-        <service android:name="com.google.analytics.tracking.android.CampaignTrackingService" />
 
-        <receiver
-            android:name=".util.CustomReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
 
         <receiver android:name=".util.PushNotificationReceiver"
             android:process=":push"

@@ -1263,6 +1263,8 @@ won\'t take more than a minute. Thanks for your support.</string>
 
 <string name="dialog_permission">This app doesn\'t have permission to save data. Please go to Settings to allow storage permission for the international app.</string>
     <string name="general_close_app">CLOSE APP</string>
+
+    <string name="notification_error_ssl_cert_invalid">SSL error occured. Would you like to proceed?</string>
     <!--    <array name="nav_drawer_icons">
         <item>@drawable/ic_home</item>
         <item>@drawable/ic_people</item>
