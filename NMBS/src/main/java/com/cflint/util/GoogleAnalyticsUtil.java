@@ -3,8 +3,7 @@ package com.cflint.util;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
+
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.cflint.application.NMBSApplication;
 

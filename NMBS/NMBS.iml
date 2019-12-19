@@ -177,9 +177,7 @@
     <orderEntry type="library" name="Gradle: com.facebook.android:facebook-core-4.34.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-phenotype-16.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-v4-impl-16.0.4" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-collection-16.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base-16.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-crash-16.2.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-abt-16.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-auth-interop-16.0.1" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\User\shi\git\AndroidR9\NMBS\libs\fastjson-1.1.6.jar:unspecified@jar" level="project" />
@@ -229,7 +227,6 @@
     <orderEntry type="library" name="Gradle: com.facebook.android:facebook-android-sdk-4.34.0" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.android:facebook-share-4.34.0" level="project" />
     <orderEntry type="library" name="Gradle: com.crashlytics.sdk.android:answers-1.4.3" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-16.0.4" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.android:facebook-applinks-4.34.0" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime-1.0.3" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-impl-16.2.2" level="project" />
