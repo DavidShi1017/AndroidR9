@@ -829,7 +829,7 @@ won\'t take more than a minute. Thanks for your support.</string>
     <!--NMBS-->
     <!--<string name="facebook_app_id">571736719664754</string>
 -->
-    <!--TEST-->
+
     <string name="facebook_app_id">571736719664754</string>
 
     <string name="fb_login_protocol_scheme">fb571736719664754</string>
