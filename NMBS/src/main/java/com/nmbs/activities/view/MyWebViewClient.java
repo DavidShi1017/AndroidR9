@@ -78,7 +78,7 @@ public class MyWebViewClient extends WebViewClient implements  ActivityCompat.On
         String screen = Utils.getUrlValue(url, "screen");
         LogUtils.d(TAG, "screen...." + screen);
 
-        if(screen != null){
+        if(screen != null && !screen.isEmpty()){
             view.stopLoading();
             if (screen.equalsIgnoreCase("DossierList")) {
                 activity.finish();
@@ -137,7 +137,7 @@ public class MyWebViewClient extends WebViewClient implements  ActivityCompat.On
                     if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
-                            int res = ActivityCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE);
+                            int res = activity.checkSelfPermission(Manifest.permission.CALL_PHONE);
                             if (res != PackageManager.PERMISSION_GRANTED) {
                                 activity.requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.CALL_PHONE},
                                         REQUEST_CODE_ASK_PERMISSIONS);
