@@ -31,17 +31,6 @@
             android:padding="10dp"
             android:src="@drawable/ic_back" />
 
-        <ImageView
-            android:id="@+id/iv_menu"
-            android:layout_width="@dimen/header_menu_size"
-            android:layout_height="@dimen/header_menu_size"
-            android:onClick="clickMenu"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:padding="10dp"
-            android:background="@color/background_primaryaction"
-            android:src="@drawable/ic_navigation" />
-
 
 
         <ImageView
@@ -49,11 +38,12 @@
             android:layout_width="@dimen/header_menu_size"
             android:layout_height="@dimen/header_menu_size"
             android:onClick="login"
-            android:layout_toLeftOf="@+id/iv_menu"
+
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
-            android:layout_centerVertical="true"
 
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:background="@color/background_primaryaction"
             android:src="@drawable/ic_user" />
 
@@ -66,7 +56,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             android:layout_centerVertical="true"
-
+            android:layout_alignParentRight="true"
             android:background="@color/background_primaryaction"
             android:src="@drawable/ic_logout" />
 
