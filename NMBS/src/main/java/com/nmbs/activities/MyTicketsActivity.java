@@ -585,7 +585,7 @@ public class MyTicketsActivity extends BaseActivity implements MyTicketsDnrRefer
         MenuUtil.about(this, mDrawerLayout, mDrawerList);
     }
     public void myTickets(View view){
-        MenuUtil.myTickets(this, mDrawerLayout, mDrawerList);
+        mDrawerLayout.closeDrawer(GravityCompat.END);
     }
 
     public void uploadTickets(View view){
@@ -598,7 +598,7 @@ public class MyTicketsActivity extends BaseActivity implements MyTicketsDnrRefer
 
     public void loginOrManage(View view){
         //startActivity(LoginActivity.createIntent(MainActivity.this));
-        mDrawerLayout.closeDrawer(GravityCompat.END);
+        MenuUtil.loginOrManage(this, mDrawerLayout, mDrawerList, masterService);
     }
 
     public void clickMenu(View view) {
