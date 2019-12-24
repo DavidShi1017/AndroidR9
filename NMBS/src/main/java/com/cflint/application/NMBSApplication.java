@@ -268,7 +268,7 @@ public class NMBSApplication extends MultiDexApplication {
 	}
 
 	public void setAlarmCheckOptions() {
-		// setup of Alarm for sync Material
+
 		Calendar cal = Calendar.getInstance();
 
 		cal.set(Calendar.HOUR_OF_DAY, 14);
@@ -343,7 +343,7 @@ public class NMBSApplication extends MultiDexApplication {
 	}
 
 	public void setAlarmUpdate() {
-		// setup of Alarm for sync Material
+
 
 		Date updateTime = dossiersUpToDateService.getUpdateTime(getApplicationContext());
 		if(updateTime != null){
