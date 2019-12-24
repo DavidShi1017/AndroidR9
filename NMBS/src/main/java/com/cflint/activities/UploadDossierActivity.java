@@ -53,6 +53,7 @@ import com.cflint.services.impl.SettingService;
 
 import com.cflint.util.FunctionConfig;
 import com.cflint.util.GoogleAnalyticsUtil;
+import com.cflint.util.MenuUtil;
 import com.cflint.util.NetworkUtils;
 import com.cflint.util.RatingUtil;
 import com.cflint.util.TrackerConstant;
@@ -631,24 +632,7 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 	}
 
 	public void messages(View view) {
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(com.cflint.activities.MessageActivity.createIntent(UploadDossierActivity.this, messageService.getMessageResponse()));
-								isGoto = false;
-								finish();
-							}
-						}
-					});
-		}
+		MenuUtil.messages(this, mDrawerLayout, mDrawerList, messageService);
 	}
 
 	public void test(View view){
@@ -658,206 +642,38 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 
 	public void stationBoard(View view){
 
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(com.cflint.activities.StationBoardActivity.createIntent(UploadDossierActivity.this, null));
-								isGoto = false;
-								finish();
-							}
-						}
-					});
-		}
+		MenuUtil.stationBoard(this, mDrawerLayout, mDrawerList);
 	}
 
 	public void stations(View view){
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(com.cflint.activities.StationInfoActivity.createIntent(UploadDossierActivity.this));
-								isGoto = false;
-								finish();
-							}
-						}
-					});
-		}
-		//startActivity(com.nmbs.activities.CallCenterActivity.createIntent(MainActivity.this,0,null,null));
+		MenuUtil.stations(this, mDrawerLayout, mDrawerList);
 	}
 
 	public void realtimeAlerts(View view){
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(com.cflint.activities.AlertActivity.createIntent(UploadDossierActivity.this));
-								isGoto = false;
-								finish();
-							}
-						}
-					});
-		}
+		MenuUtil.realtimeAlerts(this, mDrawerLayout, mDrawerList);
 	}
 
-	public void bookTicktes(View view){
-		GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.HOME,TrackerConstant.HOME_BOOK_YOUR_TICKET,TrackerConstant.HOME_BOOK_YOUR_TICKET_LABEL);
-		final GeneralSetting generalSetting = masterService.loadGeneralSetting();
 
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								if(generalSetting != null && generalSetting.getBookingUrl() != null && !generalSetting.getBookingUrl().isEmpty()){
-									//Utils.openProwser(UploadDossierActivity.this, generalSetting.getBookingUrl(), clickToCallService);
-									if(NetworkUtils.isOnline(UploadDossierActivity.this)) {
-										GoogleAnalyticsUtil.getInstance().sendScreen(UploadDossierActivity.this, TrackerConstant.BOOKING);
-										startActivity(WebViewActivity.createIntent(UploadDossierActivity.this, Utils.getUrl(
-												generalSetting.getBookingUrl()), WebViewActivity.BOOKING_FLOW, ""));
-									}
-								}
-								isGoto = false;
-								finish();
-							}
-						}
-					});
-		}
+	public void bookTicktes(View view){
+		MenuUtil.bookTicktes(this, mDrawerLayout, mDrawerList, masterService);
 	}
 
 	public void lowestFares(View view){
-		GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.HOME,TrackerConstant.HOME_SELECT_LOWESTFARES,TrackerConstant.HOME_SELECT_LOWESTFARES_LABEL);
-		final GeneralSetting generalSetting = masterService.loadGeneralSetting();
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								if(generalSetting != null && generalSetting.getLffUrl()!= null && !generalSetting.getLffUrl().isEmpty()){
-									//Utils.openProwser(UploadDossierActivity.this, generalSetting.getLffUrl(), clickToCallService);
-									if(NetworkUtils.isOnline(UploadDossierActivity.this)) {
-										GoogleAnalyticsUtil.getInstance().sendScreen(UploadDossierActivity.this, TrackerConstant.LLF);
-										startActivity(WebViewActivity.createIntent(UploadDossierActivity.this,
-												Utils.getUrl(generalSetting.getLffUrl()), WebViewActivity.BOOKING_FLOW, ""));
-									}
-								}
-								isGoto = false;
-								finish();
-							}
-						}
-					});
-		}
+		MenuUtil.lowestFares(this, mDrawerLayout, mDrawerList, masterService);
 	}
 	public void trainschedules(View view){
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(ScheduleSearchActivity.createIntent(UploadDossierActivity.this));
-								isGoto = false;
-								finish();
-							}
-						}
-					});
-		}
+		MenuUtil.trainschedules(this, mDrawerLayout, mDrawerList);
 	}
-	private boolean isGoto;
+
 	public void settings(View view){
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(SettingsActivity.createIntent(UploadDossierActivity.this));
-								isGoto = false;
-								finish();
-							}
-						}
-					});
-		}
+		MenuUtil.settings(this, mDrawerLayout, mDrawerList);
 	}
 
 	public void about(View view){
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(WizardActivity.createIntent(UploadDossierActivity.this, WizardActivity.Wizard_Home));
-								isGoto = false;
-								finish();
-							}
-						}
-					});
-		}
+		MenuUtil.about(this, mDrawerLayout, mDrawerList);
 	}
 	public void myTickets(View view){
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(MyTicketsActivity.createIntent(UploadDossierActivity.this));
-								isGoto = false;
-								finish();
-							}
-						}
-					});
-		}
+		MenuUtil.myTickets(this, mDrawerLayout, mDrawerList);
 	}
 
 	public void uploadTickets(View view){
@@ -865,144 +681,19 @@ public class UploadDossierActivity extends BaseActivity implements IOrderParamet
 	}
 	public void myOption(View view){
 		//startActivity(LoginActivity.createIntent(MainActivity.this));
-		final GeneralSetting generalSetting = masterService.loadGeneralSetting();
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								if(NMBSApplication.getInstance().getLoginService().isLogon()){
-									startActivity(WebViewActivity.createIntent(getApplicationContext(),
-											Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
-								}else{
-									if(!isFinishing()){
-										DialogMyOptions dialogMyOptions = new DialogMyOptions(UploadDossierActivity.this);
-										dialogMyOptions.show();
-									}
-
-								}
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			if(NMBSApplication.getInstance().getLoginService().isLogon()){
-				startActivity(WebViewActivity.createIntent(getApplicationContext(),
-						Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
-			}else{
-				if(!isFinishing()){
-					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-					dialogMyOptions.show();
-				}
-
-			}
-		}
-
-
+		MenuUtil.myOption(this, mDrawerLayout, mDrawerList, masterService);
 	}
 
 	public void loginOrManage(View view){
 		//startActivity(LoginActivity.createIntent(MainActivity.this));
-		final GeneralSetting generalSetting = masterService.loadGeneralSetting();
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								if(NMBSApplication.getInstance().getLoginService().isLogon()){
-									ProfileInfoAsyncTask profileInfoAsyncTask = new ProfileInfoAsyncTask(getApplicationContext(), null);
-									profileInfoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-									startActivity(WebViewCreateActivity.createIntent(getApplicationContext(), Utils.getUrl(generalSetting.getProfileOverviewUrl())));
-
-								}else{
-									startActivity(LoginActivity.createIntent(getApplicationContext(), ""));
-								}
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			if(NMBSApplication.getInstance().getLoginService().isLogon()){
-				ProfileInfoAsyncTask profileInfoAsyncTask = new ProfileInfoAsyncTask(getApplicationContext(), null);
-				profileInfoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-				startActivity(WebViewCreateActivity.createIntent(getApplicationContext(), Utils.getUrl(generalSetting.getProfileOverviewUrl())));
-			}else{
-				startActivity(LoginActivity.createIntent(getApplicationContext(), ""));
-			}
-		}
+		MenuUtil.loginOrManage(this, mDrawerLayout, mDrawerList, masterService);
 	}
-	private TextView tvMenuOptionCount;
-	private RelativeLayout rlMenuMyOption;
+
 	public void clickMenu(View view) {
 		//startActivity(MenuActivity.createIntent(this, ticketCount, realtimeCount, messateCount));
-		tvMenuTicketCount = (TextView) findViewById(R.id.tv_menu_ticket_count);
-		tvMenuRealtimeCount = (TextView) findViewById(R.id.tv_menu_realtime_count);
-		tvMenuMessageCount = (TextView) findViewById(R.id.tv_menu_message_count);
-		tvMenuTicketCount.setText("(" + MainActivity.ticketCount + ")");
-		tvMenuRealtimeCount.setText("(" + MainActivity.realtimeCount + ")");
-		tvMenuMessageCount.setText("(" + MainActivity.messateCount + ")");
-		RelativeLayout rlMenuAlerts = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_realtimealerts);
-		if(FunctionConfig.kFunManagePush){
-			rlMenuAlerts.setVisibility(View.VISIBLE);
-		}else {
-			rlMenuAlerts.setVisibility(View.GONE);
-		}
-		rlMenuMyOption = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_myoptions);
-		tvMenuOptionCount = (TextView) findViewById(R.id.tv_menu_option_count);
-		tvMenuOptionCount.setText("(" + MainActivity.optionCount + ")");
-		TextView tvMenuLogon = (TextView) findViewById(R.id.tv_menu_logon);
-		if(!NMBSApplication.getInstance().getLoginService().isLogon()){
-			rlMenuMyOption.setAlpha(0.3f);
-			tvMenuOptionCount.setText("");
-			tvMenuLogon.setText(getResources().getString(R.string.menu_content_loginorcreateprofile));
-		}else {
-			tvMenuLogon.setText(getResources().getString(R.string.menu_content_manageprofile));
-		}
-		if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting() != null
-				&& NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getCommercialTtlListUrl() != null
-				&& !NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getCommercialTtlListUrl().isEmpty()){
-			rlMenuMyOption.setVisibility(View.VISIBLE);
-		}else {
-			rlMenuMyOption.setVisibility(View.GONE);
-		}
-		RelativeLayout rlMenuBook = findViewById(R.id.rl_menu_traintickets_content_bookticktes);
-
-		if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting() != null
-				&& NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getBookingUrl() != null
-				&& !NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getBookingUrl().isEmpty()){
-			rlMenuBook.setVisibility(View.VISIBLE);
-		}else {
-			rlMenuBook.setVisibility(View.GONE);
-		}
-		RelativeLayout rlMenuLowestfares = findViewById(R.id.rl_menu_traintickets_content_lowestfares);
-		RelativeLayout rlMenuLogin = findViewById(R.id.rl_menu_traintickets_content_login);
-
-		if(FunctionConfig.kFunLFFEntry){
-			rlMenuLowestfares.setVisibility(View.VISIBLE);
-		}else {
-			rlMenuLowestfares.setVisibility(View.GONE);
-		}
-
-		if(FunctionConfig.kFunMyProfile){
-			rlMenuMyOption.setVisibility(View.VISIBLE);
-			rlMenuLogin.setVisibility(View.VISIBLE);
-		}else {
-			rlMenuMyOption.setVisibility(View.GONE);
-			rlMenuLogin.setVisibility(View.GONE);
-		}
+		MenuUtil.clickMenu(this);
 		mDrawerLayout.openDrawer(GravityCompat.END);
 	}
-
 	public void close(View view){
 		finish();
 	}

@@ -37,6 +37,7 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.cflint.exceptions.CrashHandler;
+import com.cflint.util.MenuUtil;
 import com.crashlytics.android.Crashlytics;
 import com.facebook.appevents.AppEventsLogger;
 
@@ -953,418 +954,69 @@ public class MainActivity extends BaseActivity implements RatingListener {
 		}
 	}
 
-    public void messages(View view) {
-		/*String str = null;
-		str.substring(1);*/
-		/*Thread thread = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Log.d("Sandy", "I am a sub thread");
-				String s = null;
-				s.toString();  //抛出NullPointException
-			}
-		}, "sub  thread");
-		thread.start();*/
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(com.cflint.activities.MessageActivity.createIntent(MainActivity.this, messageService.getMessageResponse()));
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			startActivity(com.cflint.activities.MessageActivity.createIntent(MainActivity.this, messageService.getMessageResponse()));
-		}
-    }
+	public void messages(View view) {
+		MenuUtil.messages(this, mDrawerLayout, mDrawerList, messageService);
+	}
 
 	public void test(View view){
 		startActivity(TestActivity.createIntent(this));
-/*		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Email email = new Email();
-				email.sendEmail("java.lang.RuntimeException: Unable to start activity ComponentInfo{com.nmbs/com.nmbs.activities.MainActivity}: java.lang.NullPointerException: Attempt to invoke virtual method 'boolean java.lang.String.equals(java.lang.Object)' on a null object reference\n" +
-						"at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2325)\n" +
-						"at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2387)\n" +
-						"at android.app.ActivityThread.access$800(ActivityThread.java:151)\n" +
-						"at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1303)\n" +
-						"at android.os.Handler.dispatchMessage(Handler.java:102)\n" +
-						"at android.os.Looper.loop(Looper.java:135)\n" +
-						"at android.app.ActivityThread.main(ActivityThread.java:5254)\n" +
-						"at java.lang.reflect.Method.invoke(Native Method)\n" +
-						"at java.lang.reflect.Method.invoke(Method.java:372)\n" +
-						"at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:903)\n" +
-						"at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:698)\n" +
-						"Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'boolean java.lang.String.equals(java.lang.Object)' on a null object reference\n" +
-						"at com.nmbs.activities.MainActivity.onCreate(MainActivity.java:157)\n" +
-						"at android.app.Activity.performCreate(Activity.java:5990)\n" +
-						"at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1106)\n" +
-						"at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2278)\n" +
-						"... 10 more\n" +
-						"java.lang.NullPointerException: Attempt to invoke virtual method 'boolean java.lang.String.equals(java.lang.Object)' on a null object reference\n" +
-						"at com.nmbs.activities.MainActivity.onCreate(MainActivity.java:157)\n" +
-						"at android.app.Activity.performCreate(Activity.java:5990)\n" +
-						"at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1106)\n" +
-						"at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2278)\n" +
-						"at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2387)\n" +
-						"at android.app.ActivityThread.access$800(ActivityThread.java:151)\n" +
-						"at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1303)\n" +
-						"at android.os.Handler.dispatchMessage(Handler.java:102)\n" +
-						"at android.os.Looper.loop(Looper.java:135)\n" +
-						"at android.app.ActivityThread.main(ActivityThread.java:5254)\n" +
-						"at java.lang.reflect.Method.invoke(Native Method)\n" +
-						"at java.lang.reflect.Method.invoke(Method.java:372)\n" +
-						"at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:903)\n" +
-						"at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:698)\n");
-			}}).start();*/
+		finish();
 	}
 
 	public void stationBoard(View view){
 
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(com.cflint.activities.StationBoardActivity.createIntent(MainActivity.this, null));
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			startActivity(com.cflint.activities.StationBoardActivity.createIntent(MainActivity.this, null));
-		}
+		MenuUtil.stationBoard(this, mDrawerLayout, mDrawerList);
 	}
 
 	public void stations(View view){
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(com.cflint.activities.StationInfoActivity.createIntent(MainActivity.this));
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			startActivity(com.cflint.activities.StationInfoActivity.createIntent(MainActivity.this));
-		}
-		//startActivity(com.nmbs.activities.CallCenterActivity.createIntent(MainActivity.this,0,null,null));
+		MenuUtil.stations(this, mDrawerLayout, mDrawerList);
 	}
 
 	public void realtimeAlerts(View view){
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(com.cflint.activities.AlertActivity.createIntent(MainActivity.this));
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			startActivity(com.cflint.activities.AlertActivity.createIntent(MainActivity.this));
-		}
+		MenuUtil.realtimeAlerts(this, mDrawerLayout, mDrawerList);
 	}
 
+
 	public void bookTicktes(View view){
-
-		GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.HOME,TrackerConstant.HOME_BOOK_YOUR_TICKET,TrackerConstant.HOME_BOOK_YOUR_TICKET_LABEL);
-		final GeneralSetting generalSetting = masterService.loadGeneralSetting();
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-
-								if(generalSetting != null && generalSetting.getBookingUrl() != null && !generalSetting.getBookingUrl().isEmpty()){
-									//Utils.openProwser(MainActivity.this, generalSetting.getBookingUrl(), clickToCallService);
-									//String url = "https://www.accept.b-europe.com/EN/Booking/Mobile?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app&blockSmartAppBanner=true&app=Android&webview=true";
-									//startActivity(WebViewActivity.createIntent(getApplicationContext(), url));
-
-									if(NetworkUtils.isOnline(MainActivity.this)) {
-										GoogleAnalyticsUtil.getInstance().sendScreen(MainActivity.this, TrackerConstant.BOOKING);
-										startActivity(WebViewActivity.createIntent(MainActivity.this,
-												Utils.getUrl(generalSetting.getBookingUrl()), WebViewActivity.BOOKING_FLOW, ""));
-										/*startActivity(WebViewOverlayActivity.createIntent(MainActivity.this,
-												Utils.getUrl(getApplicationContext(), generalSetting.getBookingUrl(), clickToCallService)));*/
-									}
-								}
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			/*Calendar cal = new GregorianCalendar();
-			cal.setTime(new Date());
-			cal.add(Calendar.MONTH, 2);
-			Intent intent = new Intent(Intent.ACTION_INSERT);
-			intent.setData(CalendarContract.Events.CONTENT_URI);
-			intent.putExtra(CalendarContract.Events.CALENDAR_ID, 123);
-			intent.putExtra(CalendarContract.Events.TITLE, "Some Test Event");
-			intent.putExtra(CalendarContract.Events.ALL_DAY, true);
-			intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, cal.getTime().getTime());
-			intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, cal.getTime().getTime() + 600000);
-			intent.putExtra(Intent.EXTRA_EMAIL, "attendee1@yourtest.com, attendee2@yourtest.com");
-			intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "4.333527, 50.8357532");
-
-			intent.putExtra(CalendarContract.Events.HAS_ALARM, true);
-			//intent.putExtra(CalendarContract.Events.ALLOWED_REMINDERS, "METHOD_DEFAULT");
-
-			intent.putExtra(CalendarContract.Reminders.EVENT_ID, 123);
-			intent.putExtra(CalendarContract.Reminders.METHOD, CalendarContract.Reminders.METHOD_ALERT);
-			intent.putExtra(CalendarContract.Reminders.MINUTES, 15);
-			startActivity(intent);*/
-			if(generalSetting != null && generalSetting.getBookingUrl() != null && !generalSetting.getBookingUrl().isEmpty()){
-				//Utils.openProwser(this, generalSetting.getBookingUrl(), clickToCallService);
-				if(NetworkUtils.isOnline(MainActivity.this)) {
-					GoogleAnalyticsUtil.getInstance().sendScreen(MainActivity.this, TrackerConstant.BOOKING);
-					//String url = "https://www.b-europe.com/EN/Booking/Mobile?affiliation=App&utm_campaign=beurope_app&utm_medium=referral_app&utm_source=beurope_app&blockSmartAppBanner=true&app=Android&webview=true";
-
-					startActivity(WebViewActivity.createIntent(MainActivity.this,
-							Utils.getUrl(generalSetting.getBookingUrl()), WebViewActivity.BOOKING_FLOW, ""));
-
-					/*startActivity(WebViewOverlayActivity.createIntent(MainActivity.this,
-							Utils.getUrl(getApplicationContext(), generalSetting.getBookingUrl(), clickToCallService)));*/
-				}
-			}
-		}
+		MenuUtil.bookTicktes(this, mDrawerLayout, mDrawerList, masterService);
 	}
 
 	public void lowestFares(View view){
-		GoogleAnalyticsUtil.getInstance().sendEvent(TrackerConstant.HOME,TrackerConstant.HOME_SELECT_LOWESTFARES,TrackerConstant.HOME_SELECT_LOWESTFARES_LABEL);
-		final GeneralSetting generalSetting = masterService.loadGeneralSetting();
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								if(generalSetting != null && generalSetting.getLffUrl()!= null && !generalSetting.getLffUrl().isEmpty()){
-									//Utils.openProwser(MainActivity.this, generalSetting.getLffUrl(), clickToCallService);
-									if(NetworkUtils.isOnline(MainActivity.this)) {
-										GoogleAnalyticsUtil.getInstance().sendScreen(MainActivity.this, TrackerConstant.LLF);
-										startActivity(WebViewActivity.createIntent(MainActivity.this,
-												Utils.getUrl(generalSetting.getLffUrl()), WebViewActivity.BOOKING_FLOW, ""));
-									}
-
-								}
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			if(generalSetting != null && generalSetting.getLffUrl()!= null && !generalSetting.getLffUrl().isEmpty()){
-				//Utils.openProwser(this, generalSetting.getLffUrl(), clickToCallService);
-				if(NetworkUtils.isOnline(MainActivity.this)) {
-					GoogleAnalyticsUtil.getInstance().sendScreen(MainActivity.this, TrackerConstant.LLF);
-					startActivity(WebViewActivity.createIntent(MainActivity.this,
-							Utils.getUrl(generalSetting.getLffUrl()), WebViewActivity.BOOKING_FLOW, ""));
-				}
-
-			}
-		}
+		MenuUtil.lowestFares(this, mDrawerLayout, mDrawerList, masterService);
 	}
 	public void trainschedules(View view){
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(ScheduleSearchActivity.createIntent(MainActivity.this));
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			startActivity(ScheduleSearchActivity.createIntent(MainActivity.this));
-		}
-
+		MenuUtil.trainschedules(this, mDrawerLayout, mDrawerList);
 	}
-	private boolean isGoto;
+
 	public void settings(View view){
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-				new DrawerLayout.SimpleDrawerListener() {
-					@Override
-					public void onDrawerClosed(View drawerView) {
-						super.onDrawerClosed(drawerView);
-						if(isGoto){
-							startActivity(SettingsActivity.createIntent(MainActivity.this));
-							isGoto = false;
-						}
-					}
-				});
-		}else{
-			startActivity(SettingsActivity.createIntent(MainActivity.this));
-		}
+		MenuUtil.settings(this, mDrawerLayout, mDrawerList);
 	}
 
 	public void about(View view){
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(WizardActivity.createIntent(MainActivity.this, WizardActivity.Wizard_Home));
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			startActivity(WizardActivity.createIntent(this, WizardActivity.Wizard_Home));
-		}
+		MenuUtil.about(this, mDrawerLayout, mDrawerList);
 	}
 	public void myTickets(View view){
-
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(MyTicketsActivity.createIntent(MainActivity.this));
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			startActivity(MyTicketsActivity.createIntent(MainActivity.this));
-		}
+		MenuUtil.myTickets(this, mDrawerLayout, mDrawerList);
 	}
 
 	public void uploadTickets(View view){
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								startActivity(UploadDossierActivity.createUploadDossierIntent(MainActivity.this, NMBSApplication.PAGE_UploadTicket, null, null, null, null));
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			startActivity(UploadDossierActivity.createUploadDossierIntent(this, NMBSApplication.PAGE_UploadTicket, null, null, null, null));
-		}
+		MenuUtil.uploadTickets(this, mDrawerLayout, mDrawerList);
 	}
-    public void clickMenu(View view) {
-        //startActivity(MenuActivity.createIntent(this, ticketCount, realtimeCount, messateCount));
-		tvMenuTicketCount = (TextView) findViewById(R.id.tv_menu_ticket_count);
-		tvMenuRealtimeCount = (TextView) findViewById(R.id.tv_menu_realtime_count);
-		tvMenuMessageCount = (TextView) findViewById(R.id.tv_menu_message_count);
-		tvMenuOptionCount = (TextView) findViewById(R.id.tv_menu_option_count);
-		tvMenuTicketCount.setText("(" + ticketCount + ")");
-		tvMenuRealtimeCount.setText("(" + realtimeCount + ")");
-		tvMenuMessageCount.setText("(" + messateCount + ")");
-		tvMenuOptionCount.setText("(" + optionCount + ")");
-		RelativeLayout rlMenuAlerts = (RelativeLayout) findViewById(R.id.rl_menu_traintickets_content_realtimealerts);
-		if(FunctionConfig.kFunManagePush){
-			rlMenuAlerts.setVisibility(View.VISIBLE);
-		}else {
-			rlMenuAlerts.setVisibility(View.GONE);
-		}
-		if(!NMBSApplication.getInstance().getLoginService().isLogon()){
-			rlMenuMyOption.setAlpha(0.3f);
-			tvMenuOptionCount.setText("");
-		}
-		if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting() != null
-				&& NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getCommercialTtlListUrl() != null
-				&& !NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getCommercialTtlListUrl().isEmpty()){
-			rlMenuMyOption.setVisibility(View.VISIBLE);
-		}else {
-			rlMenuMyOption.setVisibility(View.GONE);
-		}
-		RelativeLayout rlMenuBook = findViewById(R.id.rl_menu_traintickets_content_bookticktes);
+	public void myOption(View view){
+		//startActivity(LoginActivity.createIntent(MainActivity.this));
+		MenuUtil.myOption(this, mDrawerLayout, mDrawerList, masterService);
+	}
 
-		if(NMBSApplication.getInstance().getMasterService().loadGeneralSetting() != null
-				&& NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getBookingUrl() != null
-				&& !NMBSApplication.getInstance().getMasterService().loadGeneralSetting().getBookingUrl().isEmpty()){
-			rlMenuBook.setVisibility(View.VISIBLE);
-		}else {
-			rlMenuBook.setVisibility(View.GONE);
-		}
-		RelativeLayout rlMenuLowestfares = findViewById(R.id.rl_menu_traintickets_content_lowestfares);
-		RelativeLayout rlMenuLogin = findViewById(R.id.rl_menu_traintickets_content_login);
+	public void loginOrManage(View view){
+		//startActivity(LoginActivity.createIntent(MainActivity.this));
+		MenuUtil.loginOrManage(this, mDrawerLayout, mDrawerList, masterService);
+	}
 
-		if(FunctionConfig.kFunLFFEntry){
-			rlMenuLowestfares.setVisibility(View.VISIBLE);
-		}else {
-			rlMenuLowestfares.setVisibility(View.GONE);
-		}
-
-		if(FunctionConfig.kFunMyProfile){
-			rlMenuMyOption.setVisibility(View.VISIBLE);
-			rlMenuLogin.setVisibility(View.VISIBLE);
-		}else {
-			rlMenuMyOption.setVisibility(View.GONE);
-			rlMenuLogin.setVisibility(View.GONE);
-		}
-
-
+	public void clickMenu(View view) {
+		//startActivity(MenuActivity.createIntent(this, ticketCount, realtimeCount, messateCount));
+		MenuUtil.clickMenu(this);
 		mDrawerLayout.openDrawer(GravityCompat.END);
-    }
+	}
 
 	public void ratingNo(View view){
 		ratingService.changeRatingView(whichView, false);
@@ -1622,84 +1274,7 @@ public class MainActivity extends BaseActivity implements RatingListener {
         SettingsPref.saveLoginViewTime(getApplicationContext(), dateStr);
 		llLogin.setVisibility(View.GONE);
 	}
-	public void myOption(View view){
-		//startActivity(LoginActivity.createIntent(MainActivity.this));
-		final GeneralSetting generalSetting = masterService.loadGeneralSetting();
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								if(loginService.isLogon()){
-									startActivity(WebViewActivity.createIntent(MainActivity.this,
-											Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
-								}else{
-									if(!isFinishing()){
-										DialogMyOptions dialogMyOptions = new DialogMyOptions(MainActivity.this);
-										dialogMyOptions.show();
-									}
 
-								}
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			if(loginService.isLogon()){
-				startActivity(WebViewActivity.createIntent(MainActivity.this,
-						Utils.getUrl(generalSetting.getCommercialTtlListUrl()), WebViewActivity.NORMAL_FLOW, ""));
-			}else{
-				if(!isFinishing()){
-					DialogMyOptions dialogMyOptions = new DialogMyOptions(this);
-					dialogMyOptions.show();
-				}
-
-			}
-		}
-
-
-	}
-
-	public void loginOrManage(View view){
-		//startActivity(LoginActivity.createIntent(MainActivity.this));
-		final GeneralSetting generalSetting = masterService.loadGeneralSetting();
-		isGoto = true;
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		if(drawerOpen){
-			mDrawerLayout.closeDrawer(GravityCompat.END);
-			mDrawerLayout.setDrawerListener(
-					new DrawerLayout.SimpleDrawerListener() {
-						@Override
-						public void onDrawerClosed(View drawerView) {
-							super.onDrawerClosed(drawerView);
-							if(isGoto){
-								if(loginService.isLogon()){
-									ProfileInfoAsyncTask profileInfoAsyncTask = new ProfileInfoAsyncTask(getApplicationContext(), handler);
-									profileInfoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-									startActivity(WebViewCreateActivity.createIntent(MainActivity.this, Utils.getUrl(generalSetting.getProfileOverviewUrl())));
-
-								}else{
-									startActivity(LoginActivity.createIntent(MainActivity.this, ""));
-								}
-								isGoto = false;
-							}
-						}
-					});
-		}else{
-			if(loginService.isLogon()){
-				ProfileInfoAsyncTask profileInfoAsyncTask = new ProfileInfoAsyncTask(getApplicationContext(), handler);
-				profileInfoAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-				startActivity(WebViewCreateActivity.createIntent(MainActivity.this, Utils.getUrl(generalSetting.getProfileOverviewUrl())));
-			}else{
-				startActivity(LoginActivity.createIntent(MainActivity.this, ""));
-			}
-		}
-	}
 
 	private void showLogin(){
 		if(rlMyOption == null || tvTitle == null || tvMenuLogin == null || llMask == null || rlMenuMyOption == null
